@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tools for Freelancers & Self-Employed | Monetools</title>
+<meta name="description" content="Free decision tools built for freelancers, consultants, and 1099 contractors. LLC formation, S-Corp savings, quarterly taxes, and more — personalized to your situation.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{
+  --navy:#0F1F3D;--navy-mid:#1A3260;--amber:#E8A838;--amber-light:#F5C05A;
+  --cream:#F9F7F2;--warm-gray:#E8E4DC;--text:#1A1A2E;--text-muted:#6B7280;
+  --white:#fff;--border:#D4CFC6;--green:#059669;--sage:#2D6A4F;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+
+.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--navy);}
+.breadcrumb span{margin:0 6px;}
+
+.hero{background:var(--navy);padding:60px 24px 70px;text-align:center;}
+.hero-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:18px;}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,42px);color:#fff;line-height:1.2;max-width:580px;margin:0 auto 14px;}
+.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;line-height:1.7;}
+
+/* JOURNEY */
+.journey-section{max-width:900px;margin:0 auto;padding:64px 24px 0;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+.section-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.section-sub{font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:40px;}
+
+.journey-path{display:flex;flex-direction:column;gap:0;}
+.journey-step{display:grid;grid-template-columns:48px 1fr;gap:20px;position:relative;}
+.journey-left{display:flex;flex-direction:column;align-items:center;}
+.journey-num{width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--amber);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;}
+.journey-line{flex:1;width:2px;background:var(--border);margin:4px 0;}
+.journey-step:last-child .journey-line{display:none;}
+.journey-content{padding-bottom:32px;}
+.journey-stage{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.journey-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.journey-desc{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;}
+.journey-tool-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.15s;}
+.journey-tool-link:hover{border-color:var(--navy);}
+.journey-tool-link.live .tool-name{font-size:13px;font-weight:600;color:var(--navy);}
+.journey-tool-link.soon .tool-name{font-size:13px;font-weight:500;color:var(--text-muted);}
+.journey-tool-link .tool-badge{font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;}
+.journey-tool-link.live .tool-badge{background:#D1FAE5;color:#065F46;}
+.journey-tool-link.soon .tool-badge{background:var(--warm-gray);color:var(--text-muted);}
+
+/* TOOLS GRID */
+.tools-section{max-width:900px;margin:0 auto;padding:64px 24px;}
+.tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr;}}
+
+.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:24px;text-decoration:none;display:block;transition:all 0.2s;position:relative;}
+.tool-card:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,31,61,0.08);}
+.tool-card.soon{opacity:0.65;cursor:default;}
+.tool-card.soon:hover{transform:none;box-shadow:none;border-color:var(--border);}
+.tool-status{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:3px 9px;border-radius:999px;}
+.tool-status.live{background:#D1FAE5;color:#065F46;}
+.tool-status.soon{background:var(--warm-gray);color:var(--text-muted);}
+.tool-icon{font-size:28px;margin-bottom:12px;}
+.tool-name{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px;padding-right:60px;}
+.tool-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:16px;}
+.tool-meta{display:flex;gap:10px;flex-wrap:wrap;}
+.tool-tag{font-size:11px;padding:3px 9px;background:var(--cream);border:1px solid var(--border);border-radius:999px;color:var(--text-muted);}
+.tool-cta{font-size:13px;font-weight:600;color:var(--navy);margin-top:14px;display:flex;align-items:center;gap:4px;}
+
+/* FAQ */
+.faq-section{max-width:700px;margin:0 auto;padding:0 24px 72px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:var(--text);text-align:left;gap:16px;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:20px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 18px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../../index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link active" href="#">Self-Employed</a>
+    <a class="nav-link" href="#">Landlords</a>
+    <a class="nav-link" href="#">Side Hustlers</a>
+    <a class="nav-link" href="#">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a><span>›</span>Tools<span>›</span>Self-Employed
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Freelancer · Consultant · 1099 Contractor · Solopreneur</div>
+  <h1>Tools built for the self-employed</h1>
+  <p>Every tool here answers a real question you'll face — from your first LLC to your first S-Corp payroll.</p>
+</div>
+
+<!-- YOUR JOURNEY -->
+<div class="journey-section">
+  <div class="section-label">Your Decision Journey</div>
+  <h2 class="section-title">Most self-employed people face these questions in order</h2>
+  <p class="section-sub">Use this path to find the right tool for where you are right now.</p>
+
+  <div class="journey-path">
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">1</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Early Stage · $0–$30k/year</div>
+        <div class="journey-title">Do I even need an LLC yet?</div>
+        <div class="journey-desc">Most people form an LLC too early — or too late. This assessment tells you exactly where you stand and what to do next.</div>
+        <a class="journey-tool-link live" href="should-i-form-an-llc.html">
+          <span class="tool-badge live">Live</span>
+          <span class="tool-name">Business Structure Readiness Assessment →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">2</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Growing · $30k–$80k/year</div>
+        <div class="journey-title">Should I elect S-Corp status — and how much would I save?</div>
+        <div class="journey-desc">This is the most financially impactful decision most freelancers face. The calculator shows you the exact dollar amount — including all compliance costs.</div>
+        <a class="journey-tool-link live" href="llc-vs-s-corp.html">
+          <span class="tool-badge live">Live</span>
+          <span class="tool-name">LLC vs S-Corp Tax Savings Calculator →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">3</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Ongoing · Every Quarter</div>
+        <div class="journey-title">How much do I owe in quarterly taxes?</div>
+        <div class="journey-desc">No employer withholding means no surprise tax bills — if you estimate correctly. This tool builds your quarterly payment calendar automatically.</div>
+        <a class="journey-tool-link soon" href="#">
+          <span class="tool-badge soon">Coming Soon</span>
+          <span class="tool-name">Quarterly Tax Estimator</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">4</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Pricing · Anytime</div>
+        <div class="journey-title">What do I actually take home per hour?</div>
+        <div class="journey-desc">Your quoted rate minus taxes, unpaid hours, and expenses. Most freelancers are surprised how different the real number is.</div>
+        <a class="journey-tool-link soon" href="#">
+          <span class="tool-badge soon">Coming Soon</span>
+          <span class="tool-name">True Hourly Rate Calculator</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">5</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Optimization · $80k+/year</div>
+        <div class="journey-title">Am I ready to elect S-Corp — and is my salary split right?</div>
+        <div class="journey-desc">A deeper assessment for established solopreneurs: is your current structure optimal, or are you leaving money on the table?</div>
+        <a class="journey-tool-link soon" href="#">
+          <span class="tool-badge soon">Coming Soon</span>
+          <span class="tool-name">S-Corp Readiness Assessment</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALL TOOLS GRID -->
+<div class="tools-section">
+  <div class="section-label">All Tools</div>
+  <h2 class="section-title">Self-Employed Toolkit</h2>
+  <div style="height:24px;"></div>
+  <div class="tools-grid">
+
+    <a class="tool-card" href="should-i-form-an-llc.html">
+      <div class="tool-status live">Live</div>
+      <div class="tool-icon">🏛️</div>
+      <div class="tool-name">Business Structure Readiness Assessment</div>
+      <div class="tool-desc">Should you form an LLC now, wait, or jump straight to S-Corp? Get a stage-specific recommendation with your next 3 actions.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">2 min</span>
+        <span class="tool-tag">6 questions</span>
+        <span class="tool-tag">4 stages</span>
+      </div>
+      <div class="tool-cta">Take assessment →</div>
+    </a>
+
+    <a class="tool-card" href="llc-vs-s-corp.html">
+      <div class="tool-status live">Live</div>
+      <div class="tool-icon">⚖️</div>
+      <div class="tool-name">LLC vs S-Corp Tax Savings Calculator</div>
+      <div class="tool-desc">Enter your income and salary split. See exactly how much you'd save after all S-Corp compliance costs — real numbers, not estimates.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">5 questions</span>
+        <span class="tool-tag">Exact dollar savings</span>
+        <span class="tool-tag">State-aware</span>
+      </div>
+      <div class="tool-cta">Calculate savings →</div>
+    </a>
+
+    <div class="tool-card soon">
+      <div class="tool-status soon">Coming Soon</div>
+      <div class="tool-icon">📅</div>
+      <div class="tool-name">Quarterly Tax Estimator</div>
+      <div class="tool-desc">How much should you pay the IRS each quarter? Includes a payment calendar and penalty avoidance guide.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Q1–Q4 calendar</span>
+        <span class="tool-tag">SE tax included</span>
+      </div>
+    </div>
+
+    <div class="tool-card soon">
+      <div class="tool-status soon">Coming Soon</div>
+      <div class="tool-icon">💵</div>
+      <div class="tool-name">True Hourly Rate Calculator</div>
+      <div class="tool-desc">Your quoted rate minus taxes, unpaid hours, and overhead. Find out what you actually earn — and what to charge.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Rate optimization</span>
+        <span class="tool-tag">Tax-adjusted</span>
+      </div>
+    </div>
+
+    <div class="tool-card soon">
+      <div class="tool-status soon">Coming Soon</div>
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">S-Corp Readiness Assessment</div>
+      <div class="tool-desc">Already have an LLC? This deeper assessment checks whether your current salary split is IRS-compliant and fully optimized.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">Salary validation</span>
+        <span class="tool-tag">Audit risk check</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2 class="section-title" style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--navy);margin-bottom:24px;">Common Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What's the difference between an LLC and an S-Corp? <span class="faq-icon">+</span></button>
+    <div class="faq-a">An LLC is a legal business structure that protects your personal assets. An S-Corp is a tax election you can apply to your LLC — it lets you split income into a salary (taxed) and distributions (not subject to self-employment tax). Most solopreneurs form an LLC first, then elect S-Corp treatment once income justifies the extra compliance cost.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">At what income should I start thinking about these decisions? <span class="faq-icon">+</span></button>
+    <div class="faq-a">LLC formation starts making sense around $25,000–$40,000 in annual self-employment income, depending on your liability risk and state. S-Corp election typically pays off at $70,000–$80,000+ in net income, when the tax savings exceed the annual compliance costs of $2,500–$4,500.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Are these tools accurate enough to replace a CPA? <span class="faq-icon">+</span></button>
+    <div class="faq-a">These tools are designed to help you understand your situation, make informed decisions, and arrive at your CPA meeting with better questions — not to replace professional advice. They use current 2026 tax rates and IRS guidelines, but your specific situation (state rules, deductions, prior year carryovers) requires a qualified tax professional to get exactly right.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How often should I revisit these assessments? <span class="faq-icon">+</span></button>
+    <div class="faq-a">At minimum, once a year — ideally before Q4 so you have time to act on any recommendations before year-end. Also revisit whenever your income changes significantly (±$20,000), you move to a different state, you add or lose major clients, or you're considering hiring help.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Free decision tools for the self-employed · Updated for 2026<br>
+    Not legal or tax advice. Consult a qualified CPA for your specific situation.
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  btn.closest('.faq-item').classList.toggle('open');
+}
+</script>
+</body>
+</html>

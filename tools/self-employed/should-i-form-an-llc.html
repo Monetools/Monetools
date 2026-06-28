@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Should I Form an LLC as a Freelancer? (2026 Guide + Free Assessment) | Monetools</title>
+<meta name="description" content="Not sure if you need an LLC for your freelance or self-employed business? Answer 6 questions and get a free personalized recommendation — including when to form, which state, and whether S-Corp makes sense.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --navy: #0F1F3D;
+  --navy-mid: #1A3260;
+  --sage: #2D6A4F;
+  --amber: #E8A838;
+  --amber-light: #F5C05A;
+  --cream: #F9F7F2;
+  --warm-gray: #E8E4DC;
+  --text: #1A1A2E;
+  --text-muted: #6B7280;
+  --white: #FFFFFF;
+  --red: #C0392B;
+  --border: #D4CFC6;
+  --green-bg: #F0FDF4;
+  --green-border: #A7F3D0;
+  --red-bg: #FFF7F7;
+  --red-border: #FECACA;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); }
+
+/* NAV */
+nav {
+  background: var(--navy);
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.logo { font-family: 'Instrument Serif', serif; font-size: 22px; color: #fff; }
+.logo span { color: var(--amber); }
+.nav-tag { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+/* SEO ARTICLE */
+.seo-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 24px 0;
+}
+.seo-eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--amber);
+  background: rgba(232,168,56,0.12);
+  padding: 5px 12px; border-radius: 999px;
+  margin-bottom: 20px;
+}
+.seo-section h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  line-height: 1.2; color: var(--navy);
+  margin-bottom: 16px;
+}
+.seo-meta {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 28px;
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.seo-meta span::before { content: "• "; }
+.seo-meta span:first-child::before { content: ""; }
+
+.seo-lead {
+  font-size: 17px; line-height: 1.75;
+  color: #374151;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.toc {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 36px;
+}
+.toc h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.toc ol { padding-left: 18px; }
+.toc li { font-size: 14px; color: var(--navy); margin-bottom: 6px; line-height: 1.4; }
+.toc a { color: var(--navy); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+.seo-h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px; color: var(--navy);
+  margin: 40px 0 14px;
+}
+.seo-h3 {
+  font-size: 17px; font-weight: 600; color: var(--text);
+  margin: 28px 0 10px;
+}
+.seo-p {
+  font-size: 15px; line-height: 1.8; color: #374151;
+  margin-bottom: 16px;
+}
+.seo-ul {
+  margin: 0 0 20px 20px;
+}
+.seo-ul li {
+  font-size: 15px; line-height: 1.7; color: #374151;
+  margin-bottom: 8px;
+}
+
+.callout {
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin: 24px 0;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.callout.tip { background: #FFFBEB; border: 1px solid #FDE68A; }
+.callout.warning { background: #FFF7F7; border: 1px solid #FECACA; }
+.callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.callout-body { font-size: 14px; line-height: 1.6; color: #374151; }
+.callout-body strong { display: block; margin-bottom: 4px; color: var(--text); }
+
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px; margin: 24px 0;
+}
+@media (max-width: 500px) { .stat-row { grid-template-columns: 1fr; } }
+.stat-box {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px; text-align: center;
+}
+.stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px; color: var(--navy);
+  margin-bottom: 4px;
+}
+.stat-label { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; }
+.compare-table th {
+  background: var(--navy); color: #fff;
+  font-size: 13px; font-weight: 600;
+  padding: 12px 16px; text-align: left;
+}
+.compare-table th:first-child { border-radius: 8px 0 0 0; }
+.compare-table th:last-child { border-radius: 0 8px 0 0; }
+.compare-table td {
+  padding: 12px 16px; font-size: 14px; color: #374151;
+  border-bottom: 1px solid var(--border);
+}
+.compare-table tr:nth-child(even) td { background: var(--cream); }
+.compare-table td:first-child { font-weight: 500; color: var(--text); }
+
+/* TOOL ANCHOR */
+.tool-anchor {
+  max-width: 760px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+}
+.tool-anchor-label {
+  text-align: center;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.tool-anchor-label::before, .tool-anchor-label::after {
+  content: ""; flex: 1; height: 1px; background: var(--border);
+}
+
+/* PROGRESS */
+.progress-bar-wrap { background: var(--navy-mid); padding: 0 32px; }
+.progress-inner {
+  max-width: 700px; margin: 0 auto; padding: 14px 0;
+  display: flex; align-items: center; gap: 12px;
+}
+.progress-track {
+  flex: 1; height: 4px; background: rgba(255,255,255,0.15);
+  border-radius: 2px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--amber);
+  border-radius: 2px; transition: width 0.4s ease;
+}
+.progress-label { font-size: 12px; color: rgba(255,255,255,0.5); white-space: nowrap; }
+
+/* ASSESSMENT CONTAINER */
+.assessment-wrap {
+  background: var(--navy);
+  padding: 48px 24px 56px;
+}
+.assessment-inner { max-width: 660px; margin: 0 auto; }
+.assessment-hero { text-align: center; margin-bottom: 36px; }
+.assessment-hero .eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 14px; display: block;
+}
+.assessment-hero h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(22px, 4vw, 32px); color: #fff;
+  margin-bottom: 10px;
+}
+.assessment-hero p { font-size: 15px; color: rgba(255,255,255,0.55); }
+
+/* QUESTION CARD */
+.question-card {
+  background: var(--white); border-radius: 16px;
+  padding: 32px; display: none;
+}
+.question-card.active { display: block; }
+
+.q-step { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.q-title { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--text); line-height: 1.3; margin-bottom: 6px; }
+.q-sub { font-size: 14px; color: var(--text-muted); line-height: 1.5; margin-bottom: 24px; }
+
+.options { display: flex; flex-direction: column; gap: 9px; }
+.option {
+  display: flex; align-items: flex-start; gap: 13px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: all 0.15s;
+  background: var(--cream);
+}
+.option:hover { border-color: var(--navy); background: #fff; }
+.option.selected { border-color: var(--navy); background: #EEF2FF; }
+.option-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+.option-label { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+.option-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+.slider-wrap { margin-top: 4px; }
+.slider-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+input[type=range] {
+  width: 100%; height: 6px; -webkit-appearance: none;
+  background: var(--warm-gray); border-radius: 3px; outline: none; margin-bottom: 10px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px;
+  background: var(--navy); border-radius: 50%; cursor: pointer;
+  border: 3px solid white; box-shadow: 0 0 0 1px var(--navy);
+}
+.slider-value { text-align: center; font-family: 'Instrument Serif', serif; font-size: 30px; color: var(--navy); }
+.slider-value span { font-size: 14px; color: var(--text-muted); }
+
+.state-select {
+  width: 100%; padding: 14px 16px;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text);
+  background: var(--cream); cursor: pointer; outline: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
+.state-select:focus { border-color: var(--navy); }
+
+.card-footer {
+  margin-top: 24px; display: flex; justify-content: space-between; align-items: center;
+}
+.btn-back {
+  font-size: 14px; color: var(--text-muted); background: none;
+  border: none; cursor: pointer; padding: 8px 0;
+  display: flex; align-items: center; gap: 5px;
+}
+.btn-back:hover { color: var(--text); }
+.btn-next {
+  background: var(--navy); color: #fff; border: none;
+  padding: 12px 26px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-next:hover { background: var(--navy-mid); }
+.btn-next:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* RESULT */
+#result-card { display: none; }
+#result-card.active { display: block; }
+
+.stage-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.stage-badge.stage1 { background: #FEF3C7; color: #92400E; }
+.stage-badge.stage2 { background: #D1FAE5; color: #065F46; }
+.stage-badge.stage3 { background: #DBEAFE; color: #1E40AF; }
+.stage-badge.stage4 { background: #EDE9FE; color: #5B21B6; }
+
+.result-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px; line-height: 1.25; color: var(--text); margin-bottom: 10px;
+}
+.result-summary {
+  font-size: 15px; color: var(--text-muted); line-height: 1.7;
+  margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border);
+}
+
+/* WHY SECTION */
+.why-section {
+  background: var(--cream); border-radius: 12px;
+  padding: 20px; margin-bottom: 20px;
+  border: 1px solid var(--border);
+}
+.why-section h4 {
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+.why-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.why-row:last-child { margin-bottom: 0; }
+.why-label { font-size: 13px; color: var(--text); }
+.why-bar-wrap { flex: 1; margin: 0 12px; height: 6px; background: var(--warm-gray); border-radius: 3px; overflow: hidden; }
+.why-bar { height: 100%; border-radius: 3px; }
+.why-bar.high { width: 90%; background: var(--sage); }
+.why-bar.medium { width: 55%; background: var(--amber); }
+.why-bar.low { width: 20%; background: #D1D5DB; }
+.why-tag {
+  font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px;
+  white-space: nowrap;
+}
+.why-tag.high { background: #D1FAE5; color: #065F46; }
+.why-tag.medium { background: #FEF3C7; color: #92400E; }
+.why-tag.low { background: #F3F4F6; color: #6B7280; }
+
+.decision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+@media (max-width: 480px) { .decision-grid { grid-template-columns: 1fr; } }
+
+.decision-box { border-radius: 12px; padding: 18px; }
+.decision-box.do { background: var(--green-bg); border: 1px solid var(--green-border); }
+.decision-box.dont { background: var(--red-bg); border: 1px solid var(--red-border); }
+.decision-box h4 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.decision-box.do h4 { color: var(--sage); }
+.decision-box.dont h4 { color: var(--red); }
+.decision-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.decision-box li { font-size: 13px; line-height: 1.4; display: flex; gap: 7px; align-items: flex-start; }
+.decision-box.do li::before { content: "✓"; color: var(--sage); font-weight: 700; flex-shrink: 0; }
+.decision-box.dont li::before { content: "✗"; color: var(--red); font-weight: 700; flex-shrink: 0; }
+
+/* RISK SECTION */
+.risk-box {
+  background: #FFF7F7; border: 1px solid #FECACA;
+  border-radius: 12px; padding: 20px; margin-bottom: 20px;
+}
+.risk-box h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+.risk-item { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-start; }
+.risk-item:last-child { margin-bottom: 0; }
+.risk-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.risk-text { font-size: 13px; line-height: 1.5; color: #374151; }
+.risk-text strong { color: var(--text); }
+
+/* NEXT STEPS */
+.next-steps { background: var(--navy); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+.next-steps h3 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+.step-item { display: flex; gap: 13px; align-items: flex-start; margin-bottom: 14px; }
+.step-item:last-child { margin-bottom: 0; }
+.step-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--amber); color: var(--navy);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.step-title { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+.step-desc { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.4; }
+
+.timeline-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  background: rgba(232,168,56,0.15); border: 1px solid rgba(232,168,56,0.3);
+  border-radius: 999px; font-size: 12px; font-weight: 500; color: var(--amber-light);
+  margin-bottom: 16px;
+}
+
+.reassess-box {
+  background: var(--warm-gray); border-radius: 10px;
+  padding: 16px 18px; font-size: 13px; color: var(--text-muted);
+  line-height: 1.6; margin-bottom: 20px;
+}
+.reassess-box strong { color: var(--text); }
+
+/* NEXT TOOLS */
+.next-tools { margin-bottom: 20px; }
+.next-tools h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.tool-cards { display: flex; flex-direction: column; gap: 8px; }
+.tool-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: all 0.15s;
+}
+.tool-card:hover { border-color: var(--navy); transform: translateX(2px); }
+.tool-card-left { display: flex; align-items: center; gap: 12px; }
+.tool-card-icon { font-size: 20px; }
+.tool-card-name { font-size: 14px; font-weight: 500; color: var(--text); }
+.tool-card-desc { font-size: 12px; color: var(--text-muted); }
+.tool-card-arrow { font-size: 16px; color: var(--text-muted); }
+
+/* EMAIL */
+.email-box {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 12px; padding: 24px; margin-bottom: 20px; text-align: center;
+}
+.email-box h4 { font-family: 'Instrument Serif', serif; font-size: 20px; color: #fff; margin-bottom: 8px; }
+.email-box p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5; }
+.email-row { display: flex; gap: 8px; }
+@media (max-width: 480px) { .email-row { flex-direction: column; } }
+.email-input {
+  flex: 1; padding: 12px 14px;
+  border: 1.5px solid rgba(255,255,255,0.2); border-radius: 8px;
+  background: rgba(255,255,255,0.1); color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 14px; outline: none;
+}
+.email-input::placeholder { color: rgba(255,255,255,0.4); }
+.email-input:focus { border-color: var(--amber); }
+.btn-email {
+  background: var(--amber); color: var(--navy);
+  border: none; padding: 12px 20px; border-radius: 8px;
+  font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.email-note { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 10px; }
+
+.btn-restart {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: none; border: 1.5px solid var(--border);
+  padding: 10px 18px; border-radius: 8px;
+  font-size: 13px; color: var(--text-muted); cursor: pointer; transition: all 0.15s;
+}
+.btn-restart:hover { border-color: var(--navy); color: var(--text); }
+
+.why-bullets-box {
+  background: #F0F9FF; border: 1px solid #BAE6FD;
+  border-radius: 10px; padding: 16px 18px; margin-bottom: 20px;
+}
+.why-bullets-title {
+  font-size: 13px; font-weight: 600; color: #0369A1; margin-bottom: 10px;
+}
+.why-bullets-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.why-bullets-list li {
+  font-size: 13px; color: #374151; line-height: 1.5;
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.why-bullets-list li::before { content: "•"; color: #0369A1; font-weight: 700; flex-shrink: 0; }
+
+.related-guides { margin-bottom: 20px; }
+.related-guides h4 { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.guide-list { display: flex; flex-direction: column; gap: 6px; }
+.guide-item {
+  font-size: 14px; color: var(--navy);
+  text-decoration: none; padding: 10px 14px;
+  background: var(--cream); border: 1px solid var(--border);
+  border-radius: 8px; transition: all 0.15s;
+  display: flex; align-items: center; gap: 8px;
+}
+.guide-item::before { content: "→"; color: var(--amber); font-weight: 700; }
+.guide-item:hover { border-color: var(--navy); background: var(--white); }
+
+/* FAQ SECTION */
+.faq-section { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+.faq-section h2 { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--navy); margin-bottom: 28px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; background: none; border: none; cursor: pointer;
+  padding: 18px 0; display: flex; justify-content: space-between; align-items: center;
+  font-size: 15px; font-weight: 500; color: var(--text); text-align: left; gap: 16px;
+}
+.faq-q:hover { color: var(--navy); }
+.faq-icon { font-size: 20px; color: var(--text-muted); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 0 18px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+.faq-item.open .faq-a { display: block; }
+
+.disclaimer {
+  text-align: center; font-size: 12px; color: var(--text-muted);
+  padding: 0 24px 40px; opacity: 0.6; line-height: 1.5;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Mone<span>tools</span></div>
+  <div class="nav-tag">Self-Employed Decision Tools</div>
+</nav>
+
+<!-- SEO ARTICLE -->
+<div class="seo-section">
+  <span class="seo-eyebrow">Updated for 2026 · Free Tool</span>
+  <h1>Should I Form an LLC as a Freelancer? The Complete 2026 Guide + Free Assessment</h1>
+  <div class="seo-meta">
+    <span>Last updated: June 2026</span>
+    <span>8 min read</span>
+    <span>Reviewed for 2026 tax rules</span>
+  </div>
+  <p class="seo-lead">
+    If you're earning freelance or consulting income and wondering whether to form an LLC, you're not alone — it's one of the most common questions for self-employed Americans. The short answer: it depends on your income, your risk level, and your state. This guide walks you through the real decision factors, and the free assessment below gives you a personalized recommendation in under 2 minutes.
+  </p>
+
+  <div class="toc">
+    <h4>In This Guide</h4>
+    <ol>
+      <li><a href="#what-is-llc">What is an LLC and what does it actually do?</a></li>
+      <li><a href="#income-threshold">The income threshold: when does an LLC make financial sense?</a></li>
+      <li><a href="#liability">Liability protection: who really needs it?</a></li>
+      <li><a href="#state-differences">State-by-state cost differences</a></li>
+      <li><a href="#llc-vs-scorp">LLC vs S-Corp: what's the difference?</a></li>
+      <li><a href="#mistakes">5 common mistakes when forming an LLC</a></li>
+      <li><a href="#assessment">Take the free assessment →</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+    </ol>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">33M+</div>
+      <div class="stat-label">Small businesses in the US (SBA, 2026)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$500</div>
+      <div class="stat-label">Average LLC formation cost (filing + first year)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$75k</div>
+      <div class="stat-label">Income threshold where S-Corp usually pays off</div>
+    </div>
+  </div>
+
+  <h2 class="seo-h2" id="what-is-llc">What Is an LLC and What Does It Actually Do?</h2>
+  <p class="seo-p">An LLC (Limited Liability Company) is a legal business structure that separates your personal assets from your business. If your business is sued or accumulates debt, your personal bank accounts, home, and savings are generally protected — they can't come after you personally.</p>
+  <p class="seo-p">For most freelancers, an LLC does two things: it protects your personal assets from business liability, and it signals professionalism to clients. What it does <em>not</em> do, by itself, is reduce your taxes. Tax savings come later, when you elect S-Corp status — but that's a separate decision.</p>
+
+  <div class="callout tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body"><strong>Key distinction:</strong> An LLC is a legal structure. An S-Corp is a tax election you can make for your LLC. They're often confused, but they're separate decisions with different timing and criteria.</div>
+  </div>
+
+  <h2 class="seo-h2" id="income-threshold">The Income Threshold: When Does an LLC Make Financial Sense?</h2>
+  <p class="seo-p">There's no universal income threshold that triggers "you must form an LLC now" — but there are some useful benchmarks most CPAs agree on:</p>
+  <ul class="seo-ul">
+    <li><strong>Under $15,000/year:</strong> The filing fees and annual costs likely outweigh the benefit. Protect yourself with good client contracts instead.</li>
+    <li><strong>$15,000–$40,000/year:</strong> An LLC is worth considering, especially if you have client-facing liability risk. Cost is still a factor in states with high annual fees (like California's $800 minimum franchise tax).</li>
+    <li><strong>$40,000–$75,000/year:</strong> An LLC is usually the right move. You have meaningful income to protect, and the cost is manageable in most states.</li>
+    <li><strong>$75,000+/year:</strong> LLC plus S-Corp election is worth analyzing. The self-employment tax savings can be $3,000–$10,000+ per year at this level.</li>
+  </ul>
+
+  <h2 class="seo-h2" id="liability">Liability Protection: Who Really Needs It?</h2>
+  <p class="seo-p">The liability question is the one most guides gloss over. Here's the honest breakdown by profession:</p>
+
+  <table class="compare-table">
+    <tr>
+      <th>Work Type</th>
+      <th>Liability Risk</th>
+      <th>LLC Priority</th>
+    </tr>
+    <tr>
+      <td>Writers, designers, virtual assistants</td>
+      <td>Low</td>
+      <td>Nice to have</td>
+    </tr>
+    <tr>
+      <td>Software developers, marketers</td>
+      <td>Medium</td>
+      <td>Recommended</td>
+    </tr>
+    <tr>
+      <td>Consultants, coaches, financial advisors</td>
+      <td>Medium–High</td>
+      <td>Strongly recommended</td>
+    </tr>
+    <tr>
+      <td>Physical services, medical, legal-adjacent</td>
+      <td>High</td>
+      <td>Essential</td>
+    </tr>
+  </table>
+
+  <h2 class="seo-h2" id="state-differences">State-by-State Cost Differences</h2>
+  <p class="seo-p">This is where most guides fail you — they give generic advice without accounting for where you live. State costs vary dramatically:</p>
+  <ul class="seo-ul">
+    <li><strong>California:</strong> $70 filing fee, but $800 minimum annual franchise tax regardless of income. Often not worth forming in CA until income is substantial.</li>
+    <li><strong>Texas / Florida / Nevada:</strong> No state income tax, low annual fees. Very LLC-friendly.</li>
+    <li><strong>New York:</strong> $200 filing fee, plus a publication requirement ($1,000–$2,000 in some counties). One of the most expensive states.</li>
+    <li><strong>Most other states:</strong> $50–$150 filing, $50–$200 annual report. Reasonable cost.</li>
+  </ul>
+
+  <div class="callout warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body"><strong>California trap:</strong> Many freelancers form an LLC in Wyoming or Delaware to save money, then register it as a foreign LLC in California anyway — paying both state fees. If you operate in California, form there or talk to a CPA first.</div>
+  </div>
+
+  <h2 class="seo-h2" id="llc-vs-scorp">LLC vs S-Corp: What's the Difference?</h2>
+  <p class="seo-p">This is the most misunderstood topic in self-employment finance. Here's the clean version:</p>
+  <ul class="seo-ul">
+    <li>An <strong>LLC</strong> is a legal entity. It protects your personal assets. By default, you pay self-employment tax (15.3%) on all net income.</li>
+    <li>An <strong>S-Corp election</strong> is a tax designation you apply to your LLC. It lets you split your income into a W-2 salary (subject to payroll taxes) and distributions (not subject to self-employment tax).</li>
+    <li>The savings come from the distributions. On $100,000 net income with a $60,000 salary, you'd pay payroll taxes on $60,000 instead of $100,000 — saving roughly $6,120.</li>
+    <li>The cost: payroll software ($50–$100/month), a separate tax return ($800–$2,000/year), and more administrative overhead.</li>
+  </ul>
+  <p class="seo-p">The break-even point is typically around $70,000–$80,000 in net self-employment income. Below that, the S-Corp overhead usually exceeds the savings.</p>
+
+  <h2 class="seo-h2" id="mistakes">5 Common Mistakes When Forming an LLC</h2>
+  <h3 class="seo-h3">1. Mixing personal and business money</h3>
+  <p class="seo-p">The moment you form an LLC, open a dedicated business bank account. Commingling funds is the most common way to "pierce the corporate veil" — meaning a court can hold you personally liable despite having an LLC.</p>
+  <h3 class="seo-h3">2. Forming in the wrong state</h3>
+  <p class="seo-p">Delaware and Wyoming are popular, but if you operate in California, New York, or another state, you'll likely need to register there anyway as a foreign LLC — paying twice.</p>
+  <h3 class="seo-h3">3. Electing S-Corp too early</h3>
+  <p class="seo-p">Many freelancers elect S-Corp at $40,000–$50,000 income. At that level, the compliance costs often exceed the tax savings. Wait until net income consistently exceeds $70,000–$80,000.</p>
+  <h3 class="seo-h3">4. Forgetting quarterly taxes</h3>
+  <p class="seo-p">LLC members are self-employed. No employer withholds taxes for you. Set aside 25–30% of every payment and make quarterly estimated payments to avoid penalties.</p>
+  <h3 class="seo-h3">5. Overpaying on formation</h3>
+  <p class="seo-p">LegalZoom and similar services charge $150–$300 in service fees on top of state fees. For most single-member LLCs, filing directly with your state costs $50–$150 total and takes 20 minutes.</p>
+</div>
+
+<!-- TOOL ANCHOR -->
+<div class="tool-anchor" id="assessment">
+  <div class="tool-anchor-label">Free 2-Minute Assessment</div>
+</div>
+
+<!-- ASSESSMENT -->
+<div class="assessment-wrap">
+  <div class="assessment-inner">
+
+    <div class="assessment-hero">
+      <span class="eyebrow">Personalized Decision · Free · No Signup</span>
+      <h2>Business Structure Readiness Assessment</h2>
+      <p>Answer 6 questions. Get a stage-specific recommendation and your next 3 actions.</p>
+    </div>
+
+    <div class="progress-bar-wrap" style="background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;">
+      <div class="progress-inner" style="max-width:100%;padding:0;">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+        </div>
+        <div class="progress-label" id="progress-label">0 of 6</div>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card active" id="q1">
+      <div class="q-step">Question 1 of 6</div>
+      <div class="q-title">What's your current annual self-employment income?</div>
+      <div class="q-sub">All freelance, consulting, or side-hustle income before expenses and taxes.</div>
+      <div class="slider-wrap">
+        <div class="slider-labels"><span>$0</span><span>$250k+</span></div>
+        <input type="range" min="0" max="250000" step="5000" value="40000" id="income-slider" oninput="updateIncome(this.value)">
+        <div class="slider-value" id="income-display">$40,000 <span>/ year</span></div>
+      </div>
+      <div class="card-footer">
+        <div></div>
+        <button class="btn-next" onclick="goTo(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="q2">
+      <div class="q-step">Question 2 of 6</div>
+      <div class="q-title">Which state do you primarily operate in?</div>
+      <div class="q-sub">State rules affect formation costs, annual fees, and tax treatment significantly.</div>
+      <select class="state-select" id="state-select">
+        <option value="">Select your state…</option>
+        <option value="ca">California (High costs — $800 min. franchise tax)</option>
+        <option value="ny">New York (High costs — publication requirement)</option>
+        <option value="no_tax">Texas / Florida / Washington / Nevada (No income tax)</option>
+        <option value="mid">All other states (Moderate costs)</option>
+      </select>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(1)">← Back</button>
+        <button class="btn-next" onclick="goTo(3)">Next →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="q3">
+      <div class="q-step">Question 3 of 6</div>
+      <div class="q-title">How would you describe your work right now?</div>
+      <div class="q-sub">Be honest — this directly shapes the recommendation.</div>
+      <div class="options" id="q3-options">
+        <div class="option" onclick="selectOption('q3','hobby',event)">
+          <div class="option-icon">🌱</div>
+          <div class="option-content">
+            <div class="option-label">Side project or occasional gigs</div>
+            <div class="option-desc">Irregular income, exploring whether this could be a real business</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q3','growing',event)">
+          <div class="option-icon">📈</div>
+          <div class="option-content">
+            <div class="option-label">Growing freelance or consulting work</div>
+            <div class="option-desc">Regular clients, recurring income, building toward full-time</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q3','established',event)">
+          <div class="option-icon">💼</div>
+          <div class="option-content">
+            <div class="option-label">Established solo business</div>
+            <div class="option-desc">Primary income source, consistent client base</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q3','agency',event)">
+          <div class="option-icon">🏢</div>
+          <div class="option-content">
+            <div class="option-label">Small agency or team</div>
+            <div class="option-desc">Subcontractors or part-time help involved</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(2)">← Back</button>
+        <button class="btn-next" id="q3-next" onclick="goTo(4)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="q4">
+      <div class="q-step">Question 4 of 6</div>
+      <div class="q-title">Does your work carry legal or financial risk to clients?</div>
+      <div class="q-sub">Think about what could go wrong — and whether a client could sue you for it.</div>
+      <div class="options" id="q4-options">
+        <div class="option" onclick="selectOption('q4','low',event)">
+          <div class="option-icon">😌</div>
+          <div class="option-content">
+            <div class="option-label">Low — unlikely to face a lawsuit</div>
+            <div class="option-desc">Writing, design, admin, data entry — low-stakes work</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q4','medium',event)">
+          <div class="option-icon">⚠️</div>
+          <div class="option-content">
+            <div class="option-label">Medium — client disputes are possible</div>
+            <div class="option-desc">Consulting, software, marketing, coaching</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q4','high',event)">
+          <div class="option-icon">🛡️</div>
+          <div class="option-content">
+            <div class="option-label">High — real liability exposure</div>
+            <div class="option-desc">Financial advice, healthcare, legal-adjacent, physical services</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(3)">← Back</button>
+        <button class="btn-next" id="q4-next" onclick="goTo(5)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="q5">
+      <div class="q-step">Question 5 of 6</div>
+      <div class="q-title">Do you separate your business and personal finances?</div>
+      <div class="q-sub">A dedicated business account is the foundation for any formal structure.</div>
+      <div class="options" id="q5-options">
+        <div class="option" onclick="selectOption('q5','no',event)">
+          <div class="option-icon">🔀</div>
+          <div class="option-content">
+            <div class="option-label">No — everything goes to my personal account</div>
+            <div class="option-desc">Business and personal money are fully mixed</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q5','partial',event)">
+          <div class="option-icon">📂</div>
+          <div class="option-content">
+            <div class="option-label">Partially — I try, but it's not fully separated</div>
+            <div class="option-desc">Tracking manually but no dedicated business account</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q5','yes',event)">
+          <div class="option-icon">✅</div>
+          <div class="option-content">
+            <div class="option-label">Yes — I have a dedicated business account</div>
+            <div class="option-desc">Business income and expenses are fully separated</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(4)">← Back</button>
+        <button class="btn-next" id="q5-next" onclick="goTo(6)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-card" id="q6">
+      <div class="q-step">Question 6 of 6</div>
+      <div class="q-title">What's your primary goal for the next 12 months?</div>
+      <div class="q-sub">This tells us which structure fits your trajectory, not just your current state.</div>
+      <div class="options" id="q6-options">
+        <div class="option" onclick="selectOption('q6','explore',event)">
+          <div class="option-icon">🔍</div>
+          <div class="option-content">
+            <div class="option-label">Still testing — not sure this will be a real business</div>
+            <div class="option-desc">Low commitment, exploring feasibility</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q6','grow',event)">
+          <div class="option-icon">🚀</div>
+          <div class="option-content">
+            <div class="option-label">Grow to full-time self-employment</div>
+            <div class="option-desc">Building toward replacing or supplementing a W-2 job</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q6','optimize',event)">
+          <div class="option-icon">💰</div>
+          <div class="option-content">
+            <div class="option-label">Optimize taxes on existing income</div>
+            <div class="option-desc">Already earning well — want to keep more of it</div>
+          </div>
+        </div>
+        <div class="option" onclick="selectOption('q6','scale',event)">
+          <div class="option-icon">📊</div>
+          <div class="option-content">
+            <div class="option-label">Scale — potentially bring on a team</div>
+            <div class="option-desc">Building toward an agency, product, or partnership</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(5)">← Back</button>
+        <button class="btn-next" id="q6-next" onclick="showResult()" disabled>See My Assessment →</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="question-card" id="result-card">
+      <div id="result-content"></div>
+
+      <div class="email-box">
+        <h4>📩 Get Your Free LLC Roadmap</h4>
+        <p>Enter your email and we'll send you a personalized checklist pack — LLC Formation Checklist, First-Year Tax Calendar, Business Banking Checklist, and Quarterly Tax Planner.</p>
+        <div class="email-row">
+          <input type="email" class="email-input" placeholder="your@email.com" id="email-input">
+          <button class="btn-email" onclick="submitEmail()">Send Me the Pack</button>
+        </div>
+        <div id="email-confirm" style="display:none;margin-top:10px;font-size:13px;color:var(--amber-light);">✓ Got it — check your inbox in the next few minutes.</div>
+        <div class="email-note">Free. No spam. Unsubscribe anytime.</div>
+      </div>
+
+      <div class="next-tools">
+        <h4>Your next tools on Monetools</h4>
+        <div class="tool-cards">
+          <div class="tool-card">
+            <div class="tool-card-left">
+              <div class="tool-card-icon">⚖️</div>
+              <div>
+                <div class="tool-card-name">LLC vs S-Corp Calculator</div>
+                <div class="tool-card-desc">See exact tax savings at your income level</div>
+              </div>
+            </div>
+            <div class="tool-card-arrow">→</div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-left">
+              <div class="tool-card-icon">📅</div>
+              <div>
+                <div class="tool-card-name">Quarterly Tax Estimator</div>
+                <div class="tool-card-desc">How much to set aside this quarter</div>
+              </div>
+            </div>
+            <div class="tool-card-arrow">→</div>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-left">
+              <div class="tool-card-icon">💵</div>
+              <div>
+                <div class="tool-card-name">True Hourly Rate Calculator</div>
+                <div class="tool-card-desc">What you actually make after taxes and expenses</div>
+              </div>
+            </div>
+            <div class="tool-card-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-guides">
+        <h4>Related Guides</h4>
+        <div class="guide-list">
+          <a class="guide-item" href="#">LLC vs S-Corp: Which Is Right for Freelancers in 2026?</a>
+          <a class="guide-item" href="#">How to Pay Quarterly Taxes as a Self-Employed Person</a>
+          <a class="guide-item" href="#">The True Cost of Running Your Business as a Sole Proprietor</a>
+          <a class="guide-item" href="#">Best Business Bank Accounts for Freelancers (2026)</a>
+        </div>
+      </div>
+
+      <button class="btn-restart" onclick="restart()">↩ Retake Assessment</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Can I form an LLC myself or do I need a lawyer?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">For a single-member LLC with no complex ownership structure, you can absolutely file yourself directly through your state's Secretary of State website. It typically costs $50–$150 and takes 20–30 minutes. You don't need a lawyer or a formation service for a straightforward single-owner LLC. However, if you have multiple members, outside investors, or complex operating agreements, a business attorney is worth the cost.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Does forming an LLC reduce my taxes?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Not automatically. A single-member LLC is a "disregarded entity" by default — meaning you still report income on Schedule C and pay self-employment tax on all net income, just like a sole proprietor. The tax benefit comes when you elect S-Corp tax treatment, which typically makes financial sense once net self-employment income exceeds $70,000–$80,000 per year.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What's the difference between an LLC and an S-Corp?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">An LLC is a legal business structure that provides liability protection. An S-Corp is a tax election (filed using IRS Form 2553) that you can apply to your LLC. With S-Corp status, you pay yourself a "reasonable salary" (subject to payroll taxes) and take remaining profits as distributions (not subject to self-employment tax). The savings can be substantial at higher income levels, but so can the compliance overhead.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Should I form an LLC in Delaware or Wyoming to save money?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">This is a common misconception. If you operate in another state, you'll need to register your out-of-state LLC as a "foreign LLC" in your home state — paying fees in both states. For most solopreneurs, it's simpler and cheaper to form the LLC in the state where you actually live and work. Delaware and Wyoming structures make more sense for businesses raising venture capital or with complex multi-state operations.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How much does it cost to maintain an LLC annually?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">Costs vary significantly by state. Most states charge an annual report fee of $50–$200. California charges an $800 minimum franchise tax annually. New York requires a publication notice that can cost $1,000–$2,000 in some counties. Add accounting costs ($500–$2,000/year depending on complexity) and you're looking at $600–$3,000+ per year in total ongoing costs, not counting your time.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      When should I move from LLC to S-Corp?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-a">The general rule: when your net self-employment income consistently exceeds $70,000–$80,000 per year. At that level, the payroll tax savings from S-Corp distributions typically exceed the $2,000–$5,000 in additional compliance costs (payroll software, separate tax return, accounting). Use our LLC vs S-Corp Calculator to run the math at your specific income and state.</div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  Monetools provides educational information only — not legal, tax, or financial advice.<br>
+  Consult a qualified CPA or attorney before making business structure decisions.
+</div>
+
+<script>
+const answers = { income: 40000, state: '', business: '', liability: '', finances: '', goal: '' };
+
+function updateIncome(val) {
+  answers.income = parseInt(val);
+  const fmt = parseInt(val) >= 250000 ? '$250,000+' : '$' + parseInt(val).toLocaleString();
+  document.getElementById('income-display').innerHTML = fmt + ' <span>/ year</span>';
+}
+
+function selectOption(qId, val, event) {
+  const keyMap = { q3: 'business', q4: 'liability', q5: 'finances', q6: 'goal' };
+  answers[keyMap[qId]] = val;
+  document.querySelectorAll(`#${qId}-options .option`).forEach(o => o.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  const btn = document.getElementById(`${qId}-next`);
+  if (btn) btn.disabled = false;
+}
+
+function goTo(step) {
+  if (step === 3) answers.state = document.getElementById('state-select').value || 'mid';
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  const card = document.getElementById(`q${step}`);
+  if (card) { card.classList.add('active'); setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50); }
+  const pct = Math.round(((step - 1) / 6) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = (step - 1) + ' of 6';
+}
+
+function computeStage() {
+  const { income, state, business, liability, finances, goal } = answers;
+  const score = {
+    income: income < 15000 ? 0 : income < 40000 ? 1 : income < 75000 ? 2 : income < 150000 ? 3 : 4,
+    liability: { low: 0, medium: 1, high: 2 }[liability] || 0,
+    business: { hobby: 0, growing: 1, established: 2, agency: 3 }[business] || 0,
+    finances: { no: 0, partial: 1, yes: 2 }[finances] || 0,
+    goal: { explore: 0, grow: 1, scale: 2, optimize: 3 }[goal] || 0,
+    state: { ca: -1, ny: -1, no_tax: 1, mid: 0 }[state] || 0
+  };
+  const total = score.income * 3 + score.liability * 2 + score.business * 2 + score.finances + score.goal * 1.5 + score.state;
+  if (total <= 4) return 'stage1';
+  if (total <= 10) return 'stage2';
+  if (total <= 17) return 'stage3';
+  return 'stage4';
+}
+
+function getRatings() {
+  const { income, liability, business, state } = answers;
+  return {
+    liabilityRisk: liability === 'high' ? 'high' : liability === 'medium' ? 'medium' : 'low',
+    taxBenefit: income >= 75000 ? 'high' : income >= 40000 ? 'medium' : 'low',
+    credibility: business === 'established' || business === 'agency' ? 'high' : business === 'growing' ? 'medium' : 'low',
+    stateCost: state === 'ca' || state === 'ny' ? 'high' : state === 'no_tax' ? 'low' : 'medium'
+  };
+}
+
+const stageData = {
+  stage1: {
+    label: 'Stage 1 · Side Hustle',
+    badgeClass: 'stage1',
+    headline: 'Not yet — focus on growing income first.',
+    summary: 'Based on your answers, the annual cost of forming and maintaining an LLC would likely outweigh the benefits at your current stage. Filing fees, annual reports, and accounting overhead can easily run $600–$1,500/year — and that cost doesn\'t make sense until your income is more consistent.',
+    whyLabel: 'Why we reached this conclusion',
+    risks: [
+      { icon: '📉', strong: 'Cost vs. benefit', text: 'LLC overhead ($600–$1,500/year) likely exceeds any protection benefit at this income level.' },
+      { icon: '📄', strong: 'Contract risk is manageable', text: 'A well-written service agreement protects you at this stage without the overhead of an LLC.' },
+      { icon: '⏰', strong: 'Timing matters', text: 'Forming now locks you into annual compliance requirements before you know if the business is viable.' },
+    ],
+    do: ['Open a free business bank account (Mercury or Relay)', 'Track all income and expenses from day one', 'Save 25% of every payment for taxes', 'Use a basic service agreement for all clients'],
+    dont: ['Pay $500–$1,500/year in LLC formation and upkeep', 'Worry about S-Corp — that\'s 2 stages away', 'Hire a CPA until income is consistent'],
+    steps: [
+      { title: 'Open a business bank account', desc: 'Mercury, Relay, or Novo — free, takes 10 minutes. Separation is the first step.' },
+      { title: 'Set up expense tracking', desc: 'Wave (free) or a spreadsheet. Every deductible expense you miss costs you at tax time.' },
+      { title: 'Set a 25% tax savings rule', desc: 'Auto-transfer 25% of every payment to a savings account. You\'ll need it for quarterly taxes.' },
+    ],
+    whyBullets: [
+      'Your income is currently below the threshold where LLC costs make financial sense',
+      'Your liability risk level does not yet create urgent personal asset exposure',
+      'Your business stage suggests income may not yet be consistent enough to justify annual compliance overhead'
+    ],
+    timeline: 'Reassess in 6 months or when income consistently hits $25,000/year',
+    reassess: 'The smartest move right now is building income before adding overhead. Come back when you\'re earning $25,000+ per year consistently, or when a client specifically requires you to have an LLC for a contract.'
+  },
+  stage2: {
+    label: 'Stage 2 · Growing Business',
+    badgeClass: 'stage2',
+    headline: 'Yes — now is a good time to form an LLC.',
+    summary: 'Your income, client trajectory, and risk profile have crossed the threshold where an LLC makes clear sense. The cost of formation ($150–$500) and annual maintenance is justified by the liability protection, professional credibility, and foundation it provides for future tax optimization.',
+    whyLabel: 'Why we reached this conclusion',
+    risks: [
+      { icon: '⚠️', strong: 'Personal asset exposure', text: 'Operating as a sole proprietor means a client dispute could reach your personal savings and property.' },
+      { icon: '💳', strong: 'Mixed finances = audit risk', text: 'Mixing personal and business money complicates taxes and undermines any future liability protection.' },
+      { icon: '📋', strong: 'Contract credibility', text: 'Larger clients increasingly require vendors to operate as a legal entity — not as an individual.' },
+    ],
+    do: ['File an LLC in your state (state website, not LegalZoom)', 'Open a dedicated business bank account immediately', 'Get an EIN from IRS.gov (free, 5 minutes)', 'Sign all client contracts under your LLC name'],
+    dont: ['Rush into S-Corp — wait until income hits $70k+ net', 'Form in Wyoming/Delaware if you operate in another state', 'Mix personal and business funds after forming'],
+    steps: [
+      { title: 'File your LLC with your state', desc: 'Go to your state Secretary of State website directly. Cost: $50–$150. Avoid formation service markups.' },
+      { title: 'Get your EIN from IRS.gov', desc: 'Free, instant online. Required to open a business bank account and file taxes as an LLC.' },
+      { title: 'Open a business bank account', desc: 'Mercury or Relay are popular with freelancers. Free, no minimums, opens in 10 minutes.' },
+    ],
+    whyBullets: [
+      'Your income has reached the range where LLC formation costs ($150–$500) are justified by liability protection',
+      'Your client trajectory and business type create real personal asset exposure without a legal entity',
+      'Separating your business finances now builds the foundation for S-Corp savings later'
+    ],
+    timeline: 'Form your LLC within the next 30–60 days',
+    reassess: 'Once your LLC is active and income exceeds $70,000 net per year, use our <strong>LLC vs S-Corp Calculator</strong> to evaluate whether an S-Corp election could save you $3,000–$8,000 or more in annual self-employment taxes.'
+  },
+  stage3: {
+    label: 'Stage 3 · Established Business',
+    badgeClass: 'stage3',
+    headline: 'LLC ready — your next question is S-Corp.',
+    summary: 'At your income level and business stage, an LLC (if not already formed) is the immediate priority. But the more important financial question is whether to elect S-Corp tax status — which at your income level is likely to save you $4,000–$12,000 per year in self-employment taxes.',
+    whyLabel: 'Why we reached this conclusion',
+    risks: [
+      { icon: '💸', strong: 'Overpaying self-employment tax', text: 'Without S-Corp status, you\'re paying 15.3% SE tax on all net income. At $80k+ that\'s over $12,000/year.' },
+      { icon: '📊', strong: 'Missing retirement deductions', text: 'An S-Corp structure opens up Solo 401(k) strategies that can shelter $50,000–$70,000/year.' },
+      { icon: '⚖️', strong: 'Liability gap', text: 'If not yet formed, every day without an LLC is personal asset exposure for an established business.' },
+    ],
+    do: ['If not LLC yet: form one this week', 'Calculate exact S-Corp savings at your income level', 'Set up payroll (Gusto, $40/month)', 'Max out SEP-IRA or Solo 401(k) contributions'],
+    dont: ['Pay yourself entirely in distributions — IRS audit trigger', 'Skip quarterly tax payments', 'Operate at this income level without a CPA'],
+    steps: [
+      { title: 'Run your S-Corp numbers', desc: 'Use our LLC vs S-Corp Calculator. At your income, savings are likely $4,000–$10,000+/year.' },
+      { title: 'File Form 2553 with the IRS', desc: 'Elect S-Corp status. Deadline: March 15 for current-year election. File via IRS.gov or your CPA.' },
+      { title: 'Set up payroll for yourself', desc: 'Required for S-Corp. Gusto ($40/mo) handles payroll, 941 filings, and W-2 automatically.' },
+    ],
+    whyBullets: [
+      'At your income level, S-Corp election typically saves $4,000–$12,000/year in self-employment taxes',
+      'Your established business stage means the compliance overhead of S-Corp is now proportionally small',
+      'Delaying S-Corp election costs you real money every quarter you wait'
+    ],
+    timeline: 'S-Corp election: file Form 2553 before March 15 for current-year benefit',
+    reassess: 'At this stage, a CPA who specializes in self-employed clients pays for itself. Typical fee: $1,000–$2,500/year. Typical S-Corp savings: $4,000–$12,000/year. Net positive from day one.'
+  },
+  stage4: {
+    label: 'Stage 4 · Tax Optimization Mode',
+    badgeClass: 'stage4',
+    headline: 'S-Corp is almost certainly worth it at your income.',
+    summary: 'Your income level puts you squarely in the zone where S-Corp election delivers clear financial benefit. The math typically shows $8,000–$25,000 in annual self-employment tax savings. The priority now is structuring correctly and making sure your reasonable salary calculation is defensible.',
+    whyLabel: 'Why we reached this conclusion',
+    risks: [
+      { icon: '💰', strong: 'Significant overpayment', text: 'At your income level, operating as a default LLC costs you $8,000–$25,000/year in avoidable SE taxes.' },
+      { icon: '🔍', strong: 'IRS audit exposure', text: 'High-income self-employed individuals without S-Corp structure are more likely to face scrutiny.' },
+      { icon: '📉', strong: 'Missing retirement leverage', text: 'A Solo 401(k) with employer match through an S-Corp can shelter $50,000–$70,000/year tax-free.' },
+    ],
+    do: ['Confirm or file S-Corp election (Form 2553)', 'Set a reasonable salary at 35–50% of net profit', 'Max out Solo 401(k) — $70,000 limit in 2026', 'Work with a CPA specializing in S-Corps'],
+    dont: ['Set W-2 salary too low — major audit risk', 'Skip quarterly payroll deposits', 'Ignore state-specific S-Corp rules'],
+    steps: [
+      { title: 'Verify or initiate your S-Corp election', desc: 'Form 2553. If you missed the current-year deadline, begin planning for next January.' },
+      { title: 'Determine your reasonable salary', desc: 'Use BLS wage data for your role. CPAs typically recommend 40–50% of net profit as starting point.' },
+      { title: 'Calculate your exact annual savings', desc: 'Use our LLC vs S-Corp Calculator with your state, income, and salary split for precise numbers.' },
+    ],
+    whyBullets: [
+      'Your income is well above the threshold where S-Corp savings ($8,000–$25,000/year) far exceed compliance costs',
+      'Your goal of tax optimization aligns directly with what S-Corp election is designed to deliver',
+      'Every month without S-Corp status at this income level is a quantifiable financial loss'
+    ],
+    timeline: 'If not yet S-Corp: begin the process this quarter — every month costs you money',
+    reassess: 'At this income level, the difference between an optimized and non-optimized structure is $10,000–$25,000 per year. A specialist CPA ($1,500–$3,000/year) is essential and pays for itself many times over.'
+  }
+};
+
+function showResult() {
+  const stage = computeStage();
+  const data = stageData[stage];
+  const r = getRatings();
+  const incomeDisplay = answers.income >= 250000 ? '$250,000+' : '$' + answers.income.toLocaleString();
+
+  const ratingLabel = v => v === 'high' ? 'High' : v === 'medium' ? 'Medium' : 'Low';
+
+  const html = `
+    <div class="stage-badge ${data.badgeClass}">${data.label}</div>
+    <div class="result-headline">${data.headline}</div>
+    <div class="result-summary">${data.summary}</div>
+
+    <div class="why-section">
+      <h4>${data.whyLabel} — based on your inputs</h4>
+      <div class="why-row">
+        <div class="why-label">Income: ${incomeDisplay}/yr</div>
+        <div class="why-bar-wrap"><div class="why-bar ${r.taxBenefit}"></div></div>
+        <div class="why-tag ${r.taxBenefit}">Tax benefit: ${ratingLabel(r.taxBenefit)}</div>
+      </div>
+      <div class="why-row">
+        <div class="why-label">Liability exposure</div>
+        <div class="why-bar-wrap"><div class="why-bar ${r.liabilityRisk}"></div></div>
+        <div class="why-tag ${r.liabilityRisk}">Risk: ${ratingLabel(r.liabilityRisk)}</div>
+      </div>
+      <div class="why-row">
+        <div class="why-label">Business credibility need</div>
+        <div class="why-bar-wrap"><div class="why-bar ${r.credibility}"></div></div>
+        <div class="why-tag ${r.credibility}">${ratingLabel(r.credibility)}</div>
+      </div>
+      <div class="why-row">
+        <div class="why-label">State formation cost</div>
+        <div class="why-bar-wrap"><div class="why-bar ${r.stateCost}"></div></div>
+        <div class="why-tag ${r.stateCost}">${ratingLabel(r.stateCost)}</div>
+      </div>
+    </div>
+
+    <div class="risk-box">
+      <h4>⚠ Risks of doing nothing</h4>
+      ${data.risks.map(r => `
+        <div class="risk-item">
+          <div class="risk-icon">${r.icon}</div>
+          <div class="risk-text"><strong>${r.strong}:</strong> ${r.text}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="decision-grid">
+      <div class="decision-box do">
+        <h4>Do This Now</h4>
+        <ul>${data.do.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+      <div class="decision-box dont">
+        <h4>Not Yet</h4>
+        <ul>${data.dont.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>Your Next 3 Actions</h3>
+      ${data.steps.map((s, i) => `
+        <div class="step-item">
+          <div class="step-num">${i + 1}</div>
+          <div>
+            <div class="step-title">${s.title}</div>
+            <div class="step-desc">${s.desc}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="timeline-pill">⏱ ${data.timeline}</div>
+    <div class="reassess-box">${data.reassess}</div>
+
+    <div class="why-bullets-box">
+      <div class="why-bullets-title">📋 Why we recommend this — based on your answers</div>
+      <ul class="why-bullets-list">
+        ${data.whyBullets.map(b => `<li>${b}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+
+  document.getElementById('result-content').innerHTML = html;
+  document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('result-card').classList.add('active');
+  document.getElementById('progress-fill').style.width = '100%';
+  document.getElementById('progress-label').textContent = '6 of 6';
+  setTimeout(() => document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+}
+
+function restart() {
+  answers.income = 40000; answers.state = ''; answers.business = ''; answers.liability = ''; answers.finances = ''; answers.goal = '';
+  document.getElementById('income-slider').value = 40000;
+  document.getElementById('income-display').innerHTML = '$40,000 <span>/ year</span>';
+  document.getElementById('state-select').value = '';
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  ['q3','q4','q5','q6'].forEach(q => { const b = document.getElementById(`${q}-next`); if (b) b.disabled = true; });
+  goTo(1);
+  document.getElementById('assessment-wrap') && document.getElementById('assessment-wrap').scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitEmail() {
+  const val = document.getElementById('email-input').value;
+  if (!val || !val.includes('@')) {
+    document.getElementById('email-input').style.borderColor = '#FECACA';
+    return;
+  }
+  document.getElementById('email-confirm').style.display = 'block';
+  document.getElementById('email-input').disabled = true;
+  document.querySelector('.btn-email').disabled = true;
+  document.querySelector('.btn-email').textContent = 'Sent ✓';
+}
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

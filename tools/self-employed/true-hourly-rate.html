@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True Hourly Rate Calculator for Freelancers 2026 — What Do You Actually Earn? | Monetools</title>
+<meta name="description" content="Find out what you actually make per hour as a freelancer after taxes, unpaid hours, and business expenses. Free calculator with personalized rate recommendations for 2026.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{
+  --navy:#0F1F3D;--navy-mid:#1A3260;--amber:#E8A838;--amber-light:#F5C05A;
+  --cream:#F9F7F2;--warm-gray:#E8E4DC;--text:#1A1A2E;--text-muted:#6B7280;
+  --white:#fff;--border:#D4CFC6;--green:#059669;--red:#C0392B;
+  --green-bg:#F0FDF4;--green-border:#A7F3D0;--red-bg:#FFF7F7;--red-border:#FECACA;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;--yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --purple-bg:#F5F3FF;--purple-border:#DDD6FE;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--navy);}
+.breadcrumb span{margin:0 6px;}
+
+.seo-section{max-width:760px;margin:0 auto;padding:48px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-section h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,40px);line-height:1.2;color:var(--navy);margin-bottom:14px;}
+.seo-meta{font-size:13px;color:var(--text-muted);margin-bottom:24px;display:flex;gap:16px;flex-wrap:wrap;}
+.seo-meta span::before{content:"• ";}
+.seo-meta span:first-child::before{content:"";}
+.seo-lead{font-size:16px;line-height:1.75;color:#374151;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-h3{font-size:16px;font-weight:600;color:var(--text);margin:22px 0 8px;}
+.seo-p{font-size:15px;line-height:1.8;color:#374151;margin-bottom:14px;}
+.seo-ul{margin:0 0 18px 20px;}
+.seo-ul li{font-size:15px;line-height:1.7;color:#374151;margin-bottom:7px;}
+
+.callout{border-radius:10px;padding:16px 18px;margin:20px 0;display:flex;gap:12px;align-items:flex-start;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.callout.warning{background:var(--red-bg);border:1px solid var(--red-border);}
+.callout.info{background:var(--blue-bg);border:1px solid var(--blue-border);}
+.callout-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.callout-body{font-size:14px;line-height:1.6;color:#374151;}
+.callout-body strong{display:block;margin-bottom:3px;color:var(--text);}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+@media(max-width:500px){.stat-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}
+.stat-num{font-family:'Instrument Serif',serif;font-size:28px;color:var(--navy);margin-bottom:4px;}
+.stat-label{font-size:12px;color:var(--text-muted);line-height:1.3;}
+
+.rate-table{width:100%;border-collapse:collapse;margin:16px 0 24px;}
+.rate-table th{background:var(--navy);color:#fff;font-size:13px;font-weight:600;padding:11px 16px;text-align:left;}
+.rate-table th:first-child{border-radius:8px 0 0 0;}
+.rate-table th:last-child{border-radius:0 8px 0 0;}
+.rate-table td{padding:11px 16px;font-size:14px;color:#374151;border-bottom:1px solid var(--border);}
+.rate-table tr:nth-child(even) td{background:var(--cream);}
+.rate-table td.highlight{font-weight:600;color:var(--navy);}
+.rate-table td.red{color:var(--red);font-weight:600;}
+.rate-table td.green{color:var(--green);font-weight:600;}
+
+.tool-anchor{max-width:760px;margin:40px auto 0;padding:0 24px;}
+.tool-anchor-label{text-align:center;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:660px;margin:0 auto;}
+.calc-hero{text-align:center;margin-bottom:32px;}
+.calc-hero .eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:block;}
+.calc-hero h2{font-family:'Instrument Serif',serif;font-size:clamp(20px,4vw,30px);color:#fff;margin-bottom:8px;}
+.calc-hero p{font-size:14px;color:rgba(255,255,255,0.55);}
+
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-inner{display:flex;align-items:center;gap:12px;}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.prog-label{font-size:12px;color:rgba(255,255,255,0.5);white-space:nowrap;}
+
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-step{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.q-title{font-family:'Instrument Serif',serif;font-size:20px;color:var(--text);line-height:1.3;margin-bottom:6px;}
+.q-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:20px;}
+
+.input-group{margin-bottom:14px;}
+.input-label{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;display:block;}
+.dollar-wrap{position:relative;}
+.dollar-sign{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:600;color:var(--text-muted);}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;}
+.dollar-input:focus{border-color:var(--navy);}
+.unit-input-wrap{position:relative;}
+.unit-label{position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-muted);}
+.unit-input{width:100%;padding:12px 50px 12px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;}
+.unit-input:focus{border-color:var(--navy);}
+.slider-sub{margin-top:7px;}
+.slider-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:5px;}
+input[type=range]{width:100%;height:6px;-webkit-appearance:none;background:var(--warm-gray);border-radius:3px;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--navy);border-radius:50%;cursor:pointer;border:3px solid white;box-shadow:0 0 0 1px var(--navy);}
+
+.options{display:flex;flex-direction:column;gap:8px;}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.option-icon{font-size:17px;flex-shrink:0;margin-top:1px;}
+.option-label{font-size:14px;font-weight:500;color:var(--text);margin-bottom:1px;}
+.option-desc{font-size:12px;color:var(--text-muted);line-height:1.3;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:480px){.two-col{grid-template-columns:1fr;}}
+
+.inline-note{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:8px;padding:11px 13px;font-size:13px;color:#92400E;margin-top:10px;line-height:1.5;}
+
+.card-footer{margin-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;}
+.btn-back:hover{color:var(--text);}
+.btn-next{background:var(--navy);color:#fff;border:none;padding:11px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;}
+.btn-next:hover{background:var(--navy-mid);}
+.btn-next:disabled{opacity:0.35;cursor:not-allowed;}
+
+/* RESULT */
+#result-card{display:none;}
+#result-card.active{display:block;}
+
+.rate-hero{border-radius:14px;padding:28px 24px;margin-bottom:16px;text-align:center;}
+.rate-hero.shock{background:linear-gradient(135deg,#7F1D1D,#991B1B);}
+.rate-hero.low{background:linear-gradient(135deg,#78350F,#92400E);}
+.rate-hero.fair{background:linear-gradient(135deg,#065F46,#047857);}
+.rate-hero.strong{background:linear-gradient(135deg,#1E3A8A,#1E40AF);}
+.rate-hero-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:10px;}
+.rate-hero-amount{font-family:'Instrument Serif',serif;font-size:56px;color:#fff;line-height:1;margin-bottom:4px;}
+.rate-hero-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:4px;}
+.rate-hero-quoted{font-size:13px;color:rgba(255,255,255,0.45);}
+.rate-verdict{display:inline-block;margin-top:14px;padding:7px 18px;border-radius:999px;font-size:13px;font-weight:700;background:rgba(255,255,255,0.15);color:#fff;}
+
+.rate-compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+@media(max-width:480px){.rate-compare{grid-template-columns:1fr;}}
+.rate-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.rate-box-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.rate-box-amount{font-family:'Instrument Serif',serif;font-size:32px;color:var(--navy);margin-bottom:4px;}
+.rate-box-amount.red{color:var(--red);}
+.rate-box-amount.green{color:var(--green);}
+.rate-box-sub{font-size:12px;color:var(--text-muted);}
+
+.breakdown-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px;}
+.breakdown-header{background:var(--navy);padding:13px 20px;}
+.breakdown-header h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);}
+.brow{display:flex;justify-content:space-between;align-items:center;padding:11px 20px;border-bottom:1px solid var(--border);font-size:14px;}
+.brow:last-child{border-bottom:none;}
+.brow.total{background:var(--cream);font-weight:700;}
+.brow.subtotal{background:#F8FAFC;font-weight:600;}
+.brow-label{color:var(--text-muted);}
+.brow.total .brow-label,.brow.subtotal .brow-label{color:var(--text);}
+.brow-val{font-weight:500;color:var(--text);}
+.brow-val.red{color:var(--red);}
+.brow-val.green{color:var(--green);}
+.brow-val.muted{color:var(--text-muted);}
+
+.hours-visual{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;}
+.hours-visual h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px;}
+.hours-bar-wrap{margin-bottom:12px;}
+.hours-bar-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px;}
+.hours-bar-label .hl{color:var(--text);font-weight:500;}
+.hours-bar-label .hr{color:var(--text-muted);}
+.hours-track{height:10px;background:var(--warm-gray);border-radius:5px;overflow:hidden;}
+.hours-fill{height:100%;border-radius:5px;}
+.hours-fill.billable{background:var(--green);}
+.hours-fill.admin{background:var(--amber);}
+.hours-fill.tax{background:var(--red);}
+
+.why-box{background:var(--blue-bg);border:1px solid var(--blue-border);border-radius:12px;padding:18px;margin-bottom:16px;}
+.why-box h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#1E40AF;margin-bottom:10px;}
+.why-item{display:flex;gap:8px;margin-bottom:7px;font-size:13px;line-height:1.5;color:#1E3A8A;}
+.why-check{color:#2563EB;font-weight:700;flex-shrink:0;}
+
+.target-box{background:var(--purple-bg);border:1px solid var(--purple-border);border-radius:12px;padding:20px;margin-bottom:16px;}
+.target-box h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#6D28D9;margin-bottom:14px;}
+.target-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.target-grid{grid-template-columns:1fr;}}
+.target-stat{text-align:center;padding:14px;background:#fff;border-radius:8px;border:1px solid var(--purple-border);}
+.target-num{font-family:'Instrument Serif',serif;font-size:26px;color:#5B21B6;margin-bottom:3px;}
+.target-lbl{font-size:11px;color:#6B7280;line-height:1.3;}
+
+.waiting-box{background:var(--red-bg);border:1px solid var(--red-border);border-radius:12px;padding:18px;margin-bottom:16px;}
+.waiting-box h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+.waiting-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:480px){.waiting-grid{grid-template-columns:1fr;}}
+.waiting-stat{text-align:center;padding:12px;background:#fff;border-radius:8px;border:1px solid var(--red-border);}
+.waiting-num{font-family:'Instrument Serif',serif;font-size:24px;color:var(--red);margin-bottom:3px;}
+.waiting-lbl{font-size:11px;color:#6B7280;line-height:1.3;}
+
+.next-steps{background:var(--navy);border-radius:12px;padding:22px;margin-bottom:14px;}
+.next-steps h3{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.step-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.step-item:last-child{margin-bottom:0;}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--amber);color:var(--navy);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-title{font-size:13px;font-weight:600;color:#fff;margin-bottom:1px;}
+.step-desc{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.4;}
+
+.social-proof{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:14px;font-size:13px;color:var(--text-muted);text-align:center;}
+.social-proof strong{color:var(--navy);}
+
+.next-tools{margin-bottom:14px;}
+.next-tools h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+.tool-cards{display:flex;flex-direction:column;gap:7px;}
+.tool-card{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;background:var(--white);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:all 0.15s;}
+.tool-card:hover{border-color:var(--navy);transform:translateX(2px);}
+.tool-card-left{display:flex;align-items:center;gap:11px;}
+.tool-card-icon{font-size:18px;}
+.tool-card-name{font-size:13px;font-weight:500;color:var(--text);}
+.tool-card-desc{font-size:11px;color:var(--text-muted);}
+.tool-card-arrow{font-size:14px;color:var(--text-muted);}
+
+.email-box{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:12px;padding:22px;margin-bottom:14px;text-align:center;}
+.email-box h4{font-family:'Instrument Serif',serif;font-size:18px;color:#fff;margin-bottom:6px;}
+.email-box p{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:14px;line-height:1.5;}
+.email-row{display:flex;gap:8px;}
+@media(max-width:480px){.email-row{flex-direction:column;}}
+.email-inp{flex:1;padding:11px 13px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;background:rgba(255,255,255,0.1);color:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;}
+.email-inp::placeholder{color:rgba(255,255,255,0.4);}
+.email-inp:focus{border-color:var(--amber);}
+.btn-email{background:var(--amber);color:var(--navy);border:none;padding:11px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.email-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:8px;}
+
+.related-guides{margin-bottom:14px;}
+.related-guides h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.guide-list{display:flex;flex-direction:column;gap:6px;}
+.guide-item{font-size:13px;color:var(--navy);text-decoration:none;padding:9px 13px;background:var(--cream);border:1px solid var(--border);border-radius:8px;transition:all 0.15s;display:flex;align-items:center;gap:7px;}
+.guide-item::before{content:"→";color:var(--amber);font-weight:700;}
+.guide-item:hover{border-color:var(--navy);background:var(--white);}
+
+.btn-restart{display:inline-flex;align-items:center;gap:7px;background:none;border:1.5px solid var(--border);padding:9px 16px;border-radius:8px;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all 0.15s;}
+.btn-restart:hover{border-color:var(--navy);color:var(--text);}
+
+
+
+/* BENEFIT SLIDER */
+.benefit-toggle{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:8px;cursor:pointer;}
+.benefit-toggle input[type=checkbox]{width:16px;height:16px;accent-color:var(--navy);cursor:pointer;}
+.benefit-toggle label{font-size:13px;color:#92400E;cursor:pointer;line-height:1.4;}
+.benefit-slider-wrap{display:none;margin-top:10px;padding:14px;background:var(--cream);border-radius:8px;border:1px solid var(--border);}
+.benefit-slider-wrap.show{display:block;}
+.benefit-val{text-align:center;font-family:'Instrument Serif',serif;font-size:22px;color:var(--navy);margin-bottom:6px;}
+
+/* DOWNLOAD BUTTON */
+.btn-download{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:none;padding:12px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:14px;width:100%;justify-content:center;}
+.btn-download:hover{background:var(--navy-mid);}
+
+/* DISCLAIMER INLINE */
+.disclaimer-inline{font-size:11px;color:var(--text-muted);text-align:center;margin-bottom:12px;line-height:1.5;opacity:0.7;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+footer{background:var(--navy);padding:28px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:6px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.5;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../../index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="../../index.html">Home</a>
+    <a class="nav-link active" href="./">Self-Employed</a>
+    <a class="nav-link" href="llc-vs-s-corp.html">LLC vs S-Corp</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a><span>›</span>
+  <a href="./">Self-Employed</a><span>›</span>True Hourly Rate Calculator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Updated for 2026 · Free Calculator</span>
+  <h1>True Hourly Rate Calculator for Freelancers 2026 — What Do You Actually Earn Per Hour?</h1>
+  <div class="seo-meta">
+    <span>Last updated: June 2026</span>
+    <span>7 min read</span>
+    <span>Includes tax adjustment + unpaid hours</span>
+  </div>
+  <p class="seo-lead">
+    You charge $75 an hour. But after self-employment tax, unpaid hours spent on admin and client acquisition, and business expenses, what do you actually take home? For most freelancers, the real number is 40–60% lower than their quoted rate. This calculator shows you the truth — and tells you what to charge instead.
+  </p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-num">40%</div>
+      <div class="stat-label">Average gap between quoted rate and true take-home rate</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">15.3%</div>
+      <div class="stat-label">Self-employment tax that employees never see (you pay both sides)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">30%</div>
+      <div class="stat-label">Of freelancer work hours are typically unpaid (admin, marketing, proposals)</div>
+    </div>
+  </div>
+
+  <h2 class="seo-h2">Why Your Quoted Rate Is Misleading</h2>
+  <p class="seo-p">When a W-2 employee earns $75/hour, their employer pays an additional ~7.65% in payroll taxes on top of that. As a freelancer, you pay both the employee and employer share — 15.3% total. That alone cuts your effective rate significantly before you even factor in income tax.</p>
+  <p class="seo-p">Then there are the unpaid hours. Every hour you spend writing proposals, sending invoices, attending discovery calls that don't convert, or doing bookkeeping is an hour you're not being paid for. If 25% of your working time is unpaid, that's equivalent to working every Friday for free.</p>
+
+  <div class="callout warning">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-body"><strong>The freelancer math trap:</strong> A freelancer charging $75/hour who works 40 hours/week assumes they're making $156,000/year. But after unpaid hours (30%), taxes (25–35%), and expenses, they may actually net $65,000–$80,000. That's below what a well-compensated W-2 employee makes — with all the risk on their side.</div>
+  </div>
+
+  <h2 class="seo-h2">The 4 Factors That Erode Your True Rate</h2>
+  <h3 class="seo-h3">1. Self-Employment Tax (15.3%)</h3>
+  <p class="seo-p">As a W-2 employee, your employer pays half of Social Security and Medicare taxes. As a freelancer, you pay both halves — 15.3% on the first $176,100 of net income in 2026. You can deduct half of this when calculating income tax, but the cash still leaves your account.</p>
+
+  <h3 class="seo-h3">2. Unpaid Working Hours</h3>
+  <p class="seo-p">Industry research consistently shows freelancers spend 20–35% of their working time on non-billable activities: client acquisition, proposals, admin, invoicing, professional development, and equipment maintenance. These hours are real work — they just don't generate direct revenue.</p>
+
+  <h3 class="seo-h3">3. Business Expenses</h3>
+  <p class="seo-p">Software, equipment, health insurance (a major one), professional memberships, home office, phone, and internet all come out of your revenue. Unlike a W-2 employee who gets these as benefits, you fund them yourself — reducing your effective take-home.</p>
+
+  <h3 class="seo-h3">4. Benefit Gap vs. W-2 Employment</h3>
+  <p class="seo-p">A W-2 employee earning $75,000 also receives employer-sponsored health insurance ($7,000–$15,000 value), paid vacation (2 weeks = $2,900), paid sick days, and often a 401(k) match. To truly compare freelance income to a W-2 salary, you need to add back these benefits — or factor in their cost.</p>
+
+  <div class="callout info">
+    <div class="callout-icon">💡</div>
+    <div class="callout-body"><strong>Rule of thumb:</strong> To match a W-2 salary of $X, most freelancers need to charge approximately 1.5–1.75× that amount to account for taxes, unpaid hours, and benefits. So to equal a $80,000 W-2 salary, you need $120,000–$140,000 in freelance revenue.</div>
+  </div>
+
+  <h2 class="seo-h2">Freelance Rate Benchmarks by Profession (2026)</h2>
+  <table class="rate-table">
+    <tr><th>Profession</th><th>Median Quoted Rate</th><th>Est. True Rate</th><th>Gap</th></tr>
+    <tr><td>Graphic Designer</td><td>$55–$85/hr</td><td class="green">$32–$52/hr</td><td class="red">~40%</td></tr>
+    <tr><td>Web Developer</td><td>$75–$150/hr</td><td class="green">$45–$95/hr</td><td class="red">~38%</td></tr>
+    <tr><td>Copywriter</td><td>$50–$100/hr</td><td class="green">$29–$60/hr</td><td class="red">~42%</td></tr>
+    <tr><td>Marketing Consultant</td><td>$80–$150/hr</td><td class="green">$48–$93/hr</td><td class="red">~38%</td></tr>
+    <tr><td>Business Consultant</td><td>$100–$250/hr</td><td class="green">$62–$158/hr</td><td class="red">~37%</td></tr>
+    <tr><td>UX/UI Designer</td><td>$80–$130/hr</td><td class="green">$48–$82/hr</td><td class="red">~38%</td></tr>
+  </table>
+</div>
+
+<div class="tool-anchor" id="calculator">
+  <div class="tool-anchor-label">Free True Rate Calculator</div>
+</div>
+
+<div class="calc-wrap">
+  <div class="calc-inner">
+    <div class="calc-hero">
+      <span class="eyebrow">Personalized Calculation · Free · No Signup</span>
+      <h2>True Hourly Rate Calculator</h2>
+      <p>Enter your numbers. Find out what you actually earn — and what you should charge.</p>
+    </div>
+
+    <div class="prog-wrap">
+      <div class="prog-inner">
+        <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+        <div class="prog-label" id="prog-label">0 of 5</div>
+      </div>
+    </div>
+
+    <!-- Q1: Quoted Rate -->
+    <div class="qcard active" id="q1">
+      <div class="q-step">Question 1 of 5</div>
+      <div class="q-title">What's your current quoted hourly rate?</div>
+      <div class="q-sub">The rate you tell clients — before any adjustments.</div>
+      <div class="input-group">
+        <div class="dollar-wrap">
+          <span class="dollar-sign">$</span>
+          <input type="number" class="dollar-input" id="quoted-rate" placeholder="75" oninput="syncSlider('quoted-rate','rate-sl');chk1()">
+        </div>
+        <div class="slider-sub">
+          <div class="slider-labels"><span>$10/hr</span><span>$300/hr</span></div>
+          <input type="range" min="10" max="300" step="5" value="75" id="rate-sl" oninput="syncInput('rate-sl','quoted-rate');chk1()">
+        </div>
+      </div>
+      <div class="card-footer"><div></div>
+        <button class="btn-next" id="q1-next" onclick="goTo(2)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Billable Hours -->
+    <div class="qcard" id="q2">
+      <div class="q-step">Question 2 of 5</div>
+      <div class="q-title">How many hours per week do you actually bill clients?</div>
+      <div class="q-sub">Billable hours only — time clients pay for directly.</div>
+      <div class="two-col">
+        <div class="input-group">
+          <label class="input-label">Billable hours/week</label>
+          <div class="unit-input-wrap">
+            <input type="number" class="unit-input" id="billable-hrs" placeholder="25" min="1" max="60" oninput="chk2()">
+            <span class="unit-label">hrs</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Total working hours/week</label>
+          <div class="unit-input-wrap">
+            <input type="number" class="unit-input" id="total-hrs" placeholder="40" min="1" max="80" oninput="chk2()">
+            <span class="unit-label">hrs</span>
+          </div>
+        </div>
+      </div>
+      <div class="inline-note" id="unpaid-note" style="display:none;"></div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(1)">← Back</button>
+        <button class="btn-next" id="q2-next" onclick="goTo(3)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q3: Business Expenses -->
+    <div class="qcard" id="q3">
+      <div class="q-step">Question 3 of 5</div>
+      <div class="q-title">What are your monthly business expenses?</div>
+      <div class="q-sub">Software, equipment, professional memberships, phone, internet, etc. Don't include personal expenses.</div>
+      <div class="input-group">
+        <div class="dollar-wrap">
+          <span class="dollar-sign">$</span>
+          <input type="number" class="dollar-input" id="monthly-exp" placeholder="500" oninput="syncSlider('monthly-exp','exp-sl');chk3()">
+        </div>
+        <div class="slider-sub">
+          <div class="slider-labels"><span>$0</span><span>$5,000/mo</span></div>
+          <input type="range" min="0" max="5000" step="100" value="500" id="exp-sl" oninput="syncInput('exp-sl','monthly-exp');chk3()">
+        </div>
+      </div>
+      <div class="inline-note">💡 Not sure? Common freelancer expenses: software subscriptions ($50–200/mo), professional tools ($50–300/mo), phone/internet ($100–200/mo). Most freelancers spend $300–$800/month.</div>
+
+      <div class="benefit-toggle" onclick="toggleBenefit()">
+        <input type="checkbox" id="benefit-check">
+        <label for="benefit-check">Include W-2 benefit gap? (health insurance, paid vacation you don't get as a freelancer)</label>
+      </div>
+      <div class="benefit-slider-wrap" id="benefit-wrap">
+        <div class="benefit-val" id="benefit-display">$10,000 <span style="font-size:14px;color:var(--text-muted);">/ year in missed benefits</span></div>
+        <input type="range" min="0" max="25000" step="500" value="10000" id="benefit-sl" oninput="updateBenefit(this.value)">
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-top:4px;"><span>$0</span><span>$25,000</span></div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:8px;">Typical range: health insurance ($7k–$15k) + 2 weeks paid vacation ($2k–$4k) + sick days</div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(2)">← Back</button>
+        <button class="btn-next" id="q3-next" onclick="goTo(4)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q4: Tax Situation -->
+    <div class="qcard" id="q4">
+      <div class="q-step">Question 4 of 5</div>
+      <div class="q-title">What's your tax situation?</div>
+      <div class="q-sub">This determines how much of each dollar you actually keep.</div>
+      <div class="options" id="q4-opts">
+        <div class="option" onclick="selOpt('q4','low',event)">
+          <div class="option-icon">📊</div>
+          <div>
+            <div class="option-label">Lower income bracket (net under $50k/year)</div>
+            <div class="option-desc">Effective tax rate including SE tax: ~28–32%</div>
+          </div>
+        </div>
+        <div class="option" onclick="selOpt('q4','mid',event)">
+          <div class="option-icon">📈</div>
+          <div>
+            <div class="option-label">Mid income bracket (net $50k–$100k/year)</div>
+            <div class="option-desc">Effective tax rate including SE tax: ~33–38%</div>
+          </div>
+        </div>
+        <div class="option" onclick="selOpt('q4','high',event)">
+          <div class="option-icon">💰</div>
+          <div>
+            <div class="option-label">Higher income bracket (net over $100k/year)</div>
+            <div class="option-desc">Effective tax rate including SE tax: ~38–45%</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(3)">← Back</button>
+        <button class="btn-next" id="q4-next" onclick="goTo(5)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q5: Vacation weeks -->
+    <div class="qcard" id="q5">
+      <div class="q-step">Question 5 of 5</div>
+      <div class="q-title">How many weeks per year do you NOT work?</div>
+      <div class="q-sub">Vacation, sick days, holidays, slow periods. Unlike W-2 employees, you don't get paid for these weeks.</div>
+      <div class="options" id="q5-opts">
+        <div class="option" onclick="selOpt('q5','2',event)">
+          <div class="option-icon">🏃</div>
+          <div><div class="option-label">1–2 weeks off per year</div><div class="option-desc">Minimal downtime — you work most of the year</div></div>
+        </div>
+        <div class="option" onclick="selOpt('q5','4',event)">
+          <div class="option-icon">🏖️</div>
+          <div><div class="option-label">3–4 weeks off per year</div><div class="option-desc">Standard — includes some vacation and holidays</div></div>
+        </div>
+        <div class="option" onclick="selOpt('q5','6',event)">
+          <div class="option-icon">✈️</div>
+          <div><div class="option-label">5–6 weeks off per year</div><div class="option-desc">Lifestyle-focused — regular travel or seasonal slowdowns</div></div>
+        </div>
+        <div class="option" onclick="selOpt('q5','10',event)">
+          <div class="option-icon">🌴</div>
+          <div><div class="option-label">7+ weeks off per year</div><div class="option-desc">Part-time or location-independent lifestyle</div></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-back" onclick="goTo(4)">← Back</button>
+        <button class="btn-next" id="q5-next" onclick="showResult()" disabled>Calculate My True Rate →</button>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="qcard" id="result-card">
+      <div id="result-content"></div>
+
+      <div class="disclaimer-inline">⚠️ Results based on 2026 US federal tax rates — estimate only. Not professional tax advice. Consult a CPA for your specific situation.</div>
+
+      <button class="btn-download" onclick="downloadReport()">⬇️ Download My Rate Report (PNG)</button>
+
+      <div class="email-box">
+        <h4>📩 Get Your Freelance Rate Guide</h4>
+        <p>We'll email you a rate-setting worksheet, industry benchmarks, and a client negotiation script — free.</p>
+        <div class="email-row">
+          <input type="email" class="email-inp" placeholder="your@email.com" id="email-inp">
+          <button class="btn-email" onclick="subEmail()">Send It Free</button>
+        </div>
+        <div id="email-ok" style="display:none;margin-top:8px;font-size:13px;color:var(--amber-light);">✓ On its way — check your inbox.</div>
+        <div class="email-note">Free. No spam. Unsubscribe anytime.</div>
+      </div>
+
+      <div class="next-tools">
+        <h4>Your next tools on Monetools</h4>
+        <div class="tool-cards">
+          <a class="tool-card" href="quarterly-tax-estimator.html">
+            <div class="tool-card-left"><div class="tool-card-icon">📅</div>
+              <div><div class="tool-card-name">Quarterly Tax Estimator</div><div class="tool-card-desc">How much to pay the IRS each quarter</div></div>
+            </div><div class="tool-card-arrow">→</div>
+          </a>
+          <a class="tool-card" href="llc-vs-s-corp.html">
+            <div class="tool-card-left"><div class="tool-card-icon">⚖️</div>
+              <div><div class="tool-card-name">LLC vs S-Corp Calculator</div><div class="tool-card-desc">Could S-Corp save you thousands?</div></div>
+            </div><div class="tool-card-arrow">→</div>
+          </a>
+          <a class="tool-card" href="should-i-form-an-llc.html">
+            <div class="tool-card-left"><div class="tool-card-icon">🏛️</div>
+              <div><div class="tool-card-name">Business Structure Assessment</div><div class="tool-card-desc">Do you need an LLC yet?</div></div>
+            </div><div class="tool-card-arrow">→</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="related-guides">
+        <h4>Related Guides</h4>
+        <div class="guide-list">
+          <a class="guide-item" href="#">How to Raise Your Freelance Rate Without Losing Clients</a>
+          <a class="guide-item" href="#">Freelancer vs Employee: The True Cost Comparison (2026)</a>
+          <a class="guide-item" href="#">The Self-Employed Tax Deductions Checklist for 2026</a>
+          <a class="guide-item" href="#">Should You Form an LLC for Your Freelance Business?</a>
+        </div>
+      </div>
+
+      <button class="btn-restart" onclick="restart()">↩ Recalculate</button>
+    </div>
+  </div>
+</div>
+
+<div class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How do I compare my freelance income to a W-2 salary? <span class="faq-icon">+</span></button>
+    <div class="faq-a">To do an apples-to-apples comparison, add the value of W-2 benefits back to the salary: employer health insurance ($7,000–$15,000/year), paid vacation (2 weeks ≈ salary/26), 401(k) match (3–6% of salary), and paid sick days. A $75,000 W-2 job with benefits is often equivalent to $90,000–$105,000 in freelance gross revenue needed to match it after taxes and expenses.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What's a good billable hours ratio for freelancers? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Most experienced freelancers aim for 60–75% billable utilization — meaning if you work 40 hours/week, you bill 24–30 hours. If you're billing less than 50%, your overhead (admin, marketing, sales) is eating your time and you should focus on streamlining non-billable work or raising rates. If you're billing more than 80%, you're likely not investing enough in client acquisition and may face income gaps when projects end.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How often should I raise my rates? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Most experienced freelancers recommend reviewing rates annually and raising them by at least the inflation rate (3–5%) each year. You should also raise rates when: you're fully booked more than 2 months in advance, you're getting accepted on most proposals without pushback on price, your skills have meaningfully improved, or your cost of living has increased. New clients should always get your current rate — existing clients can be grandfathered for one renewal cycle then gradually brought up.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Should I charge hourly or by project? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Project-based pricing is almost always better for experienced freelancers. It removes the time-for-money ceiling, rewards efficiency (finishing in 3 hours what used to take 5 means you earn more per hour), and is easier for clients to budget. Hourly billing made sense when you were new and uncertain about scope. Once you can reliably estimate project scope, switch to project rates — and price based on value delivered, not hours spent.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What business expenses can I deduct as a freelancer? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Common deductible expenses include: home office (dedicated space only), equipment and software, professional development and courses, professional subscriptions and memberships, business portion of phone and internet, health insurance premiums (self-employed deduction), business travel, and half of your self-employment tax. Keep receipts and use a dedicated business bank account to make documentation easier. When in doubt, consult a CPA — deductions can meaningfully reduce your effective tax rate.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">Monetools tools and content are provided for informational and educational purposes only. Results are estimates and may not reflect your individual circumstances. We recommend consulting a qualified CPA or financial advisor before making any financial decisions.</div>
+</footer>
+
+<script>
+const d = { rate:0, billable:0, total:0, expenses:0, taxBracket:'', weeksOff:0 };
+
+function toggleBenefit(){
+  const checked=document.getElementById('benefit-check').checked;
+  document.getElementById('benefit-wrap').classList.toggle('show',checked);
+}
+function updateBenefit(val){
+  document.getElementById('benefit-display').innerHTML='$'+parseInt(val).toLocaleString()+' <span style="font-size:14px;color:var(--text-muted);">/ year in missed benefits</span>';
+}
+function getBenefitValue(){
+  if(!document.getElementById('benefit-check').checked) return 0;
+  return parseInt(document.getElementById('benefit-sl').value)||0;
+}
+
+
+function downloadReport(){
+  const r=calcRate();
+  const benefitVal=getBenefitValue();
+  const canvas=document.createElement('canvas');
+  canvas.width=800; canvas.height=420;
+  const ctx=canvas.getContext('2d');
+
+  // Background
+  ctx.fillStyle='#0F1F3D';
+  ctx.fillRect(0,0,800,420);
+
+  // Brand
+  ctx.fillStyle='#E8A838';
+  ctx.font='bold 18px Arial';
+  ctx.fillText('Monetools.com',40,40);
+
+  ctx.fillStyle='rgba(255,255,255,0.4)';
+  ctx.font='13px Arial';
+  ctx.fillText('True Hourly Rate Report · 2026',40,62);
+
+  // Divider
+  ctx.strokeStyle='rgba(255,255,255,0.1)';
+  ctx.beginPath(); ctx.moveTo(40,78); ctx.lineTo(760,78); ctx.stroke();
+
+  // Main numbers
+  ctx.fillStyle='rgba(255,255,255,0.5)';
+  ctx.font='14px Arial';
+  ctx.fillText('QUOTED RATE',40,115);
+  ctx.fillText('TRUE TAKE-HOME RATE',280,115);
+  ctx.fillText('ANNUAL NET INCOME',520,115);
+
+  ctx.fillStyle='#ffffff';
+  ctx.font='bold 48px Arial';
+  ctx.fillText('$'+Math.round(r.quotedRate)+'/hr',40,165);
+
+  ctx.fillStyle=r.dropPct>40?'#FCA5A5':'#6EE7B7';
+  ctx.fillText('$'+Math.round(r.trueHourly)+'/hr',280,165);
+
+  ctx.fillStyle='#ffffff';
+  ctx.font='bold 36px Arial';
+  ctx.fillText('$'+Math.round(r.annualNet).toLocaleString(),520,165);
+
+  // Drop
+  ctx.fillStyle='rgba(255,255,255,0.5)';
+  ctx.font='13px Arial';
+  ctx.fillText('−'+r.dropPct+'% drop after taxes, expenses & unpaid hours',40,200);
+
+  if(benefitVal>0){
+    ctx.fillStyle='#FDE68A';
+    ctx.fillText('+ $'+benefitVal.toLocaleString()+'/yr in W-2 benefits you\'re self-funding',40,222);
+  }
+
+  // Divider
+  ctx.strokeStyle='rgba(255,255,255,0.1)';
+  ctx.beginPath(); ctx.moveTo(40,245); ctx.lineTo(760,245); ctx.stroke();
+
+  // Breakdown
+  const items=[
+    ['Gross revenue',`$${Math.round(r.annualGross).toLocaleString()}`],
+    ['Business expenses',`-$${Math.round(r.annualExp).toLocaleString()}`],
+    ['Taxes ('+Math.round(r.taxRate*100)+'%)',`-$${Math.round(r.afterExp*r.taxRate).toLocaleString()}`],
+    ['Annual take-home',`$${Math.round(r.annualNet).toLocaleString()}`],
+  ];
+  items.forEach((item,i)=>{
+    const x=40+(i*185);
+    ctx.fillStyle='rgba(255,255,255,0.45)';
+    ctx.font='12px Arial';
+    ctx.fillText(item[0],x,280);
+    ctx.fillStyle=i===3?'#6EE7B7':'#ffffff';
+    ctx.font='bold 18px Arial';
+    ctx.fillText(item[1],x,305);
+  });
+
+  // Recommended rate
+  ctx.fillStyle='#E8A838';
+  ctx.font='bold 14px Arial';
+  ctx.fillText(`To truly earn $${Math.round(r.quotedRate)}/hr equivalent → charge $${Math.round(r.recommendedRate)}/hr`,40,355);
+
+  // Footer
+  ctx.fillStyle='rgba(255,255,255,0.3)';
+  ctx.font='12px Arial';
+  ctx.fillText('monetools.com · Free decision tools for the self-employed · 2026 estimates only, not tax advice',40,395);
+
+  // Download
+  const link=document.createElement('a');
+  link.download='monetools-true-rate-report.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+}
+
+function syncSlider(iId,sId){ document.getElementById(sId).value=parseInt(document.getElementById(iId).value)||0; }
+function syncInput(sId,iId){ document.getElementById(iId).value=document.getElementById(sId).value; }
+
+function chk1(){
+  const v=parseInt(document.getElementById('quoted-rate').value)||0;
+  d.rate=v;
+  document.getElementById('q1-next').disabled=v<5;
+}
+
+function chk2(){
+  const b=parseInt(document.getElementById('billable-hrs').value)||0;
+  const t=parseInt(document.getElementById('total-hrs').value)||0;
+  d.billable=b; d.total=t;
+  const note=document.getElementById('unpaid-note');
+  if(b>0&&t>0){
+    const unpaidPct=Math.round(((t-b)/t)*100);
+    const unpaidHrs=t-b;
+    note.style.display='block';
+    if(unpaidPct>40){
+      note.innerHTML=`⚠️ <strong>${unpaidPct}% of your working time is unpaid</strong> (${unpaidHrs} hrs/week). This significantly reduces your true effective rate.`;
+    } else if(unpaidPct>20){
+      note.innerHTML=`ℹ️ <strong>${unpaidPct}% of your working time is unpaid</strong> (${unpaidHrs} hrs/week). This is typical for freelancers — we'll factor it into your true rate.`;
+    } else {
+      note.innerHTML=`✓ <strong>${unpaidPct}% unpaid overhead</strong> — you have strong billable utilization.`;
+    }
+  } else { note.style.display='none'; }
+  document.getElementById('q2-next').disabled=!(b>0&&t>=b);
+}
+
+function chk3(){
+  const v=parseInt(document.getElementById('monthly-exp').value)||0;
+  d.expenses=v;
+  document.getElementById('q3-next').disabled=false;
+}
+
+function selOpt(qId,val,e){
+  const km={q4:'taxBracket',q5:'weeksOff'};
+  d[km[qId]]=val;
+  document.querySelectorAll(`#${qId}-opts .option`).forEach(o=>o.classList.remove('selected'));
+  e.currentTarget.classList.add('selected');
+  const b=document.getElementById(`${qId}-next`); if(b) b.disabled=false;
+}
+
+function goTo(step){
+  document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('active'));
+  const card=document.getElementById(`q${step}`);
+  if(card){card.classList.add('active');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),50);}
+  const pct=Math.round(((step-1)/5)*100);
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('prog-label').textContent=(step-1)+' of 5';
+}
+
+function calcRate(){
+  const quotedRate = d.rate;
+  const billable = d.billable;
+  const total = d.total || billable;
+  const weeksOff = parseInt(d.weeksOff)||4;
+  const weeksWorked = 52 - weeksOff;
+  const monthlyExp = d.expenses;
+  const annualExp = monthlyExp * 12;
+  const taxRate = {low:0.30, mid:0.355, high:0.42}[d.taxBracket]||0.355;
+
+  // Annual gross revenue
+  const annualGross = quotedRate * billable * weeksWorked;
+
+  // Expense-adjusted
+  const afterExp = annualGross - annualExp;
+
+  // Tax-adjusted net
+  const annualNet = afterExp * (1 - taxRate);
+
+  // True hourly (based on TOTAL hours worked, not just billable)
+  const totalHoursWorked = total * weeksWorked;
+  const benefitGap = getBenefitValue();
+  const annualNetWithBenefit = annualNet - benefitGap;
+  const trueHourly = totalHoursWorked > 0 ? annualNet / totalHoursWorked : 0;
+  const trueHourlyWithBenefit = totalHoursWorked > 0 ? annualNetWithBenefit / totalHoursWorked : 0;
+
+  // What rate to charge to hit target
+  // To make trueHourly = quotedRate (the "fair" target), solve backwards
+  const targetAnnualNet = quotedRate * totalHoursWorked;
+  const targetAfterExp = targetAnnualNet / (1 - taxRate);
+  const targetGross = targetAfterExp + annualExp;
+  const recommendedRate = billable * weeksWorked > 0 ? targetGross / (billable * weeksWorked) : 0;
+
+  const unpaidPct = total > 0 ? Math.round(((total-billable)/total)*100) : 0;
+  const utilization = total > 0 ? Math.round((billable/total)*100) : 100;
+  const dropPct = quotedRate > 0 ? Math.round(((quotedRate - trueHourly)/quotedRate)*100) : 0;
+
+  // Hero class
+  let heroClass = 'fair';
+  if(dropPct > 55) heroClass = 'shock';
+  else if(dropPct > 40) heroClass = 'low';
+  else if(dropPct < 25) heroClass = 'strong';
+
+  return { quotedRate, annualGross, afterExp, annualNet, trueHourly, trueHourlyWithBenefit, benefitGap, recommendedRate,
+    unpaidPct, utilization, dropPct, heroClass, annualExp, taxRate, weeksWorked,
+    totalHoursWorked, billable };
+}
+
+function fmt(n){ return '$'+Math.round(Math.abs(n)).toLocaleString(); }
+function fmtHr(n){ return '$'+Math.round(Math.abs(n)); }
+
+function showResult(){
+  const r = calcRate();
+
+  const verdictText = r.dropPct > 55 ? '😮 Significantly undercharging' :
+                      r.dropPct > 40 ? '⚠️ Below sustainable rate' :
+                      r.dropPct > 25 ? '→ Room to improve' : '✓ Solid rate structure';
+
+  const whyItems = [
+    `Quoted rate: ${fmtHr(r.quotedRate)}/hr × ${r.billable} billable hrs × ${r.weeksWorked} working weeks = ${fmt(r.annualGross)} annual gross`,
+    `Business expenses (${fmt(r.annualExp)}/yr) reduce gross to ${fmt(r.afterExp)}`,
+    `After estimated taxes (${Math.round(r.taxRate*100)}% effective rate): ${fmt(r.annualNet)} annual take-home`,
+    `Spread across ${r.totalHoursWorked.toLocaleString()} total working hours (including ${r.unpaidPct}% unpaid) = ${fmtHr(r.trueHourly)}/hr true rate`,
+  ];
+
+  const steps = r.dropPct > 35 ? [
+    { title:`Raise your rate to at least ${fmtHr(r.recommendedRate)}/hr`, desc:'This is the minimum rate to truly match your current take-home expectations after all costs.' },
+    { title:'Reduce unpaid hours', desc:`You spend ${r.unpaidPct}% of work time on non-billable tasks. Systematize admin, use templates, batch invoicing.` },
+    { title:'Track all deductible expenses', desc:`Every ${fmt(r.annualExp/12)}/month in expenses reduces your tax bill — only if you document them.` },
+  ] : [
+    { title:'Review your rate annually', desc:'At minimum, raise by CPI inflation (3–5%) each year to maintain purchasing power.' },
+    { title:'Switch high-hour clients to project pricing', desc:'Project rates reward your efficiency and remove the hourly ceiling.' },
+    { title:'Calculate your LLC or S-Corp savings', desc:`At ${fmt(r.annualNet)} net income, a tax structure change could save you thousands.` },
+  ];
+
+  const html = `
+    <div class="rate-hero ${r.heroClass}">
+      <div class="rate-hero-label">Your True Hourly Take-Home Rate</div>
+      <div class="rate-hero-amount">${fmtHr(r.trueHourly)}/hr</div>
+      <div class="rate-hero-sub">what you actually keep after taxes, expenses & unpaid hours</div>
+      <div class="rate-hero-quoted">vs. your quoted rate of ${fmtHr(r.quotedRate)}/hr — a ${r.dropPct}% drop</div>
+      <div class="rate-verdict">${verdictText}</div>
+    </div>
+
+    <div class="rate-compare">
+      <div class="rate-box">
+        <div class="rate-box-label">Quoted Rate</div>
+        <div class="rate-box-amount">${fmtHr(r.quotedRate)}/hr</div>
+        <div class="rate-box-sub">What clients see</div>
+      </div>
+      <div class="rate-box">
+        <div class="rate-box-label">True Take-Home Rate</div>
+        <div class="rate-box-amount red">${fmtHr(r.trueHourly)}/hr</div>
+        <div class="rate-box-sub">What you actually keep</div>
+      </div>
+    </div>
+
+    <div class="breakdown-card">
+      <div class="breakdown-header"><h4>💰 Annual Income Breakdown</h4></div>
+      <div class="brow"><div class="brow-label">Gross revenue (${fmtHr(r.quotedRate)} × ${r.billable} hrs × ${r.weeksWorked} wks)</div><div class="brow-val">${fmt(r.annualGross)}</div></div>
+      <div class="brow"><div class="brow-label">Business expenses</div><div class="brow-val red">-${fmt(r.annualExp)}</div></div>
+      <div class="brow subtotal"><div class="brow-label">After expenses</div><div class="brow-val">${fmt(r.afterExp)}</div></div>
+      <div class="brow"><div class="brow-label">Taxes (${Math.round(r.taxRate*100)}% effective rate)</div><div class="brow-val red">-${fmt(r.afterExp*r.taxRate)}</div></div>
+      ${r.benefitGap>0?`<div class="brow"><div class="brow-label">W-2 benefit gap (health insurance, vacation)</div><div class="brow-val red">-${fmt(r.benefitGap)}</div></div>`:''}
+      <div class="brow total"><div class="brow-label">Annual take-home${r.benefitGap>0?' (benefit-adjusted)':''}</div><div class="brow-val green">${fmt(r.benefitGap>0?r.annualNet-r.benefitGap:r.annualNet)}</div></div>
+    </div>
+
+    <div class="hours-visual">
+      <h4>⏱ How Your Working Hours Break Down</h4>
+      <div class="hours-bar-wrap">
+        <div class="hours-bar-label"><span class="hl">Billable hours</span><span class="hr">${r.utilization}% of your time</span></div>
+        <div class="hours-track"><div class="hours-fill billable" style="width:${r.utilization}%"></div></div>
+      </div>
+      <div class="hours-bar-wrap">
+        <div class="hours-bar-label"><span class="hl">Unpaid overhead</span><span class="hr">${r.unpaidPct}% of your time</span></div>
+        <div class="hours-track"><div class="hours-fill admin" style="width:${r.unpaidPct}%"></div></div>
+      </div>
+      <div class="hours-bar-wrap">
+        <div class="hours-bar-label"><span class="hl">Tax equivalent</span><span class="hr">${Math.round(r.taxRate*100)}% of earnings</span></div>
+        <div class="hours-track"><div class="hours-fill tax" style="width:${Math.round(r.taxRate*100)}%"></div></div>
+      </div>
+    </div>
+
+    <div class="why-box">
+      <h4>📋 How we calculated this</h4>
+      ${whyItems.map(item=>`<div class="why-item"><span class="why-check">→</span>${item}</div>`).join('')}
+    </div>
+
+    <div class="target-box">
+      <h4>🎯 To Match Your Quoted Rate — You Need to Charge</h4>
+      <div class="target-grid">
+        <div class="target-stat">
+          <div class="target-num">${fmtHr(r.recommendedRate)}/hr</div>
+          <div class="target-lbl">Minimum rate to truly take home ${fmtHr(r.quotedRate)}/hr equivalent</div>
+        </div>
+        <div class="target-stat">
+          <div class="target-num">${fmtHr(r.recommendedRate * 1.15)}/hr</div>
+          <div class="target-lbl">Recommended rate with 15% buffer for slow months</div>
+        </div>
+      </div>
+    </div>
+
+    ${r.dropPct > 35 ? `
+    <div class="waiting-box">
+      <h4>⏱ Cost of not raising your rate</h4>
+      <div class="waiting-grid">
+        <div class="waiting-stat">
+          <div class="waiting-num">${fmt((r.recommendedRate - r.quotedRate) * r.billable * r.weeksWorked)}</div>
+          <div class="waiting-lbl">Annual revenue left on the table at your current rate</div>
+        </div>
+        <div class="waiting-stat">
+          <div class="waiting-num">${fmt((r.recommendedRate - r.quotedRate) * r.billable * r.weeksWorked * 3)}</div>
+          <div class="waiting-lbl">Lost over 3 years if you don't raise your rate</div>
+        </div>
+      </div>
+    </div>` : ''}
+
+    <div class="social-proof">
+      <strong>71%</strong> of users who calculate their true rate also check: <strong>Quarterly Tax Estimator →</strong>
+    </div>
+
+    <div class="next-steps">
+      <h3>Your Next 3 Actions</h3>
+      ${steps.map((s,i)=>`
+        <div class="step-item">
+          <div class="step-num">${i+1}</div>
+          <div><div class="step-title">${s.title}</div><div class="step-desc">${s.desc}</div></div>
+        </div>`).join('')}
+    </div>
+  `;
+
+  document.getElementById('result-content').innerHTML=html;
+  document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('active'));
+  document.getElementById('result-card').classList.add('active');
+  document.getElementById('prog-fill').style.width='100%';
+  document.getElementById('prog-label').textContent='5 of 5';
+  setTimeout(()=>document.getElementById('result-card').scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function subEmail(){
+  const v=document.getElementById('email-inp').value;
+  if(!v||!v.includes('@')){document.getElementById('email-inp').style.borderColor='#FECACA';return;}
+  document.getElementById('email-ok').style.display='block';
+  document.getElementById('email-inp').disabled=true;
+  document.querySelector('.btn-email').textContent='Sent ✓';
+  document.querySelector('.btn-email').disabled=true;
+}
+
+function restart(){
+  Object.keys(d).forEach(k=>d[k]=typeof d[k]==='number'?0:'');
+  document.getElementById('quoted-rate').value='';
+  document.getElementById('rate-sl').value=75;
+  document.getElementById('billable-hrs').value='';
+  document.getElementById('total-hrs').value='';
+  document.getElementById('monthly-exp').value='';
+  document.getElementById('exp-sl').value=500;
+  document.getElementById('unpaid-note').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  ['q4','q5'].forEach(q=>{const b=document.getElementById(`${q}-next`);if(b)b.disabled=true;});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  goTo(1);
+}
+
+function tf(btn){ btn.closest('.faq-item').classList.toggle('open'); }
+</script>
+</body>
+</html>
