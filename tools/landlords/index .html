@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | Monetools</title>
+<meta name="description" content="New tools coming soon on Monetools. Free financial decision tools for the self-employed, landlords, and side hustlers.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#0F1F3D;color:#fff;min-height:100vh;display:flex;flex-direction:column;}
+nav{padding:18px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.1);}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:#E8A838;}
+.main{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 24px;}
+.inner{max-width:480px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E8A838;margin-bottom:20px;display:block;}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(32px,6vw,48px);line-height:1.2;margin-bottom:16px;}
+p{font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:32px;}
+.email-row{display:flex;gap:8px;max-width:380px;margin:0 auto 12px;}
+.email-inp{flex:1;padding:12px 14px;border:1.5px solid rgba(255,255,255,0.2);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-family:'Inter',sans-serif;font-size:14px;outline:none;}
+.email-inp::placeholder{color:rgba(255,255,255,0.35);}
+.email-inp:focus{border-color:#E8A838;}
+.btn{background:#E8A838;color:#0F1F3D;border:none;padding:12px 20px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.btn:hover{background:#F5C05A;}
+.email-note{font-size:12px;color:rgba(255,255,255,0.3);}
+.back-link{display:inline-flex;align-items:center;gap:6px;margin-top:32px;font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;}
+.back-link:hover{color:#fff;}
+#confirm{display:none;margin-top:10px;font-size:13px;color:#E8A838;}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="../../index.html">Mone<span>tools</span></a>
+</nav>
+<div class="main">
+  <div class="inner">
+    <span class="eyebrow">Coming Soon</span>
+    <h1>These tools are on their way.</h1>
+    <p>We're building more decision tools for this audience. Enter your email and we'll notify you the moment they launch.</p>
+    <div class="email-row">
+      <input type="email" class="email-inp" placeholder="your@email.com" id="email-inp">
+      <button class="btn" onclick="sub()">Notify Me</button>
+    </div>
+    <div id="confirm">✓ You're on the list — we'll be in touch.</div>
+    <div class="email-note">No spam. Unsubscribe anytime.</div>
+    <a class="back-link" href="../../index.html">← Back to all tools</a>
+  </div>
+</div>
+<script>
+function sub(){
+  const v=document.getElementById('email-inp').value;
+  if(!v||!v.includes('@')){document.getElementById('email-inp').style.borderColor='#FCA5A5';return;}
+  document.getElementById('confirm').style.display='block';
+  document.getElementById('email-inp').disabled=true;
+  document.querySelector('.btn').textContent='Done ✓';
+  document.querySelector('.btn').disabled=true;
+}
+</script>
+</body>
+</html>
