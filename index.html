@@ -49,6 +49,8 @@ nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;jus
 .card-title{font-family:'Instrument Serif',serif;font-size:22px;color:var(--navy);margin-bottom:8px;}
 .card-desc{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:16px;}
 .card-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.tool-pill a{color:inherit;text-decoration:none;}
+a.tool-pill{display:inline-block;}
 .tool-pill{font-size:11px;font-weight:500;padding:4px 10px;background:var(--cream);border:1px solid var(--border);border-radius:999px;color:var(--text-muted);}
 .card-cta{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--navy);}
 .card-badge-live{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:#D1FAE5;color:#065F46;padding:4px 10px;border-radius:999px;}
@@ -116,7 +118,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 <nav>
   <div class="logo">Mone<span>tools</span></div>
   <div class="nav-links">
-    <a class="nav-link" href="tools/self-employed/">Self-Employed</a>
+    <a class="nav-link" href="/tools/self-employed/">Self-Employed</a>
     <a class="nav-link" href="#">Landlords</a>
     <a class="nav-link" href="#">Side Hustlers</a>
     <a class="nav-link" href="#">Blog</a>
@@ -142,22 +144,22 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   <p class="section-sub">Each group has different questions. Pick the one that fits you.</p>
 
   <div class="audience-grid">
-    <a class="audience-card" href="tools/self-employed/">
+    <a class="audience-card" href="/tools/self-employed/">
       <div class="card-badge-live">5 Tools Live</div>
       <div class="card-icon">💼</div>
       <div class="card-audience">Freelancer · Consultant · 1099 Contractor</div>
       <div class="card-title">Self-Employed & Solopreneur</div>
       <div class="card-desc">Navigating LLC formation, S-Corp taxes, quarterly payments, and pricing — without a finance degree.</div>
       <div class="card-tools">
-        <span class="tool-pill">LLC Assessment</span>
-        <span class="tool-pill">LLC vs S-Corp</span>
-        <span class="tool-pill">Quarterly Tax</span>
-        <span class="tool-pill">+ 2 more</span>
+        <a class="tool-pill" href="/tools/self-employed/should-i-form-an-llc.html" onclick="event.stopPropagation()">LLC Assessment</a>
+        <a class="tool-pill" href="/tools/self-employed/llc-vs-s-corp.html" onclick="event.stopPropagation()">LLC vs S-Corp</a>
+        <a class="tool-pill" href="/tools/self-employed/quarterly-tax-estimator.html" onclick="event.stopPropagation()">Quarterly Tax</a>
+        <a class="tool-pill" href="/tools/self-employed/" onclick="event.stopPropagation()">+ 2 more</a>
       </div>
       <div class="card-cta">Explore tools →</div>
     </a>
 
-    <a class="audience-card" href="tools/side-hustlers/">
+    <a class="audience-card coming-soon" href="#" onclick="return false;">
       <div class="card-badge-soon">Coming Soon</div>
       <div class="card-icon">🛍️</div>
       <div class="card-audience">Etsy · Gig Worker · Creator</div>
@@ -171,7 +173,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
       <div class="card-cta">Coming soon</div>
     </a>
 
-    <a class="audience-card" href="tools/landlords/">
+    <a class="audience-card coming-soon" href="#" onclick="return false;">
       <div class="card-badge-soon">Coming Soon</div>
       <div class="card-icon">🏠</div>
       <div class="card-audience">Airbnb · Long-term Rental</div>
@@ -185,7 +187,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
       <div class="card-cta">Coming soon</div>
     </a>
 
-    <div class="audience-card coming-soon">
+    <div class="audience-card coming-soon" style="cursor:default;">
       <div class="card-badge-soon">Coming Soon</div>
       <div class="card-icon">🏢</div>
       <div class="card-audience">LLC · Small Team</div>
@@ -208,20 +210,20 @@ footer{background:var(--navy);padding:32px;text-align:center;}
     <h2 class="section-title" style="text-align:center;">Start here</h2>
 
     <div class="tools-grid">
-      <a class="tool-card" href="tools/self-employed/should-i-form-an-llc.html">
+      <a class="tool-card" href="/tools/self-employed/should-i-form-an-llc.html">
         <div class="tool-card-tag">Self-Employed · Assessment</div>
         <div class="tool-card-name">Business Structure Readiness Assessment</div>
         <div class="tool-card-desc">Should you form an LLC right now — or wait? Get a stage-specific recommendation in 2 minutes.</div>
         <div class="tool-card-link">Take assessment →</div>
       </a>
-      <a class="tool-card" href="tools/self-employed/llc-vs-s-corp.html">
+      <a class="tool-card" href="/tools/self-employed/llc-vs-s-corp.html">
         <div class="tool-card-tag">Self-Employed · Calculator</div>
         <div class="tool-card-name">LLC vs S-Corp Tax Savings Calculator</div>
         <div class="tool-card-desc">Enter your income and see exactly how much you'd save — or lose — by electing S-Corp status.</div>
         <div class="tool-card-link">Calculate savings →</div>
       </a>
-      <a class="tool-card" href="tools/self-employed/">
-        <div class="tool-card-tag">Self-Employed · Coming Soon</div>
+      <a class="tool-card" href="/tools/self-employed/quarterly-tax-estimator.html">
+        <div class="tool-card-tag">Self-Employed · Live</div>
         <div class="tool-card-name">Quarterly Tax Estimator</div>
         <div class="tool-card-desc">How much do you owe the IRS this quarter? Get a personalized estimate with a payment calendar.</div>
         <div class="tool-card-link">Coming soon →</div>
