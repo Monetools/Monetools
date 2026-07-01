@@ -530,16 +530,6 @@ input[type=range]::-webkit-slider-thumb {
   text-align: center; font-size: 12px; color: var(--text-muted);
   padding: 0 24px 40px; opacity: 0.6; line-height: 1.5;
 }
-
-/* AFFILIATE BLOCKS */
-.affiliate-section{margin-bottom:16px;}
-.affiliate-section h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
-.affiliate-block{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;text-decoration:none;transition:all 0.15s;background:var(--green-bg);border:1px solid var(--green-border);}
-.affiliate-block:hover{transform:translateX(2px);border-color:var(--sage);}
-.affiliate-block-pending{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;background:var(--cream);border:1px solid var(--border);}
-.affiliate-block-name{font-size:14px;font-weight:600;color:var(--sage);margin-bottom:3px;}
-.affiliate-block-pending .affiliate-block-name{color:var(--text-muted);}
-.affiliate-block-desc{font-size:12px;color:#374151;line-height:1.4;}
 </style>
 </head>
 <body>
@@ -666,13 +656,7 @@ input[type=range]::-webkit-slider-thumb {
 
   <h2 class="seo-h2" id="mistakes">5 Common Mistakes When Forming an LLC</h2>
   <h3 class="seo-h3">1. Mixing personal and business money</h3>
-  <p class="seo-p">The moment you form an LLC, open a dedicated business bank account. Commingling funds is the most common way to "pierce the corporate veil" — meaning a court can hold you personally liable despite having an LLC. Concretely, a compliant setup looks like this:</p>
-  <ul class="seo-ul">
-    <li><strong>Separate accounts, no exceptions:</strong> All client payments go into the business account; all business expenses are paid from it. Never pay personal bills directly from business funds, even "just this once."</li>
-    <li><strong>Owner draws, not direct spending:</strong> If you need money for personal use, transfer it to your personal account as a formal "owner's draw," then spend from there — don't swipe the business card for personal purchases.</li>
-    <li><strong>Keep a paper trail:</strong> Save receipts and categorize every transaction monthly (Wave or QuickBooks). If your LLC is ever challenged in court, clean records are your strongest evidence that you treated the business as a separate entity.</li>
-    <li><strong>Don't use personal credit for business purchases:</strong> Get a dedicated business credit card once revenue supports it — mixing personal credit lines into business spending blurs the separation further.</li>
-  </ul>
+  <p class="seo-p">The moment you form an LLC, open a dedicated business bank account. Commingling funds is the most common way to "pierce the corporate veil" — meaning a court can hold you personally liable despite having an LLC.</p>
   <h3 class="seo-h3">2. Forming in the wrong state</h3>
   <p class="seo-p">Delaware and Wyoming are popular, but if you operate in California, New York, or another state, you'll likely need to register there anyway as a foreign LLC — paying twice.</p>
   <h3 class="seo-h3">3. Electing S-Corp too early</h3>
@@ -903,7 +887,7 @@ input[type=range]::-webkit-slider-thumb {
           <button class="btn-email" onclick="submitEmail()">Send Me the Pack</button>
         </div>
         <div id="email-confirm" style="display:none;margin-top:10px;font-size:13px;color:var(--amber-light);">✓ Got it — check your inbox in the next few minutes.</div>
-        <div class="email-note">Free. No spam. Unsubscribe anytime. We only use your email to send this guide and occasional tool updates — never sold or shared.</div>
+        <div class="email-note">Free. No spam. Unsubscribe anytime.</div>
       </div>
 
       <div class="next-tools">
@@ -1296,14 +1280,6 @@ function showResult() {
   `;
 
   document.getElementById('result-content').innerHTML = html;
-
-  // Populate affiliate blocks based on stage
-  const stage = computeStage();
-  const showLLC = (stage === 'stage2' || stage === 'stage3' || stage === 'stage4');
-  document.getElementById('affiliate-llc-formation').innerHTML =
-    showLLC ? renderAffiliateBlock('llcFormation') : '';
-  document.getElementById('affiliate-banking').innerHTML =
-    showLLC ? renderAffiliateBlock('businessBanking') : '';
   document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
   document.getElementById('result-card').classList.add('active');
   document.getElementById('progress-fill').style.width = '100%';
@@ -1339,6 +1315,5 @@ function toggleFaq(btn) {
   item.classList.toggle('open');
 }
 </script>
-<script src="../../affiliate-config.js"></script>
 </body>
 </html>
