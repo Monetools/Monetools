@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Employed & Freelancer Guides 2026 | Monetools Blog</title>
+<meta name="description" content="Free guides on LLC formation, S-Corp taxes, quarterly payments, and freelance pricing — updated for 2026.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{--navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;--white:#fff;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover{color:#fff;}
+
+.breadcrumb{max-width:860px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+
+.hero{background:var(--navy);padding:56px 24px;}
+.hero-inner{max-width:860px;margin:0 auto;}
+.hero-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:block;}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(28px,5vw,44px);color:#fff;line-height:1.2;margin-bottom:12px;}
+.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:540px;line-height:1.7;}
+
+.content{max-width:860px;margin:0 auto;padding:48px 24px;}
+
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.filter-btn{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:500;border:1.5px solid var(--border);background:var(--white);color:var(--text-muted);cursor:pointer;transition:all 0.15s;}
+.filter-btn.active,.filter-btn:hover{border-color:var(--navy);color:var(--navy);background:var(--white);}
+
+.articles-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:600px){.articles-grid{grid-template-columns:1fr;}}
+
+.article-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;text-decoration:none;display:block;transition:all 0.15s;}
+.article-card:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,0.08);}
+.article-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;display:block;}
+.article-title{font-family:'Instrument Serif',serif;font-size:20px;color:var(--navy);line-height:1.3;margin-bottom:8px;}
+.article-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;}
+.article-meta{font-size:12px;color:var(--text-muted);display:flex;gap:12px;}
+.article-read{font-size:13px;font-weight:600;color:var(--navy);margin-top:14px;display:flex;align-items:center;gap:5px;}
+
+.tool-cta{background:var(--navy);border-radius:14px;padding:28px;margin-top:48px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;margin-bottom:6px;}
+.tool-cta-text p{font-size:14px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:12px 22px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;}
+
+footer{background:var(--navy);padding:28px;text-align:center;margin-top:64px;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:6px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.5;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link" href="/tools/self-employed/">Tools</a>
+    <a class="nav-link" href="/blog/self-employed/" style="color:#fff">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>Blog<span>›</span>Self-Employed
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Self-Employed & Freelancer Guides</span>
+    <h1>Free Guides for Freelancers & Solopreneurs</h1>
+    <p>Clear, practical guides on LLC formation, S-Corp taxes, quarterly payments, and pricing — updated for 2026 tax rules.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterArticles('all')">All Topics</button>
+    <button class="filter-btn" onclick="filterArticles('llc')">LLC Formation</button>
+    <button class="filter-btn" onclick="filterArticles('scorp')">S-Corp</button>
+    <button class="filter-btn" onclick="filterArticles('tax')">Quarterly Tax</button>
+    <button class="filter-btn" onclick="filterArticles('pricing')">Pricing</button>
+  </div>
+
+  <div class="articles-grid" id="articles-grid">
+
+    <a class="article-card" href="/blog/self-employed/should-i-form-an-llc.html" data-tag="llc">
+      <span class="article-tag">LLC Formation</span>
+      <div class="article-title">Should I Form an LLC as a Freelancer? The Complete 2026 Guide</div>
+      <div class="article-desc">Income thresholds, state costs, common mistakes, and when an LLC actually makes sense for your freelance business.</div>
+      <div class="article-meta"><span>June 2026</span><span>9 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/llc-vs-scorp.html" data-tag="scorp">
+      <span class="article-tag">S-Corp</span>
+      <div class="article-title">LLC vs S-Corp: Which Saves More Tax in 2026?</div>
+      <div class="article-desc">The real savings calculation — including compliance costs most articles leave out — and the income threshold where S-Corp actually pays off.</div>
+      <div class="article-meta"><span>June 2026</span><span>10 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/quarterly-taxes.html" data-tag="tax">
+      <span class="article-tag">Quarterly Tax</span>
+      <div class="article-title">How to Pay Quarterly Taxes as a Self-Employed Person (2026)</div>
+      <div class="article-desc">Deadlines, Safe Harbor rule, how to calculate what you owe, and how to pay — including the QBI deduction most calculators miss.</div>
+      <div class="article-meta"><span>June 2026</span><span>8 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/true-hourly-rate.html" data-tag="pricing">
+      <span class="article-tag">Pricing</span>
+      <div class="article-title">What's My True Hourly Rate as a Freelancer?</div>
+      <div class="article-desc">Your quoted rate and your true take-home rate are very different numbers. Here's the real math — and what you should charge instead.</div>
+      <div class="article-meta"><span>June 2026</span><span>8 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/scorp-readiness.html" data-tag="scorp">
+      <span class="article-tag">S-Corp</span>
+      <div class="article-title">S-Corp Readiness Checklist: Are You Actually Ready to Elect?</div>
+      <div class="article-desc">Five dimensions of readiness — income, salary research, business structure, compliance infrastructure, and state rules.</div>
+      <div class="article-meta"><span>June 2026</span><span>9 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/how-to-file-form-2553.html" data-tag="scorp">
+      <span class="article-tag">S-Corp</span>
+      <div class="article-title">How to File Form 2553 Step by Step (2026)</div>
+      <div class="article-desc">Every field explained, every deadline, where to mail it, and what to do if you missed the March 15 deadline.</div>
+      <div class="article-meta"><span>June 2026</span><span>8 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/self-employed-tax-deductions.html" data-tag="tax">
+      <span class="article-tag">Tax Deductions</span>
+      <div class="article-title">Self-Employed Tax Deductions Checklist 2026</div>
+      <div class="article-desc">Every deductible expense category — home office, equipment, retirement contributions, QBI deduction, and the ones most freelancers miss.</div>
+      <div class="article-meta"><span>June 2026</span><span>9 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/best-business-bank-accounts.html" data-tag="llc">
+      <span class="article-tag">LLC Formation</span>
+      <div class="article-title">Best Business Bank Accounts for Freelancers 2026</div>
+      <div class="article-desc">Mercury, Relay, Chase, Novo, and Bluevine — honest comparison of fees, features, and who each one suits.</div>
+      <div class="article-meta"><span>June 2026</span><span>8 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/scorp-reasonable-salary.html" data-tag="scorp">
+      <span class="article-tag">S-Corp</span>
+      <div class="article-title">How to Set Your S-Corp Reasonable Salary in 2026</div>
+      <div class="article-desc">The #1 audit trigger for S-Corp owners — how to find a defensible salary using BLS data and document it properly.</div>
+      <div class="article-meta"><span>June 2026</span><span>9 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+    <a class="article-card" href="/blog/self-employed/safe-harbor-rule.html" data-tag="tax">
+      <span class="article-tag">Quarterly Tax</span>
+      <div class="article-title">Safe Harbor Rule Explained — Avoid Underpayment Penalties</div>
+      <div class="article-desc">How the Safe Harbor rule eliminates IRS underpayment penalties — even if you owe thousands more at year-end.</div>
+      <div class="article-meta"><span>June 2026</span><span>7 min read</span></div>
+      <div class="article-read">Read guide →</div>
+    </a>
+
+  </div>
+
+  <div class="tool-cta">
+    <div class="tool-cta-text">
+      <h3>Don't just read — get a decision.</h3>
+      <p>Our free tools turn your numbers into a personalized recommendation in 2 minutes.</p>
+    </div>
+    <a class="tool-cta-btn" href="/tools/self-employed/">Explore Tools →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">Monetools tools and content are provided for informational and educational purposes only.<br>Results are estimates. We recommend consulting a qualified CPA before making financial decisions.</div>
+</footer>
+
+<script>
+function filterArticles(tag) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(card => {
+    if (tag === 'all' || card.dataset.tag === tag) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
