@@ -377,7 +377,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   </div>
 
   <h2 class="seo-h2" id="how-it-works">How the LLC vs S-Corp Tax Difference Actually Works</h2>
+<<<<<<< HEAD
   <p class="seo-p">As a single-member LLC, all of your net business income flows through to your personal tax return as self-employment income. You pay self-employment (SE) tax at 15.3% on the first $184,500 of net earnings (2026 rate), plus 2.9% Medicare on everything above that. On $100,000 net income, that's roughly $14,130 in SE tax alone — before income tax.</p>
+=======
+  <p class="seo-p">As a single-member LLC, all of your net business income flows through to your personal tax return as self-employment income. You pay self-employment (SE) tax at 15.3% on the first $176,100 of net earnings (2026 rate), plus 2.9% Medicare on everything above that. On $100,000 net income, that's roughly $14,130 in SE tax alone — before income tax.</p>
+>>>>>>> 6835bef2958dbbed68dcc863076ac19c1fa4d7e8
   <p class="seo-p">When you elect S-Corp status for your LLC, the structure changes. You must pay yourself a "reasonable salary" as a W-2 employee. Only the salary portion is subject to payroll taxes (equivalent to SE tax). The remaining profit can be taken as an owner distribution — which is <strong>not subject to payroll tax</strong>. That's where the savings come from.</p>
 
   <div class="callout info">
@@ -671,7 +675,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">Does S-Corp status affect my ability to contribute to a Solo 401(k)? <span class="faq-icon">+</span></button>
+<<<<<<< HEAD
     <div class="faq-a">Yes, and this is one of the underappreciated benefits. With an S-Corp, your Solo 401(k) contribution limits are based on your W-2 salary, not your total business profit. As an employee, you can contribute up to $24,500 (2026 limit) in elective deferrals, plus the business can make an employer contribution of up to 25% of your W-2 salary. Total combined limit is $70,000 in 2026. Properly structured, this can significantly reduce your taxable income beyond just the SE tax savings.</div>
+=======
+    <div class="faq-a">Yes, and this is one of the underappreciated benefits. With an S-Corp, your Solo 401(k) contribution limits are based on your W-2 salary, not your total business profit. As an employee, you can contribute up to $23,500 (2026 limit) in elective deferrals, plus the business can make an employer contribution of up to 25% of your W-2 salary. Total combined limit is $70,000 in 2026. Properly structured, this can significantly reduce your taxable income beyond just the SE tax savings.</div>
+>>>>>>> 6835bef2958dbbed68dcc863076ac19c1fa4d7e8
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">Can I convert back from S-Corp to a regular LLC? <span class="faq-icon">+</span></button>
@@ -757,7 +765,11 @@ function calcTax() {
   const cpa = data.cpa;
 
   // SE tax rates 2026
+<<<<<<< HEAD
   const SS_LIMIT = 184500;
+=======
+  const SS_LIMIT = 176100;
+>>>>>>> 6835bef2958dbbed68dcc863076ac19c1fa4d7e8
   const SS_RATE = 0.124;
   const MEDICARE_RATE = 0.029;
   const ADDL_MEDICARE = 0.009; // above $200k
@@ -926,7 +938,11 @@ function showResult() {
 
   const steps = isAlreadyScorp ? [
     { title: 'Verify your salary split', desc: `Your ${r.salaryPct}% salary ratio — check it against BLS wage data for your role.` },
+<<<<<<< HEAD
     { title: 'Maximize Solo 401(k)', desc: `Contribute up to $24,500 as employee + 25% of your $${r.salary.toLocaleString()} salary as employer match.` },
+=======
+    { title: 'Maximize Solo 401(k)', desc: `Contribute up to $23,500 as employee + 25% of your $${r.salary.toLocaleString()} salary as employer match.` },
+>>>>>>> 6835bef2958dbbed68dcc863076ac19c1fa4d7e8
     { title: 'Review annually', desc: 'As income grows, adjust your salary and distribution split to stay optimized.' }
   ] : isWorthIt ? [
     { title: 'File Form 2553', desc: 'File with the IRS by March 15 for current-year election. Available free at IRS.gov.' },
