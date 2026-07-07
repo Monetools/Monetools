@@ -540,6 +540,15 @@ input[type=range]::-webkit-slider-thumb {
 .affiliate-block-name{font-size:14px;font-weight:600;color:var(--sage);margin-bottom:3px;}
 .affiliate-block-pending .affiliate-block-name{color:var(--text-muted);}
 .affiliate-block-desc{font-size:12px;color:#374151;line-height:1.4;}
+.faq-section{max-width:760px;margin:0 auto;padding:56px 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
 </style>
 </head>
 <body>
@@ -963,7 +972,7 @@ input[type=range]::-webkit-slider-thumb {
   <h2>Frequently Asked Questions</h2>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       Can I form an LLC myself or do I need a lawyer?
       <span class="faq-icon">+</span>
     </button>
@@ -971,7 +980,7 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       Does forming an LLC reduce my taxes?
       <span class="faq-icon">+</span>
     </button>
@@ -979,7 +988,7 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       What's the difference between an LLC and an S-Corp?
       <span class="faq-icon">+</span>
     </button>
@@ -987,7 +996,7 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       Should I form an LLC in Delaware or Wyoming to save money?
       <span class="faq-icon">+</span>
     </button>
@@ -995,7 +1004,7 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       How much does it cost to maintain an LLC annually?
       <span class="faq-icon">+</span>
     </button>
@@ -1003,7 +1012,7 @@ input[type=range]::-webkit-slider-thumb {
   </div>
 
   <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">
+    <button class="faq-q" onclick="tf(this)">
       When should I move from LLC to S-Corp?
       <span class="faq-icon">+</span>
     </button>
@@ -1338,6 +1347,7 @@ function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   item.classList.toggle('open');
 }
+function tf(btn){ btn.closest('.faq-item').classList.toggle('open'); }
 </script>
 <script src="../../affiliate-config.js"></script>
 </body>
