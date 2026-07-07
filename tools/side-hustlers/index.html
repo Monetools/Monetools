@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Tools for Side Hustlers & Gig Workers 2026 | Monetools</title>
+<meta name="description" content="Free financial decision tools for side hustlers and gig workers. Calculate your true tax on side income, see what you actually keep from gig work, and find out when you can safely quit your job.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{
+  --navy:#0F1F3D;--navy-mid:#1A3260;--amber:#E8A838;--amber-light:#F5C05A;
+  --cream:#F9F7F2;--warm-gray:#E8E4DC;--text:#1A1A2E;--text-muted:#6B7280;
+  --white:#fff;--border:#D4CFC6;--green:#059669;--sage:#2D6A4F;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+
+.breadcrumb{max-width:900px;margin:0 auto;padding:16px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--navy);}
+.breadcrumb span{margin:0 6px;}
+
+.hero{background:var(--navy);padding:60px 24px 70px;text-align:center;}
+.hero-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:18px;}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,42px);color:#fff;line-height:1.2;max-width:580px;margin:0 auto 14px;}
+.hero p{font-size:16px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto;line-height:1.7;}
+
+/* JOURNEY */
+.journey-section{max-width:900px;margin:0 auto;padding:64px 24px 0;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+.section-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.section-sub{font-size:15px;color:var(--text-muted);line-height:1.6;margin-bottom:40px;}
+.journey-path{display:flex;flex-direction:column;gap:0;}
+.journey-step{display:grid;grid-template-columns:48px 1fr;gap:20px;position:relative;}
+.journey-left{display:flex;flex-direction:column;align-items:center;}
+.journey-num{width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--amber);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;}
+.journey-line{flex:1;width:2px;background:var(--border);margin:4px 0;}
+.journey-step:last-child .journey-line{display:none;}
+.journey-content{padding-bottom:32px;}
+.journey-stage{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.journey-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.journey-desc{font-size:14px;color:var(--text-muted);line-height:1.6;margin-bottom:12px;}
+.journey-tool-link{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:var(--white);border:1.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.15s;}
+.journey-tool-link:hover{border-color:var(--navy);}
+.journey-tool-link.live .tool-name{font-size:13px;font-weight:600;color:var(--navy);}
+.journey-tool-link.soon .tool-name{font-size:13px;font-weight:500;color:var(--text-muted);}
+.journey-tool-link .tool-badge{font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;}
+.journey-tool-link.live .tool-badge{background:#D1FAE5;color:#065F46;}
+.journey-tool-link.soon .tool-badge{background:var(--warm-gray);color:var(--text-muted);}
+
+/* TOOLS GRID */
+.tools-section{max-width:900px;margin:0 auto;padding:64px 24px 0;}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:24px;text-decoration:none;display:block;transition:all 0.2s;position:relative;}
+.tool-card:hover{border-color:var(--navy);transform:translateY(-2px);box-shadow:0 6px 20px rgba(15,31,61,0.08);}
+.tool-status{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:14px;}
+.tool-status.live{background:#D1FAE5;color:#065F46;}
+.tool-status.soon{background:var(--warm-gray);color:var(--text-muted);}
+.tool-icon{font-size:28px;margin-bottom:10px;}
+.tool-name{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+.tool-desc{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;}
+.tool-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.tool-tag{font-size:11px;font-weight:500;color:var(--text-muted);background:var(--cream);border:1px solid var(--border);padding:3px 9px;border-radius:999px;}
+.tool-cta{font-size:13px;font-weight:700;color:var(--navy);}
+
+/* WHAT'S DIFFERENT */
+.diff-section{max-width:900px;margin:0 auto;padding:64px 24px 0;}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:32px;}
+@media(max-width:640px){.diff-grid{grid-template-columns:1fr;}}
+.diff-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.diff-icon{font-size:24px;margin-bottom:10px;}
+.diff-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.diff-desc{font-size:13px;color:var(--text-muted);line-height:1.6;}
+
+/* FAQ */
+.faq-section{max-width:900px;margin:0 auto;padding:64px 24px 80px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:500;color:var(--text);text-align:left;gap:16px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:20px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 18px;font-size:14px;color:var(--text-muted);line-height:1.8;}
+.faq-item.open .faq-a{display:block;}
+
+/* EMAIL CTA */
+.email-section{background:var(--navy);padding:56px 24px;text-align:center;margin-top:64px;}
+.email-inner{max-width:480px;margin:0 auto;}
+.email-section h2{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,30px);color:#fff;margin-bottom:10px;}
+.email-section p{font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:24px;line-height:1.6;}
+.email-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.email-input{flex:1;min-width:200px;padding:12px 16px;border-radius:8px;border:none;font-size:14px;font-family:'Inter',sans-serif;outline:none;}
+.email-btn{background:var(--amber);color:var(--navy);padding:12px 22px;border-radius:8px;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;}
+
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/side-hustlers/">Side Hustlers</a>
+    <a class="nav-link" href="/tools/self-employed/">Self-Employed</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>Tools<span>›</span>Side Hustlers
+</div>
+
+<div class="hero">
+  <span class="hero-eyebrow">Side Hustler · Gig Worker · 1099 + W-2</span>
+  <h1>The real numbers behind your side income</h1>
+  <p>Most side hustle calculators show you gross income. These tools show you what you actually keep — after taxes, costs, and the time you don't get paid for.</p>
+</div>
+
+<!-- JOURNEY -->
+<div class="journey-section">
+  <div class="section-label">Your Side Hustle Journey</div>
+  <h2 class="section-title">Three questions every side hustler needs answered</h2>
+  <p class="section-sub">Whether you're doing gig work on the side or building toward leaving your job, these tools answer the financial questions that matter most.</p>
+
+  <div class="journey-path">
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">1</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Tax · W-2 + Side Income</div>
+        <div class="journey-title">How much tax do I actually owe on my side hustle income?</div>
+        <div class="journey-desc">Most calculators treat all your income the same. But if you have a day job, your side income stacks on top of your salary — and gets taxed at your marginal rate, not your average rate. This tool shows the real number, including what to set aside each quarter.</div>
+        <a class="journey-tool-link live" href="side-hustle-tax-calculator.html">
+          <span class="tool-badge live">Live</span>
+          <span class="tool-name">Side Hustle Tax Calculator →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">2</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Gig Work · DoorDash · Uber Eats · Instacart</div>
+        <div class="journey-title">What do I actually keep per hour from gig work?</div>
+        <div class="journey-desc">Platforms show gross earnings. After mileage, vehicle wear, taxes, and unpaid wait time, the real number is typically 40–60% of what the app shows. This tool calculates your true hourly rate — and tells you whether your time is actually worth it.</div>
+        <a class="journey-tool-link live" href="gig-worker-calculator.html">
+          <span class="tool-badge live">Live</span>
+          <span class="tool-name">Gig Worker True Earnings Calculator →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="journey-step">
+      <div class="journey-left">
+        <div class="journey-num">3</div>
+        <div class="journey-line"></div>
+      </div>
+      <div class="journey-content">
+        <div class="journey-stage">Exit Strategy · Full-Time Decision</div>
+        <div class="journey-title">Is my side hustle ready to replace my job?</div>
+        <div class="journey-desc">Quitting isn't just about matching your salary — you also lose health insurance, employer 401(k) match, paid leave, and employer-side payroll taxes. This tool calculates your true replacement income threshold and gives you a realistic timeline based on your growth rate.</div>
+        <a class="journey-tool-link live" href="quit-calculator.html">
+          <span class="tool-badge live">Live</span>
+          <span class="tool-name">Side Hustle Quit Calculator →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ALL TOOLS GRID -->
+<div class="tools-section">
+  <div class="section-label">All Tools</div>
+  <h2 class="section-title">Side Hustler Toolkit</h2>
+  <div style="height:24px;"></div>
+  <div class="tools-grid">
+
+    <a class="tool-card" href="side-hustle-tax-calculator.html">
+      <div class="tool-status live">Live</div>
+      <div class="tool-icon">🧮</div>
+      <div class="tool-name">Side Hustle Tax Calculator</div>
+      <div class="tool-desc">W-2 + side income stacking. See exactly how your side hustle income is taxed at your marginal rate — and what to set aside each quarter to avoid surprises.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">5 questions</span>
+        <span class="tool-tag">W-2 + 1099</span>
+        <span class="tool-tag">Quarterly calendar</span>
+      </div>
+      <div class="tool-cta">Calculate my tax →</div>
+    </a>
+
+    <a class="tool-card" href="gig-worker-calculator.html">
+      <div class="tool-status live">Live</div>
+      <div class="tool-icon">🚗</div>
+      <div class="tool-name">Gig Worker True Earnings Calculator</div>
+      <div class="tool-desc">DoorDash, Uber Eats, Instacart, Lyft. Enter your gross earnings and hours — get your true hourly rate after vehicle costs, mileage, and taxes.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">5 questions</span>
+        <span class="tool-tag">6 platforms</span>
+        <span class="tool-tag">True hourly rate</span>
+      </div>
+      <div class="tool-cta">Find my true rate →</div>
+    </a>
+
+    <a class="tool-card" href="quit-calculator.html">
+      <div class="tool-status live">Live</div>
+      <div class="tool-icon">🎯</div>
+      <div class="tool-name">Side Hustle Quit Calculator</div>
+      <div class="tool-desc">Is your side income ready to replace your job? Get your exact quit threshold — including the real cost of lost W-2 benefits — and a projected timeline to get there.</div>
+      <div class="tool-meta">
+        <span class="tool-tag">5 questions</span>
+        <span class="tool-tag">Benefits included</span>
+        <span class="tool-tag">Freedom date</span>
+      </div>
+      <div class="tool-cta">Check my readiness →</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- WHAT'S DIFFERENT -->
+<div class="diff-section">
+  <div class="section-label">Why These Tools</div>
+  <h2 class="section-title">Built for side hustlers specifically</h2>
+  <div class="diff-grid">
+    <div class="diff-card">
+      <div class="diff-icon">📊</div>
+      <div class="diff-title">Marginal rate stacking</div>
+      <div class="diff-desc">Side income stacks on top of your W-2 salary. We calculate tax at your actual marginal rate — not a simplified average. Most calculators get this wrong.</div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-icon">🔍</div>
+      <div class="diff-title">Hidden costs included</div>
+      <div class="diff-desc">Vehicle wear, wait time, lost benefits, SE tax — the costs that don't show up in your platform earnings summary but directly affect what you take home.</div>
+    </div>
+    <div class="diff-card">
+      <div class="diff-icon">✅</div>
+      <div class="diff-title">Decision, not just numbers</div>
+      <div class="diff-desc">Every tool outputs a clear verdict — worth it or not, ready or not — with specific next actions. Not just a number you have to interpret yourself.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2 class="section-title" style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--navy);margin-bottom:24px;">Common Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I have to pay taxes on side hustle income if I have a day job? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes — all self-employment income over $400 per year is taxable, regardless of whether you also have a W-2 job. In fact, having a day job often makes the tax impact worse: your side income stacks on top of your salary, which means it's taxed at your highest marginal rate rather than starting from the bottom of the bracket. Use our Side Hustle Tax Calculator to see your exact combined tax obligation.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I need to make quarterly estimated tax payments on my side hustle? <span class="faq-icon">+</span></button>
+    <div class="faq-a">If you expect to owe more than $1,000 in federal tax from your side income, yes. Since gig platforms and clients don't withhold taxes, you're responsible for paying throughout the year — not just in April. The 2026 quarterly deadlines are April 15, June 16, September 15, and January 15, 2027. Missing these results in underpayment penalties even if you pay your full balance at filing time. Alternatively, you can increase your W-4 withholding at your day job to cover the additional tax.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What expenses can gig workers deduct to reduce their tax bill? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Gig workers can deduct all ordinary and necessary business expenses. The most significant for delivery and rideshare drivers: mileage at the IRS standard rate ($0.725/mile in 2026), the business portion of your phone bill (typically 60–80%), and any supplies or equipment used for gig work. Under the OBBBA (2026), qualifying delivery and rideshare drivers can also deduct up to $25,000 in voluntary tip income from federal taxable income — though all tips must still be reported to the IRS.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How much side hustle income do I need before quitting my job? <span class="faq-icon">+</span></button>
+    <div class="faq-a">More than your salary alone. When you quit, you also lose health insurance, employer 401(k) match, paid time off, and the employer-side payroll taxes your employer currently pays on your behalf. On a $65,000 salary with standard benefits, the true replacement income needed is typically $85,000–$95,000 in gross side income — not $65,000. Most financial advisors also recommend 6 months of emergency savings before leaving a stable job. Use our Side Hustle Quit Calculator to find your specific number.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Are these tools accurate enough to replace a CPA? <span class="faq-icon">+</span></button>
+    <div class="faq-a">These tools are designed to help you understand your tax situation, make informed decisions, and arrive at your CPA meeting with better questions — not to replace professional advice. They use current 2026 IRS rates and guidelines, but state taxes, individual deductions, and prior-year carryovers require a qualified tax professional for exact accuracy. All tools have been independently reviewed by a CPA for calculation logic and compliance.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools and content are provided for informational and educational purposes only. Results are federal tax estimates and may not reflect your individual circumstances.<br>
+    State and local taxes are not included. We recommend consulting a qualified CPA before making financial decisions. 2026 tax figures based on IRS Rev. Proc. 2025-32.
+  </div>
+</footer>
+
+<script>
+function tf(btn){ btn.closest('.faq-item').classList.toggle('open'); }
+</script>
+</body>
+</html>

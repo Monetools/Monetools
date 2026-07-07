@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Side Hustle Quit Calculator 2026 — Is Your Side Income Ready to Replace Your Job? | Monetools</title>
+<meta name="description" content="Free 2026 calculator: is your side hustle ready to replace your full-time job? See the exact monthly income you need, what you're missing, and your realistic timeline to quit — including the real cost of losing W-2 benefits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+input[type=range]{width:100%;height:6px;-webkit-appearance:none;background:var(--warm-gray);border-radius:3px;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--navy);border-radius:50%;cursor:pointer;border:3px solid white;box-shadow:0 0 0 1px var(--navy);}
+.range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px;margin-bottom:16px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:500px){.input-row{grid-template-columns:1fr;}}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+
+/* RESULT */
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.verdict-box{border-radius:16px;padding:28px;margin-bottom:24px;}
+.verdict-box.green{background:var(--green-bg);border:2px solid var(--green-border);}
+.verdict-box.yellow{background:var(--yellow-bg);border:2px solid var(--yellow-border);}
+.verdict-box.red{background:var(--red-bg);border:2px solid var(--red-border);}
+.verdict-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.verdict-box.green .verdict-label{color:var(--sage);}
+.verdict-box.yellow .verdict-label{color:#92400E;}
+.verdict-box.red .verdict-label{color:var(--red);}
+.verdict-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,30px);margin-bottom:10px;line-height:1.2;}
+.verdict-box.green .verdict-title{color:var(--sage);}
+.verdict-box.yellow .verdict-title{color:#92400E;}
+.verdict-box.red .verdict-title{color:#991B1B;}
+.verdict-desc{font-size:14px;line-height:1.6;}
+.verdict-box.green .verdict-desc{color:var(--sage);}
+.verdict-box.yellow .verdict-desc{color:#92400E;}
+.verdict-box.red .verdict-desc{color:#991B1B;}
+
+/* PROGRESS METER */
+.meter-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.meter-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.meter-row{margin-bottom:16px;}
+.meter-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
+.meter-label span:first-child{color:var(--text-muted);}
+.meter-label span:last-child{font-weight:700;color:var(--navy);}
+.meter-track{height:20px;background:var(--warm-gray);border-radius:10px;overflow:hidden;}
+.meter-fill{height:100%;border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:11px;font-weight:700;color:#fff;transition:width 0.8s ease;}
+.fill-green{background:var(--green);}
+.fill-yellow{background:#F59E0B;}
+.fill-red{background:var(--red);}
+
+/* NUMBERS GRID */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.numbers-grid{grid-template-columns:1fr 1fr;}}
+.num-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;}
+.num-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.num-value{font-size:22px;font-weight:800;color:var(--navy);}
+.num-note{font-size:11px;color:var(--text-muted);margin-top:4px;line-height:1.3;}
+
+/* GAP BREAKDOWN */
+.gap-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.gap-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.gap-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+.gap-row:last-child{border-bottom:none;padding-top:14px;margin-top:4px;}
+.gap-label{font-size:13px;color:var(--text-muted);}
+.gap-label.total{font-weight:700;color:var(--navy);}
+.gap-val{font-size:14px;font-weight:600;}
+.gap-val.red{color:var(--red);}
+.gap-val.green{color:var(--green);}
+.gap-val.total{font-size:17px;font-weight:800;color:var(--navy);}
+
+/* TIMELINE */
+.timeline-card{background:var(--navy);border-radius:14px;padding:22px;margin-bottom:20px;}
+.timeline-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:16px;}
+.timeline-row{display:flex;gap:16px;margin-bottom:14px;align-items:flex-start;}
+.timeline-dot{width:32px;height:32px;border-radius:50%;background:var(--amber);color:var(--navy);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.timeline-content{}
+.timeline-when{font-size:12px;font-weight:700;color:var(--amber);margin-bottom:3px;}
+.timeline-what{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.4;}
+
+/* ACTIONS */
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/side-hustlers/">Side Hustlers</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/side-hustlers/">Tools</a><span>›</span>
+  Side Hustle Quit Calculator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Side Hustler · Quit Decision · Freedom Date</span>
+  <h1 class="seo-h1">Side Hustle Quit Calculator 2026</h1>
+  <p class="seo-lead">Thinking about leaving your job to go full-time on your side hustle? This calculator shows you the exact monthly income you need to safely quit, how far you are from that number — and a realistic timeline based on your current growth rate.</p>
+  <div class="callout tip">
+    <strong>The number most people miss:</strong> Quitting your job doesn't just mean replacing your salary. You also lose health insurance, employer 401(k) match, and paid leave — which can add $8,000–$20,000 to the income you actually need.
+  </div>
+  <div class="tool-anchor-label">Start the Calculator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR QUIT READINESS</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Current Job -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your Current Job</div>
+      <div class="q-title">What's your annual salary at your current job?</div>
+      <div class="q-sub">Enter your gross salary. We'll calculate your true net take-home for comparison.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="salary-input" min="0" max="500000" step="1000" placeholder="65,000" oninput="syncSlider('salary-input','salary-sl');checkQ1()">
+      </div>
+      <input type="range" id="salary-sl" min="20000" max="250000" step="1000" value="65000" oninput="syncInput('salary-sl','salary-input');checkQ1()">
+      <div class="range-labels"><span>$20k</span><span>$250k</span></div>
+      <div class="inline-note info">💡 Also include the value of employer-provided benefits. We'll help you calculate this in the next steps.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Benefits -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your W-2 Benefits</div>
+      <div class="q-title">What benefits does your employer provide?</div>
+      <div class="q-sub">Select all that apply. These are the hidden costs you'll need to cover yourself after quitting.</div>
+      <div id="benefits-list">
+        <div class="option" id="ben-health" onclick="toggleBenefit('health')">
+          <div class="opt-radio" id="radio-health"></div>
+          <div class="opt-text">
+            <div class="opt-label">🏥 Health Insurance</div>
+            <div class="opt-desc">Employer-sponsored health coverage (~$500–$800/month to replace)</div>
+          </div>
+        </div>
+        <div class="option" style="margin-top:10px;" id="ben-401k" onclick="toggleBenefit('401k')">
+          <div class="opt-radio" id="radio-401k"></div>
+          <div class="opt-text">
+            <div class="opt-label">💰 401(k) Match</div>
+            <div class="opt-desc">Employer match on retirement contributions (~3–5% of salary)</div>
+          </div>
+        </div>
+        <div class="option" style="margin-top:10px;" id="ben-pto" onclick="toggleBenefit('pto')">
+          <div class="opt-radio" id="radio-pto"></div>
+          <div class="opt-text">
+            <div class="opt-label">🏖️ Paid Time Off</div>
+            <div class="opt-desc">2 weeks PTO = ~4% of annual salary in paid non-working time</div>
+          </div>
+        </div>
+        <div class="option" style="margin-top:10px;" id="ben-other" onclick="toggleBenefit('other')">
+          <div class="opt-radio" id="radio-other"></div>
+          <div class="opt-text">
+            <div class="opt-label">✨ Other Benefits</div>
+            <div class="opt-desc">Dental, vision, life insurance, FSA, commuter benefits, etc.</div>
+          </div>
+        </div>
+      </div>
+      <div class="inline-note info" style="margin-top:12px;">Don't have these benefits? Still continue — we'll calculate your replacement income needs accordingly.</div>
+      <div class="btn-row">
+        <button class="btn-next" onclick="goNext(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q3: Monthly Expenses -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Your Monthly Expenses</div>
+      <div class="q-title">What are your essential monthly expenses?</div>
+      <div class="q-sub">Include rent/mortgage, food, utilities, transportation, minimum debt payments. Don't include discretionary spending.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="expenses-input" min="0" max="20000" step="100" placeholder="3,500" oninput="syncSlider('expenses-input','expenses-sl');checkQ3()">
+      </div>
+      <input type="range" id="expenses-sl" min="1000" max="10000" step="100" value="3500" oninput="syncInput('expenses-sl','expenses-input');checkQ3()">
+      <div class="range-labels"><span>$1k</span><span>$10k</span></div>
+      <div class="inline-note info">💡 Add a 20–30% buffer to this number for unexpected expenses and slow months — freelance income is variable.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Side Hustle Income -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Side Hustle</div>
+      <div class="q-title">How much does your side hustle currently earn per month?</div>
+      <div class="q-sub">Enter your net earnings after business expenses — not gross revenue.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Current Monthly Net Income</div>
+          <div class="input-wrap">
+            <span class="dollar-sign">$</span>
+            <input class="dollar-input" type="number" id="current-income" min="0" max="50000" step="100" placeholder="2,500" oninput="syncSlider('current-income','income-sl');checkQ4()">
+          </div>
+          <input type="range" id="income-sl" min="0" max="20000" step="100" value="2500" oninput="syncInput('income-sl','current-income');checkQ4()">
+          <div class="range-labels"><span>$0</span><span>$20k</span></div>
+        </div>
+        <div>
+          <div class="input-label">Emergency Fund (months of expenses saved)</div>
+          <div class="input-wrap">
+            <input class="dollar-input" type="number" id="runway-input" min="0" max="24" step="1" placeholder="3" oninput="checkQ4()" style="padding-left:14px;">
+          </div>
+          <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">Most financial advisors recommend 6 months before quitting</div>
+        </div>
+      </div>
+      <div id="q4-note" class="inline-note info" style="display:none;"></div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: Growth Rate -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — Your Growth Trajectory</div>
+      <div class="q-title">How fast has your side hustle income been growing?</div>
+      <div class="q-sub">Be honest — this determines your projected freedom date. We'll show you what each growth rate means in real months.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'growth',0.05)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">~5%/month</div><div class="opt-desc">Slow but steady. Typical for part-time side hustlers.</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'growth',0.10)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">~10%/month</div><div class="opt-desc">Solid growth. Actively adding clients or revenue streams.</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'growth',0.20)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">~20%/month</div><div class="opt-desc">Fast growth. Strong demand, scaling quickly.</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'growth',0)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Flat / Inconsistent</div><div class="opt-desc">Not growing yet. Still figuring out the model.</div></div>
+        </div>
+      </div>
+      <div class="inline-note warn">⚠️ Be conservative. Most side hustlers overestimate growth. If unsure, pick one tier lower than you think.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>Calculate My Quit Date →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <h2 class="seo-h2">The Hidden Cost of Quitting: Why Your Side Hustle Needs to Earn More Than Your Salary</h2>
+  <p class="seo-p">The most common mistake side hustlers make when planning their exit: comparing their side hustle income to their gross salary. The actual comparison is more complex — and the number you need is almost always higher than your salary alone.</p>
+  <p class="seo-p">When you quit, you lose employer-provided health insurance (worth $6,000–$15,000/year to replace on the individual market), your employer's 401(k) match (typically 3–5% of salary), paid time off (2–3 weeks = 4–6% of annual salary in paid non-working time), and the employer's half of your payroll taxes (which you now pay yourself as SE tax).</p>
+  <p class="seo-p">On a $65,000 salary with standard benefits, the true replacement income need is often $85,000–$95,000 in gross side hustle revenue — not $65,000. Factor in income variability (freelance income can drop 30–50% in a slow month), and most financial advisors suggest having 6 months of expenses saved and side income consistently at 110–130% of your take-home pay before quitting.</p>
+
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Estimates only — state taxes and benefits not fully included:</strong> This calculator uses federal tax estimates and average benefit costs. State income tax, state disability insurance (e.g. California SDI), and local taxes vary significantly and are not included. Benefits replacement costs (especially health insurance) vary widely by state, age, and plan — the $7,200/year estimate is a national average. Adjust your monthly expenses (Step 3) to reflect your actual costs.</div>
+
+<h2 class="seo-h2">What "Consistently" Means</h2>
+  <p class="seo-p">One good month isn't enough. Most experienced freelancers recommend seeing your target income level maintained for at least 3 consecutive months before quitting. This filters out one-time projects, seasonal spikes, and lucky referral months — and gives you a real signal that the income is structural.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How much should my side hustle make before I quit my job? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The common rule of thumb — "replace your salary" — understates what you actually need. You also need to cover health insurance, self-employment tax (an extra 7.65% you don't pay as a W-2 employee), retirement contributions without an employer match, and income variability. Most financial planners suggest your side hustle should consistently earn 120–130% of your current take-home pay for at least 3 months before quitting. This calculator builds those factors into your specific number.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How much emergency fund do I need before going full-time? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The standard advice for W-2 employees is 3–6 months of expenses. For someone leaving a stable job for freelance or self-employment, 6–12 months is more appropriate — because client acquisition takes time, income can be irregular, and a bad stretch early on can sink the whole endeavor if you don't have runway. Having 6+ months of saved expenses fundamentally changes your ability to make good decisions under pressure when income is slow.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What happens to my taxes when I go full-time self-employed? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Three things change significantly: you now pay the full 15.3% SE tax (instead of splitting it with an employer), you must make quarterly estimated tax payments (no more automatic withholding), and you gain access to powerful deductions — home office, business expenses, health insurance premiums, and Solo 401(k) contributions up to $72,000. At moderate income levels, these deductions partially offset the SE tax increase. Use our <a href="/tools/side-hustlers/side-hustle-tax-calculator.html">Side Hustle Tax Calculator</a> to model your specific situation.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What if my business loses money in the first year? <span class="faq-icon">+</span></button>
+    <div class="faq-a">A first-year loss is common and generally fine — the IRS allows new businesses time to become profitable. However, if your business shows a loss in 3 or more of the first 5 years of operation, the IRS may reclassify it as a "hobby" under the Hobby Loss Rules (IRC Section 183). This would eliminate your ability to deduct business expenses beyond your income from that activity. To protect yourself: maintain professional financial records, document your profit motive in writing, reinvest in the business, and consult a CPA if you approach the 3-loss-in-5-years threshold.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Should I quit cold turkey or transition gradually? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Gradual transition reduces risk significantly. Options include: negotiating part-time or reduced hours with your current employer while scaling the side hustle, taking an unpaid leave of absence, or targeting a natural exit point (end of a project, performance review cycle). Cold turkey quitting — especially before the income threshold is met — is the most common way the transition fails. Having predictable income for 3+ consecutive months at your target level is a much stronger signal than a single great month.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How do I handle health insurance after quitting? <span class="faq-icon">+</span></button>
+    <div class="faq-a">You have several options: COBRA continuation coverage (keeps your current plan for up to 18 months but at full premium — typically $500–$800/month for an individual); ACA marketplace plans (often subsidized at lower incomes — if your side hustle income is modest in your transition year, you may qualify for significant subsidies); spouse or domestic partner's plan if available; or professional association plans in some industries. As a self-employed person, your health insurance premiums are 100% deductible from your taxable income — a meaningful offset to the cost.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. Results are estimates and projections, not financial advice.<br>
+    Income projections assume consistent growth rates and do not account for market conditions or individual circumstances. Consult a financial advisor before making major career decisions.
+  </div>
+</footer>
+
+<script src="/affiliate-config.js"></script>
+<script>
+const d = { salary:0, benefits:{health:false,'401k':false,pto:false,other:false},
+            expenses:0, currentIncome:0, runway:0, growth:null };
+
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+
+function calcResult(){
+  // Collect final values
+  d.salary = parseFloat(document.getElementById('salary-input').value)||0;
+  d.expenses = parseFloat(document.getElementById('expenses-input').value)||0;
+  d.currentIncome = parseFloat(document.getElementById('current-income').value)||0;
+  d.runway = parseFloat(document.getElementById('runway-input').value)||0;
+
+  const sal = d.salary;
+  const monthlyExpenses = d.expenses;
+  const currentMonthly = d.currentIncome;
+  const growthRate = d.growth || 0;
+
+  // Benefits value calculation
+  let benefitsValue = 0;
+  if(d.benefits.health) benefitsValue += 7200;   // $600/mo avg individual health insurance
+  if(d.benefits['401k']) benefitsValue += sal * 0.04; // 4% match
+  if(d.benefits.pto) benefitsValue += sal * 0.04;     // 2 weeks = ~4%
+  if(d.benefits.other) benefitsValue += 1800;          // dental/vision/other ~$150/mo
+
+  // SE tax penalty (extra 7.65% on self-employment vs W-2)
+  const seExtraCost = sal * 0.0765;
+
+  // True replacement income needed (annual)
+  const trueReplacementAnnual = sal + benefitsValue + seExtraCost;
+  const trueReplacementMonthly = trueReplacementAnnual / 12;
+
+  // Safety buffer (125% of replacement for income variability)
+  const safeQuitMonthly = trueReplacementMonthly * 1.25;
+
+  // Monthly income gap
+  const gap = Math.max(0, safeQuitMonthly - currentMonthly);
+  const readinessPct = Math.min(100, Math.round((currentMonthly / safeQuitMonthly) * 100));
+
+  // Runway check
+  const recommendedRunway = 6;
+  const runwayOk = d.runway >= recommendedRunway;
+
+  // Timeline to quit
+  let monthsToTarget = null;
+  let freedomDate = null;
+  if(growthRate > 0 && gap > 0){
+    // compound growth: currentIncome * (1+rate)^n >= safeQuitMonthly
+    monthsToTarget = Math.ceil(Math.log(safeQuitMonthly / Math.max(currentMonthly, 100)) / Math.log(1 + growthRate));
+    if(monthsToTarget > 0 && monthsToTarget <= 120){
+      const now = new Date();
+      now.setMonth(now.getMonth() + monthsToTarget);
+      freedomDate = now.toLocaleDateString('en-US',{month:'long',year:'numeric'});
+    }
+  } else if(gap <= 0){
+    monthsToTarget = 0;
+  }
+
+  // Verdict
+  let verdictClass, verdictEmoji, verdictTitle, verdictText;
+  if(readinessPct >= 100 && runwayOk){
+    verdictClass='green'; verdictEmoji='🟢';
+    verdictTitle='You\'re financially ready to quit.';
+    verdictText=`Your side hustle income (${fmt(currentMonthly)}/mo) meets or exceeds your safe quit threshold (${fmt(safeQuitMonthly)}/mo) and you have adequate runway. The financial case is there — the decision is yours.`;
+  } else if(readinessPct >= 75){
+    verdictClass='yellow'; verdictEmoji='🟡';
+    verdictTitle='Getting close — not quite yet.';
+    verdictText=`You're at ${readinessPct}% of your safe quit threshold. You need ${fmt(gap)} more per month consistently before the financial case is solid. ${!runwayOk ? 'You also need more emergency savings.' : ''}`;
+  } else {
+    verdictClass='red'; verdictEmoji='🔴';
+    verdictTitle='Not ready yet — keep building.';
+    verdictText=`At ${readinessPct}% of your safe quit threshold, quitting now would put you in a financially vulnerable position. Focus on growing your side income and building your runway first.`;
+  }
+
+  // Build milestone timeline
+  let timelineHTML = '';
+  if(growthRate > 0 && monthsToTarget > 0 && monthsToTarget <= 120){
+    const m1 = Math.ceil(monthsToTarget * 0.33);
+    const m2 = Math.ceil(monthsToTarget * 0.66);
+    const inc1 = currentMonthly * Math.pow(1+growthRate, m1);
+    const inc2 = currentMonthly * Math.pow(1+growthRate, m2);
+    timelineHTML = `
+    <div class="timeline-card">
+      <div class="timeline-title">📅 Your Projected Path to Freedom</div>
+      <div class="timeline-row">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-content">
+          <div class="timeline-when">Month ${m1} from now</div>
+          <div class="timeline-what">Side income reaches ~${fmt(inc1)}/mo (${Math.round(inc1/safeQuitMonthly*100)}% of quit threshold). Consider reducing day-job hours if possible.</div>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-content">
+          <div class="timeline-when">Month ${m2} from now</div>
+          <div class="timeline-what">Side income reaches ~${fmt(inc2)}/mo (${Math.round(inc2/safeQuitMonthly*100)}% of quit threshold). Start researching health insurance options and building final runway.</div>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-dot">🎯</div>
+        <div class="timeline-content">
+          <div class="timeline-when">~${freedomDate} (${monthsToTarget} months)</div>
+          <div class="timeline-what">Side income projected to reach ${fmt(safeQuitMonthly)}/mo safe quit threshold. This assumes ${Math.round(growthRate*100)}%/month growth is maintained consistently.</div>
+        </div>
+      </div>
+    </div>`;
+  } else if(growthRate === 0){
+    timelineHTML = `<div class="inline-note warn" style="margin-bottom:20px;">⚠️ With flat growth, there's no projected quit date. Focus first on identifying what's limiting growth before planning an exit timeline.</div>`;
+  } else if(monthsToTarget === 0){
+    timelineHTML = `<div class="inline-note good" style="margin-bottom:20px;">✅ Your income already meets the threshold. If you've seen this income level consistently for 3+ months, you may be ready now.</div>`;
+  }
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your quit readiness assessment</div>
+      <div class="result-sub">Based on your salary, benefits, expenses, and side income · 2026</div>
+    </div>
+
+    <div class="verdict-box ${verdictClass}">
+      <div class="verdict-label">${verdictEmoji} QUIT READINESS</div>
+      <div class="verdict-title">${verdictTitle}</div>
+      <div class="verdict-desc">${verdictText}</div>
+    </div>
+
+    <div class="meter-card">
+      <div class="meter-title">📊 How Close Are You?</div>
+      <div class="meter-row">
+        <div class="meter-label"><span>Current side income vs. safe quit threshold</span><span>${readinessPct}%</span></div>
+        <div class="meter-track">
+          <div class="meter-fill ${readinessPct>=100?'fill-green':readinessPct>=75?'fill-yellow':'fill-red'}" style="width:${readinessPct}%">${readinessPct}%</div>
+        </div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>Emergency runway</span><span>${d.runway} months${runwayOk?' ✅':' (need 6+)'}</span></div>
+        <div class="meter-track">
+          <div class="meter-fill ${runwayOk?'fill-green':'fill-red'}" style="width:${Math.min(100,d.runway/6*100)}%">${d.runway}mo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="numbers-grid">
+      <div class="num-box">
+        <div class="num-label">Your W-2 Take-Home</div>
+        <div class="num-value">${fmt(sal*0.78/12)}/mo</div>
+        <div class="num-note">Est. after ~22% taxes</div>
+      </div>
+      <div class="num-box">
+        <div class="num-label">Replacement Income Needed</div>
+        <div class="num-value">${fmt(trueReplacementMonthly)}/mo</div>
+        <div class="num-note">Salary + benefits + SE tax</div>
+      </div>
+      <div class="num-box">
+        <div class="num-label">Safe Quit Threshold</div>
+        <div class="num-value">${fmt(safeQuitMonthly)}/mo</div>
+        <div class="num-note">+25% buffer for variability</div>
+      </div>
+      <div class="num-box">
+        <div class="num-label">Your Current Side Income</div>
+        <div class="num-value" style="color:${readinessPct>=100?'var(--green)':readinessPct>=75?'#F59E0B':'var(--red)'}">${fmt(currentMonthly)}/mo</div>
+        <div class="num-note">Net after expenses</div>
+      </div>
+      <div class="num-box">
+        <div class="num-label">Monthly Gap</div>
+        <div class="num-value" style="color:${gap<=0?'var(--green)':'var(--red)'}">
+          ${gap<=0?'✅ Met':fmt(gap)+' short'}
+        </div>
+        <div class="num-note">${gap<=0?'You\'ve hit the threshold':'Still needed to quit safely'}</div>
+      </div>
+      <div class="num-box">
+        <div class="num-label">Benefits You'd Lose</div>
+        <div class="num-value">${fmt(benefitsValue)}/yr</div>
+        <div class="num-note">Real cost to replace</div>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <div class="gap-title">💡 Why Your Number Is ${fmt(safeQuitMonthly)}/mo</div>
+      <div class="gap-row"><span class="gap-label">Your annual salary</span><span class="gap-val">${fmt(sal)}/yr</span></div>
+      ${d.benefits.health?`<div class="gap-row"><span class="gap-label">Health insurance replacement cost</span><span class="gap-val red">+$7,200/yr</span></div>`:''}
+      ${d.benefits['401k']?`<div class="gap-row"><span class="gap-label">Lost employer 401(k) match (~4%)</span><span class="gap-val red">+${fmt(sal*0.04)}/yr</span></div>`:''}
+      ${d.benefits.pto?`<div class="gap-row"><span class="gap-label">Lost paid time off (~4%)</span><span class="gap-val red">+${fmt(sal*0.04)}/yr</span></div>`:''}
+      ${d.benefits.other?`<div class="gap-row"><span class="gap-label">Other benefits (dental, vision, etc.)</span><span class="gap-val red">+$1,800/yr</span></div>`:''}
+      <div class="gap-row"><span class="gap-label">Extra SE tax — employer-side FICA you now pay yourself (7.65% of salary)</span><span class="gap-val red">+${fmt(seExtraCost)}/yr</span></div>
+      <div class="gap-row"><span class="gap-label">True replacement income (annual)</span><span class="gap-val">${fmt(trueReplacementAnnual)}/yr</span></div>
+      <div class="gap-row"><span class="gap-label total">Safe quit threshold (+25% buffer)</span><span class="gap-val total">${fmt(safeQuitMonthly)}/mo</span></div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">* The 7.65% SE tax increase shown above reflects the employer-side FICA portion you currently receive for free as a W-2 employee. As self-employed, you pay the full 15.3% SE tax — but half is deductible from income tax, and your existing side hustle income already accounts for this in your current tax situation.</div>
+    </div>
+
+    ${timelineHTML}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text"><strong>⚠️ Set up quarterly estimated tax payments immediately.</strong> The day you go full-time, no employer withholds taxes for you. You must file Form 1040-ES and pay the IRS four times a year (Apr 15, Jun 16, Sep 15, Jan 15). Missing even one quarter triggers underpayment penalties. Use our <a href="/tools/side-hustlers/side-hustle-tax-calculator.html">Side Hustle Tax Calculator</a> with $0 W-2 income to calculate your exact quarterly amounts before you quit.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text">
+          ${gap > 0
+            ? `<strong>Close the ${fmt(gap)}/month gap first.</strong> Don't quit until you've seen this income level consistently for 3 months — not just one good month. One good month is luck; three consecutive months is a signal.`
+            : `<strong>Confirm 3 consecutive months at this income level.</strong> If you've already seen ${fmt(currentMonthly)}/mo consistently for 3 months, the financial case is there. Lock in your health insurance plan before your last day.`}
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">
+          ${!runwayOk
+            ? `<strong>Build to 6 months of emergency savings (${fmt(monthlyExpenses*6)}).</strong> You have ${d.runway} months saved. Don't quit until you have a real cushion — slow months are inevitable, and decisions made under financial pressure are rarely good ones.`
+            : `<strong>Research health insurance options now</strong> — before you quit. Compare ACA marketplace plans, COBRA continuation, and professional association plans. At lower income in your first year, marketplace subsidies can be significant.`}
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Calculate your full-time freelance taxes</h3>
+        <p>See exactly what you'll owe in SE tax and quarterly payments once you go full-time.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/side-hustlers/side-hustle-tax-calculator.html">Open Tax Calculator →</a>
+    </div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// UI
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='growth') document.getElementById('q5-next').disabled=false;
+}
+
+function toggleBenefit(key){
+  d.benefits[key] = !d.benefits[key];
+  const radio = document.getElementById('radio-'+key);
+  const opt = document.getElementById('ben-'+key);
+  if(d.benefits[key]){
+    opt.classList.add('selected');
+    radio.style.background='var(--navy)';
+    radio.style.borderColor='var(--navy)';
+  } else {
+    opt.classList.remove('selected');
+    radio.style.background='';
+    radio.style.borderColor='';
+  }
+}
+
+function syncInput(slId,inId){document.getElementById(inId).value=document.getElementById(slId).value;}
+function syncSlider(inId,slId){const v=parseFloat(document.getElementById(inId).value)||0;document.getElementById(slId).value=v;}
+
+function checkQ1(){
+  const v=parseFloat(document.getElementById('salary-input').value)||0;
+  d.salary=v;
+  document.getElementById('q1-next').disabled=(v<10000);
+}
+function checkQ3(){
+  const v=parseFloat(document.getElementById('expenses-input').value)||0;
+  d.expenses=v;
+  document.getElementById('q3-next').disabled=(v<500);
+}
+function checkQ4(){
+  const inc=parseFloat(document.getElementById('current-income').value)||0;
+  const run=parseFloat(document.getElementById('runway-input').value)||0;
+  d.currentIncome=inc; d.runway=run;
+  document.getElementById('q4-next').disabled=(inc<=0);
+  const note=document.getElementById('q4-note');
+  if(inc>0){
+    note.style.display='block';
+    note.className='inline-note info';
+    note.textContent=`Current monthly net: $${inc.toLocaleString()}. We'll compare this to your safe quit threshold in the results.`;
+  } else { note.style.display='none'; }
+}
+
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  Object.assign(d,{salary:0,benefits:{health:false,'401k':false,pto:false,other:false},expenses:0,currentIncome:0,runway:0,growth:null});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>
