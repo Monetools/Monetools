@@ -549,14 +549,31 @@ input[type=range]::-webkit-slider-thumb {
 .faq-item.open .faq-icon{transform:rotate(45deg);}
 .faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
 .faq-item.open .faq-a{display:block;}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--navy);}
+.breadcrumb span{margin:0 6px;}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Mone<span>tools</span></div>
-  <div class="nav-tag">Self-Employed Decision Tools</div>
+  <a class="logo" href="/index.html" style="text-decoration:none;">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/self-employed/">Self-Employed</a>
+    <a class="nav-link" href="/tools/self-employed/llc-vs-s-corp.html">LLC vs S-Corp</a>
+  </div>
 </nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/self-employed/">Tools</a><span>›</span>
+  Should I Form an LLC
+</div>
 
 <!-- SEO ARTICLE -->
 <div class="seo-section">
@@ -954,10 +971,10 @@ input[type=range]::-webkit-slider-thumb {
       <div class="related-guides">
         <h4>Related Guides</h4>
         <div class="guide-list">
-          <a class="guide-item" href="#">LLC vs S-Corp: Which Is Right for Freelancers in 2026?</a>
-          <a class="guide-item" href="#">How to Pay Quarterly Taxes as a Self-Employed Person</a>
-          <a class="guide-item" href="#">The True Cost of Running Your Business as a Sole Proprietor</a>
-          <a class="guide-item" href="#">Best Business Bank Accounts for Freelancers (2026)</a>
+          <a class="guide-item" href="/blog/self-employed/llc-vs-scorp.html">LLC vs S-Corp: Which Is Right for Freelancers in 2026?</a>
+          <a class="guide-item" href="/blog/self-employed/quarterly-taxes.html">How to Pay Quarterly Taxes as a Self-Employed Person</a>
+          <a class="guide-item" href="/blog/self-employed/self-employed-tax-deductions.html">The Self-Employed Tax Deductions Checklist for 2026</a>
+          <a class="guide-item" href="/blog/self-employed/best-business-bank-accounts.html">Best Business Bank Accounts for Freelancers (2026)</a>
         </div>
       </div>
 

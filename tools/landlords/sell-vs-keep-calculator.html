@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell vs Keep Rental Calculator 2026 — What You'd Really Pocket | Monetools</title>
+<meta name="description" content="Free 2026 calculator: should you sell your rental property or keep it? See your real after-tax proceeds — including the 25% depreciation recapture most landlords forget — versus what keeping actually earns on your trapped equity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+.plain-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.plain-input:focus{border-color:var(--navy);background:#fff;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:500px){.input-row{grid-template-columns:1fr;}}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.verdict-box{border-radius:16px;padding:28px;margin-bottom:24px;}
+.verdict-box.green{background:var(--green-bg);border:2px solid var(--green-border);}
+.verdict-box.blue{background:var(--blue-bg);border:2px solid var(--blue-border);}
+.verdict-box.yellow{background:var(--yellow-bg);border:2px solid var(--yellow-border);}
+.verdict-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.verdict-box.green .verdict-label{color:var(--sage);}
+.verdict-box.blue .verdict-label{color:#1E40AF;}
+.verdict-box.yellow .verdict-label{color:#92400E;}
+.verdict-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4.5vw,30px);margin-bottom:10px;line-height:1.2;}
+.verdict-box.green .verdict-title{color:var(--sage);}
+.verdict-box.blue .verdict-title{color:#1E3A8A;}
+.verdict-box.yellow .verdict-title{color:#92400E;}
+.verdict-desc{font-size:14px;line-height:1.6;}
+.verdict-box.green .verdict-desc{color:var(--sage);}
+.verdict-box.blue .verdict-desc{color:#1E40AF;}
+.verdict-box.yellow .verdict-desc{color:#92400E;}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:560px){.vs-grid{grid-template-columns:1fr;}}
+.vs-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:22px;}
+.vs-card.highlight{border-color:var(--green);box-shadow:0 0 0 1px var(--green);}
+.vs-header{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.vs-main{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.vs-sub{font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.vs-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.vs-row:last-child{border-bottom:none;}
+.vs-row .lbl{color:var(--text-muted);}
+.vs-row .val{font-weight:600;color:var(--text);}
+.vs-row .val.red{color:var(--red);}
+.vs-row .val.green{color:var(--green);}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.opp-box{background:var(--green-bg);border:1px solid var(--green-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#065F46;}
+.opp-box strong{color:#064E3B;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+.affiliate-section{margin:0 0 20px;}
+.affiliate-section h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+.affiliate-block{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;text-decoration:none;transition:all 0.15s;background:var(--green-bg);border:1px solid var(--green-border);}
+.affiliate-block:hover{transform:translateX(2px);}
+.affiliate-block-pending{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;background:var(--cream);border:1px solid var(--border);}
+.affiliate-block-name{font-size:14px;font-weight:600;color:var(--sage);margin-bottom:3px;}
+.affiliate-block-pending .affiliate-block-name{color:var(--text-muted);}
+.affiliate-block-desc{font-size:12px;color:#374151;line-height:1.4;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/landlords/">Landlords</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/landlords/">Tools</a><span>›</span>
+  Sell vs Keep Calculator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Landlord · Exit Decision · Depreciation Recapture</span>
+  <h1 class="seo-h1">Sell vs Keep Rental Calculator 2026</h1>
+  <p class="seo-lead">Zillow tells you what your rental is worth. Nobody tells you what you'd actually pocket after selling costs, capital gains tax, and the 25% depreciation recapture most landlords discover at tax time — or whether that money works harder in the property or out of it. This tool shows both sides of the decision.</p>
+  <div class="callout tip">
+    <strong>The number that shocks sellers:</strong> Every dollar of depreciation you claimed (or could have claimed) gets taxed at up to 25% when you sell. A landlord who owned 10 years often owes $20,000–$40,000 in recapture tax alone — before regular capital gains tax even starts.
+  </div>
+  <div class="tool-anchor-label">Start the Calculator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR SELL VS KEEP ANALYSIS</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Property today -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your Property Today</div>
+      <div class="q-title">What's the property worth now, and what do you still owe?</div>
+      <div class="q-sub">Use a realistic market estimate (recent comps, not wishful thinking) and your current mortgage balance.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Current market value</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="value-input" min="0" step="5000" placeholder="450,000" oninput="checkQ1()"></div>
+        </div>
+        <div>
+          <div class="input-label">Remaining mortgage balance</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="mortgage-input" min="0" step="5000" placeholder="220,000" oninput="checkQ1()"></div>
+        </div>
+      </div>
+      <div id="q1-note" class="inline-note info" style="display:none;"></div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Purchase history -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Purchase History (For Taxes)</div>
+      <div class="q-title">What did you pay, and how long have you rented it?</div>
+      <div class="q-sub">These determine your capital gain and accumulated depreciation — the two numbers that drive your tax bill at sale.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Original purchase price (+ improvements)</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="price-input" min="0" step="5000" placeholder="300,000" oninput="checkQ2()"></div>
+        </div>
+        <div>
+          <div class="input-label">Years used as a rental</div>
+          <input class="plain-input" type="number" id="years-input" min="0" max="27.5" step="0.5" placeholder="8" oninput="checkQ2()">
+        </div>
+        <div>
+          <div class="input-label">Building % (non-land portion)</div>
+          <input class="plain-input" type="number" id="building-pct" min="40" max="95" step="5" value="80" oninput="checkQ2()">
+        </div>
+      </div>
+      <div id="dep-preview" class="inline-note warn" style="display:none;"></div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Rental performance -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Rental Performance</div>
+      <div class="q-title">What does the rental earn and cost per year?</div>
+      <div class="q-sub">This determines what "keeping" is actually worth as an investment.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Monthly rent</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="rent-input" min="0" step="50" placeholder="2,400" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Total annual expenses (mortgage payment, tax, insurance, repairs, management)</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="expense-input" min="0" step="500" placeholder="22,000" oninput="checkQ3()"></div>
+        </div>
+      </div>
+      <div class="inline-note info">💡 Include your FULL mortgage payment (principal + interest) here — we're measuring cash in vs. cash out.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Tax situation -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Tax Situation</div>
+      <div class="q-title">Filing status and income — for your capital gains bracket.</div>
+      <div class="q-sub">Your long-term capital gains rate (0%, 15%, or 20%) depends on your total taxable income.</div>
+      <div style="margin-bottom:16px;">
+        <div class="input-label">Filing status</div>
+        <div class="options-grid three" style="margin-bottom:0;">
+          <div class="option" onclick="selectOpt(this,'filing','single')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Single</div></div>
+          </div>
+          <div class="option" onclick="selectOpt(this,'filing','mfj')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Married (Joint)</div></div>
+          </div>
+          <div class="option" onclick="selectOpt(this,'filing','hoh')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Head of Household</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="input-label">Your annual taxable income (excluding this sale)</div>
+      <div class="input-wrap" style="max-width:280px;">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="income-input" min="0" step="1000" placeholder="110,000" oninput="checkQ4()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: Outlook -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — Your Market Outlook</div>
+      <div class="q-title">What do you expect this property's value to do over the next few years?</div>
+      <div class="q-sub">Be realistic — national long-run average appreciation is 3–4%/year. Hot markets can do more; declining ones can go negative.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'appreciation',0.01)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Flat / Slow (~1%/yr)</div><div class="opt-desc">Weak local market or aging property</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'appreciation',0.03)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Average (~3%/yr)</div><div class="opt-desc">Typical long-run appreciation</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'appreciation',0.05)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Strong (~5%/yr)</div><div class="opt-desc">Growing market, high demand area</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'appreciation',-0.02)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Declining (~−2%/yr)</div><div class="opt-desc">Shrinking market or major local risks</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>Compare Sell vs Keep →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Federal taxes only:</strong> This calculator estimates federal capital gains tax, depreciation recapture, and NIIT. State capital gains taxes (0–13.3%) are not included and can significantly change the sell-side math in states like California, New York, and New Jersey.</div>
+
+  <h2 class="seo-h2">Why "What's My House Worth" Is the Wrong Question</h2>
+  <p class="seo-p">When landlords think about selling, they anchor on the Zillow estimate. But the number that matters is what lands in your bank account after five deductions: selling costs (typically 6–7% including agent commissions), your remaining mortgage, depreciation recapture tax (up to 25% of all depreciation claimed or claimable — IRS "allowed or allowable" rule), federal capital gains tax (0%, 15%, or 20% based on income), and possibly the 3.8% Net Investment Income Tax. On a typical 10-year rental, these deductions routinely consume 30–45% of the apparent "profit."</p>
+  <p class="seo-p">The keep side has its own hidden number: return on equity. Early in ownership, leverage makes returns high. But as equity grows, the same cash flow represents a shrinking percentage return on the money trapped in the property. A rental producing $6,000/year cash flow on $350,000 of equity is earning 1.7% — less than a savings account. That's when experienced investors either refinance, exchange, or sell.</p>
+
+  <h2 class="seo-h2">The 1031 Exchange: The Third Option</h2>
+  <p class="seo-p">If your reason for selling is the property, not the asset class — bad tenants, tired building, wrong location — a Section 1031 exchange defers both capital gains tax AND depreciation recapture by rolling proceeds into another investment property. Strict rules apply: identify replacements within 45 days, close within 180 days, use a Qualified Intermediary, and never touch the cash. Held until death, the deferred gain disappears entirely through stepped-up basis — heirs inherit at market value with zero recapture liability. This is the closest thing to a legal cheat code in real estate taxation (IRC §1031; unchanged by OBBBA).</p>
+
+  <h2 class="seo-h2">2026 Numbers This Calculator Uses</h2>
+  <p class="seo-p">Long-term capital gains brackets (Rev. Proc. 2025-32): 0% up to $49,450 taxable income (single) / $98,900 (joint); 15% up to $545,500 / $613,700; 20% above. Unrecaptured Section 1250 gain (depreciation recapture): maximum 25%. NIIT: 3.8% when MAGI exceeds $200,000 single / $250,000 joint. Selling costs estimated at 7% of sale price.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What is depreciation recapture and why does it hurt so much? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Every year you own a rental, you deduct depreciation (about 3.6% of the building value annually). Those deductions reduce your cost basis — so when you sell, the gain attributable to depreciation is taxed separately as "unrecaptured Section 1250 gain" at a maximum 25% rate, higher than the 15% most sellers pay on regular long-term gains. Critically, the IRS applies this whether you actually claimed the depreciation or not ("allowed or allowable"). A landlord with $80,000 of accumulated depreciation owes up to $20,000 in recapture tax — a bill many discover only at tax time.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can I avoid capital gains tax by moving back into my rental? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Partially — and less than most people think. Moving in for 2 years qualifies you for the Section 121 exclusion ($250k single / $500k joint), but two limits apply: gain is prorated between "qualified use" (as your residence) and "non-qualified use" (rental years after 2008), so a decade of rental history means most of the gain stays taxable; and depreciation recapture survives no matter what — the 25% tax on all depreciation claimed after May 6, 1997 cannot be excluded through the move-back strategy. It helps, but it's not the escape hatch it's often sold as.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How does a 1031 exchange work? <span class="faq-icon">+</span></button>
+    <div class="faq-a">You sell your rental and roll ALL proceeds into another investment property of equal or greater value, deferring both capital gains tax and depreciation recapture. The mechanics are strict: a Qualified Intermediary must hold the funds (you can never touch them), you must identify replacement properties within 45 days of closing, and you must close on the replacement within 180 days. The deferred tax carries into the new property's basis. Repeat until death, and your heirs receive stepped-up basis — the deferred gains are never taxed. Report on Form 8824.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What is return on equity and why does it matter for the keep decision? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Return on equity (ROE) measures your annual return (cash flow + appreciation + principal paydown) against the equity trapped in the property — what you'd walk away with if you sold today. It's the honest comparison metric: that equity could be invested elsewhere. Many long-held rentals drift to 3–5% ROE as equity grows, below what a simple index fund historically returns. When ROE falls persistently, the options are: refinance to redeploy equity, 1031 exchange into a better-performing property, or sell. Low ROE isn't automatically a sell signal — but it means the property must justify itself on other grounds.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I pay Net Investment Income Tax when I sell a rental? <span class="faq-icon">+</span></button>
+    <div class="faq-a">If your modified adjusted gross income — including the gain from the sale — exceeds $200,000 (single) or $250,000 (married filing jointly), the 3.8% NIIT applies to your net investment income, which includes the taxable gain from the sale. Because a property sale often produces a six-figure gain in a single year, it frequently pushes sellers over the threshold even when their normal income is below it. This calculator checks the threshold using your income plus the projected gain.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. Results are federal tax estimates only and do not include state or local taxes.<br>
+    This tool provides educational estimates based on federal tax rules — results are not for tax filing purposes, do not constitute a formal tax opinion, and provide mathematical projections rather than financial advice.<br>
+    <strong style="color:rgba(255,255,255,0.55);">Consult a qualified CPA before listing.</strong> Based on IRC §1(h), §1031, §121, §1250 and Rev. Proc. 2025-32.
+  </div>
+</footer>
+
+<script src="/affiliate-config.js"></script>
+<script>
+const d = { value:0, mortgage:0, price:0, years:0, buildingPct:80,
+            rent:0, expenses:0, filing:'', income:0, appreciation:null };
+
+// 2026 LTCG brackets (taxable income thresholds) — Rev. Proc. 2025-32
+const LTCG = {
+  single:[[49450,0],[545500,.15],[Infinity,.20]],
+  mfj:[[98900,0],[613700,.15],[Infinity,.20]],
+  hoh:[[66200,0],[579600,.15],[Infinity,.20]]
+};
+const NIIT_T = { single:200000, mfj:250000, hoh:200000 };
+// 2026 ordinary income brackets (for depreciation tax shield estimate)
+const ORD = {
+  single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+  mfj:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],
+  hoh:[[18750,.10],[50250,.12],[100600,.22],[176900,.24],[229600,.32],[640600,.35],[Infinity,.37]]
+};
+function getOrdMarginal(taxable, filing){
+  for(const [lim,rate] of (ORD[filing]||ORD.single)){ if(taxable<=lim) return rate; }
+  return .37;
+}
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+function pct(n){return (n*100).toFixed(1)+'%';}
+
+function getLTCGRate(taxableIncome, filing){
+  for(const [lim,rate] of (LTCG[filing]||LTCG.single)){
+    if(taxableIncome<=lim) return rate;
+  }
+  return .20;
+}
+
+function calcResult(){
+  const sellCostPct = 0.07;
+  const annualDep = (d.price * (d.buildingPct/100)) / 27.5;
+  const accumDep = annualDep * d.years;
+
+  // SELL SIDE
+  const sellCosts = d.value * sellCostPct;
+  const adjBasis = d.price - accumDep;
+  const totalGain = Math.max(0, d.value - sellCosts - adjBasis);
+  const recaptureGain = Math.min(accumDep, totalGain);
+  const ltcgGain = Math.max(0, totalGain - recaptureGain);
+
+  // Recapture taxed at min(25%, but treat as 25% max — use 25% unless income very low)
+  const ltcgRate = getLTCGRate(d.income + ltcgGain, d.filing);
+  const recaptureRate = 0.25;
+  const recaptureTax = recaptureGain * recaptureRate;
+  const ltcgTax = ltcgGain * ltcgRate;
+
+  // NIIT
+  const magiWithSale = d.income + totalGain;
+  let niitTax = 0;
+  if(magiWithSale > NIIT_T[d.filing]){
+    const niitBase = Math.min(totalGain, magiWithSale - NIIT_T[d.filing]);
+    niitTax = niitBase * 0.038;
+  }
+  const totalTax = recaptureTax + ltcgTax + niitTax;
+  const netProceeds = d.value - sellCosts - d.mortgage - totalTax;
+
+  // KEEP SIDE
+  const annualRentIncome = d.rent * 12;
+  const annualCashFlow = annualRentIncome - d.expenses;
+  const annualAppreciation = d.value * d.appreciation;
+  // Rough principal paydown estimate: ~2% of remaining balance/year
+  const principalPaydown = d.mortgage * 0.02;
+  const annualWealthBuilding = annualCashFlow + annualAppreciation + principalPaydown;
+  const ordRate = getOrdMarginal(d.income, d.filing);
+  const depShield = annualDep * ordRate; // display-only: depends on passive-loss situation
+  const currentEquity = d.value - d.mortgage;
+  const roe = currentEquity > 0 ? annualWealthBuilding / currentEquity : 0;
+  // What net proceeds could earn elsewhere (index fund historical ~7%)
+  const altReturn = netProceeds * 0.07;
+
+  // Verdict
+  let verdictClass, verdictLabel, verdictTitle, verdictDesc;
+  const keepBetter = annualWealthBuilding > altReturn * 1.1;
+  const sellBetter = altReturn > annualWealthBuilding * 1.1;
+  if(keepBetter){
+    verdictClass='green'; verdictLabel='📊 THE NUMBERS FAVOR KEEPING';
+    verdictTitle='Your property is still working harder than the alternative';
+    verdictDesc=`Keeping generates roughly ${fmt(annualWealthBuilding)}/year in total wealth building (${pct(roe)} return on your ${fmt(currentEquity)} equity) — vs. approximately ${fmt(altReturn)}/year if you sold, paid ${fmt(totalTax)} in taxes, and invested the ${fmt(netProceeds)} net proceeds at 7%. The tax cost of selling is a one-time ${fmt(totalTax)} haircut that takes years to recover.`;
+  } else if(sellBetter){
+    verdictClass='yellow'; verdictLabel='📊 THE NUMBERS LEAN TOWARD SELLING (OR EXCHANGING)';
+    verdictTitle='Your equity may be working below its potential';
+    verdictDesc=`Your ${fmt(currentEquity)} in trapped equity generates about ${fmt(annualWealthBuilding)}/year (${pct(roe)} ROE) — while your after-tax proceeds of ${fmt(netProceeds)} could earn roughly ${fmt(altReturn)}/year elsewhere at 7%. Before selling outright, consider a 1031 exchange to defer the entire ${fmt(totalTax)} tax bill while redeploying into a better-performing property.`;
+  } else {
+    verdictClass='blue'; verdictLabel='📊 IT\'S GENUINELY CLOSE';
+    verdictTitle='The numbers alone don\'t decide this one';
+    verdictDesc=`Keeping earns ~${fmt(annualWealthBuilding)}/year; selling and reinvesting nets ~${fmt(altReturn)}/year after the ${fmt(totalTax)} tax bill. Within this margin, the decision comes down to non-financial factors: how much you value the management time, tenant risk tolerance, portfolio concentration, and whether you'd rather own property or paper assets.`;
+  }
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Sell vs keep: your real numbers</div>
+      <div class="result-sub">2026 federal estimates · 7% selling costs assumed</div>
+    </div>
+
+    <div class="verdict-box ${verdictClass}">
+      <div class="verdict-label">${verdictLabel}</div>
+      <div class="verdict-title">${verdictTitle}</div>
+      <div class="verdict-desc">${verdictDesc}</div>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-card ${sellBetter?'highlight':''}">
+        <div class="vs-header">💰 If You Sell</div>
+        <div class="vs-main">${fmt(netProceeds)}</div>
+        <div class="vs-sub">Cash in your pocket after everything</div>
+        <div class="vs-row"><span class="lbl">Sale price</span><span class="val">${fmt(d.value)}</span></div>
+        <div class="vs-row"><span class="lbl">Selling costs (7%)</span><span class="val red">−${fmt(sellCosts)}</span></div>
+        <div class="vs-row"><span class="lbl">Mortgage payoff</span><span class="val red">−${fmt(d.mortgage)}</span></div>
+        <div class="vs-row"><span class="lbl">Depreciation recapture (25% × ${fmt(recaptureGain)})</span><span class="val red">−${fmt(recaptureTax)}</span></div>
+        <div class="vs-row"><span class="lbl">Capital gains tax (${Math.round(ltcgRate*100)}%)</span><span class="val red">−${fmt(ltcgTax)}</span></div>
+        ${niitTax>0?`<div class="vs-row"><span class="lbl">NIIT (3.8%)</span><span class="val red">−${fmt(niitTax)}</span></div>`:''}
+        <div class="vs-row"><span class="lbl">Could earn at 7% elsewhere</span><span class="val green">${fmt(altReturn)}/yr</span></div>
+      </div>
+
+      <div class="vs-card ${keepBetter?'highlight':''}">
+        <div class="vs-header">🏠 If You Keep</div>
+        <div class="vs-main">${fmt(annualWealthBuilding)}/yr</div>
+        <div class="vs-sub">Total annual wealth building</div>
+        <div class="vs-row"><span class="lbl">Cash flow (rent − all expenses)</span><span class="val ${annualCashFlow>=0?'green':'red'}">${annualCashFlow>=0?'':'−'}${fmt(annualCashFlow)}</span></div>
+        <div class="vs-row"><span class="lbl">Appreciation (${(d.appreciation*100).toFixed(0)}%/yr)</span><span class="val ${annualAppreciation>=0?'green':'red'}">${annualAppreciation>=0?'':'−'}${fmt(annualAppreciation)}</span></div>
+        <div class="vs-row"><span class="lbl">Principal paydown (est.)</span><span class="val green">${fmt(principalPaydown)}</span></div>
+        <div class="vs-row"><span class="lbl">Depreciation tax shield (ref. only*)</span><span class="val green">${fmt(depShield)}/yr</span></div>
+        <div class="vs-row"><span class="lbl">Your trapped equity</span><span class="val">${fmt(currentEquity)}</span></div>
+        <div class="vs-row"><span class="lbl">Return on equity</span><span class="val">${pct(roe)}</span></div>
+      </div>
+    </div>
+
+    <div class="inline-note info" style="margin-bottom:20px;">📐 Estimated metrics (7% selling costs, ~2% annual principal paydown, 7% alternative return) are projections — actual figures vary by brokerage, loan terms, and market. Federal estimates only: state exit taxes and local transfer fees are not included. *Depreciation tax shield is shown for reference and is not added to the total — whether it's usable this year depends on your passive-loss situation.</div>
+
+    <div class="warn-box">
+      <strong>🧾 Your tax bill if you sell: ${fmt(totalTax)}.</strong> Depreciation recapture alone is ${fmt(recaptureTax)} — based on ${fmt(accumDep)} of accumulated depreciation over ${d.years} years (whether you claimed it or not, per the IRS "allowed or allowable" rule). This is the number most sellers discover in April, after it's too late to plan around.
+    </div>
+
+    ${sellBetter || !keepBetter ? `
+    <div class="opp-box">
+      <strong>💡 The third option — 1031 exchange:</strong> If the problem is this property (tenants, condition, location) rather than real estate itself, a Section 1031 exchange lets you sell and roll into a better property while deferring the entire ${fmt(totalTax)} tax bill. Rules: Qualified Intermediary holds funds, identify replacements within 45 days, close within 180. Held until death, deferred gains vanish via stepped-up basis. Worth a CPA conversation before you list.
+    </div>` : ''}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text"><strong>Verify your accumulated depreciation number.</strong> Our estimate (${fmt(accumDep)}) assumes straight-line from your inputs. Pull your actual depreciation schedules from past returns (Form 4562 / Schedule E) — improvements, cost segregation, or partial-year conventions change the recapture math.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text"><strong>Run this decision 6–12 months before listing, not after.</strong> Almost every tax strategy — 1031 exchange, installment sale, timing the closing into a lower-income year, harvesting offsetting losses — must be set up BEFORE the sale closes. After closing, your only option is paying.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">${roe < 0.05 && keepBetter===false ?
+          `<strong>Consider a cash-out refinance as a middle path.</strong> At ${pct(roe)} ROE, your equity is underperforming — but a refinance pulls capital out tax-free while keeping the property, its depreciation, and future appreciation. Compare refi rates against your expected return on the freed capital.` :
+          `<strong>Reassess annually.</strong> ROE drifts down as equity grows — a property that's right to keep today may be right to exchange in three years. Recalculate each year at lease renewal time.`}</div>
+      </div>
+    </div>
+
+    ${(typeof AFFILIATE_LINKS!=='undefined' && AFFILIATE_LINKS.cpaReferral && AFFILIATE_LINKS.cpaReferral.url) ? `<div class="affiliate-section"><h4>Work With a Professional</h4>${renderAffiliateBlock('cpaReferral')}</div>` : ''}
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Keeping the property?</h3>
+        <p>Make sure you're claiming every deduction — starting with depreciation.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/landlords/landlord-tax-estimator.html">Landlord Tax Estimator →</a>
+    </div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='filing') checkQ4();
+  if(key==='appreciation') document.getElementById('q5-next').disabled=false;
+}
+function checkQ1(){
+  d.value=parseFloat(document.getElementById('value-input').value)||0;
+  d.mortgage=parseFloat(document.getElementById('mortgage-input').value)||0;
+  document.getElementById('q1-next').disabled=(d.value<=0);
+  const note=document.getElementById('q1-note');
+  if(d.value>0){
+    note.style.display='block';
+    note.className='inline-note info';
+    note.innerHTML=`Your gross equity: <strong>${'$'+Math.round(d.value-d.mortgage).toLocaleString()}</strong> — but what you'd pocket after taxes is usually much less. Keep going.`;
+  } else note.style.display='none';
+}
+function checkQ2(){
+  d.price=parseFloat(document.getElementById('price-input').value)||0;
+  d.years=parseFloat(document.getElementById('years-input').value)||0;
+  d.buildingPct=parseFloat(document.getElementById('building-pct').value)||80;
+  document.getElementById('q2-next').disabled=!(d.price>0 && d.years>0);
+  const preview=document.getElementById('dep-preview');
+  if(d.price>0 && d.years>0){
+    const accum=((d.price*(d.buildingPct/100))/27.5)*d.years;
+    preview.style.display='block';
+    preview.innerHTML=`⚠️ Estimated accumulated depreciation: <strong>${'$'+Math.round(accum).toLocaleString()}</strong> — at sale, this is taxed at up to 25% (≈ ${'$'+Math.round(accum*0.25).toLocaleString()}) whether you claimed it or not.`;
+  } else preview.style.display='none';
+}
+function checkQ3(){
+  d.rent=parseFloat(document.getElementById('rent-input').value)||0;
+  d.expenses=parseFloat(document.getElementById('expense-input').value)||0;
+  document.getElementById('q3-next').disabled=(d.rent<=0);
+}
+function checkQ4(){
+  d.income=parseFloat(document.getElementById('income-input').value)||0;
+  document.getElementById('q4-next').disabled=!(d.filing!=='' && d.income>0);
+}
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  Object.assign(d,{value:0,mortgage:0,price:0,years:0,buildingPct:80,rent:0,expenses:0,filing:'',income:0,appreciation:null});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>

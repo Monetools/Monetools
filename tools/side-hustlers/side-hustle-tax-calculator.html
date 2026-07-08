@@ -196,6 +196,14 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 .footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
 .footer-logo span{color:var(--amber);}
 .footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+.affiliate-section{margin:0 0 20px;}
+.affiliate-section h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;}
+.affiliate-block{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;text-decoration:none;transition:all 0.15s;background:var(--green-bg);border:1px solid var(--green-border);}
+.affiliate-block:hover{transform:translateX(2px);}
+.affiliate-block-pending{display:block;padding:14px 16px;border-radius:10px;margin-bottom:8px;background:var(--cream);border:1px solid var(--border);}
+.affiliate-block-name{font-size:14px;font-weight:600;color:var(--sage);margin-bottom:3px;}
+.affiliate-block-pending .affiliate-block-name{color:var(--text-muted);}
+.affiliate-block-desc{font-size:12px;color:#374151;line-height:1.4;}
 </style>
 </head>
 <body>
@@ -635,6 +643,8 @@ function calcResult() {
         `<div class="action-text"><strong>Open a dedicated business bank account.</strong> Running all side income through one account makes tax time dramatically simpler and ensures you never miss a deductible expense.</div>`}
       </div>
     </div>
+
+    ${(typeof renderAffiliateBlock!=='undefined') ? `<div class="affiliate-section"><h4>Recommended Tools</h4>${renderAffiliateBlock('bookkeeping')}</div>` : ''}
 
     <div class="tool-cta-card">
       <div class="tool-cta-text">

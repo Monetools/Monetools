@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landlord Tax Estimator 2026 — Rental Income Tax Calculator | Monetools</title>
+<meta name="description" content="Free 2026 rental property tax calculator. See your real Schedule E taxable income after depreciation, whether your rental loss is deductible, and how much tax you'll owe — including the deduction most landlords miss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+input[type=range]{width:100%;height:6px;-webkit-appearance:none;background:var(--warm-gray);border-radius:3px;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--navy);border-radius:50%;cursor:pointer;border:3px solid white;box-shadow:0 0 0 1px var(--navy);}
+.range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px;margin-bottom:16px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+@media(max-width:500px){.input-row{grid-template-columns:1fr;}}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.insight-box{background:var(--navy);border-radius:16px;padding:28px;margin-bottom:24px;text-align:center;}
+.insight-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.insight-main{font-size:clamp(32px,7vw,48px);font-weight:800;color:var(--amber);line-height:1;margin-bottom:6px;}
+.insight-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5;}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.stat-value{font-size:24px;font-weight:800;color:var(--navy);}
+.stat-note{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.breakdown-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.breakdown-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
+.breakdown-row:last-child{border-bottom:none;padding-top:14px;margin-top:4px;}
+.br-label{font-size:13px;color:var(--text-muted);}
+.br-label.total{font-weight:700;color:var(--navy);}
+.br-val{font-size:14px;font-weight:600;color:var(--text);}
+.br-val.red{color:var(--red);}
+.br-val.green{color:var(--green);}
+.br-val.total{font-size:17px;font-weight:800;color:var(--navy);}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/landlords/">Landlords</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/landlords/">Tools</a><span>›</span>
+  Landlord Tax Estimator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Landlord · Schedule E · Depreciation</span>
+  <h1 class="seo-h1">Landlord Tax Estimator 2026</h1>
+  <p class="seo-lead">Most rental calculators show cash flow. This one shows what the IRS sees: your real Schedule E taxable income after depreciation — the deduction that turns many cash-positive rentals into paper losses. Find out what you'll actually owe, and whether you're missing the biggest deduction in real estate.</p>
+  <div class="callout tip">
+    <strong>The mistake that costs landlords thousands:</strong> Depreciation must be recaptured when you sell — whether you claimed it or not ("allowed or allowable," IRS Pub 527). If you're not claiming it, you're paying tax now AND paying recapture later. This tool shows exactly what you're leaving on the table.
+  </div>
+  <div class="tool-anchor-label">Start the Estimator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR RENTAL PROPERTY</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Rental Income -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Rental Income</div>
+      <div class="q-title">What's your monthly rent?</div>
+      <div class="q-sub">Enter the monthly rent you collect. We'll annualize it and account for vacancy in the next steps.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="rent-input" min="0" max="20000" step="50" placeholder="2,200" oninput="syncSlider('rent-input','rent-sl');checkQ1()">
+      </div>
+      <input type="range" id="rent-sl" min="500" max="8000" step="50" value="2200" oninput="syncInput('rent-sl','rent-input');checkQ1()">
+      <div class="range-labels"><span>$500</span><span>$8,000</span></div>
+      <div class="input-label" style="margin-top:8px;">Vacancy this year (months with no tenant)</div>
+      <input class="dollar-input" type="number" id="vacancy-input" min="0" max="12" step="0.5" placeholder="0" value="0" style="max-width:140px;padding-left:14px;" oninput="checkQ1()">
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Property & Depreciation -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your Property (For Depreciation)</div>
+      <div class="q-title">What did you pay for the property?</div>
+      <div class="q-sub">Depreciation is calculated on the building value only — not the land. This is usually the largest deduction landlords have.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Purchase price (+ major improvements)</div>
+          <div class="input-wrap">
+            <span class="dollar-sign">$</span>
+            <input class="dollar-input" type="number" id="price-input" min="0" max="3000000" step="5000" placeholder="300,000" oninput="checkQ2()">
+          </div>
+        </div>
+        <div>
+          <div class="input-label">Building portion (% of value that's NOT land)</div>
+          <input class="dollar-input" type="number" id="building-pct" min="40" max="95" step="5" value="80" style="padding-left:14px;" oninput="checkQ2()">
+          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Typical: 75–85%. Check your county assessor's land/building split.</div>
+        </div>
+      </div>
+      <div id="dep-preview" class="inline-note good" style="display:none;"></div>
+      <div class="input-label" style="margin-top:10px;">Are you currently claiming depreciation on your tax return?</div>
+      <div class="options-grid three">
+        <div class="option" onclick="selectOpt(this,'claiming','yes')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Yes</div><div class="opt-desc">On Schedule E every year</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'claiming','no')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">No</div><div class="opt-desc">Never claimed it</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'claiming','unsure')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Not sure</div><div class="opt-desc">My preparer handles it</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Expenses -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Annual Operating Expenses</div>
+      <div class="q-title">What are your annual property expenses?</div>
+      <div class="q-sub">Enter annual amounts. Rough estimates are fine — you can refine later.</div>
+      <div class="input-row">
+        <div>
+          <div class="input-label">Mortgage interest (not principal)</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-interest" min="0" step="100" placeholder="9,000" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Property tax</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-proptax" min="0" step="100" placeholder="3,600" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Insurance</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-insurance" min="0" step="50" placeholder="1,400" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Repairs & maintenance</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-repairs" min="0" step="100" placeholder="2,000" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Property management (if any)</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-mgmt" min="0" step="100" placeholder="0" oninput="checkQ3()"></div>
+        </div>
+        <div>
+          <div class="input-label">Other (HOA, utilities, advertising, travel)</div>
+          <div class="input-wrap"><span class="dollar-sign">$</span>
+          <input class="dollar-input exp-field" type="number" id="exp-other" min="0" step="100" placeholder="800" oninput="checkQ3()"></div>
+        </div>
+      </div>
+      <div class="inline-note warn">⚠️ <strong>Repairs vs. improvements:</strong> Repairs (fixing a leak, patching drywall) are deductible this year. Improvements (new roof, kitchen remodel) must be depreciated over 27.5 years — don't include them here; add them to your purchase price in Step 2 instead.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)">Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Your Tax Situation -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Tax Situation</div>
+      <div class="q-title">A few details about your overall taxes.</div>
+      <div class="q-sub">These determine your marginal rate on rental income — and whether rental losses are deductible against your other income.</div>
+      <div style="margin-bottom:16px;">
+        <div class="input-label">Filing status</div>
+        <div class="options-grid three" style="margin-bottom:0;">
+          <div class="option" onclick="selectOpt(this,'filing','single')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Single</div></div>
+          </div>
+          <div class="option" onclick="selectOpt(this,'filing','mfj')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Married (Joint)</div></div>
+          </div>
+          <div class="option" onclick="selectOpt(this,'filing','hoh')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Head of Household</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="input-label">Your total income from other sources (W-2, business, etc.) — this is roughly your MAGI before rental</div>
+      <div class="input-wrap" style="max-width:280px;">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="magi-input" min="0" max="1000000" step="1000" placeholder="95,000" oninput="checkQ4()">
+      </div>
+      <div class="inline-note info">💡 This matters because if your rental shows a loss, the $25,000 passive loss allowance phases out between $100,000–$150,000 MAGI.</div>
+      <div class="inline-note warn">ℹ️ <strong>What counts toward MAGI:</strong> W-2 wages, self-employment income, interest & dividends, retirement account distributions (traditional IRA/401k), and most other taxable income — before the standard deduction. Entering the wrong number here is the most common cause of a wildly wrong loss-deduction estimate.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: Active Participation -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — Your Involvement</div>
+      <div class="q-title">Do you actively participate in managing this rental?</div>
+      <div class="q-sub">"Active participation" is a low bar: you make management decisions like setting rent, approving tenants, or authorizing repairs — even if a property manager handles day-to-day.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'active','yes')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Yes, I make the decisions</div><div class="opt-desc">I set rent, approve tenants, or authorize repairs</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'active','no')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">No, fully hands-off</div><div class="opt-desc">Someone else makes all decisions (e.g., limited partner)</div></div>
+        </div>
+      </div>
+      <div class="inline-note info">This determines whether you qualify for the $25,000 passive loss allowance if your rental shows a loss (IRS Publication 925).</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>Calculate My Rental Tax →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Federal taxes only:</strong> This calculator estimates federal income tax on rental income. State income tax (0–13.3% depending on your state) and local taxes are not included. Some states also have specific rental income rules that differ from federal treatment.</div>
+
+  <h2 class="seo-h2">Why Depreciation Changes Everything for Landlords</h2>
+  <p class="seo-p">Depreciation is the reason many profitable rentals pay little or no tax. The IRS lets you deduct the cost of your residential rental building over 27.5 years — even while the property appreciates in market value. On a $300,000 property with an 80% building allocation, that's roughly $8,727 per year in deductions that require zero cash outlay (IRS Publication 527).</p>
+  <p class="seo-p">Here's the critical detail most landlords miss: <strong>depreciation recapture applies whether you claimed the deduction or not.</strong> The IRS rule is "allowed or allowable" — when you sell, your cost basis is reduced by the depreciation you could have claimed, and that amount is taxed at up to 25% (unrecaptured Section 1250 gain). A landlord who never claims depreciation pays full tax on rental income every year AND pays recapture tax at sale. Claiming it is not optional in any practical sense — it's the single most expensive mistake in rental property taxation.</p>
+
+  <h2 class="seo-h2">The Passive Loss Rules in Plain English</h2>
+  <p class="seo-p">Rental real estate is classified as a passive activity by default (IRC Section 469). Passive losses normally can only offset passive income — not your W-2 salary. But there's an important exception: if you actively participate in managing your rental and your modified adjusted gross income (MAGI) is $100,000 or less, you can deduct up to $25,000 of rental losses against your ordinary income. Between $100,000 and $150,000 MAGI, this allowance phases out at 50 cents per dollar. Above $150,000, it's gone entirely — but disallowed losses aren't lost. They carry forward and become deductible when you have passive income or when you sell the property.</p>
+
+  <h2 class="seo-h2">2026 Numbers This Calculator Uses</h2>
+  <p class="seo-p">Residential depreciation period: 27.5 years straight-line (IRS Pub 527). Passive loss allowance: $25,000 with $100k–$150k MAGI phase-out (IRS Pub 925). Net Investment Income Tax: 3.8% on rental income when MAGI exceeds $200,000 single / $250,000 married filing jointly. 2026 federal brackets and standard deductions per IRS Rev. Proc. 2025-32. De minimis safe harbor: items under $2,500 can be expensed immediately.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I have to claim depreciation on my rental property? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Technically it's a deduction, not a requirement — but the IRS treats it as if you claimed it either way. Under the "allowed or allowable" rule, when you sell, your cost basis is reduced by all the depreciation you could have claimed, and that amount is subject to recapture tax at up to 25%. Skipping depreciation means paying more tax now and the same recapture tax later. If you haven't been claiming it, a CPA can often fix prior years using Form 3115 (change in accounting method) and recover the missed deductions.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can I deduct my rental loss against my W-2 income? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Only under specific conditions. If you actively participate in managing the rental and your MAGI is $100,000 or less, you can deduct up to $25,000 in rental losses against ordinary income. The allowance phases out between $100,000–$150,000 MAGI and disappears above $150,000. Real estate professionals (750+ hours/year in real estate, more than half of total working time) can deduct unlimited rental losses. Disallowed losses carry forward — they're deferred, not lost.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What's the difference between a repair and an improvement? <span class="faq-icon">+</span></button>
+    <div class="faq-a">A repair keeps the property in its ordinary working condition (fixing a leak, patching drywall, replacing a broken window pane) and is fully deductible in the year paid. An improvement adds value, adapts the property to a new use, or extends its life (new roof, kitchen remodel, room addition) — it must be capitalized and depreciated over 27.5 years. The IRS uses the "BAR test": Betterment, Adaptation, or Restoration means improvement. One helpful exception: the de minimis safe harbor lets you immediately expense items costing $2,500 or less per invoice.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I report rental income on Schedule C or Schedule E? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Long-term rentals go on Schedule E — this means the income is NOT subject to self-employment tax (a significant advantage over business income). Schedule C applies only when you provide substantial services to tenants (like a bed-and-breakfast or hotel-style operation) or for certain short-term rental situations. If you host on Airbnb with average stays of 7 days or less and provide substantial services, your income may belong on Schedule C — with SE tax consequences. This distinction is worth a CPA conversation for short-term rental hosts.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What is the Net Investment Income Tax (NIIT)? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The NIIT is an additional 3.8% federal tax on net investment income — including net rental income — that applies when your MAGI exceeds $200,000 (single) or $250,000 (married filing jointly). If your total income is below these thresholds, NIIT doesn't apply to you. If you're above them, your net rental profit is taxed at your marginal rate plus 3.8%. This calculator flags NIIT automatically based on your income inputs.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What happens to depreciation when I sell the property? <span class="faq-icon">+</span></button>
+    <div class="faq-a">All depreciation claimed (or claimable) reduces your cost basis, and that portion of your gain is taxed as "unrecaptured Section 1250 gain" at a maximum rate of 25% — separate from and typically higher than the long-term capital gains rate on the rest of your appreciation. A 1031 exchange can defer both the capital gain and the depreciation recapture indefinitely by rolling into another investment property. Planning the exit is as important as planning the hold — our Sell vs Keep Calculator (coming soon) models this decision.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. Results are federal tax estimates only and do not include state or local taxes.<br>
+    This tool provides educational estimates based on federal tax rules — results are not for tax filing purposes, do not constitute a formal tax opinion, and should not be the sole basis for filing returns or responding to an IRS audit.<br>
+    <strong style="color:rgba(255,255,255,0.55);">Consult a qualified CPA for your specific situation.</strong> Based on IRS Publications 527, 925, 946 and Rev. Proc. 2025-32.
+  </div>
+</footer>
+
+<script src="/affiliate-config.js"></script>
+<script>
+const d = { rent:0, vacancyMonths:0, price:0, buildingPct:80, claiming:'',
+            filing:'', magi:0, active:'' };
+
+const STD_DED = { single:16100, mfj:32200, hoh:24150 };
+const BRACKETS = {
+  single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+  mfj:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],
+  hoh:[[18750,.10],[50250,.12],[100600,.22],[176900,.24],[229600,.32],[640600,.35],[Infinity,.37]]
+};
+const NIIT_THRESHOLD = { single:200000, mfj:250000, hoh:200000 };
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+function getMarginal(taxable, filing){
+  const b=BRACKETS[filing]||BRACKETS.single;
+  for(const [lim,rate] of b){if(taxable<=lim)return rate;}
+  return .37;
+}
+
+function calcResult(){
+  const annualRent = d.rent * (12 - d.vacancyMonths);
+  const expInterest = parseFloat(document.getElementById('exp-interest').value)||0;
+  const expProptax = parseFloat(document.getElementById('exp-proptax').value)||0;
+  const expInsurance = parseFloat(document.getElementById('exp-insurance').value)||0;
+  const expRepairs = parseFloat(document.getElementById('exp-repairs').value)||0;
+  const expMgmt = parseFloat(document.getElementById('exp-mgmt').value)||0;
+  const expOther = parseFloat(document.getElementById('exp-other').value)||0;
+  const totalOpEx = expInterest+expProptax+expInsurance+expRepairs+expMgmt+expOther;
+
+  // Depreciation
+  const depreciableBasis = d.price * (d.buildingPct/100);
+  const annualDepreciation = depreciableBasis / 27.5;
+
+  // Schedule E net income
+  const netBeforeDep = annualRent - totalOpEx;
+  const netScheduleE = netBeforeDep - annualDepreciation;
+
+  const marginalRate = getMarginal(Math.max(0, d.magi - STD_DED[d.filing]), d.filing);
+
+  // Depreciation tax value
+  const depTaxSavings = annualDepreciation * marginalRate;
+
+  let taxOwed = 0, niitOwed = 0, deductibleLoss = 0, suspendedLoss = 0, allowance = 0;
+  let scenario = '';
+
+  if (netScheduleE > 0) {
+    scenario = 'income';
+    taxOwed = netScheduleE * marginalRate;
+    // NIIT check
+    const totalMAGI = d.magi + netScheduleE;
+    if (totalMAGI > NIIT_THRESHOLD[d.filing]) {
+      const niitBase = Math.min(netScheduleE, totalMAGI - NIIT_THRESHOLD[d.filing]);
+      niitOwed = niitBase * 0.038;
+    }
+  } else if (netScheduleE < 0) {
+    const loss = Math.abs(netScheduleE);
+    if (d.active === 'yes') {
+      // $25k allowance with phaseout
+      if (d.magi <= 100000) allowance = 25000;
+      else if (d.magi < 150000) allowance = 25000 - (d.magi - 100000) * 0.5;
+      else allowance = 0;
+      deductibleLoss = Math.min(loss, allowance);
+      suspendedLoss = loss - deductibleLoss;
+      scenario = deductibleLoss > 0 ? 'deductible-loss' : 'suspended-loss';
+    } else {
+      deductibleLoss = 0;
+      suspendedLoss = loss;
+      scenario = 'suspended-loss';
+    }
+  } else {
+    scenario = 'breakeven';
+  }
+
+  const lossTaxSavings = deductibleLoss * marginalRate;
+  const cashFlow = annualRent - totalOpEx; // before-tax cash flow (ignoring principal)
+
+  // Insight headline
+  let insightLabel, insightMain, insightDesc;
+  if (scenario === 'income') {
+    insightLabel = 'ESTIMATED FEDERAL TAX ON YOUR RENTAL';
+    insightMain = fmt(taxOwed + niitOwed) + '/yr';
+    insightDesc = `on ${fmt(netScheduleE)} of taxable Schedule E income — after depreciation cut your taxable income by ${fmt(annualDepreciation)}`;
+  } else if (scenario === 'deductible-loss') {
+    insightLabel = 'YOUR RENTAL LOSS SAVES YOU';
+    insightMain = fmt(lossTaxSavings) + '/yr';
+    insightDesc = `${fmt(deductibleLoss)} of your paper loss is deductible against your other income at your ${Math.round(marginalRate*100)}% rate${suspendedLoss>0 ? ` · ${fmt(suspendedLoss)} carries forward` : ''}`;
+  } else if (scenario === 'suspended-loss') {
+    insightLabel = 'YOUR LOSS IS SUSPENDED (NOT LOST)';
+    insightMain = fmt(Math.abs(netScheduleE));
+    insightDesc = d.active==='yes' ? `Your MAGI (${fmt(d.magi)}) exceeds the $150,000 phase-out — the loss carries forward to offset future passive income or your eventual sale` : `Without active participation, passive losses can only offset passive income — the loss carries forward`;
+  } else {
+    insightLabel = 'YOUR RENTAL BREAKS EVEN FOR TAX';
+    insightMain = '$0';
+    insightDesc = 'No federal tax owed on your rental this year';
+  }
+
+  // CPA referral link — appears only when affiliate URL is configured in /affiliate-config.js
+  const cpaRefLink = (typeof AFFILIATE_LINKS !== 'undefined' && AFFILIATE_LINKS.cpaReferral && AFFILIATE_LINKS.cpaReferral.url)
+    ? `<div style="margin-top:10px;"><a href="${AFFILIATE_LINKS.cpaReferral.url}" target="_blank" rel="noopener sponsored" style="font-weight:700;color:#78350F;text-decoration:underline;">Talk to a CPA about your Form 3115 recovery potential →</a></div>`
+    : '';
+
+  // Missing depreciation warning
+  const missingDepWarning = (d.claiming === 'no') ? `
+    <div class="warn-box">
+      <strong>🚨 You're missing the biggest deduction in real estate.</strong> Based on your inputs, you're entitled to ${fmt(annualDepreciation)}/year in depreciation — worth ${fmt(depTaxSavings)}/year in tax savings at your rate. Critically: the IRS will recapture this depreciation when you sell <em>whether you claimed it or not</em> ("allowed or allowable" rule). Not claiming it means paying more tax now AND the same recapture later. A CPA can often recover missed prior years using Form 3115. This should be your #1 priority.${cpaRefLink}
+    </div>` : (d.claiming === 'unsure') ? `
+    <div class="warn-box">
+      <strong>⚠️ Verify your depreciation is being claimed.</strong> Check your most recent Schedule E, Line 18 — you should see roughly ${fmt(annualDepreciation)} there. If it's blank or much smaller, your preparer may not have set it up. The recapture rule applies whether you claim it or not, so leaving it unclaimed is pure loss.${cpaRefLink}
+    </div>` : '';
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your rental property tax picture</div>
+      <div class="result-sub">2026 federal estimates · Schedule E treatment</div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">${insightLabel}</div>
+      <div class="insight-main">${insightMain}</div>
+      <div class="insight-desc">${insightDesc}</div>
+      <div style="font-size:11px;background:rgba(255,255,255,0.12);border-radius:6px;padding:6px 12px;margin-top:10px;color:rgba(255,255,255,0.6);">⚠️ Federal taxes only · Does not include state or local income tax</div>
+    </div>
+
+    ${missingDepWarning}
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Cash Flow (Before Tax)</div>
+        <div class="stat-value" style="color:${cashFlow>=0?'var(--green)':'var(--red)'}">${cashFlow>=0?'':'−'}${fmt(cashFlow)}</div>
+        <div class="stat-note">Rent minus operating expenses</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Taxable Schedule E Income</div>
+        <div class="stat-value" style="color:${netScheduleE>=0?'var(--navy)':'var(--green)'}">${netScheduleE>=0?'':'−'}${fmt(netScheduleE)}</div>
+        <div class="stat-note">After depreciation</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Annual Depreciation</div>
+        <div class="stat-value">${fmt(annualDepreciation)}</div>
+        <div class="stat-note">${fmt(depreciableBasis)} ÷ 27.5 years</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Depreciation Tax Value</div>
+        <div class="stat-value" style="color:var(--green)">${fmt(depTaxSavings)}/yr</div>
+        <div class="stat-note">At your ${Math.round(marginalRate*100)}% marginal rate</div>
+      </div>
+    </div>
+
+    <div class="breakdown-card">
+      <div class="breakdown-title">📊 Schedule E Breakdown (Annual)</div>
+      <div class="breakdown-row"><span class="br-label">Rental income (${12-d.vacancyMonths} months)</span><span class="br-val">${fmt(annualRent)}</span></div>
+      <div class="breakdown-row"><span class="br-label">Mortgage interest</span><span class="br-val red">−${fmt(expInterest)}</span></div>
+      <div class="breakdown-row"><span class="br-label">Property tax</span><span class="br-val red">−${fmt(expProptax)}</span></div>
+      <div class="breakdown-row"><span class="br-label">Insurance</span><span class="br-val red">−${fmt(expInsurance)}</span></div>
+      <div class="breakdown-row"><span class="br-label">Repairs & maintenance</span><span class="br-val red">−${fmt(expRepairs)}</span></div>
+      ${expMgmt>0?`<div class="breakdown-row"><span class="br-label">Property management</span><span class="br-val red">−${fmt(expMgmt)}</span></div>`:''}
+      ${expOther>0?`<div class="breakdown-row"><span class="br-label">Other expenses</span><span class="br-val red">−${fmt(expOther)}</span></div>`:''}
+      <div class="breakdown-row"><span class="br-label">Depreciation (27.5-yr straight-line)</span><span class="br-val green">−${fmt(annualDepreciation)} (non-cash)</span></div>
+      <div class="breakdown-row"><span class="br-label total">Net Schedule E ${netScheduleE>=0?'income':'loss'}</span><span class="br-val total">${netScheduleE>=0?'':'−'}${fmt(netScheduleE)}</span></div>
+      ${scenario==='income' ? `
+      <div class="breakdown-row"><span class="br-label">Federal tax at ${Math.round(marginalRate*100)}% marginal rate</span><span class="br-val red">${fmt(taxOwed)}</span></div>
+      ${niitOwed>0?`<div class="breakdown-row"><span class="br-label">Net Investment Income Tax (3.8%)</span><span class="br-val red">${fmt(niitOwed)}</span></div>`:''}
+      ` : ''}
+      ${scenario==='deductible-loss' ? `
+      <div class="breakdown-row"><span class="br-label">Deductible against other income (within ${fmt(allowance)} allowance)</span><span class="br-val green">${fmt(deductibleLoss)}</span></div>
+      ${suspendedLoss>0?`<div class="breakdown-row"><span class="br-label">Suspended — carries forward</span><span class="br-val amber" style="color:#B45309;">${fmt(suspendedLoss)}</span></div>`:''}
+      <div class="breakdown-row"><span class="br-label">Tax savings this year</span><span class="br-val green">${fmt(lossTaxSavings)}</span></div>
+      ` : ''}
+      ${scenario==='suspended-loss' ? `
+      <div class="breakdown-row"><span class="br-label">Suspended loss — carries forward (IRC 469)</span><span class="br-val" style="color:#B45309;">${fmt(Math.abs(netScheduleE))}</span></div>
+      ` : ''}
+    </div>
+
+    ${netScheduleE < 0 && d.active==='yes' && d.magi > 100000 && d.magi < 150000 ? `
+    <div class="inline-note info" style="margin-bottom:20px;">💡 <strong>Phase-out detail:</strong> At ${fmt(d.magi)} MAGI, your passive loss allowance is reduced from $25,000 to ${fmt(allowance)} (reduced 50¢ per dollar above $100,000).</div>
+    ` : ''}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text">
+        ${d.claiming==='no' ?
+          `<strong>Talk to a CPA about Form 3115 immediately.</strong> You can often recover ALL missed depreciation from prior years in a single tax year via an accounting method change — potentially a ${fmt(depTaxSavings*3)}+ recovery if you've owned the property several years.` :
+          `<strong>Keep your depreciation schedule updated.</strong> Any capital improvements (new roof, HVAC, remodel) create their own depreciation schedules. Track each one separately — appliances and certain components can depreciate over 5–7 years instead of 27.5, accelerating your deductions.`}
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text"><strong>Separate repairs from improvements in your records.</strong> Repairs (deductible now) vs. improvements (depreciated over 27.5 years) is the most common landlord audit issue. Use the de minimis safe harbor: items under $2,500 per invoice can be expensed immediately regardless.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">
+        ${netScheduleE<0 && suspendedLoss>0 ?
+          `<strong>Track your suspended losses carefully.</strong> Your ${fmt(suspendedLoss)} suspended loss isn't gone — it carries forward indefinitely and becomes fully deductible when you sell the property. Keep Form 8582 records every year.` :
+          `<strong>Keep records for at least 3 years</strong> (6 if income could be understated by 25%+). Every receipt, mileage log for property visits, and improvement invoice matters — both for annual deductions and for calculating your basis at sale.`}
+        </div>
+      </div>
+    </div>
+
+    ${d.active==='yes' && netScheduleE < 0 ? `
+    <div class="inline-note info" style="margin-bottom:20px;">📁 <strong>Protect your "active participation" status:</strong> The IRS can challenge your $25,000 loss allowance if you can't prove involvement. Keep these 3 records: (1) your property management agreement showing you retain decision authority, (2) emails or texts approving repairs and tenant applications, (3) a simple annual log of management decisions you made. Five minutes of documentation protects thousands in deductions.</div>` : ''}
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Also have self-employment income?</h3>
+        <p>See how your rental fits into your complete quarterly tax picture.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/self-employed/quarterly-tax-estimator.html">Quarterly Tax Estimator →</a>
+    </div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='claiming') checkQ2();
+  if(key==='filing') checkQ4();
+  if(key==='active') document.getElementById('q5-next').disabled=false;
+}
+function syncInput(slId,inId){document.getElementById(inId).value=document.getElementById(slId).value;}
+function syncSlider(inId,slId){const v=parseFloat(document.getElementById(inId).value)||0;document.getElementById(slId).value=v;}
+
+function checkQ1(){
+  d.rent=parseFloat(document.getElementById('rent-input').value)||0;
+  d.vacancyMonths=parseFloat(document.getElementById('vacancy-input').value)||0;
+  document.getElementById('q1-next').disabled=(d.rent<=0);
+}
+function checkQ2(){
+  d.price=parseFloat(document.getElementById('price-input').value)||0;
+  d.buildingPct=parseFloat(document.getElementById('building-pct').value)||80;
+  const preview=document.getElementById('dep-preview');
+  if(d.price>0){
+    const dep=(d.price*(d.buildingPct/100))/27.5;
+    preview.style.display='block';
+    preview.innerHTML=`✅ Your annual depreciation deduction: <strong>${'$'+Math.round(dep).toLocaleString()}/year</strong> — a non-cash deduction you get every year for 27.5 years.`;
+  } else { preview.style.display='none'; }
+  document.getElementById('q2-next').disabled = !(d.price>0 && d.claiming!=='');
+}
+function checkQ3(){ /* all optional */ }
+function checkQ4(){
+  d.magi=parseFloat(document.getElementById('magi-input').value)||0;
+  document.getElementById('q4-next').disabled = !(d.filing!=='' && d.magi>0);
+}
+
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  Object.assign(d,{rent:0,vacancyMonths:0,price:0,buildingPct:80,claiming:'',filing:'',magi:0,active:''});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>
