@@ -204,6 +204,64 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 .affiliate-block-name{font-size:14px;font-weight:600;color:var(--sage);margin-bottom:3px;}
 .affiliate-block-pending .affiliate-block-name{color:var(--text-muted);}
 .affiliate-block-desc{font-size:12px;color:#374151;line-height:1.4;}
+/* ═══════════════════════════════════════════
+   MONETOOLS SHARED WIDGET STYLES
+   Affiliate Sidebar + Email Gate
+   Same visual language across all 11 tools
+   ═══════════════════════════════════════════ */
+
+.mt-affiliate-sidebar{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+}
+.mt-affiliate-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.mt-affiliate-card{
+  display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;
+  background:var(--cream);border:1px solid var(--border);text-decoration:none;
+  transition:all 0.15s;
+}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+
+.mt-emailgate{
+  background:var(--white);
+  border:1.5px solid var(--amber);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:20px;
+}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{
+  flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;
+}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  font-family:'Inter',sans-serif;
+}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{
+  font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;
+}
+
+@media(max-width:500px){
+  .mt-emailgate-row{flex-direction:column;}
+  .mt-email-btn{width:100%;}
+}
+
 </style>
 </head>
 <body>
@@ -230,6 +288,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   <div class="callout tip">
     <strong>Why this matters:</strong> A freelancer earning $50k W-2 + $20k side income doesn't pay ~22% on the $20k side income — they may pay 32%+ once it stacks on top. Most calculators miss this entirely.
   </div>
+  <div id="mt-sidebar-mount"></div>
   <div class="tool-anchor-label">Start the Calculator</div>
 </div>
 
@@ -400,7 +459,14 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   </div>
 </footer>
 
-<script src="/affiliate-config.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('side-hustle-tax-calculator', 'mt-sidebar-mount');
+});
+</script>
 <script>
 // ── STATE ──
 const d = { filing:'', w2:0, withholding:0, side:0, expenses:0 };
@@ -654,6 +720,8 @@ function calcResult() {
       <a class="tool-cta-btn" href="/tools/self-employed/quarterly-tax-estimator.html">Open Estimator →</a>
     </div>
 
+    <div id="mt-emailgate-mount"></div>
+
     <div class="restart-row">
       <button class="btn-restart" onclick="restart()">↺ Start Over</button>
     </div>
@@ -664,6 +732,12 @@ function calcResult() {
   rc.innerHTML = html;
   rc.style.display = 'block';
   rc.scrollIntoView({behavior:'smooth', block:'start'});
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('side-hustle-tax-calculator', '.result-wrap');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
 }
 
 // ── UI HELPERS ──
