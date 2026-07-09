@@ -33,7 +33,7 @@ const AFFILIATE_LINKS = {
   bookkeeping: {
     name: "Keeper Tax",
     blurb: "AI-powered bookkeeping that finds deductions and preps your Schedule C automatically.",
-    url: "https://keepertax.com"
+    url: null
   },
   cpaReferral: {
     name: "Book a CPA",
@@ -43,7 +43,7 @@ const AFFILIATE_LINKS = {
   mileageTracker: {
     name: "Stride",
     blurb: "Free automatic mileage tracking for gig workers and freelancers.",
-    url: "https://stride.com"
+    url: null
   }
 };
 
