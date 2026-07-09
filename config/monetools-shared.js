@@ -107,36 +107,54 @@ const EmailGate = {
 
   downloadResultAsPDF() {
     const resultEl = document.querySelector(this.resultSelector);
-    if (!resultEl) { window.print(); return; }
+    if (!resultEl) return;
 
-    // Lightweight approach: open a print-friendly window scoped to just the result content
-    // and trigger the browser's native "Save as PDF" print flow — no external library needed.
-    const printWindow = window.open('', '_blank');
-    const styles = `
-      <style>
-        body{font-family:Georgia,serif;color:#1A1A2E;padding:32px;max-width:700px;margin:0 auto;}
-        h1,h2,h3{color:#0F1F3D;}
-        .mt-pdf-header{border-bottom:3px solid #E8A838;padding-bottom:16px;margin-bottom:24px;}
-        .mt-pdf-header .brand{font-size:22px;font-weight:700;color:#0F1F3D;}
-        .mt-pdf-header .date{font-size:12px;color:#6B7280;margin-top:4px;}
-        .mt-pdf-footer{margin-top:32px;padding-top:16px;border-top:1px solid #D4CFC6;font-size:11px;color:#6B7280;}
-        button, .btn-restart, .restart-row, .tool-cta-card, #mt-emailgate {display:none !important;}
-        @media print { body{padding:0;} }
-      </style>`;
-    printWindow.document.write(`
-      <html><head><title>Monetools — Your Results</title>${styles}</head>
-      <body>
-        <div class="mt-pdf-header">
-          <div class="brand">Monetools</div>
-          <div class="date">Generated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
-        </div>
-        ${resultEl.innerHTML}
-        <div class="mt-pdf-footer">
-          Monetools tools are provided for informational and educational purposes only. This is not tax advice — consult a qualified CPA for your specific situation.
-        </div>
-      </body></html>`);
-    printWindow.document.close();
-    setTimeout(() => { printWindow.print(); }, 400);
+    // True one-click download: render the result into an offscreen container,
+    // rasterize it with html2canvas, then paginate into a jsPDF document —
+    // no browser print dialog, no extra user clicks.
+    const clone = resultEl.cloneNode(true);
+    clone.querySelectorAll('button, .btn-restart, .restart-row, .tool-cta-card, #mt-emailgate, #mt-emailgate-mount')
+      .forEach(el => el.remove());
+
+    const wrapper = document.createElement('div');
+    wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;width:700px;background:#fff;padding:32px;font-family:Georgia,serif;color:#1A1A2E;';
+    wrapper.innerHTML = `
+      <div style="border-bottom:3px solid #E8A838;padding-bottom:16px;margin-bottom:24px;">
+        <div style="font-size:22px;font-weight:700;color:#0F1F3D;">Monetools</div>
+        <div style="font-size:12px;color:#6B7280;margin-top:4px;">Generated ${new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}</div>
+      </div>
+      ${clone.outerHTML}
+      <div style="margin-top:32px;padding-top:16px;border-top:1px solid #D4CFC6;font-size:11px;color:#6B7280;">
+        Monetools tools are provided for informational and educational purposes only. This is not tax advice — consult a qualified CPA for your specific situation.
+      </div>`;
+    document.body.appendChild(wrapper);
+
+    html2canvas(wrapper, { scale: 2, backgroundColor: '#ffffff', windowWidth: 700 }).then(canvas => {
+      document.body.removeChild(wrapper);
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF('p', 'pt', 'a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imgWidth = pageWidth;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+      const imgData = canvas.toDataURL('image/jpeg', 0.92);
+
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+      pdf.save('monetools-results.pdf');
+    }).catch(() => {
+      // Fallback if html2canvas/jsPDF fail to load (e.g. offline): use print dialog
+      document.body.contains(wrapper) && document.body.removeChild(wrapper);
+      window.print();
+    });
   }
 };
 
