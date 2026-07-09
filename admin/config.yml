@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: Monetools/Monetools
+  name: git-gateway
   branch: main
-  base_url: https://monetools.com
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
@@ -39,7 +37,6 @@ collections:
       - label: "Article Body"
         name: "body"
         widget: "markdown"
-        # 支持HTML代码直接粘贴
         sanitize_preview: false
         hint: "右上角切换按钮：可视化模式 ↔ 代码模式（可直接粘贴HTML）"
 
