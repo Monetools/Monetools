@@ -325,6 +325,64 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .breadcrumb a{color:var(--text-muted);text-decoration:none;}
 .breadcrumb a:hover{color:var(--navy);}
 .breadcrumb span{margin:0 6px;}
+/* ═══════════════════════════════════════════
+   MONETOOLS SHARED WIDGET STYLES
+   Affiliate Sidebar + Email Gate
+   Same visual language across all 11 tools
+   ═══════════════════════════════════════════ */
+
+.mt-affiliate-sidebar{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+}
+.mt-affiliate-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.mt-affiliate-card{
+  display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;
+  background:var(--cream);border:1px solid var(--border);text-decoration:none;
+  transition:all 0.15s;
+}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+
+.mt-emailgate{
+  background:var(--white);
+  border:1.5px solid var(--amber);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:20px;
+}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{
+  flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;
+}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  font-family:'Inter',sans-serif;
+}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{
+  font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;
+}
+
+@media(max-width:500px){
+  .mt-emailgate-row{flex-direction:column;}
+  .mt-email-btn{width:100%;}
+}
+
 </style>
 </head>
 <body>
@@ -442,6 +500,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 
 <!-- TOOL ANCHOR -->
 <div class="tool-anchor" id="calculator">
+  <div id="mt-sidebar-mount"></div>
   <div class="tool-anchor-label">Free Tax Savings Calculator</div>
 </div>
 
@@ -656,6 +715,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
           <a class="guide-item" href="/blog/self-employed/should-i-form-an-llc.html">Should I Form an LLC as a Freelancer? Complete Guide</a>
         </div>
       </div>
+      <div id="mt-emailgate-mount"></div>
 
       <button class="btn-restart" onclick="restart()">↩ Recalculate</button>
     </div>
@@ -1105,6 +1165,12 @@ function showResult() {
   `;
 
   document.getElementById('result-content').innerHTML = html;
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('llc-vs-s-corp', '#result-content');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
   document.querySelectorAll('.qcard').forEach(c => c.classList.remove('active'));
   document.getElementById('result-card').classList.add('active');
   document.getElementById('prog-fill').style.width = '100%';
@@ -1141,6 +1207,15 @@ function toggleFaq(btn) {
 }
 function tf(btn){ btn.closest('.faq-item').classList.toggle('open'); }
 </script>
-<script src="../../affiliate-config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('llc-vs-s-corp', 'mt-sidebar-mount');
+});
+</script>
 </body>
 </html>
