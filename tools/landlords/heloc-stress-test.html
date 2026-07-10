@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HELOC Risk Stress Test 2026 — Can You Survive the Repayment Cliff? | Monetools</title>
+<meta name="description" content="Free 2026 HELOC stress test for landlords and homeowners using home equity to invest. See what happens to your payment when rates rise and the draw period ends — before you borrow, not after.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+.plain-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.verdict-box{border-radius:16px;padding:28px;margin-bottom:24px;}
+.verdict-box.green{background:var(--green-bg);border:2px solid var(--green-border);}
+.verdict-box.yellow{background:var(--yellow-bg);border:2px solid var(--yellow-border);}
+.verdict-box.red{background:var(--red-bg);border:2px solid var(--red-border);}
+.verdict-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.verdict-box.green .verdict-label{color:var(--sage);}
+.verdict-box.yellow .verdict-label{color:#92400E;}
+.verdict-box.red .verdict-label{color:var(--red);}
+.verdict-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4.5vw,30px);margin-bottom:10px;line-height:1.2;}
+.verdict-box.green .verdict-title{color:var(--sage);}
+.verdict-box.yellow .verdict-title{color:#92400E;}
+.verdict-box.red .verdict-title{color:#991B1B;}
+.verdict-desc{font-size:14px;line-height:1.6;}
+.verdict-box.green .verdict-desc{color:var(--sage);}
+.verdict-box.yellow .verdict-desc{color:#92400E;}
+.verdict-box.red .verdict-desc{color:#991B1B;}
+.scenario-table{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;overflow-x:auto;}
+.scenario-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{text-align:left;padding:8px 10px;color:var(--text-muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.3px;border-bottom:2px solid var(--border);}
+td{padding:10px;border-bottom:1px solid var(--border);}
+tr:last-child td{border-bottom:none;}
+td.num{font-weight:700;color:var(--navy);}
+td.num.danger{color:var(--red);}
+td.num.caution{color:#B45309;}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--navy);}
+.stat-note{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.danger-box{background:var(--red-bg);border:1px solid var(--red-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#991B1B;}
+.danger-box strong{color:#7F1D1D;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+/* ═══════════════════════════════════════════
+   MONETOOLS SHARED WIDGET STYLES
+   Affiliate Sidebar + Email Gate
+   Same visual language across all 11 tools
+   ═══════════════════════════════════════════ */
+
+.mt-affiliate-sidebar{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+}
+.mt-affiliate-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.mt-affiliate-card{
+  display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;
+  background:var(--cream);border:1px solid var(--border);text-decoration:none;
+  transition:all 0.15s;
+}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+
+.mt-emailgate{
+  background:var(--white);
+  border:1.5px solid var(--amber);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:20px;
+}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{
+  flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;
+}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  font-family:'Inter',sans-serif;
+}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{
+  font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;
+}
+
+@media(max-width:500px){
+  .mt-emailgate-row{flex-direction:column;}
+  .mt-email-btn{width:100%;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/landlords/">Landlords</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/landlords/">Tools</a><span>›</span>
+  HELOC Risk Stress Test
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Landlord · Investor · Home Equity Risk</span>
+  <h1 class="seo-h1">HELOC Risk Stress Test 2026</h1>
+  <p class="seo-lead">Most HELOC calculators show you what you can borrow. This one shows you what happens if things go wrong — rates rise, the draw period ends, or your investment underperforms. Before you use your home as collateral for an investment, know exactly what you're signing up for.</p>
+  <div class="callout tip">
+    <strong>The number that catches people off guard:</strong> When a HELOC's draw period ends, interest-only payments switch to full principal + interest overnight — typically a 20-40% jump at today's rates, and more if rates have risen. A $80,000 balance can go from ~$517/month interest-only to ~$657/month in full repayment — before accounting for any rate increases in between.
+  </div>
+  <div id="mt-sidebar-mount"></div>
+  <div class="tool-anchor-label">Start the Stress Test</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR HELOC SCENARIO</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Draw amount -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your HELOC</div>
+      <div class="q-title">How much do you plan to draw (or have drawn) from your HELOC?</div>
+      <div class="q-sub">Enter the actual balance you'd carry — not your full approved credit limit.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="draw-amount" min="0" step="1000" placeholder="75,000" oninput="checkQ1()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Current rate -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your Rate</div>
+      <div class="q-title">What's your current (or quoted) HELOC interest rate?</div>
+      <div class="q-sub">2026 HELOC rates typically range 7.0%–9.8%, usually priced as Prime + a lender margin.</div>
+      <input class="plain-input" type="number" id="current-rate" min="0" max="20" step="0.05" placeholder="8.25" style="max-width:200px;" oninput="checkQ2()">
+      <div class="input-label" style="margin-top:4px;">% APR</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Draw period status -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Where You Are in the Timeline</div>
+      <div class="q-title">Are you currently in the draw period or repayment period?</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'period','draw')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Draw period</div><div class="opt-desc">Interest-only payments now</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'period','repayment')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Repayment period</div><div class="opt-desc">Already paying principal + interest</div></div>
+        </div>
+      </div>
+      <div id="q3-draw-years-wrap" style="display:none;">
+        <div class="input-label">How many years left in your draw period?</div>
+        <input class="plain-input" type="number" id="draw-years-left" min="0" max="15" placeholder="6" style="max-width:200px;" oninput="checkQ3()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Income for stress test -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Cash Flow</div>
+      <div class="q-title">What's your monthly take-home income (household)?</div>
+      <div class="q-sub">After-tax income you can count on — used to check how much of your budget the HELOC payment would consume under stress.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="monthly-income" min="0" step="500" placeholder="8,000" oninput="checkQ4()">
+      </div>
+      <div class="input-label" style="margin-top:8px;">Optional: your home's combined loan-to-value (existing mortgage + this HELOC) as a % of home value</div>
+      <input class="plain-input" type="number" id="ltv-input" min="0" max="100" step="1" placeholder="e.g. 75" style="max-width:200px;">
+      <div style="font-size:11px;color:var(--text-muted);margin-top:-4px;margin-bottom:12px;">Cash flow isn't the only risk — high combined LTV means less equity cushion if home values drop. Skip if unsure.</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: What the funds are for -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — What The Funds Are For</div>
+      <div class="q-title">What are you using (or planning to use) this HELOC for?</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'purpose','rental_downpayment')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Down payment on a rental</div><div class="opt-desc">Property should generate income</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'purpose','renovation')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Renovation / home improvement</div><div class="opt-desc">No income offset expected</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'purpose','market_investing')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Stock market / other investments</div><div class="opt-desc">Returns not guaranteed</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'purpose','debt_consolidation')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Debt consolidation</div><div class="opt-desc">Replacing higher-rate debt</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>Run My Stress Test →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Not financial advice:</strong> This tool illustrates payment scenarios using your inputs and 2026 market rate ranges. It does not account for your complete financial picture, tax situation, or specific lender terms. Actual rates, caps, and terms vary by lender — confirm exact figures with your HELOC provider.</div>
+
+  <h2 class="seo-h2">Why a HELOC Payment Isn't What It Looks Like Today</h2>
+  <p class="seo-p">A HELOC has two very different phases, and most borrowers only budget for the one they're currently in. During the draw period (typically 10 years), minimum payments are usually interest-only — low and easy to manage. When the draw period ends, the line closes permanently and the repayment period begins: you now owe full principal-plus-interest payments, spread over the remaining term (often 20 years). At current rates, this transition typically raises the payment by 20-40% on the same balance — this calculator shows your exact multiple. This transition is often called the "repayment cliff" — and because most HELOCs carry variable rates, the exact payment at that transition point is unknown when you first borrow.</p>
+  <p class="seo-p">On top of the structural payment jump, HELOC rates move with the market. Since most HELOCs are priced at the Prime Rate plus a lender margin, every Federal Reserve rate decision flows through to your payment — often within a billing cycle. A borrower who takes a $100,000 draw at a comfortable rate today has no guarantee that rate holds for the next 10-30 years of the loan's life.</p>
+
+  <h2 class="seo-h2">The 8% Rule</h2>
+  <p class="seo-p">A practical stress-test guideline used by experienced lenders: if your <em>stressed</em> monthly HELOC payment (calculated at a higher rate scenario, not today's rate) would exceed roughly 8% of your monthly take-home income, the loan is likely oversized for comfortable risk-taking — even if you can technically afford today's payment. This calculator applies that benchmark to your specific numbers across multiple rate and timeline scenarios.</p>
+
+  <h2 class="seo-h2">2026 Reference Numbers</h2>
+  <p class="seo-p">Current HELOC rates: approximately 7.0%–9.8% APR, typically Prime + 0% to Prime + 2.5% margin (rates vary significantly by lender, credit score, and combined loan-to-value ratio). Typical structure: 10-year draw period (interest-only minimum payments) followed by a 20-year repayment period (fully amortizing principal + interest). Rate sensitivity: each 1% rate increase adds roughly $80–170/month in interest cost per $100,000 borrowed, depending on the remaining term. <strong>Rates are based on variable indices (typically the Wall Street Journal Prime Rate) and are subject to change without notice</strong> — the scenarios above are illustrative, not a prediction of where rates will actually go.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What happens when my HELOC draw period ends? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The credit line closes permanently — you can no longer borrow against it. Your outstanding balance converts to a fully amortizing loan (principal + interest) over the remaining repayment term, typically 20 years. Because you were likely only paying interest during the draw period, this transition causes a real payment increase — often 20-40% higher at today's rates, more if your rate has risen since you opened the line. This is predictable and shows up in your loan documents, but many borrowers don't fully plan for it until the payment actually changes.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Is it a bad idea to use a HELOC to invest? <span class="faq-icon">+</span></button>
+    <div class="faq-a">It depends heavily on what you're investing in and your risk tolerance — this isn't a yes/no question with one right answer. Using a HELOC for a rental property down payment, where the property is expected to generate rental income that can help cover the debt service, is a fundamentally different risk than using a HELOC to buy stocks or speculative assets with no income offset and no guaranteed return. In both cases, the debt is secured by your home — if the investment underperforms and you can't make payments, foreclosure risk is real, not theoretical. Financial advisors who work with HELOC borrowers generally recommend against using home equity for speculative investing (individual stocks, crypto, "hot tips") and are more comfortable with it for cash-flowing real estate or well-understood renovation projects with clear value-add.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can I convert my HELOC to a fixed rate? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Many lenders offer a "fixed-rate lock" option that lets you convert all or part of your outstanding HELOC balance to a fixed rate, protecting you from further rate increases on that portion. This typically costs slightly more than the current variable rate but removes the uncertainty. If your stress test shows a rate increase would push your payment into risky territory, locking in a fixed rate on your balance — even at a premium — is worth discussing with your lender, especially as your draw period approaches its end.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How much of my income should a HELOC payment take up? <span class="faq-icon">+</span></button>
+    <div class="faq-a">There's no official regulatory limit for a HELOC specifically, but a widely used rule of thumb among mortgage professionals is that your <em>stressed</em> HELOC payment (calculated at a higher rate than today's, to account for variable-rate risk) shouldn't exceed about 8% of your monthly take-home income. This is more conservative than typical debt-to-income guidelines because it specifically accounts for the risk of both rate increases and the draw-to-repayment transition happening at the same time.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What's the difference between positive and negative leverage? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Positive leverage means your investment's return exceeds your borrowing cost — for example, a rental property yielding 9% cash-on-cash return financed with a 7% HELOC creates a positive spread that amplifies your returns. Negative leverage is the reverse: if your borrowing cost exceeds your investment return, you lose money on the leveraged portion even if the underlying investment itself is technically profitable. This spread compresses or reverses when rates rise or the investment underperforms — which is exactly why stress-testing the worst case matters more than modeling the best case.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. This is not financial or investment advice.<br>
+    HELOC terms, rates, and caps vary significantly by lender. Confirm exact figures with your lender before borrowing. Consult a financial advisor before using home equity to invest.
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('heloc-stress-test', 'mt-sidebar-mount');
+});
+</script>
+<script>
+const d = { drawAmount:0, currentRate:0, period:'', drawYearsLeft:0, monthlyIncome:0, purpose:'', ltv:0 };
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+
+function interestOnlyPayment(balance, annualRate){
+  return balance * (annualRate/100) / 12;
+}
+
+function amortizingPayment(balance, annualRate, years){
+  const r = (annualRate/100) / 12;
+  const n = years * 12;
+  if (r === 0) return balance / n;
+  return balance * (r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
+}
+
+function calcResult(){
+  d.ltv = parseFloat(document.getElementById('ltv-input').value)||0;
+  const balance = d.drawAmount;
+  const rate = d.currentRate;
+  const income = d.monthlyIncome;
+  const isDrawPeriod = d.period === 'draw';
+  const repaymentYears = 20;
+
+  // Current payment (based on where they actually are)
+  const currentPayment = isDrawPeriod ? interestOnlyPayment(balance, rate) : amortizingPayment(balance, rate, repaymentYears);
+
+  // Scenario matrix: rate today / +1% / +2% / +3%, each shown for draw-period (if applicable) and repayment-period payment
+  const rateScenarios = [0, 1, 2, 3];
+  const scenarios = rateScenarios.map(bump => {
+    const testRate = rate + bump;
+    const drawPay = interestOnlyPayment(balance, testRate);
+    const repayPay = amortizingPayment(balance, testRate, repaymentYears);
+    return { bump, testRate, drawPay, repayPay };
+  });
+
+  // Worst case for verdict: repayment payment at +2% (a realistic stress scenario per HonestCasa's methodology)
+  const stressRate = rate + 2;
+  const stressedRepayPayment = amortizingPayment(balance, stressRate, repaymentYears);
+  const stressedPctOfIncome = income > 0 ? (stressedRepayPayment / income) * 100 : 0;
+
+  // Also check the "repayment cliff" jump multiple
+  const cliffMultiple = currentPayment > 0 ? (amortizingPayment(balance, rate, repaymentYears) / interestOnlyPayment(balance, rate)) : 0;
+
+  let verdictClass, verdictLabel, verdictTitle, verdictDesc;
+  if (stressedPctOfIncome <= 5) {
+    verdictClass = 'green'; verdictLabel = '✅ PASSES THE STRESS TEST';
+    verdictTitle = 'Your HELOC has real cushion, even in a worse scenario';
+    verdictDesc = `Even at ${fmt(stressRate)}% (+2% from today) with full repayment-period payments, you'd be at ${stressedPctOfIncome.toFixed(1)}% of your monthly income — comfortably under the 8% caution threshold. This doesn't guarantee the investment works out, but the debt itself isn't the risk here.`;
+  } else if (stressedPctOfIncome <= 8) {
+    verdictClass = 'yellow'; verdictLabel = '⚠️ WITHIN RANGE, BUT WATCH IT';
+    verdictTitle = 'You\'re close to the caution line';
+    verdictDesc = `At a stressed ${stressRate.toFixed(2)}% rate with full repayment, you'd be at ${stressedPctOfIncome.toFixed(1)}% of monthly income — inside the 8% threshold but with less margin than ideal. A second rate increase or an income disruption would push you into risky territory.`;
+  } else {
+    verdictClass = 'red'; verdictLabel = '🔴 FAILS THE STRESS TEST';
+    verdictTitle = 'This HELOC amount carries real risk under stress';
+    verdictDesc = `At a stressed ${stressRate.toFixed(2)}% rate with full repayment, you'd be at ${stressedPctOfIncome.toFixed(1)}% of monthly income — well above the 8% caution threshold experienced lenders use. This doesn't mean don't borrow — it means this specific amount, at this rate, may be more than your cash flow can safely absorb if things move against you.`;
+  }
+
+  const scenarioRows = scenarios.map(s => {
+    const repayClass = (income > 0 && (s.repayPay/income)*100 > 8) ? 'danger' : (income > 0 && (s.repayPay/income)*100 > 5) ? 'caution' : '';
+    return `<tr>
+      <td>${s.bump === 0 ? 'Today' : '+' + s.bump + '%'}</td>
+      <td class="num">${s.testRate.toFixed(2)}%</td>
+      <td class="num">${fmt(s.drawPay)}/mo</td>
+      <td class="num ${repayClass}">${fmt(s.repayPay)}/mo</td>
+      <td>${income > 0 ? ((s.repayPay/income)*100).toFixed(1) + '%' : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  const purposeNote = {
+    rental_downpayment: `<div class="inline-note info">💡 Since this HELOC funds a rental down payment, factor in whether the property's <strong>net rental income</strong> (after all expenses) would cover some or all of the stressed HELOC payment — that materially changes your real risk.</div>`,
+    renovation: `<div class="inline-note warn">⚠️ Renovation spending doesn't generate income to offset this payment. The full stressed payment above needs to come from your regular household cash flow.</div>`,
+    market_investing: `<div class="danger-box"><strong>⚠️ Using home equity for market investing carries a specific risk worth naming directly:</strong> your investment returns are not guaranteed and can be negative at the exact moment your HELOC payment is rising (rate increases often coincide with market stress). Unlike a margin account, a HELOC has no "margin call" that forces a sale — but the debt is secured by your home regardless of how the investment performs. Many financial advisors specifically caution against this use case for exactly this reason.<br><br><strong>Tax note:</strong> HELOC interest is only tax-deductible when the funds are used to buy, build, or substantially improve the home securing the loan (IRS Pub 936). Interest on funds used for market investing is generally NOT deductible — don't factor a tax deduction into this decision.</div>`,
+    debt_consolidation: `<div class="inline-note info">💡 Converting unsecured debt (credit cards) into HELOC debt secured by your home can lower your rate significantly — but it also means that debt now puts your home at risk if unpaid, which credit card debt does not. This only works well if the underlying spending behavior changes too.<br><br><strong>Tax note:</strong> HELOC interest is only tax-deductible when used to buy, build, or substantially improve the home securing the loan (IRS Pub 936). Interest on funds used for debt consolidation is generally NOT deductible.</div>`
+  }[d.purpose] || '';
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your HELOC stress test results</div>
+      <div class="result-sub">2026 estimates · Tested across rate increase scenarios</div>
+    </div>
+
+    <div class="verdict-box ${verdictClass}">
+      <div class="verdict-label">${verdictLabel}</div>
+      <div class="verdict-title">${verdictTitle}</div>
+      <div class="verdict-desc">${verdictDesc}</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Your Payment Today</div>
+        <div class="stat-value">${fmt(currentPayment)}/mo</div>
+        <div class="stat-note">${isDrawPeriod ? 'Interest-only, draw period' : 'Full repayment period'}</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Repayment Cliff Jump</div>
+        <div class="stat-value" style="color:${cliffMultiple > 2 ? 'var(--red)' : 'var(--navy)'}">${cliffMultiple.toFixed(1)}x</div>
+        <div class="stat-note">Interest-only → full repayment</div>
+      </div>
+    </div>
+
+    <div class="scenario-table">
+      <div class="scenario-title">📊 Your Payment Across Rate Scenarios</div>
+      <table>
+        <thead>
+          <tr><th>Rate Change</th><th>Rate</th><th>Draw-Period Pmt</th><th>Repayment Pmt</th><th>% of Income</th></tr>
+        </thead>
+        <tbody>
+          ${scenarioRows}
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:12px;">Red = exceeds 8% caution threshold · Amber = 5-8%, watch closely</div>
+    </div>
+
+    ${purposeNote}
+
+    ${d.ltv >= 80 ? `
+    <div class="warn-box">
+      <strong>⚠️ Your combined loan-to-value (${d.ltv}%) leaves a thin equity cushion.</strong> Cash flow isn't the only risk here — at ${d.ltv}% combined LTV, even a modest drop in home value could leave you owing more than the home is worth, especially once this HELOC balance is included. This matters most if you'd need to sell or refinance during a downturn.
+    </div>` : ''}
+
+    ${isDrawPeriod && d.drawYearsLeft > 0 ? `
+    <div class="warn-box">
+      <strong>⏰ Your repayment cliff is ${d.drawYearsLeft} year${d.drawYearsLeft>1?'s':''} away.</strong> That's when your payment jumps from interest-only to full principal + interest — a ${cliffMultiple.toFixed(1)}x increase at today's rate, potentially more if rates rise before then. Start planning for this now, not when the statement arrives.
+    </div>` : ''}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text">${stressedPctOfIncome > 8 ?
+          `<strong>Reduce your draw amount or build a bigger cash reserve.</strong> At your current numbers, a rate increase and the eventual repayment transition together could strain your budget. A reserve equal to 12 months of stressed payments (${fmt(stressedRepayPayment * 12)}) is a common safety buffer experienced borrowers keep.` :
+          `<strong>Make voluntary principal payments during the draw period if you can.</strong> Even modest extra payments now meaningfully reduce the balance — and the payment shock — when repayment begins.`}</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text"><strong>Ask your lender about a fixed-rate lock option.</strong> Many HELOC lenders let you convert all or part of your balance to a fixed rate — it costs slightly more today but removes the uncertainty this stress test is designed to catch.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">${d.purpose === 'rental_downpayment' ?
+          `<strong>Model the rental property's own numbers separately.</strong> Use our <a href="/tools/landlords/landlord-tax-estimator.html">Landlord Tax Estimator</a> to see if the property's cash flow can genuinely help cover this HELOC payment, not just in theory.` :
+          `<strong>Write down your exit plan before you draw the funds.</strong> If the investment underperforms or your income changes, what's your specific plan to reduce this debt? "It'll probably be fine" is not a plan.`}</div>
+      </div>
+    </div>
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Using this for a rental property?</h3>
+        <p>See the full tax and cash flow picture for the property itself.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/landlords/landlord-tax-estimator.html">Landlord Tax Estimator →</a>
+    </div>
+
+    <div id="mt-emailgate-mount"></div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('heloc-stress-test', '.result-wrap');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='period'){
+    const wrap = document.getElementById('q3-draw-years-wrap');
+    if(val==='draw'){ wrap.style.display='block'; checkQ3(); }
+    else { wrap.style.display='none'; document.getElementById('q3-next').disabled=false; }
+  }
+  if(key==='purpose') document.getElementById('q5-next').disabled=false;
+}
+
+function checkQ1(){
+  d.drawAmount = parseFloat(document.getElementById('draw-amount').value)||0;
+  document.getElementById('q1-next').disabled = (d.drawAmount <= 0);
+}
+function checkQ2(){
+  d.currentRate = parseFloat(document.getElementById('current-rate').value)||0;
+  document.getElementById('q2-next').disabled = (d.currentRate <= 0);
+}
+function checkQ3(){
+  if(d.period === 'draw'){
+    d.drawYearsLeft = parseFloat(document.getElementById('draw-years-left').value)||0;
+    document.getElementById('q3-next').disabled = (d.drawYearsLeft <= 0);
+  }
+}
+function checkQ4(){
+  d.monthlyIncome = parseFloat(document.getElementById('monthly-income').value)||0;
+  document.getElementById('q4-next').disabled = (d.monthlyIncome <= 0);
+}
+
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  document.getElementById('q3-draw-years-wrap').style.display='none';
+  Object.assign(d,{drawAmount:0,currentRate:0,period:'',drawYearsLeft:0,monthlyIncome:0,purpose:'',ltv:0});
+  document.getElementById('ltv-input').value='';
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>

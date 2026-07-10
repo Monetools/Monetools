@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLC vs Umbrella Insurance Calculator 2026 — Landlord Asset Protection | Monetools</title>
+<meta name="description" content="Free 2026 calculator for landlords with multiple properties: should you form an LLC, buy umbrella insurance, or both? See your real cost comparison and coverage gaps based on your actual portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+.plain-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.verdict-box{border-radius:16px;padding:28px;margin-bottom:24px;}
+.verdict-box.green{background:var(--green-bg);border:2px solid var(--green-border);}
+.verdict-box.blue{background:var(--blue-bg);border:2px solid var(--blue-border);}
+.verdict-box.yellow{background:var(--yellow-bg);border:2px solid var(--yellow-border);}
+.verdict-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.verdict-box.green .verdict-label{color:var(--sage);}
+.verdict-box.blue .verdict-label{color:#1E40AF;}
+.verdict-box.yellow .verdict-label{color:#92400E;}
+.verdict-title{font-family:'Instrument Serif',serif;font-size:clamp(22px,4.5vw,30px);margin-bottom:10px;line-height:1.2;}
+.verdict-box.green .verdict-title{color:var(--sage);}
+.verdict-box.blue .verdict-title{color:#1E3A8A;}
+.verdict-box.yellow .verdict-title{color:#92400E;}
+.verdict-desc{font-size:14px;line-height:1.6;}
+.verdict-box.green .verdict-desc{color:var(--sage);}
+.verdict-box.blue .verdict-desc{color:#1E40AF;}
+.verdict-box.yellow .verdict-desc{color:#92400E;}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:560px){.vs-grid{grid-template-columns:1fr;}}
+.vs-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:22px;}
+.vs-card.highlight{border-color:var(--green);box-shadow:0 0 0 1px var(--green);}
+.vs-header{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.vs-main{font-size:26px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.vs-sub{font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.vs-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.vs-row:last-child{border-bottom:none;}
+.vs-row .lbl{color:var(--text-muted);}
+.vs-row .val{font-weight:600;color:var(--text);}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--navy);}
+.stat-note{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.opp-box{background:var(--green-bg);border:1px solid var(--green-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#065F46;}
+.opp-box strong{color:#064E3B;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+/* ═══════════════════════════════════════════
+   MONETOOLS SHARED WIDGET STYLES
+   Affiliate Sidebar + Email Gate
+   Same visual language across all 11 tools
+   ═══════════════════════════════════════════ */
+
+.mt-affiliate-sidebar{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+}
+.mt-affiliate-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.mt-affiliate-card{
+  display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;
+  background:var(--cream);border:1px solid var(--border);text-decoration:none;
+  transition:all 0.15s;
+}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+
+.mt-emailgate{
+  background:var(--white);
+  border:1.5px solid var(--amber);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:20px;
+}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{
+  flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;
+}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  font-family:'Inter',sans-serif;
+}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{
+  font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;
+}
+
+@media(max-width:500px){
+  .mt-emailgate-row{flex-direction:column;}
+  .mt-email-btn{width:100%;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/landlords/">Landlords</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/landlords/">Tools</a><span>›</span>
+  LLC vs Umbrella Insurance
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Landlord · Multiple Properties · Asset Protection</span>
+  <h1 class="seo-h1">LLC vs Umbrella Insurance Calculator 2026</h1>
+  <p class="seo-lead">Real estate forums are split down the middle on this. Some landlords swear by LLCs; others call them "oversold." This tool runs the actual numbers on your specific portfolio — LLC costs vs. umbrella premiums vs. your real exposure — so you get a decision, not another opinion.</p>
+  <div class="callout tip">
+    <strong>The number most landlords skip:</strong> A $1M umbrella policy costs $200–$600/year and covers ALL your properties under one policy. An LLC per property can cost $1,000–$1,500/year each in formation and maintenance. For 1-3 properties, the math often favors insurance — but it depends entirely on your net worth outside the properties.
+  </div>
+  <div id="mt-sidebar-mount"></div>
+  <div class="tool-anchor-label">Start the Calculator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR PORTFOLIO</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Number of properties -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your Portfolio Size</div>
+      <div class="q-title">How many rental properties do you own?</div>
+      <div class="q-sub">This is the single biggest factor in whether LLCs make financial sense.</div>
+      <input class="plain-input" type="number" id="num-properties" min="1" max="50" placeholder="3" oninput="checkQ1()">
+      <div id="q1-note" class="inline-note info" style="display:none;"></div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Total equity -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your Exposure</div>
+      <div class="q-title">What's your total equity across all rental properties?</div>
+      <div class="q-sub">Combined market value minus mortgages owed — this is what's actually at risk in a lawsuit.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="total-equity" min="0" step="10000" placeholder="450,000" oninput="checkQ2()">
+      </div>
+      <div class="input-label" style="margin-top:8px;">Your net worth OUTSIDE these properties (savings, other investments, primary home equity)</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="outside-worth" min="0" step="10000" placeholder="150,000" oninput="checkQ2()">
+      </div>
+      <div class="inline-note warn">⚠️ Without an LLC, a lawsuit judgment can reach BOTH your rental equity AND your outside assets. This is the exposure umbrella insurance and LLCs each address differently.</div>
+      <div class="input-label" style="margin-top:12px;">Did you personally guarantee any mortgages on these properties?</div>
+      <div class="options-grid" style="margin-bottom:0;">
+        <div class="option" onclick="selectOpt(this,'personalGuarantee','yes')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Yes</div><div class="opt-desc">Common with conventional loans</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'personalGuarantee','no')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">No / Not sure</div><div class="opt-desc">Commercial or DSCR loan, or paid off</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Current insurance -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Your Current Coverage</div>
+      <div class="q-title">What's your current landlord liability coverage per property?</div>
+      <div class="q-sub">Check your policy declarations page — most landlords have $300,000–$500,000 in liability limits.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'currentLiability',100000)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">$100,000 or less</div><div class="opt-desc">Basic/minimum coverage</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentLiability',300000)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">$300,000</div><div class="opt-desc">Standard landlord policy</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentLiability',500000)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">$500,000</div><div class="opt-desc">Higher-limit policy</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentLiability',0)">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Not sure / minimal</div><div class="opt-desc">Need to check my policy</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: State + property type -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Situation</div>
+      <div class="q-title">A couple of details that affect cost and risk.</div>
+      <div style="margin-bottom:16px;">
+        <div class="input-label">Are any of your properties short-term rentals (Airbnb/VRBO)?</div>
+        <div class="options-grid" style="margin-bottom:0;">
+          <div class="option" onclick="selectOpt(this,'hasSTR','yes')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">Yes</div><div class="opt-desc">Higher liability exposure</div></div>
+          </div>
+          <div class="option" onclick="selectOpt(this,'hasSTR','no')">
+            <div class="opt-radio"></div>
+            <div class="opt-text"><div class="opt-label">No</div><div class="opt-desc">Long-term rentals only</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="input-label">Do you self-manage or use a property manager?</div>
+      <div class="options-grid" style="margin-bottom:0;">
+        <div class="option" onclick="selectOpt(this,'selfManage','yes')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Self-manage</div><div class="opt-desc">More direct liability exposure</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'selfManage','no')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Property manager</div><div class="opt-desc">Some liability shifts to PM</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: State -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — Your State</div>
+      <div class="q-title">Which state are your properties primarily in?</div>
+      <div class="q-sub">LLC costs vary enormously by state — this affects the math significantly.</div>
+      <div class="options-grid three">
+        <div class="option" onclick="selectOpt(this,'stateType','high')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">High-cost state</div><div class="opt-desc">CA, NY, IL — $800+/yr LLC fees</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'stateType','mid')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Mid-cost state</div><div class="opt-desc">Most states — $100-300/yr</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'stateType','low')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Low-cost state</div><div class="opt-desc">TX, WY, NM — one-time fee, no annual tax</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>Compare My Options →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Not legal advice:</strong> This tool provides a financial cost comparison to help inform your decision. Asset protection strategy depends on state law, your specific risk profile, and legal nuances a real estate attorney should review before you act.</div>
+
+  <h2 class="seo-h2">Why This Debate Exists — And Why the Internet Can't Agree</h2>
+  <p class="seo-p">Search "LLC vs umbrella insurance for landlords" and you'll find genuine disagreement among real estate attorneys and investors. One side argues LLCs are essential structural protection — a lawsuit against the LLC generally can't reach your personal home or savings. The other side argues LLCs are oversold: annual maintenance costs of $1,000-$1,500 per entity often exceed what a $1-2 million umbrella policy costs to cover your entire portfolio, and the LLC provides no actual insurance — it doesn't pay claims, defend you in court, or cover judgments. It only limits which assets a plaintiff can reach.</p>
+  <p class="seo-p">The honest answer is that both sides are right in different scenarios. The math genuinely changes based on how many properties you own, your net worth outside real estate, your state's LLC costs, and your risk profile (short-term rentals carry meaningfully more liability exposure than long-term leases).</p>
+
+  <h2 class="seo-h2">What an LLC Actually Does (and Doesn't Do)</h2>
+  <p class="seo-p">An LLC creates a legal wall between your rental business and your personal assets. If a tenant or guest is injured and sues, and the LLC properly owns the property, the claim generally runs against the LLC's assets — not your personal bank account, primary home, or other investments. But an LLC is not insurance: it doesn't pay legal defense costs, doesn't cover the judgment itself, and provides zero protection if you personally guarantee a loan, personally commit negligence, or fail to maintain the LLC properly (commingling funds, skipping paperwork) — which can "pierce the corporate veil" and expose you personally anyway.</p>
+
+  <h2 class="seo-h2">What Umbrella Insurance Actually Does (and Doesn't Do)</h2>
+  <p class="seo-p">Umbrella insurance extends your liability coverage beyond your standard landlord policy limits — typically starting at $1 million and going up in increments. A single policy can cover your entire portfolio, unlike LLCs which typically need to be set up per-property (or per small group of properties) for maximum protection. Umbrella insurance actually pays claims, provides legal defense, and settles cases — real insurance functions an LLC cannot perform. But it has exclusions: it won't cover intentional acts, business activities requiring commercial insurance, or your own property damage. And crucially, it doesn't create a legal barrier — if the judgment exceeds your umbrella limit, your personal assets remain exposed.</p>
+
+  <h2 class="seo-h2">2026 Cost Reference Points</h2>
+  <p class="seo-p">Umbrella insurance: typically $200-$600/year for $1 million in coverage, covering your entire portfolio under one policy. LLC formation and maintenance: conservatively $1,000-$1,500/year per entity when you account for state fees, registered agent costs, and tax preparation — though this varies enormously by state (Texas: ~$300 one-time, no annual state tax; California: $800/year franchise tax minimum; Wyoming/Delaware: popular for asset protection features but add complexity for out-of-state owners).</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do I need an LLC for just one or two rental properties? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Often not, according to many real estate attorneys. For 1-2 properties, the annual cost of forming and maintaining an LLC (roughly $1,000-$1,500/year including state fees and tax prep) frequently exceeds what a $1-2 million umbrella insurance policy costs to cover the same properties ($200-$600/year). Umbrella insurance also actually pays claims and provides legal defense — functions an LLC cannot perform. Many attorneys suggest starting with a strong umbrella policy and considering LLC formation only once your portfolio or net worth grows substantially.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Should each rental property have its own separate LLC? <span class="faq-icon">+</span></button>
+    <div class="faq-a">For maximum liability segregation, yes — one LLC per property means a lawsuit against Property A can't reach the equity in Property B. But this multiplies costs: each LLC needs its own formation fees, registered agent, annual state filings, and separate bank account to maintain the liability shield properly. Landlords with 4+ properties sometimes use a "series LLC" (available in states like Delaware and Texas) which creates internal liability walls for each property under one parent entity at lower administrative cost — though these are more complex to set up correctly and not recognized in every state.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can I get both an LLC and umbrella insurance? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes, and many real estate investors with substantial portfolios use both — this is often called a "layered" approach. The LLC handles entity-level risk (whose assets can be reached), while umbrella insurance handles excess liability (who actually pays when a claim exceeds your base policy). One important detail: if your property is titled in an LLC, your insurance policy must list the LLC — not you personally — as the insured, or a claim can be denied for lack of insurable interest.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Does forming an LLC affect my mortgage? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Potentially, yes. Many conventional mortgage lenders have a "due on sale" clause that can technically be triggered when you transfer title from your personal name into an LLC, since it's a change in ownership. In practice, lenders rarely call the loan for this reason, but it's a real risk worth discussing with your lender and attorney before transferring an existing mortgaged property into an LLC. Some investors refinance into a commercial or DSCR loan at the same time they form the LLC to avoid this issue entirely.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Do short-term rentals need more liability protection than long-term rentals? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Generally yes. Short-term guests are less familiar with the property, more likely to use higher-risk amenities (pools, hot tubs, docks), more likely to bring large groups or children, and turn over far more frequently than long-term tenants — all of which increase claim likelihood. Short-term rental policies also differ from standard landlord insurance, and many require specific STR endorsements or separate commercial policies. If you host short-term rentals, both stronger insurance and asset protection structure deserve extra attention.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. This is a financial cost comparison, not legal advice.<br>
+    Asset protection strategy depends on state law and individual circumstances — consult a real estate attorney and insurance agent before making structural decisions.
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('asset-protection-calculator', 'mt-sidebar-mount');
+});
+</script>
+<script>
+const d = { numProperties:0, totalEquity:0, outsideWorth:0, currentLiability:null,
+            hasSTR:'', selfManage:'', stateType:'', personalGuarantee:'' };
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+
+const LLC_ANNUAL_COST = { high: 1400, mid: 700, low: 350 };
+
+function calcResult(){
+  const n = d.numProperties;
+  const equity = d.totalEquity;
+  const outside = d.outsideWorth;
+  const totalExposure = equity + outside;
+
+  // Umbrella cost estimate: base $250 + $50 per property beyond first, STR premium +40%
+  let umbrellaCost = 250 + (Math.max(0,n-1) * 50);
+  if (d.hasSTR === 'yes') umbrellaCost *= 1.4;
+  umbrellaCost = Math.round(umbrellaCost);
+  const umbrellaCoverage = 1000000; // baseline $1M
+
+  // LLC cost: per-property annual maintenance
+  const llcAnnualPerEntity = LLC_ANNUAL_COST[d.stateType] || 700;
+  // Assume one LLC per property for max protection scenario
+  const llcTotalAnnual = llcAnnualPerEntity * n;
+
+  // Risk score factors
+  let riskScore = 0;
+  if (d.hasSTR === 'yes') riskScore += 2;
+  if (d.selfManage === 'yes') riskScore += 1;
+  if (n >= 4) riskScore += 1;
+  if (outside > 300000) riskScore += 1;
+  if (totalExposure > 500000) riskScore += 1;
+  if (d.personalGuarantee === 'yes') riskScore += 2;
+
+  // Verdict logic
+  let verdictClass, verdictLabel, verdictTitle, verdictDesc;
+
+  if (n <= 2 && outside < 200000 && riskScore <= 2) {
+    verdictClass = 'green';
+    verdictLabel = '📊 UMBRELLA INSURANCE LIKELY SUFFICIENT';
+    verdictTitle = 'Insurance probably beats LLC formation for your situation';
+    verdictDesc = `With ${n} ${n===1?'property':'properties'} and moderate outside assets, a $1M umbrella policy (~${fmt(umbrellaCost)}/year) likely provides better cost-to-protection than forming ${n} separate LLC${n>1?'s':''} (~${fmt(llcTotalAnnual)}/year). Insurance actually pays claims and defends you — an LLC alone does neither.`;
+  } else if (n >= 4 || totalExposure > 500000 || riskScore >= 4) {
+    verdictClass = 'blue';
+    verdictLabel = '📊 LLC STRUCTURE + UMBRELLA LIKELY WORTH IT';
+    verdictTitle = 'Your portfolio has grown into "layer both" territory';
+    verdictDesc = `With ${n} properties and ${fmt(totalExposure)} in total exposure, the asset segregation an LLC provides becomes meaningful — a claim against one property can't reach your other equity. Pair this with umbrella insurance for claims-paying protection. Consider a series LLC in a state like Texas or Delaware to reduce the administrative burden of ${n} separate entities.`;
+  } else {
+    verdictClass = 'yellow';
+    verdictLabel = '📊 GENUINELY IN BETWEEN';
+    verdictTitle = 'Reasonable attorneys would disagree on your case';
+    verdictDesc = `Your portfolio (${n} properties, ${fmt(totalExposure)} total exposure) sits in the zone where both strategies have real merit. The deciding factors are usually: how much you value legal separation vs. straightforward insurance, and whether you're likely to grow your portfolio further in the next 2-3 years.`;
+  }
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your asset protection comparison</div>
+      <div class="result-sub">2026 estimates · Based on your ${n}-property portfolio</div>
+    </div>
+
+    <div class="verdict-box ${verdictClass}">
+      <div class="verdict-label">${verdictLabel}</div>
+      <div class="verdict-title">${verdictTitle}</div>
+      <div class="verdict-desc">${verdictDesc}</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Total Exposure</div>
+        <div class="stat-value">${fmt(totalExposure)}</div>
+        <div class="stat-note">Rental equity + outside assets</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Current Liability Coverage</div>
+        <div class="stat-value">${d.currentLiability > 0 ? fmt(d.currentLiability) : 'Unknown'}</div>
+        <div class="stat-note">Per property, standard policy</div>
+      </div>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-card ${verdictClass==='green'?'highlight':''}">
+        <div class="vs-header">☂️ Umbrella Insurance Route</div>
+        <div class="vs-main">${fmt(umbrellaCost)}/yr</div>
+        <div class="vs-sub">Estimated annual premium, ${fmt(umbrellaCoverage)}+ coverage</div>
+        <div class="vs-row"><span class="lbl">Covers all properties</span><span class="val">✅ Yes, one policy</span></div>
+        <div class="vs-row"><span class="lbl">Pays claims & legal defense</span><span class="val">✅ Yes</span></div>
+        <div class="vs-row"><span class="lbl">Protects outside assets</span><span class="val">✅ Yes, up to limit</span></div>
+        <div class="vs-row"><span class="lbl">Setup complexity</span><span class="val">Low — days, not weeks</span></div>
+      </div>
+
+      <div class="vs-card ${verdictClass==='blue'?'highlight':''}">
+        <div class="vs-header">🏢 LLC Structure Route</div>
+        <div class="vs-main">${fmt(llcTotalAnnual)}/yr</div>
+        <div class="vs-sub">${n} ${n>1?'separate LLCs':'LLC'} at ~${fmt(llcAnnualPerEntity)}/entity/year</div>
+        <div class="vs-row"><span class="lbl">Legal asset separation</span><span class="val">✅ Yes, if maintained properly</span></div>
+        <div class="vs-row"><span class="lbl">Pays claims & legal defense</span><span class="val">❌ No — not insurance</span></div>
+        <div class="vs-row"><span class="lbl">Cross-property isolation</span><span class="val">✅ Yes, with separate LLCs</span></div>
+        <div class="vs-row"><span class="lbl">Setup complexity</span><span class="val">Higher — weeks + ongoing upkeep</span></div>
+      </div>
+    </div>
+
+    ${n <= 2 ? `
+    <div class="opp-box">
+      <strong>💡 The math for your portfolio size:</strong> ${fmt(llcTotalAnnual)}/year in LLC costs vs. ${fmt(umbrellaCost)}/year for umbrella insurance is a ${(llcTotalAnnual/umbrellaCost).toFixed(1)}x cost difference. Unless you have specific reasons to prioritize legal separation (privacy, anticipated portfolio growth, existing outside wealth to protect), insurance alone often makes more financial sense at this scale.
+    </div>` : ''}
+
+    ${d.personalGuarantee === 'yes' ? `
+    <div class="warn-box">
+      <strong>⚠️ Personal guarantees weaken your LLC protection significantly.</strong> If you personally guaranteed a mortgage, that lender can pursue YOU personally if the LLC defaults — regardless of the entity structure. This doesn't eliminate the LLC's value for tenant/liability lawsuits, but it means the LLC is not a complete shield for this property. Ask your lender about removing the personal guarantee once the LLC has established its own credit history, or consider a DSCR loan (qualifies on property cash flow, not personal guarantee) for future purchases.
+    </div>` : ''}
+
+    ${riskScore >= 3 ? `
+    <div class="warn-box">
+      <strong>⚠️ Your risk factors are elevated.</strong> ${d.hasSTR==='yes'?'Short-term rentals carry higher liability exposure than long-term leases. ':''}${d.selfManage==='yes'?'Self-managing means more direct liability exposure than using a property manager. ':''}${outside > 300000 ? 'You have significant assets outside your rental portfolio that could be targeted in a lawsuit that exceeds insurance limits.':''} This raises the case for stronger protection — whether through higher umbrella limits, LLC structure, or both.
+    </div>` : ''}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text">${d.currentLiability === 0 || d.currentLiability < 300000 ?
+          `<strong>Check your actual landlord liability limits first.</strong> You're not sure what you currently have — pull your policy declarations page today. Most umbrella policies require $300,000 minimum underlying liability coverage per property before they'll activate.` :
+          `<strong>Get an umbrella insurance quote this week.</strong> At ${fmt(umbrellaCost)}/year estimated, this is one of the highest protection-per-dollar purchases available to landlords — get actual quotes to confirm pricing for your specific risk profile.`}</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text">${n >= 3 ?
+          `<strong>Talk to a real estate attorney about LLC structure before your next property purchase.</strong> If you're planning to grow your portfolio, setting up the entity structure now (rather than retrofitting later) avoids "due on sale" mortgage complications and title transfer costs.` :
+          `<strong>Revisit this decision if you add a 3rd or 4th property.</strong> The math shifts meaningfully as your portfolio grows — what's right for 1-2 properties often isn't right for 4+.`}</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text"><strong>If you do form an LLC, maintain it properly from day one — or it's just paper.</strong> Courts call sloppy maintenance "piercing the corporate veil," and it's the #1 way landlords accidentally lose their liability protection. Your governance checklist:
+          <div style="margin-top:8px;padding-left:4px;">
+            ☐ Separate business bank account — never commingle personal and LLC funds<br>
+            ☐ Every insurance policy lists the LLC (not you) as the insured<br>
+            ☐ Every lease and vendor contract is signed in the LLC's name<br>
+            ☐ Annual state filings and registered agent fees paid on time<br>
+            ☐ If properties span multiple states, check each state's LLC registration/foreign-entity requirements separately — an LLC formed in one state may need to register as a "foreign LLC" to legally operate in another
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inline-note info" style="margin-bottom:20px;">🤔 <strong>Common next question:</strong> "If I set up both an LLC and umbrella insurance, how should the policy list the insured party — the LLC, me personally, or both?" This is exactly the kind of question worth a real conversation with an insurance agent and attorney before you finalize either structure.</div>
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Forming an LLC for your rentals?</h3>
+        <p>See the tax side of your business structure decision.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/self-employed/llc-vs-s-corp.html">LLC vs S-Corp Calculator →</a>
+    </div>
+
+    <div id="mt-emailgate-mount"></div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('asset-protection-calculator', '.result-wrap');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='personalGuarantee') checkQ2();
+  if(key==='currentLiability') document.getElementById('q3-next').disabled=false;
+  if(key==='hasSTR' || key==='selfManage') checkQ4();
+  if(key==='stateType') document.getElementById('q5-next').disabled=false;
+}
+
+function checkQ1(){
+  d.numProperties = parseInt(document.getElementById('num-properties').value)||0;
+  document.getElementById('q1-next').disabled = (d.numProperties < 1);
+  const note = document.getElementById('q1-note');
+  if(d.numProperties >= 1){
+    note.style.display='block';
+    note.textContent = d.numProperties <= 2 ?
+      'With 1-2 properties, insurance often wins on pure cost — but keep going for your specific numbers.' :
+      'With 3+ properties, LLC structure starts becoming more cost-competitive — let\'s see your specific numbers.';
+  } else note.style.display='none';
+}
+function checkQ2(){
+  d.totalEquity = parseFloat(document.getElementById('total-equity').value)||0;
+  d.outsideWorth = parseFloat(document.getElementById('outside-worth').value)||0;
+  document.getElementById('q2-next').disabled = !(d.totalEquity > 0 && d.personalGuarantee !== '');
+}
+function checkQ4(){
+  document.getElementById('q4-next').disabled = !(d.hasSTR !== '' && d.selfManage !== '');
+}
+
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  Object.assign(d,{numProperties:0,totalEquity:0,outsideWorth:0,currentLiability:null,hasSTR:'',selfManage:'',stateType:'',personalGuarantee:''});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>

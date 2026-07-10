@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solo 401(k) vs SEP IRA Calculator 2026 — See Your Real Numbers | Monetools</title>
+<meta name="description" content="Free 2026 calculator: how much more can you save in a Solo 401(k) vs a SEP IRA at your income? Most self-employed people leave $20,000+ on the table using the wrong plan. See your exact numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+.plain-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.options-grid.three{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:500px){.options-grid,.options-grid.three{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.insight-box{background:var(--navy);border-radius:16px;padding:28px;margin-bottom:24px;text-align:center;}
+.insight-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.insight-main{font-size:clamp(32px,7vw,52px);font-weight:800;color:var(--amber);line-height:1;margin-bottom:6px;}
+.insight-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5;}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:560px){.vs-grid{grid-template-columns:1fr;}}
+.vs-card{background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:22px;}
+.vs-card.highlight{border-color:var(--green);box-shadow:0 0 0 1px var(--green);}
+.vs-header{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.vs-main{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.vs-sub{font-size:12px;color:var(--text-muted);margin-bottom:14px;}
+.vs-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;}
+.vs-row:last-child{border-bottom:none;}
+.vs-row .lbl{color:var(--text-muted);}
+.vs-row .val{font-weight:600;color:var(--text);}
+.vs-row .val.green{color:var(--green);}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--navy);}
+.stat-note{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+/* ═══════════════════════════════════════════
+   MONETOOLS SHARED WIDGET STYLES
+   Affiliate Sidebar + Email Gate
+   Same visual language across all 11 tools
+   ═══════════════════════════════════════════ */
+
+.mt-affiliate-sidebar{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+}
+.mt-affiliate-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:12px;
+}
+.mt-affiliate-card{
+  display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;
+  background:var(--cream);border:1px solid var(--border);text-decoration:none;
+  transition:all 0.15s;
+}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+
+.mt-emailgate{
+  background:var(--white);
+  border:1.5px solid var(--amber);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:20px;
+}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{
+  flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);
+  border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;
+}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{
+  background:var(--navy);color:#fff;border:none;border-radius:8px;
+  padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;
+  font-family:'Inter',sans-serif;
+}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{
+  font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;
+}
+
+@media(max-width:500px){
+  .mt-emailgate-row{flex-direction:column;}
+  .mt-email-btn{width:100%;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/self-employed/">Self-Employed</a>
+    <a class="nav-link" href="/blog/self-employed/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/self-employed/">Tools</a><span>›</span>
+  Solo 401(k) vs SEP IRA Calculator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Self-Employed · Retirement · Solo 401(k) vs SEP IRA</span>
+  <h1 class="seo-h1">Solo 401(k) vs SEP IRA Calculator 2026</h1>
+  <p class="seo-lead">Most self-employed people default to a SEP IRA because it's simple — and leave $20,000 or more on the table every year without realizing it. This tool shows exactly how much more you could save in a Solo 401(k) at your specific income, and whether the extra setup is worth it for you.</p>
+  <div class="callout tip">
+    <strong>The number that surprises people:</strong> At $50,000 in net self-employment income, a Solo 401(k) lets you contribute roughly $32,800 — a SEP IRA caps out around $9,300 at the same income. That's not a rounding error. That's the difference between funding your retirement and barely touching it.
+  </div>
+  <div id="mt-sidebar-mount"></div>
+  <div class="tool-anchor-label">Start the Calculator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR NUMBERS</span>
+        <span class="prog-step" id="prog-text">Step 1 of 4</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:25%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Net self-employment income -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your Income</div>
+      <div class="q-title">What's your net self-employment income this year?</div>
+      <div class="q-sub">Net income = revenue minus business expenses, before retirement contributions. Check your Schedule C or a recent P&L.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="net-income" min="0" step="1000" placeholder="85,000" oninput="checkQ1()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Age -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your Age</div>
+      <div class="q-title">What's your age?</div>
+      <div class="q-sub">This determines your catch-up contribution eligibility — a meaningful boost if you're 50+.</div>
+      <input class="plain-input" type="number" id="age-input" min="18" max="90" placeholder="42" style="max-width:200px;" oninput="checkQ2()">
+      <div id="q2-note" class="inline-note info" style="display:none;"></div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Existing plan -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Your Current Setup</div>
+      <div class="q-title">Do you currently have a retirement plan for your self-employment income?</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'currentPlan','sep')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">SEP IRA</div><div class="opt-desc">Currently using one</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentPlan','solo401k')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Solo 401(k)</div><div class="opt-desc">Already have one</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentPlan','none')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">None yet</div><div class="opt-desc">Haven't started</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'currentPlan','other')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Other plan</div><div class="opt-desc">Traditional/Roth IRA only</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Business structure -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Business Structure</div>
+      <div class="q-title">How is your business structured?</div>
+      <div class="q-sub">This affects how your contribution limit is calculated.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'structure','sole_prop')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Sole Proprietor / LLC</div><div class="opt-desc">Report on Schedule C</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'structure','scorp')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">S-Corp</div><div class="opt-desc">Pay myself a W-2 salary</div></div>
+        </div>
+      </div>
+      <div id="q4-scorp-wrap" style="display:none;">
+        <div class="input-label">Your W-2 salary from the S-Corp</div>
+        <div class="input-wrap">
+          <span class="dollar-sign">$</span>
+          <input class="dollar-input" type="number" id="scorp-salary" min="0" step="1000" placeholder="60,000" oninput="checkQ4()">
+        </div>
+        <div class="inline-note warn">⚠️ Your salary must meet IRS "reasonable compensation" standards for your role and industry — setting it artificially low to dodge payroll tax (while inflating distributions) is a common audit trigger. This calculator uses whatever salary you enter; it doesn't verify reasonableness.</div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="calcResult()" disabled>See My Numbers →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Not investment or tax advice:</strong> This calculator shows contribution limit estimates based on 2026 IRS figures (Notice 2025-67). It does not account for every plan-specific rule, provider fee, or your complete tax situation. Confirm your exact contribution with your plan provider or a CPA before filing.</div>
+
+  <h2 class="seo-h2">Why the Same Income Produces Wildly Different Contribution Limits</h2>
+  <p class="seo-p">The core difference is structural. A SEP IRA only allows an "employer" contribution — capped at roughly 20% of your net self-employment income (the math nets out to 20%, not the commonly cited 25%, because of how the self-employment tax deduction interacts with the calculation). A Solo 401(k) lets you contribute in <em>two</em> roles: as the "employee," you can defer up to $24,500 in 2026 regardless of income level, and as the "employer," you can add roughly 20% of net income on top of that — up to a combined $72,000 cap.</p>
+  <p class="seo-p">This is why the gap is so large at moderate income levels. A SEP IRA needs roughly $360,000 in net income to hit the same $72,000 combined cap that a Solo 401(k) can reach with much less — because the employee deferral alone is a flat $24,500 that doesn't depend on income at all.</p>
+
+  <h2 class="seo-h2">The Deadline Trap Almost Everyone Misses</h2>
+  <p class="seo-p">A Solo 401(k) must be legally established by December 31 of the tax year you want to contribute for — even though the actual funding can happen later, up to your tax filing deadline (including extensions). A SEP IRA has no such cutoff: you can open and fully fund one as late as your extended filing deadline the following year. This means if you're reading this in Q4 and you don't have a Solo 401(k) open yet, the clock is real. Many self-employed people miss the December 31 window and default to a SEP IRA for that year simply because they ran out of time — leaving the higher Solo 401(k) contribution room unused for that entire tax year.</p>
+
+  <h2 class="seo-h2">2026 Contribution Limits Reference (IRS Notice 2025-67)</h2>
+  <p class="seo-p">Solo 401(k) employee deferral: $24,500 (under 50). Combined employee + employer cap: $72,000. Catch-up for ages 50-59 and 64+: additional $8,000 (total $80,000). Enhanced catch-up for ages 60-63: additional $11,250 (total $83,250). SEP IRA: employer-only contribution, same $72,000 combined cap but reached only through the ~20% net income formula — no employee deferral component and no catch-up contributions of any kind.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Why is the SEP IRA formula 20% and not 25% like everyone says? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The 25% figure applies directly to W-2 employees at a regular company. For self-employed individuals, the formula is circular: your contribution reduces your net earnings from self-employment, which is also the base the contribution is calculated from. After accounting for the deduction of half your self-employment tax and solving the circular math, the effective rate works out to approximately 20% of your net self-employment income (technically 18.587% after precise adjustments, but 20% is the standard quick-math approximation used by most CPAs and providers). This is one of the most commonly misunderstood numbers in self-employed retirement planning.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can I switch from a SEP IRA to a Solo 401(k) mid-year? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes — you can open a Solo 401(k) at any point before December 31 and it will apply to that full tax year's contributions, even if you already have an existing SEP IRA. Many self-employed people run both plans temporarily. However, be aware: if your SEP IRA is still open and receiving contributions, having both plans in the same year can complicate your total contribution limit tracking since the $72,000 combined cap applies across ALL your defined contribution plans combined, not per plan. Most advisors recommend fully transitioning to the Solo 401(k) rather than running both indefinitely.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Does a Solo 401(k) work if I have an S-Corp? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes, and the math changes slightly in your favor. As an S-Corp owner, your contribution base is your W-2 salary (not your total business profit), and the 25% employer contribution rate applies directly to that salary without the 20% self-employment tax adjustment that sole proprietors have to make. This is one reason some higher-earning self-employed people elect S-Corp status — it can make it easier to maximize retirement contributions with a lower reported salary, though the right salary level involves its own "reasonable compensation" rules. Use our <a href="/tools/self-employed/llc-vs-s-corp.html">LLC vs S-Corp Calculator</a> to see if S-Corp election makes sense for your income level first.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What happens if I have a part-time W-2 job with a 401(k) too? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Your employee deferral limit ($24,500 in 2026) applies across ALL 401(k) plans combined — you cannot defer $24,500 at your day job AND another $24,500 into your Solo 401(k). But the employer-side contribution to your Solo 401(k) is separate and unaffected by your day job's plan — you can still contribute up to ~20% of your net self-employment income as the "employer," even if you've already maxed your employee deferral elsewhere. This makes a Solo 401(k) still valuable for side hustlers with a day job 401(k), just calculated slightly differently.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Is a Roth Solo 401(k) available, and is it worth it? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Most Solo 401(k) providers (Fidelity, Schwab, E*TRADE and others) allow Roth employee deferrals — meaning you pay tax now but withdrawals in retirement are tax-free. This is unlike a SEP IRA, which historically only allowed pre-tax contributions (Roth SEP IRAs now technically exist under SECURE 2.0 but remain rare among providers). A Roth election generally makes more sense in lower-income years or if you expect your tax rate to be higher in retirement than it is now. Some Solo 401(k) plans also allow after-tax contributions beyond the standard limits, which can be rolled into a Roth IRA — a strategy known as the "mega backdoor Roth," worth discussing with a CPA if you're maxing out your standard limits.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. This is not investment, tax, or legal advice.<br>
+    Contribution limit estimates are based on IRS Notice 2025-67 (2026 figures). Consult a CPA or financial advisor before opening or funding a retirement plan.
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('solo401k-calculator', 'mt-sidebar-mount');
+});
+</script>
+<script>
+const d = { netIncome:0, age:0, currentPlan:'', structure:'', scorpSalary:0 };
+
+// 2026 IRS figures — Notice 2025-67 / IR-2025-111
+const LIMITS = {
+  employeeDeferral: 24500,
+  combinedCap: 72000,
+  catchUp5059: 8000,
+  catchUp6063: 11250,
+  sepEffectiveRate: 0.20,   // sole proprietor net-income approximation
+  scorpEmployerRate: 0.25,  // S-corp: straight 25% of W-2 salary
+  compCap: 360000
+};
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+
+function getCatchUp(age){
+  if(age >= 60 && age <= 63) return LIMITS.catchUp6063;
+  if(age >= 50) return LIMITS.catchUp5059;
+  return 0;
+}
+
+function calcResult(){
+  d.scorpSalary = parseFloat(document.getElementById('scorp-salary').value)||0;
+
+  const netIncome = d.netIncome;
+  const age = d.age;
+  const catchUp = getCatchUp(age);
+  const isScorp = d.structure === 'scorp';
+  const compBase = isScorp ? Math.min(d.scorpSalary, LIMITS.compCap) : Math.min(netIncome, LIMITS.compCap);
+
+  // SEP IRA: employer-only, 20% (sole prop) or 25% (s-corp on W-2)
+  const sepRate = isScorp ? LIMITS.scorpEmployerRate : LIMITS.sepEffectiveRate;
+  let sepContribution = Math.min(compBase * sepRate, LIMITS.combinedCap);
+  sepContribution = Math.max(0, sepContribution);
+
+  // Solo 401(k): employee deferral (flat, capped by comp) + employer (same rate as SEP) + catch-up
+  const employeeDeferral = Math.min(LIMITS.employeeDeferral, compBase);
+  const employerPortion = Math.min(compBase * sepRate, LIMITS.combinedCap - employeeDeferral);
+  let solo401kBase = employeeDeferral + Math.max(0, employerPortion);
+  solo401kBase = Math.min(solo401kBase, LIMITS.combinedCap);
+  const solo401kTotal = solo401kBase + catchUp;
+
+  const difference = solo401kTotal - sepContribution;
+  const pctMore = sepContribution > 0 ? Math.round((difference/sepContribution)*100) : 0;
+
+  // Rough tax savings estimate at plausible marginal rate band (22-24% federal, conservative)
+  const assumedRate = netIncome > 100000 ? 0.24 : 0.22;
+  const extraTaxSavings = difference * assumedRate;
+
+  // Conservative opportunity-cost illustration: treat 'difference' as one extra annual
+  // contribution compounding for 10 years at a conservative 6% — illustrative only.
+  const growthRate = 0.06;
+  const years = 10;
+  const futureValueSingle = difference * Math.pow(1 + growthRate, years);
+  const futureValueAnnual = difference * ((Math.pow(1 + growthRate, years) - 1) / growthRate);
+
+  let insightMain, insightDesc;
+  if (difference > 500) {
+    insightMain = fmt(difference);
+    insightDesc = `more you could contribute to a Solo 401(k) vs a SEP IRA this year — roughly ${pctMore}% more retirement savings room at your income level`;
+  } else {
+    insightMain = 'Similar';
+    insightDesc = `at your income level, both plans reach similar contribution limits — the choice comes down to features like Roth options and loans, not raw contribution room`;
+  }
+
+  const deadlineWarning = d.currentPlan === 'none' ? `
+    <div class="warn-box">
+      <strong>⏰ The December 31 deadline is real.</strong> A Solo 401(k) must be legally established by December 31 of the tax year — funding can happen later, but the plan itself must exist by year-end. If you're reading this late in the year and don't have a plan open yet, don't let the SEP IRA's later deadline become the default by accident. Opening a Solo 401(k) this week, even with $0 funded yet, preserves your higher contribution room for this tax year.
+    </div>` : '';
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your retirement contribution numbers</div>
+      <div class="result-sub">2026 estimates · IRS Notice 2025-67</div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">EXTRA CONTRIBUTION ROOM WITH A SOLO 401(K)</div>
+      <div class="insight-main">${insightMain}</div>
+      <div class="insight-desc">${insightDesc}</div>
+    </div>
+
+    <div class="vs-grid">
+      <div class="vs-card">
+        <div class="vs-header">📋 SEP IRA</div>
+        <div class="vs-main">${fmt(sepContribution)}</div>
+        <div class="vs-sub">Maximum 2026 contribution</div>
+        <div class="vs-row"><span class="lbl">Employer contribution (~${Math.round(sepRate*100)}%${!isScorp ? ' of net income*' : ''})</span><span class="val">${fmt(sepContribution)}</span></div>
+        <div class="vs-row"><span class="lbl">Employee deferral</span><span class="val">Not available</span></div>
+        <div class="vs-row"><span class="lbl">Catch-up (age ${age})</span><span class="val">Not available</span></div>
+        <div class="vs-row"><span class="lbl">Setup deadline</span><span class="val">Tax filing deadline + ext.</span></div>
+      </div>
+
+      <div class="vs-card highlight">
+        <div class="vs-header">🎯 Solo 401(k)</div>
+        <div class="vs-main">${fmt(solo401kTotal)}</div>
+        <div class="vs-sub">Maximum 2026 contribution</div>
+        <div class="vs-row"><span class="lbl">Employee deferral</span><span class="val green">${fmt(employeeDeferral)}</span></div>
+        <div class="vs-row"><span class="lbl">Employer contribution (~${Math.round(sepRate*100)}%)</span><span class="val green">${fmt(Math.max(0,employerPortion))}</span></div>
+        ${catchUp > 0 ? `<div class="vs-row"><span class="lbl">Catch-up (age ${age})</span><span class="val green">+${fmt(catchUp)}</span></div>` : `<div class="vs-row"><span class="lbl">Catch-up (age ${age})</span><span class="val">Not eligible yet</span></div>`}
+        <div class="vs-row"><span class="lbl">Setup deadline</span><span class="val">Dec 31 (fund later OK)</span></div>
+      </div>
+    </div>
+    ${!isScorp ? `<div style="font-size:11px;color:var(--text-muted);margin:-12px 0 20px;">*20% is the standard approximation after self-employment tax adjustments (technically 18.587% precisely) — see FAQ below for the exact math.</div>` : ''}
+
+    ${difference > 500 ? `
+    <div class="inline-note info" style="margin-bottom:20px;">
+      📈 <strong>What that difference could grow to:</strong> If you contributed this extra ${fmt(difference)} every year for 10 years at a conservative 6% average annual return, it could grow to roughly ${fmt(futureValueAnnual)} — versus ${fmt(futureValueSingle)} if it were just this one year's difference growing alone. <em>This is a simplified illustration, not a projection or investment advice — actual returns vary and are never guaranteed.</em>
+    </div>` : ''}
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Your Net Income</div>
+        <div class="stat-value">${fmt(isScorp ? d.scorpSalary : netIncome)}</div>
+        <div class="stat-note">${isScorp ? 'W-2 salary (S-Corp)' : 'Net self-employment income'}</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Rough Tax Savings on the Difference</div>
+        <div class="stat-value" style="color:var(--green)">${fmt(extraTaxSavings)}</div>
+        <div class="stat-note">At an estimated ${Math.round(assumedRate*100)}% marginal rate</div>
+      </div>
+    </div>
+
+    ${deadlineWarning}
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text">
+        ${d.currentPlan === 'sep' ?
+          `<strong>Check whether switching to a Solo 401(k) makes sense for you.</strong> You currently have a SEP IRA — at your income, a Solo 401(k) could give you ${fmt(difference)} more in annual contribution room. You can open one this year without closing your SEP IRA first.` :
+          d.currentPlan === 'solo401k' ?
+          `<strong>Confirm you're maximizing your employee deferral.</strong> Many Solo 401(k) holders only fund the employer portion and forget the $24,500 employee deferral is separate and available regardless of profit level.` :
+          `<strong>Open a Solo 401(k) before December 31</strong> at a zero-fee provider like Fidelity, Schwab, or E*TRADE — setup is typically free and takes under an hour online.`}
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text"><strong>Decide between traditional (pre-tax) and Roth contributions.</strong> If this is a lower-income year for you, Roth contributions let you lock in today's lower tax rate. If you're in a high-income year, traditional contributions reduce this year's taxable income more.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">${isScorp ?
+          (d.scorpSalary < employeeDeferral * 1.5 ?
+            `<strong>⚠️ Your salary may be limiting your retirement contribution room.</strong> At ${fmt(d.scorpSalary)}, your salary is low relative to the $24,500 employee deferral — you may not have enough W-2 compensation to fully use your Solo 401(k) room. This is worth modeling with a CPA against your payroll tax savings, since artificially low salary carries its own audit risk (see the note above).` :
+            `<strong>Revisit your reasonable salary level periodically.</strong> Your retirement contribution room is directly tied to your W-2 salary — too low a salary limits your Solo 401(k) room even though it also lowers your payroll tax. This is a real trade-off worth modeling with a CPA.`) :
+          `<strong>If your income grows significantly, re-run this calculation.</strong> The gap between SEP IRA and Solo 401(k) shrinks at very high income levels — above roughly $360,000 in net income, both plans converge on the same $72,000 cap.`}</div>
+      </div>
+    </div>
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Not sure if S-Corp election helps you?</h3>
+        <p>See how business structure affects both taxes and retirement contribution room.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/self-employed/llc-vs-s-corp.html">LLC vs S-Corp Calculator →</a>
+    </div>
+
+    <div id="mt-emailgate-mount"></div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('solo401k-calculator', '.result-wrap');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='currentPlan') document.getElementById('q3-next').disabled=false;
+  if(key==='structure'){
+    const scorpWrap = document.getElementById('q4-scorp-wrap');
+    if(val==='scorp'){ scorpWrap.style.display='block'; checkQ4(); }
+    else { scorpWrap.style.display='none'; document.getElementById('q4-next').disabled=false; }
+  }
+}
+
+function checkQ1(){
+  d.netIncome = parseFloat(document.getElementById('net-income').value)||0;
+  document.getElementById('q1-next').disabled = (d.netIncome <= 0);
+}
+function checkQ2(){
+  d.age = parseInt(document.getElementById('age-input').value)||0;
+  document.getElementById('q2-next').disabled = (d.age < 18);
+  const note = document.getElementById('q2-note');
+  if(d.age >= 60 && d.age <= 63){
+    note.style.display='block'; note.className='inline-note good';
+    note.textContent = '🎉 You qualify for the enhanced "super catch-up" — an extra $11,250 in 2026.';
+  } else if(d.age >= 50){
+    note.style.display='block'; note.className='inline-note good';
+    note.textContent = '✅ You qualify for standard catch-up contributions — an extra $8,000 in 2026.';
+  } else { note.style.display='none'; }
+}
+function checkQ4(){
+  if(d.structure === 'scorp'){
+    d.scorpSalary = parseFloat(document.getElementById('scorp-salary').value)||0;
+    document.getElementById('q4-next').disabled = (d.scorpSalary <= 0);
+  } else {
+    document.getElementById('q4-next').disabled = (d.structure === '');
+  }
+}
+
+function goNext(n){
+  for(let i=1;i<=4;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/4*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 4';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  document.getElementById('q4-scorp-wrap').style.display='none';
+  Object.assign(d,{netIncome:0,age:0,currentPlan:'',structure:'',scorpSalary:0});
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>

@@ -58,6 +58,7 @@ const TOOL_SIDEBAR_SLOTS = {
   "quarterly-tax-estimator":      ["bookkeeping", "businessBanking"],
   "true-hourly-rate":              ["bookkeeping", "businessBanking"],
   "s-corp-readiness":              ["payroll", "cpaReferral"],
+  "solo401k-calculator":           ["cpaReferral", "bookkeeping"],
 
   "side-hustle-tax-calculator":    ["bookkeeping", "mileageTracker"],
   "gig-worker-calculator":         ["mileageTracker", "bookkeeping"],
@@ -65,7 +66,9 @@ const TOOL_SIDEBAR_SLOTS = {
 
   "landlord-tax-estimator":        ["cpaReferral", "bookkeeping"],
   "str-host-tax-tool":             ["cpaReferral", "bookkeeping"],
-  "sell-vs-keep-calculator":       ["cpaReferral", "llcFormation"]
+  "sell-vs-keep-calculator":       ["cpaReferral", "llcFormation"],
+  "asset-protection-calculator":   ["cpaReferral", "llcFormation"],
+  "heloc-stress-test":             ["cpaReferral", "businessBanking"]
 };
 
 if (typeof window !== 'undefined') {
