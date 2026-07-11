@@ -2,74 +2,40 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
-
-# 允许直接在编辑器里使用HTML代码
-editor:
-  preview: true
+media_folder: "content/assets/uploads"
+public_folder: "/assets/uploads"
 
 collections:
-  - name: "self-employed"
-    label: "Self-Employed Articles"
-    folder: "blog/self-employed"
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
     create: true
     slug: "{{slug}}"
-    extension: "html"
+    extension: "md"
     format: "frontmatter"
+    filter: { field: "tags", value: "blog" }
     fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post.njk" }
       - { label: "Title", name: "title", widget: "string", hint: "文章标题" }
       - { label: "Meta Description (SEO)", name: "description", widget: "string", hint: "SEO描述，150字以内" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - label: "Target Keyword"
-        name: "keyword"
-        widget: "string"
-        hint: "主要SEO关键词"
+      - { label: "Target Keyword", name: "keyword", widget: "string", required: false, hint: "主要SEO关键词，逗号分隔" }
+      - label: "Audience"
+        name: "audience"
+        widget: "select"
+        required: false
+        hint: "这篇文章属于哪个人群（用于列表页分类展示，可不选）"
+        options:
+          - { label: "Self-Employed", value: "self-employed" }
+          - { label: "Side Hustlers", value: "side-hustlers" }
+          - { label: "Landlords", value: "landlords" }
       - label: "Related Tool"
         name: "related_tool"
-        widget: "select"
-        options:
-          - { label: "Business Structure Assessment", value: "/tools/self-employed/should-i-form-an-llc.html" }
-          - { label: "LLC vs S-Corp Calculator", value: "/tools/self-employed/llc-vs-s-corp.html" }
-          - { label: "Quarterly Tax Estimator", value: "/tools/self-employed/quarterly-tax-estimator.html" }
-          - { label: "True Hourly Rate Calculator", value: "/tools/self-employed/true-hourly-rate.html" }
-          - { label: "S-Corp Readiness Assessment", value: "/tools/self-employed/s-corp-readiness.html" }
+        widget: "string"
+        required: false
+        hint: "关联工具的路径，例如 /tools/self-employed/should-i-form-an-llc.html（可不填）"
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["blog"] }
       - label: "Article Body"
         name: "body"
         widget: "markdown"
-        sanitize_preview: false
-        hint: "右上角切换按钮：可视化模式 ↔ 代码模式（可直接粘贴HTML）"
-
-  - name: "side-hustlers"
-    label: "Side Hustler Articles"
-    folder: "blog/side-hustlers"
-    create: true
-    slug: "{{slug}}"
-    extension: "html"
-    format: "frontmatter"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Meta Description (SEO)", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Target Keyword", name: "keyword", widget: "string" }
-      - label: "Article Body"
-        name: "body"
-        widget: "markdown"
-        sanitize_preview: false
-
-  - name: "landlords"
-    label: "Landlord Articles"
-    folder: "blog/landlords"
-    create: true
-    slug: "{{slug}}"
-    extension: "html"
-    format: "frontmatter"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Meta Description (SEO)", name: "description", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Target Keyword", name: "keyword", widget: "string" }
-      - label: "Article Body"
-        name: "body"
-        widget: "markdown"
-        sanitize_preview: false
+        hint: "正文内容 — 只写正文，不要包含标题（标题已经在上面TITLE字段里填过了）"

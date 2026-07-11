@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} | Monetools</title>
+<meta name="description" content="{{ description }}">
+{% if keyword %}<meta name="keywords" content="{{ keyword }}">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover{color:#fff;}
+.breadcrumb{max-width:720px;margin:0 auto;padding:20px 24px 0;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--navy);}
+article{max-width:720px;margin:0 auto;padding:24px 24px 64px;}
+article h1{font-family:'Instrument Serif',serif;font-size:clamp(28px,5vw,42px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+article h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin:36px 0 14px;}
+article h3{font-size:19px;font-weight:700;color:var(--navy);margin:24px 0 10px;}
+article p{font-size:15px;line-height:1.8;color:var(--text);margin-bottom:16px;}
+article ul,article ol{margin:0 0 16px 24px;font-size:15px;line-height:1.8;color:var(--text);}
+article li{margin-bottom:8px;}
+article a{color:var(--navy);font-weight:600;}
+article strong{color:var(--navy);}
+.meta{font-size:13px;color:var(--text-muted);margin-bottom:24px;font-style:italic;}
+footer{background:var(--navy);padding:32px;text-align:center;margin-top:40px;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;max-width:600px;margin:0 auto;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link" href="/blog/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a> › <a href="/blog/">Blog</a> › {{ title }}
+</div>
+
+<article>
+  <h1>{{ title }}</h1>
+  <div class="meta">{{ date | readableDate }}{% if related_tool %} · Related tool: <a href="{{ related_tool }}">Open tool →</a>{% endif %}</div>
+  {{ content | safe }}
+</article>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">Monetools content is provided for informational and educational purposes only. This is not tax, legal, or financial advice.</div>
+</footer>
+</body>
+</html>
