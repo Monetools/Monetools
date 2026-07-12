@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+# 已加入：保存草稿功能（Draft -> Review -> Ready -> Publish 流程）
+publish_mode: editorial_workflow
+
 media_folder: "content/assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -37,5 +40,5 @@ collections:
       - { label: "Tags", name: "tags", widget: "hidden", default: ["blog"] }
       - label: "Article Body"
         name: "body"
-        widget: "markdown"
-        hint: "正文内容 — 只写正文，不要包含标题（标题已经在上面TITLE字段里填过了）"
+        widget: "richtext"
+        hint: "正文内容 — 只写正文，不要包含标题。插入链接：选中文字后点工具栏的链接图标即可，图片：点工具栏图片图标直接上传。"
