@@ -13,8 +13,6 @@ related_tool: Side Hustle Quit Calculator (/tools/side-hustlers/quit-calculator.
 tags:
   - blog
 ---
- 
-
 When people calculate whether they can afford to quit their job, they usually run the math on salary alone. The bigger, less visible number is what disappears alongside that paycheck — and in 2026, one of the biggest pieces of that hidden cost, health insurance, got meaningfully more expensive for a lot of people.
 
 ## Health Insurance: The Line Item That Changed in 2026
