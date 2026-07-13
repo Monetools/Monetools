@@ -17,8 +17,6 @@ related_tool: Quarterly Tax
 tags:
   - blog
 ---
-
-
 The home office deduction is one of the most valuable — and most misunderstood — deductions available to freelancers. Many self-employed people either skip it out of fear of triggering an audit, or claim it incorrectly and actually do trigger one. This guide explains exactly who qualifies, how to calculate the deduction using both IRS methods, and what documentation you need.
 
 - - -
