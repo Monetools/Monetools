@@ -9,8 +9,8 @@ keyword: S-Corp reasonable salary 2026，IRS reasonable compensation S-Corp owne
   employee，40-60% rule S-Corp reasonable salary，S-Corp audit risk low owner
   salary distributions
 audience: self-employed
-related_tool: LLC vs S-Corp Tax Savings
-  Calculator. （https://monetools.com/tools/self-employed/llc-vs-s-corp）
+related_tool: S-Corp Readiness Assessment
+   （https://monetools.com/tools/self-employed/s-corp-readiness）
 tags:
   - blog
 ---
