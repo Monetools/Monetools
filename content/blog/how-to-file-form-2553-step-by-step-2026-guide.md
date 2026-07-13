@@ -14,8 +14,6 @@ related_tool: S-Corp Readiness Assessment
 tags:
   - blog
 ---
-
-
 Form 2553 is the IRS election form that converts your LLC's tax treatment from a default sole proprietorship to S-Corp status. It's free to file, takes about 20 minutes to complete, and — if your income is above the break-even threshold — can save you thousands of dollars per year in self-employment taxes.
 
 This guide walks you through every field, every deadline, and every common mistake. Before filing, use our [S-Corp Readiness Assessment](https://monetools.com/tools/self-employed/should-i-form-an-llc) to confirm you've addressed all five readiness dimensions — electing S-Corp before you're operationally ready creates more problems than it solves.
