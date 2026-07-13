@@ -15,8 +15,6 @@ related_tool: Quarterly Tax
 tags:
   - blog
 ---
-
-
 Self-employment tax is 15.3% on the first $184,500 of net self-employment income in 2026, then 2.9% above that. On $100,000 of net profit, that's $14,130 — before you pay a single dollar of income tax. Unlike income tax, SE tax has no brackets and very few deductions. But there are legitimate strategies to reduce what you owe. This guide covers all seven of them, ranked by impact.
 
 Use our [Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator) to see how these strategies affect your quarterly payment obligation in real numbers.
