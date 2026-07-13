@@ -17,8 +17,6 @@ related_tool: Quarterly Tax
 tags:
   - blog
 ---
-
-
 If you're self-employed, you pay a tax that most W-2 employees never think about: self-employment tax. It funds Social Security and Medicare, it's separate from income tax, and at 15.3%, it can be larger than your entire income tax bill at moderate income levels. Here's exactly how it works in 2026.
 
 - - -
