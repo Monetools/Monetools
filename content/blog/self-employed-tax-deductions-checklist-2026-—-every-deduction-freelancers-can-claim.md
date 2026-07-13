@@ -15,8 +15,6 @@ related_tool: Quarterly Tax
 tags:
   - blog
 ---
-
-
 Most freelancers significantly underpay their taxes — not because they make mistakes on their returns, but because they miss deductions they were entitled to claim all year. Every dollar of deductible business expense reduces your taxable income, which reduces both your income tax and your self-employment tax.
 
 This checklist covers every major deduction category available to self-employed people in 2026. Use our [Quarterly Tax Estimator](https://www.claudeusercontent.com/tools/self-employed/quarterly-tax-estimator.html) to see how your deductions reduce your quarterly payment obligation.
