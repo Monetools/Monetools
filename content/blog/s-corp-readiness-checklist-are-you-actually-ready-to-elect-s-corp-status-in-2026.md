@@ -15,8 +15,6 @@ related_tool: " LLC vs S-Corp
 tags:
   - blog
 ---
-
-
 Most guides about S-Corp focus on the tax savings math. Fewer talk about what it actually takes to operate as an S-Corp — and what happens when you elect it before you're ready. This checklist covers the five dimensions of S-Corp readiness that determine whether you should file Form 2553 now, or wait until you've built the right foundation.
 
 Take our free [S-Corp Readiness Assessment](https://monetools.com/tools/self-employed/should-i-form-an-llc) to get a scored evaluation across all five dimensions — with a personalized action plan based on where you are right now.
