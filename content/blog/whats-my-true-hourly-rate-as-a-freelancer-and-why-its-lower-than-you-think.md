@@ -15,8 +15,6 @@ related_tool: True Hourly Rate Calculator
 tags:
   - blog
 ---
-
-
 You charge $75 an hour. After self-employment tax, unpaid working hours, and business expenses, you might actually be taking home $38. For most freelancers, the gap between their quoted rate and their true take-home rate is 35–55%. This guide explains exactly why that gap exists and what you should be charging instead.
 
 Use our [True Hourly Rate Calculator](https://monetools.com/tools/self-employed/true-hourly-rate) to find your specific number — and get a recommended pricing range, not just a single rate.
