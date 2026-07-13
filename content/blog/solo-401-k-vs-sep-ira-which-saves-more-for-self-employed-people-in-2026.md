@@ -14,8 +14,6 @@ related_tool: Quarterly Tax
 tags:
   - blog
 ---
-
-
 Both Solo 401(k) and SEP-IRA let self-employed people save significantly for retirement while reducing their tax bill. But they reach their contribution limits very differently — and for most freelancers earning under $175,000, the Solo 401(k) allows substantially higher contributions. This guide shows you the exact numbers at different income levels so you can make the right choice.
 
 - - -
