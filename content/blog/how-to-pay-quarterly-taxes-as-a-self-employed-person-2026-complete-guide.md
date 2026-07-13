@@ -13,8 +13,6 @@ related_tool: Quarterly Tax Estimator（ ）
 tags:
   - blog
 ---
-
-
 When you're self-employed, no employer withholds taxes from your paycheck. That means you're responsible for paying the IRS four times a year — and if you miss a payment or underpay, you'll owe penalties on top of what you already owe. This guide covers exactly how quarterly taxes work, how much to pay, and when to pay it.
 
 Want to skip the manual math? Use our free [Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator) to calculate your exact payment amount and get a personalized 2026 payment calendar.
@@ -62,7 +60,7 @@ Based on your taxable income after deductions — including the SE tax deduction
 
 ### QBI deduction (Section 199A) — the one most people miss
 
-Most self-employed filers qualify for a 20% deduction on qualified business income under Section 199A. This is one of the largest deductions available to freelancers and is frequently left out of simplified tax calculators — causing people to significantly overestimate what they owe. Our [[Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator)](https://monetools.com/tools/self-employed/quarterly-tax-estimator) includes this deduction automatically.
+Most self-employed filers qualify for a 20% deduction on qualified business income under Section 199A. This is one of the largest deductions available to freelancers and is frequently left out of simplified tax calculators — causing people to significantly overestimate what they owe. Our [\[Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator)](https://monetools.com/tools/self-employed/quarterly-tax-estimator) includes this deduction automatically.
 
 ### State income tax
 
