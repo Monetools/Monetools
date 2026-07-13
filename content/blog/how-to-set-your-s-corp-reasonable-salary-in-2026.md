@@ -14,8 +14,6 @@ related_tool: LLC vs S-Corp Tax Savings
 tags:
   - blog
 ---
-
-
 The S-Corp reasonable salary requirement is where most solopreneurs make their biggest mistake — and where the IRS focuses its audit attention. Set your salary too low, and you're inviting an audit that can wipe out years of tax savings. Set it too high, and you eliminate the benefit of S-Corp entirely. This guide walks you through how to find the right number and document it so it holds up if you're ever questioned.
 
 Before diving into salary strategy, confirm your S-Corp structure makes financial sense with our[ LLC vs S-Corp Tax Savings Calculator.](https://monetools.com/tools/self-employed/llc-vs-s-corp)
