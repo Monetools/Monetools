@@ -13,8 +13,6 @@ related_tool: Side Hustle Tax Calculator
 tags:
   - blog
 ---
- 
-
 Here's a mistake that costs side hustlers real money every year: assuming their side income gets taxed at their "tax bracket" the same way people usually talk about it — as one flat percentage of everything they earn. If you have a day job and a side hustle, that assumption is wrong in a way that matters.
 
 Your side income doesn't get its own tax bracket. It stacks directly on top of your W-2 salary — and gets taxed at whatever rate applies to those *additional* dollars, which is often higher than people expect.
