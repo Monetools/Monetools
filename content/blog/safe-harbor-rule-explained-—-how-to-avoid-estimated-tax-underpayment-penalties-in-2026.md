@@ -15,8 +15,6 @@ related_tool: " Quarterly Tax Estimator
 tags:
   - blog
 ---
-
-
 One of the biggest fears for self-employed people is getting hit with an IRS underpayment penalty because their income was hard to predict. The Safe Harbor rule eliminates this risk entirely — if you meet the threshold, the IRS cannot charge you an underpayment penalty, even if you end up owing thousands more at tax time.
 
 This guide explains exactly how the Safe Harbor rule works, which threshold applies to you, and how to calculate the right quarterly payment to stay protected. You can also use our [Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator) to get your personalized Safe Harbor amounts automatically.
