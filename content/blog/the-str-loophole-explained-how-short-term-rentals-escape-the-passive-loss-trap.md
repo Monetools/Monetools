@@ -15,8 +15,6 @@ related_tool: " Airbnb Host Tax Classifier
 tags:
   - blog
 ---
-
-
 Every rental property investor eventually hears some version of this claim: "I used my Airbnb losses to wipe out my W-2 tax bill." It sounds like exaggeration or a red flag for an audit. It's neither — it's a real, well-documented tax mechanism called the STR loophole, and understanding exactly how it works (and where it fails) is the difference between using it correctly and losing the deduction entirely.
 
 ## Why Rental Losses Are Stuck By Default
