@@ -15,8 +15,6 @@ related_tool: Solo 401(k) vs SEP IRA Calculator
 tags:
   - blog
 ---
- 
-
 Maria went freelance three years ago, shooting weddings and portraits around Denver. When she set up her first retirement account, her accountant at the time recommended a SEP IRA — simple to open, one form, done. She's contributed to it every year since. Nobody ever suggested she reconsider.
 
 This year, her net self-employment income landed at $45,000. When she ran her numbers through a retirement calculator out of curiosity, she found out her SEP IRA has been quietly limiting her to about half of what she could actually be saving — and the fix is more straightforward than she expected.
