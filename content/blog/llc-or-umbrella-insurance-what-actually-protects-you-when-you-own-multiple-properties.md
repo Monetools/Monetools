@@ -15,8 +15,6 @@ related_tool: LLC vs Umbrella Insurance Calculator
 tags:
   - blog
 ---
- 
-
 Ask ten landlords whether you need an LLC for your rental properties and you'll get ten confident, contradictory answers. Real estate forums are split roughly in half — one side insists LLCs are essential structural protection, the other calls them "oversold" and points to the ongoing costs. Both sides have real numbers behind their position. The right answer depends on your specific portfolio, not on which side argues louder.
 
 ## What Each Option Actually Does — And Doesn't Do
