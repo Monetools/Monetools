@@ -15,8 +15,6 @@ related_tool: Solo 401(k) vs SEP IRA Calculator
 tags:
   - blog
 ---
- 
-
 David has run an independent consulting practice for twelve years, mostly working with mid-sized manufacturing companies on operations strategy. His SEP IRA has felt like the "grown-up" choice the whole time — higher limits than a regular IRA, simple to administer, no employees to worry about. At $180,000 in net income this year, he assumed he was already contributing close to the maximum any self-employed retirement account would allow.
 
 He wasn't. The gap between what his SEP IRA allows and what a Solo 401(k) would allow at the same income came to $32,500 — money he's been leaving unclaimed every year without realizing there was a larger option available.
