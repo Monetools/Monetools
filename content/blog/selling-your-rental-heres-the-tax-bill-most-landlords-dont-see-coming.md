@@ -13,8 +13,6 @@ related_tool: Sell vs Keep Calculator (/tools/landlords/sell-vs-keep-calculator.
 tags:
   - blog
 ---
- 
-
 Most landlords estimate their tax bill on a sale by thinking about capital gains alone — sale price minus what they paid, taxed at 15% or 20%. That estimate is usually low, sometimes by tens of thousands of dollars, because a rental sale actually triggers up to three separate taxes stacked on top of each other, and two of them are frequently forgotten entirely until the closing statement or the following April.
 
 ## The Three Layers, In the Order They Apply
