@@ -17,8 +17,6 @@ related_tool: Solo 401(k) vs SEP IRA Calculator
 tags:
   - blog
 ---
- 
-
 Priya runs a home goods e-commerce brand she started five years ago, structured as an S-Corp for the payroll tax savings. Her business does well — comfortably six figures in profit most years — but she pays herself a W-2 salary of $70,000, taking the rest as distributions the way most S-Corp tax guidance recommends.
 
 When she went looking for a retirement account, she assumed her contribution limit would somehow reflect her business's actual profitability. It doesn't. For S-Corp owners specifically, retirement contribution room is based entirely on W-2 salary — not total profit, not distributions, not anything else on the business's books.
