@@ -10,8 +10,7 @@ keyword: "high income self employed retirement SEP IRA limit, Solo 401k catch up
   contribution 55, consultant retirement savings $180000, SEP IRA vs Solo 401k
   high earner "
 audience: self-employed
-related_tool: Solo 401(k) vs SEP IRA Calculator
-  (/tools/self-employed/solo401k-calculator.html)
+related_tool: /tools/self-employed/solo401k-calculator.html
 tags:
   - blog
 ---
