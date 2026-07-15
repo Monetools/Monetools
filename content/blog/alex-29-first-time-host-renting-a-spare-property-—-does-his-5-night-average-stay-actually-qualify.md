@@ -14,8 +14,6 @@ related_tool: /tools/landlords/str-host-tax-tool.html
 tags:
   - blog
 ---
-
-
 Alex inherited a small condo from a relative and decided to list it on Airbnb rather than sell it or rent it long-term. His first year hosting, he had eight total bookings — mostly short weekend stays, plus one guest who booked three weeks while relocating for a new job. When he ran the numbers to check whether his property qualified under the 7-day rule for the STR tax strategy, the answer was closer than he expected.
 
 ## Alex's Actual Bookings
