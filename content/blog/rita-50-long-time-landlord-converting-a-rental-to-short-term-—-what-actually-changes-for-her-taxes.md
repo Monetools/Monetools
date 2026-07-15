@@ -5,7 +5,7 @@ title: Rita, 50, Long-Time Landlord Converting a Rental to Short-Term — What
 description: " Rita has owned her rental for 12 years and is considering
   converting it to a short-term rental. Here's what carries over, what resets,
   and why she may not even need the STR loophole to make this work."
-date: 2026-07-16T00:14:00.000+08:00
+date: 2026-07-28T00:14:00.000+08:00
 keyword: "converting long term rental to short term tax, switching rental
   property to Airbnb taxes, existing rental property STR conversion, long-term
   rental depreciation history conversion "
@@ -14,8 +14,6 @@ related_tool: /tools/landlords/str-host-tax-tool.html
 tags:
   - blog
 ---
- 
-
 Rita has owned a $380,000 rental property for 12 years, renting it long-term the entire time. With her kids grown and her own work shifting to part-time consulting, she's considering converting it to a short-term rental — partly for the income potential, partly because she's heard about landlords using STR status to offset other income. Her situation turns out to be a useful example of what actually changes in a conversion, and a case where the STR loophole may not even be the deciding factor.
 
 ## What Doesn't Reset When Rita Converts
