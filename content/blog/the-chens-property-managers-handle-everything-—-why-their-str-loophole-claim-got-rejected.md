@@ -15,8 +15,6 @@ related_tool: /tools/landlords/str-host-tax-tool.html
 tags:
   - blog
 ---
-
-
 The Chens did almost everything right. Their short-term rental's average guest stay was 4 nights, comfortably under the 7-day threshold. They commissioned a legitimate cost segregation study. They had real income to offset — a combined $310,000 in W-2 salaries. On paper, this looked like a textbook STR loophole case. It wasn't, and the reason is worth understanding in detail because it's one of the most common ways this strategy actually fails.
 
 ## What the Chens Assumed Was Enough
