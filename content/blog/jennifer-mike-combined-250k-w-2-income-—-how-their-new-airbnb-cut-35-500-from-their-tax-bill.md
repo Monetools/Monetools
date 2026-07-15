@@ -14,8 +14,6 @@ related_tool: /tools/landlords/str-host-tax-tool.html
 tags:
   - blog
 ---
- 
-
 Jennifer and Mike have a combined $250,000 in W-2 income — she's a director at a healthcare company, he manages engineering teams at a software firm. Neither of them has real estate as a career. This year, they bought a $620,000 short-term rental property near a national park, and by year-end, that single purchase had reduced their taxable income by more than half. Here's exactly how, and what had to be true for it to work.
 
 ## What They Bought and How They Set It Up
