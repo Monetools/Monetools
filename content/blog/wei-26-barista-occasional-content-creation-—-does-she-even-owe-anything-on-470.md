@@ -14,8 +14,6 @@ related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
- 
-
 Wei works full-time as a barista and posts coffee content on the side — mostly for fun, occasionally getting small paid partnerships from local roasters and one coffee equipment brand. This year, those partnerships added up to $650 in gross payments. After a portion of her phone bill and a ring light she bought partly for this purpose, her actual net earnings come to $470. She wasn't sure if an amount this small was even worth thinking about at tax time.
 
 It is — and her specific numbers land close enough to the line that this case is worth walking through carefully rather than guessing.
