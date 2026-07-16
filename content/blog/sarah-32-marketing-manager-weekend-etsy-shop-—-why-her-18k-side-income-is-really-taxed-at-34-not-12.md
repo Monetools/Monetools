@@ -14,8 +14,6 @@ related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
-
-
 Sarah works full-time as a marketing manager, making $65,000 a year. On weekends, she runs a small Etsy shop selling hand-lettered stationery — nothing huge, but it cleared $18,000 in net profit this year, enough that she started wondering what she actually owes on it come tax season.
 
 Her assumption going in: since her day job puts her in what she'd heard called "the 12% bracket," her side income would get taxed at roughly the same rate. It's actually closer to three times that, once everything is calculated correctly — and the gap comes from two separate places most people only understand one of.
