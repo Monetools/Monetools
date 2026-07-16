@@ -14,8 +14,6 @@ related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
-
-
 Marcus teaches middle school science and runs three separate side activities: after-school tutoring ($4,200 net this year), weekend event photography ($3,100 net), and occasionally reselling old classroom supplies and used camera gear on eBay ($320 net). He's always reported his tutoring and photography income carefully — those feel like "real" side businesses. The eBay sales felt small enough that he wasn't sure they mattered much for taxes.
 
 They do — not because $320 alone crosses any meaningful threshold, but because of how self-employment income combines once you have more than one source.
