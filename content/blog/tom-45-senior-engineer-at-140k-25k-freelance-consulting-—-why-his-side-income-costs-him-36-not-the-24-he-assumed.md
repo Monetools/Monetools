@@ -14,8 +14,6 @@ related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
- 
-
 Tom is a senior software engineer earning $140,000 at a mid-sized tech company. He picked up freelance consulting work on the side — architecture reviews and technical due diligence for startups — bringing in $25,000 net this year. He knew his day job put him "in the 24% bracket" and assumed his consulting income would be taxed the same way. It is, in terms of the income tax bracket — but that's only part of what he actually owes.
 
 ## Confirming Tom's Bracket — This Part He Had Right
