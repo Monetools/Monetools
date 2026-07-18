@@ -9,8 +9,7 @@ keyword: maximum contribution Solo 401k vs SEP IRA at different income
   levels，can I have both Solo 401k and SEP IRA，2026 Solo 401k contribution
   limitsSolo 401k vs SEP IRA 2026，Solo 401k establishment deadline vs SEP IRA，
 audience: self-employed
-related_tool: Quarterly Tax
-  Estimator（https://monetools.com/tools/self-employed/quarterly-tax-estimator）
+related_tool: /tools/self-employed/quarterly-tax-estimator
 tags:
   - blog
 ---
@@ -95,7 +94,7 @@ Where to open one: Fidelity, Vanguard, Charles Schwab, and E*TRADE all offer fre
 
 Retirement contributions reduce your net self-employment income, which directly lowers your quarterly estimated tax payments. If you contribute $30,000 to a Solo 401(k), your SE tax base drops by $30,000 — reducing your quarterly payments accordingly.
 
-Use our **[Quarterly Tax Estimator](https://www.claudeusercontent.com/tools/self-employed/quarterly-tax-estimator.html)** to see how your retirement contribution strategy affects your quarterly payment obligations. You can also check whether S-Corp election could amplify your retirement savings — S-Corp owners can contribute based on their W-2 salary, which changes the employer contribution calculation.
+Use our [**Quarterly Tax Estimator** ](https://monetools.com/tools/self-employed/quarterly-tax-estimator)to see how your retirement contribution strategy affects your quarterly payment obligations. You can also check whether S-Corp election could amplify your retirement savings — S-Corp owners can contribute based on their W-2 salary, which changes the employer contribution calculation.
 
 - - -
 
