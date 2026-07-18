@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0F1F3D">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 <title>LLC vs S-Corp Tax Savings Calculator 2026 — Should You Switch? | Monetools</title>
 <meta name="description" content="Find out exactly how much you'd save by electing S-Corp status for your LLC. Enter your income and get a precise tax comparison — free, no signup required.">
 <style>
@@ -21,7 +24,17 @@
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
 
 /* NAV */
-nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:12px;}
+@media(max-width:640px){
+  nav{padding:14px 16px;}
+  .logo{font-size:18px;}
+  .nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .nav-link{font-size:11px;}
+}
+@media(max-width:400px){
+  nav{flex-direction:column;align-items:flex-start;gap:8px;}
+  .nav-links{width:100%;justify-content:space-between;gap:8px;}
+}
 .logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;}
 .logo span{color:var(--amber);}
 .nav-links{display:flex;gap:24px;align-items:center;}
@@ -786,7 +799,10 @@ function checkQ2() {
   if (sal > 0 && income > 0) {
     const pct = Math.round((sal / income) * 100);
     rec.style.display = 'block';
-    if (pct < 30) {
+    if (sal > income) {
+      rec.innerHTML = `⚠️ <strong>Salary can't exceed your net income.</strong> Your salary ($${sal.toLocaleString()}) is higher than your net income ($${income.toLocaleString()}) — there's nothing left for distributions. Lower your salary or double-check your Step 1 income.`;
+      rec.style.background = '#FFF7F7'; rec.style.border = '1px solid #FECACA'; rec.style.color = '#C0392B';
+    } else if (pct < 30) {
       rec.innerHTML = `⚠️ <strong>Audit risk:</strong> $${sal.toLocaleString()} is ${pct}% of your net income — likely too low for IRS. Suggested minimum: $${suggested.toLocaleString()} (45%).`;
       rec.style.background = '#FFF7F7'; rec.style.border = '1px solid #FECACA'; rec.style.color = '#C0392B';
     } else if (pct > 80) {
@@ -798,7 +814,7 @@ function checkQ2() {
     }
   } else { rec.style.display = 'none'; }
 
-  document.getElementById('q2-next').disabled = sal < 1000 || sal >= income;
+  document.getElementById('q2-next').disabled = sal < 1000 || sal > income;
 }
 
 function selectOpt(qId, val, event) {

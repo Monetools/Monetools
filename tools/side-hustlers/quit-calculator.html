@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0F1F3D">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 <title>Side Hustle Quit Calculator 2026 — Is Your Side Income Ready to Replace Your Job? | Monetools</title>
 <meta name="description" content="Free 2026 calculator: is your side hustle ready to replace your full-time job? See the exact monthly income you need, what you're missing, and your realistic timeline to quit — including the real cost of losing W-2 benefits.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +22,17 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
-nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:12px;}
+@media(max-width:640px){
+  nav{padding:14px 16px;}
+  .logo{font-size:18px;}
+  .nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .nav-link{font-size:11px;}
+}
+@media(max-width:400px){
+  nav{flex-direction:column;align-items:flex-start;gap:8px;}
+  .nav-links{width:100%;justify-content:space-between;gap:8px;}
+}
 .logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
 .logo span{color:var(--amber);}
 .nav-links{display:flex;gap:24px;}

@@ -59,6 +59,7 @@ const TOOL_SIDEBAR_SLOTS = {
   "true-hourly-rate":              ["bookkeeping", "businessBanking"],
   "s-corp-readiness":              ["payroll", "cpaReferral"],
   "solo401k-calculator":           ["cpaReferral", "bookkeeping"],
+  "disability-insurance-calculator": ["cpaReferral"],
 
   "side-hustle-tax-calculator":    ["bookkeeping", "mileageTracker"],
   "gig-worker-calculator":         ["mileageTracker", "bookkeeping"],

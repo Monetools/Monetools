@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Monetools</title>
+<meta name="description" content="Get in touch with the Monetools team — questions, feedback, or partnership inquiries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+@media(max-width:640px){nav{padding:14px 16px;}.logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-end;}.nav-link{font-size:11px;}}
+@media(max-width:400px){nav{flex-direction:column;align-items:flex-start;gap:8px;}.nav-links{width:100%;justify-content:space-between;gap:8px;}}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+main{max-width:720px;margin:0 auto;padding:48px 24px 64px;}
+h1{font-family:'Instrument Serif',serif;font-size:clamp(28px,5vw,40px);color:var(--navy);margin-bottom:16px;line-height:1.2;}
+.lead{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:32px;}
+.contact-card{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
+.contact-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.contact-email{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);text-decoration:none;word-break:break-all;}
+.contact-email:hover{text-decoration:underline;}
+.contact-desc{font-size:14px;color:var(--text-muted);margin-top:10px;line-height:1.6;}
+h2{font-family:'Instrument Serif',serif;font-size:20px;color:var(--navy);margin:28px 0 10px;}
+p{font-size:14px;line-height:1.8;color:var(--text);margin-bottom:14px;}
+footer{background:var(--navy);padding:32px;text-align:center;margin-top:40px;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link" href="/about.html">About</a>
+    <a class="nav-link" href="/blog/">Blog</a>
+    <a class="nav-link active" href="/contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <h1>Contact Us</h1>
+  <p class="lead">Questions about a tool, feedback on your results, or a partnership inquiry — we read every message.</p>
+
+  <div class="contact-card">
+    <div class="contact-label">Email</div>
+    <a class="contact-email" href="mailto:support@monetools.com">support@monetools.com</a>
+    <div class="contact-desc">For general questions, feedback on our tools, or corrections if you spot an outdated number.</div>
+  </div>
+
+  <h2>What We Can Help With</h2>
+  <p>We can answer questions about how a specific tool works, point out if you've found an error or outdated figure, or discuss partnership and advertising inquiries.</p>
+
+  <h2>What We Can't Help With</h2>
+  <p>We're not able to provide personalized tax, legal, or financial advice via email — our tools are built for general informational and educational purposes, and your specific situation deserves a real conversation with a licensed CPA, attorney, or financial advisor. If you need that kind of guidance, our <a href="/tools/self-employed/">Self-Employed tools</a> can help you find a starting point before that conversation.</p>
+</main>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. This is not tax, legal, or financial advice.
+  </div>
+</footer>
+
+</body>
+</html>

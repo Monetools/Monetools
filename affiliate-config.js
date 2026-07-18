@@ -1,98 +1,78 @@
-/* ============================================================
-   MONETOOLS — AFFILIATE LINKS CONFIGURATION
-   ============================================================
-   This is the ONLY file you need to edit to add, change, or
-   remove affiliate links across the entire site.
-
-   HOW TO USE:
-   1. Get your affiliate link from the partner program
-      (e.g. ZenBusiness, Gusto, Mercury, Keeper Tax)
-   2. Paste it as the value (between the quotes) below
-   3. Save this file and upload it to replace the old one
-   4. Done — all 5 tools automatically use the new link.
-      You do NOT need to touch any tool's HTML/code file.
-
-   If a link is not ready yet, leave it as null (no quotes).
-   The tools will automatically fall back to a plain text
-   description with no link until you fill it in.
-   ============================================================ */
+/*
+ * ═══════════════════════════════════════════════════════════
+ * MONETOOLS — AFFILIATE LINKS & TOOL-SLOT CONFIG (Central Config)
+ * ═══════════════════════════════════════════════════════════
+ * ONE FILE TO EDIT. All 11 tools read from this file.
+ *
+ * TWO THINGS YOU CONTROL HERE:
+ *   1. AFFILIATE_LINKS — the actual partner name + URL for each category.
+ *      Fill in "url" once you have a real affiliate link. Leave url: null
+ *      and that category simply won't render anywhere (no broken links).
+ *   2. TOOL_SIDEBAR_SLOTS — which categories show up on which tool page,
+ *      in what order. Change the array for any tool anytime — no need
+ *      to touch that tool's HTML file at all.
+ * ═══════════════════════════════════════════════════════════
+ */
 
 const AFFILIATE_LINKS = {
-
-  // ------------------------------------------------------------
-  // Used in: should-i-form-an-llc.html
-  // Shown when: result recommends forming an LLC now
-  // ------------------------------------------------------------
   llcFormation: {
     name: "ZenBusiness",
-    url: null,  // PASTE_ZENBUSINESS_LINK_HERE
-    description: "LLC formation starting at $0 + state fees, 2-day filing"
+    blurb: "Form your LLC online in ~10 minutes, with registered agent service included.",
+    url: null   // fill in once you have the affiliate link
   },
-
-  // ------------------------------------------------------------
-  // Used in: should-i-form-an-llc.html (secondary recommendation,
-  // shown after LLC formation step, "next thing to do")
-  // ------------------------------------------------------------
   businessBanking: {
     name: "Mercury",
-    url: null,  // PASTE_MERCURY_OR_RELAY_LINK_HERE
-    description: "Free business banking, no minimums, opens in 10 minutes"
+    blurb: "Free business banking built for freelancers and small business owners.",
+    url: null
   },
-
-  // ------------------------------------------------------------
-  // Used in: llc-vs-s-corp.html
-  // Shown when: result recommends electing S-Corp
-  // ------------------------------------------------------------
   payroll: {
     name: "Gusto",
-    url: null,  // PASTE_GUSTO_LINK_HERE
-    description: "Payroll software for S-Corp owners, from $40/month"
+    blurb: "Run payroll and file S-Corp reasonable salary paperwork automatically.",
+    url: null
   },
-
-  // ------------------------------------------------------------
-  // Used in: quarterly-tax-estimator.html
-  // Shown when: any result (optional secondary recommendation)
-  // ------------------------------------------------------------
   bookkeeping: {
     name: "Keeper Tax",
-    url: null,  // PASTE_KEEPER_TAX_LINK_HERE (optional, can stay null)
-    description: "Automatic expense tracking and tax filing for freelancers"
+    blurb: "AI-powered bookkeeping that finds deductions and preps your Schedule C automatically.",
+    url: null
   },
-
-  // ------------------------------------------------------------
-  // Used in: s-corp-readiness.html
-  // Shown when: result indicates user needs a CPA
-  // Currently no partner — leave null until you have one
-  // ------------------------------------------------------------
   cpaReferral: {
-    name: "",
-    url: null,
-    description: ""
+    name: "Book a CPA",
+    blurb: "Get a 15-minute diagnostic call to review your specific tax situation.",
+    url: null
+  },
+  mileageTracker: {
+    name: "Stride",
+    blurb: "Free automatic mileage tracking for gig workers and freelancers.",
+    url: null
   }
-
 };
 
-/* ============================================================
-   HELPER FUNCTION — do not edit below this line
-   Renders a recommendation block. If url is null, shows plain
-   text with no link (so nothing ever looks broken).
-   ============================================================ */
-function renderAffiliateBlock(key) {
-  const item = AFFILIATE_LINKS[key];
-  if (!item) return '';
+/*
+ * Which affiliate slots appear on each tool, and in what order.
+ * Add/remove/reorder categories any time — this is the ONLY place to edit.
+ * Tool identifier = the HTML filename without ".html"
+ */
+const TOOL_SIDEBAR_SLOTS = {
+  "should-i-form-an-llc":        ["llcFormation", "businessBanking"],
+  "llc-vs-s-corp":                ["payroll", "bookkeeping"],
+  "quarterly-tax-estimator":      ["bookkeeping", "businessBanking"],
+  "true-hourly-rate":              ["bookkeeping", "businessBanking"],
+  "s-corp-readiness":              ["payroll", "cpaReferral"],
+  "solo401k-calculator":           ["cpaReferral", "bookkeeping"],
+  "disability-insurance-calculator": ["cpaReferral"],
 
-  if (item.url) {
-    return `
-      <a href="${item.url}" target="_blank" rel="noopener sponsored" class="affiliate-block">
-        <div class="affiliate-block-name">${item.name} →</div>
-        <div class="affiliate-block-desc">${item.description}</div>
-      </a>`;
-  } else {
-    // No link yet — show as plain informational text, not clickable
-    return `
-      <div class="affiliate-block affiliate-block-pending">
-        <div class="affiliate-block-name">${item.name}</div>
-        <div class="affiliate-block-desc">${item.description}</div>
-      </div>`;
-  }
+  "side-hustle-tax-calculator":    ["bookkeeping", "mileageTracker"],
+  "gig-worker-calculator":         ["mileageTracker", "bookkeeping"],
+  "quit-calculator":               ["businessBanking", "cpaReferral"],
+
+  "landlord-tax-estimator":        ["cpaReferral", "bookkeeping"],
+  "str-host-tax-tool":             ["cpaReferral", "bookkeeping"],
+  "sell-vs-keep-calculator":       ["cpaReferral", "llcFormation"],
+  "asset-protection-calculator":   ["cpaReferral", "llcFormation"],
+  "heloc-stress-test":             ["cpaReferral", "businessBanking"]
+};
+
+if (typeof window !== 'undefined') {
+  window.AFFILIATE_LINKS = AFFILIATE_LINKS;
+  window.TOOL_SIDEBAR_SLOTS = TOOL_SIDEBAR_SLOTS;
 }

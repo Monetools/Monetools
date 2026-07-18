@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disability Insurance Needs Calculator 2026 — What You'd Actually Need to Cover | Monetools</title>
+<meta name="description" content="Free 2026 calculator for self-employed people: how much disability insurance coverage do you actually need? See your real income gap after SSDI, and what coverage would realistically cost.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0F1F3D;--amber:#E8A838;--cream:#F9F7F2;--white:#fff;
+  --border:#D4CFC6;--text:#1A1A2E;--text-muted:#6B7280;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FECACA;
+  --yellow-bg:#FFFBEB;--yellow-border:#FDE68A;
+  --blue-bg:#EFF6FF;--blue-border:#BFDBFE;
+  --warm-gray:#E5E1DB;--sage:#1D4E3B;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);}
+nav{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+@media(max-width:640px){nav{padding:14px 16px;}.logo{font-size:18px;}.nav-links{gap:12px;flex-wrap:wrap;justify-content:flex-end;}.nav-link{font-size:11px;}}
+@media(max-width:400px){nav{flex-direction:column;align-items:flex-start;gap:8px;}.nav-links{width:100%;justify-content:space-between;gap:8px;}}
+.logo{font-family:'Instrument Serif',serif;font-size:22px;color:#fff;text-decoration:none;}
+.logo span{color:var(--amber);}
+.nav-links{display:flex;gap:24px;}
+.nav-link{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.15s;}
+.nav-link:hover,.nav-link.active{color:#fff;}
+.breadcrumb{max-width:760px;margin:0 auto;padding:14px 24px;font-size:13px;color:var(--text-muted);}
+.breadcrumb a{color:var(--text-muted);text-decoration:none;}
+.breadcrumb span{margin:0 6px;}
+.seo-section{max-width:760px;margin:0 auto;padding:32px 24px 0;}
+.seo-eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);background:rgba(232,168,56,0.12);padding:5px 12px;border-radius:999px;margin-bottom:20px;}
+.seo-h1{font-family:'Instrument Serif',serif;font-size:clamp(26px,5vw,38px);color:var(--navy);line-height:1.2;margin-bottom:12px;}
+.seo-lead{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;max-width:620px;}
+.callout{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.6;margin-bottom:20px;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);}
+.tool-anchor-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin:28px 0 0;}
+.tool-anchor-label::before,.tool-anchor-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.calc-wrap{background:var(--navy);padding:48px 24px 56px;}
+.calc-inner{max-width:760px;margin:0 auto;}
+.prog-wrap{background:rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:20px;}
+.prog-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.prog-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:.5px;}
+.prog-step{font-size:12px;font-weight:700;color:var(--amber);}
+.prog-track{flex:1;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;overflow:hidden;}
+.prog-fill{height:100%;background:var(--amber);border-radius:2px;transition:width 0.4s ease;}
+.qcard{background:var(--white);border-radius:16px;padding:28px;display:none;}
+.qcard.active{display:block;}
+.q-eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.q-title{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.q-sub{font-size:13px;color:var(--text-muted);margin-bottom:20px;line-height:1.5;}
+.input-wrap{position:relative;margin-bottom:8px;}
+.dollar-sign{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--text-muted);font-size:16px;}
+.dollar-input{width:100%;padding:12px 12px 12px 28px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.dollar-input:focus{border-color:var(--navy);background:#fff;}
+.plain-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--text);background:var(--cream);outline:none;margin-bottom:8px;}
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+@media(max-width:500px){.options-grid{grid-template-columns:1fr 1fr;}}
+.option{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.15s;background:var(--cream);}
+.option:hover{border-color:var(--navy);background:#fff;}
+.option.selected{border-color:var(--navy);background:#EEF2FF;}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.15s;display:flex;align-items:center;justify-content:center;}
+.option.selected .opt-radio{border-color:var(--navy);background:var(--navy);}
+.option.selected .opt-radio::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff;}
+.opt-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px;}
+.opt-desc{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.inline-note{font-size:12px;border-radius:8px;padding:10px 14px;margin:8px 0 16px;line-height:1.5;}
+.inline-note.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:#92400E;}
+.inline-note.good{background:var(--green-bg);border:1px solid var(--green-border);color:#065F46;}
+.inline-note.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:#1E40AF;}
+.input-label{font-size:12px;font-weight:600;color:var(--text-muted);margin-bottom:6px;}
+.btn-row{display:flex;gap:12px;align-items:center;margin-top:20px;}
+.btn-next{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:15px;font-weight:700;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;}
+.btn-next:hover{background:#1a3660;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-back{font-size:14px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:7px 0;font-family:'Inter',sans-serif;}
+.btn-back:hover{color:var(--text);}
+.result-wrap{max-width:760px;margin:0 auto;padding:40px 24px 64px;}
+.result-header{text-align:center;margin-bottom:32px;}
+.result-headline{font-family:'Instrument Serif',serif;font-size:clamp(22px,4vw,32px);color:var(--navy);margin-bottom:8px;}
+.result-sub{font-size:14px;color:var(--text-muted);}
+.insight-box{background:var(--navy);border-radius:16px;padding:28px;margin-bottom:24px;text-align:center;}
+.insight-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+.insight-main{font-size:clamp(30px,6.5vw,48px);font-weight:800;color:var(--amber);line-height:1;margin-bottom:6px;}
+.insight-desc{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.5;}
+.stats-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+@media(max-width:500px){.stats-row{grid-template-columns:1fr;}}
+.stat-box{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-align:center;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--navy);}
+.stat-note{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.gap-viz{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.gap-viz-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;}
+.gap-bar-row{margin-bottom:14px;}
+.gap-bar-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;}
+.gap-bar-label .name{color:var(--text-muted);font-weight:600;}
+.gap-bar-label .val{color:var(--navy);font-weight:700;}
+.gap-bar-track{height:20px;background:var(--cream);border-radius:6px;overflow:hidden;border:1px solid var(--border);}
+.gap-bar-fill{height:100%;border-radius:6px;transition:width 0.6s ease;}
+.gap-bar-fill.income{background:var(--border);}
+.gap-bar-fill.ssdi{background:#94A3B8;}
+.gap-bar-fill.gap{background:var(--red);}
+.warn-box{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:12px;padding:18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:#92400E;}
+.warn-box strong{color:#78350F;}
+.actions-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.actions-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.action-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text);line-height:1.5;}
+.action-text strong{color:var(--navy);}
+.tool-cta-card{background:var(--navy);border-radius:14px;padding:24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tool-cta-text h3{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.tool-cta-text p{font-size:13px;color:rgba(255,255,255,0.6);}
+.tool-cta-btn{background:var(--amber);color:var(--navy);padding:11px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.restart-row{text-align:center;margin-top:8px;}
+.btn-restart{background:none;border:1.5px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;font-family:'Inter',sans-serif;}
+.btn-restart:hover{border-color:var(--navy);color:var(--navy);}
+.seo-bottom{max-width:760px;margin:0 auto;padding:0 24px 64px;}
+.seo-h2{font-family:'Instrument Serif',serif;font-size:24px;color:var(--navy);margin:36px 0 12px;}
+.seo-p{font-size:14px;color:var(--text-muted);line-height:1.8;margin-bottom:14px;}
+.faq-section{max-width:760px;margin:0 auto;padding:0 24px 72px;}
+.faq-section h2{font-family:'Instrument Serif',serif;font-size:26px;color:var(--navy);margin-bottom:24px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:16px 0;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;color:var(--text);text-align:left;gap:14px;font-family:'Inter',sans-serif;}
+.faq-q:hover{color:var(--navy);}
+.faq-icon{font-size:18px;color:var(--text-muted);flex-shrink:0;transition:transform 0.2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 16px;font-size:14px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+footer{background:var(--navy);padding:32px;text-align:center;}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
+.footer-logo span{color:var(--amber);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;}
+.mt-affiliate-sidebar{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:20px;}
+.mt-affiliate-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;}
+.mt-affiliate-card{display:block;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:var(--cream);border:1px solid var(--border);text-decoration:none;transition:all 0.15s;}
+.mt-affiliate-card:last-child{margin-bottom:0;}
+.mt-affiliate-card:hover{border-color:var(--navy);background:#fff;transform:translateX(2px);}
+.mt-affiliate-name{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.mt-affiliate-blurb{font-size:12px;color:var(--text-muted);line-height:1.4;}
+.mt-emailgate{background:var(--white);border:1.5px solid var(--amber);border-radius:14px;padding:22px;margin-bottom:20px;}
+.mt-emailgate-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;outline:none;}
+.mt-email-input:focus{border-color:var(--navy);}
+.mt-email-btn{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;}
+.mt-email-btn:hover{background:#1a3660;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:8px;}
+.mt-emailgate-success{font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;}
+@media(max-width:500px){.mt-emailgate-row{flex-direction:column;}.mt-email-btn{width:100%;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/index.html">Mone<span>tools</span></a>
+  <div class="nav-links">
+    <a class="nav-link" href="/index.html">Home</a>
+    <a class="nav-link active" href="/tools/self-employed/">Self-Employed</a>
+    <a class="nav-link" href="/blog/">Blog</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/index.html">Home</a><span>›</span>
+  <a href="/tools/self-employed/">Tools</a><span>›</span>
+  Disability Insurance Needs Calculator
+</div>
+
+<div class="seo-section">
+  <span class="seo-eyebrow">Self-Employed · Income Protection · Disability Insurance</span>
+  <h1 class="seo-h1">Disability Insurance Needs Calculator 2026</h1>
+  <p class="seo-lead">No employer means no group disability coverage. This tool shows your real income gap if you couldn't work — after accounting for what Social Security Disability actually pays — so you know exactly what you'd need to cover, not just that you "should probably think about it."</p>
+  <div class="callout tip">
+    <strong>The number that surprises people:</strong> Roughly 1 in 4 workers will experience a disability lasting 90+ days at some point in their career. The average SSDI payment in 2026 is just $1,630/month — nowhere near enough to replace most self-employed incomes.
+  </div>
+  <div id="mt-sidebar-mount"></div>
+  <div class="tool-anchor-label">Start the Calculator</div>
+</div>
+
+<div class="calc-wrap" id="calc-wrap">
+  <div class="calc-inner">
+    <div class="prog-wrap">
+      <div class="prog-info">
+        <span class="prog-label">YOUR SITUATION</span>
+        <span class="prog-step" id="prog-text">Step 1 of 5</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="prog-track" style="flex:1;"><div class="prog-fill" id="prog-fill" style="width:20%;"></div></div>
+      </div>
+    </div>
+
+    <!-- Q1: Net income -->
+    <div class="qcard active" id="q1">
+      <div class="q-eyebrow">Step 1 — Your Income</div>
+      <div class="q-title">What's your net self-employment income this year?</div>
+      <div class="q-sub">Your actual take-home business income, before taxes — this is what disability insurance is meant to replace a portion of.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="net-income" min="0" step="1000" placeholder="85,000" oninput="checkQ1()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q1-next" onclick="goNext(2)" disabled>Continue →</button>
+      </div>
+    </div>
+
+    <!-- Q2: Years worked / SS credits -->
+    <div class="qcard" id="q2">
+      <div class="q-eyebrow">Step 2 — Your Social Security Eligibility</div>
+      <div class="q-title">Have you worked and paid Social Security/self-employment tax for at least 5 of the last 10 years?</div>
+      <div class="q-sub">This determines whether you'd likely qualify for SSDI at all if you became disabled.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'ssdiEligible','yes')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Yes</div><div class="opt-desc">Likely SSDI-eligible</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'ssdiEligible','no')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">No / Not sure</div><div class="opt-desc">May not qualify for SSDI</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q2-next" onclick="goNext(3)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(1)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q3: Monthly essential expenses -->
+    <div class="qcard" id="q3">
+      <div class="q-eyebrow">Step 3 — Your Fixed Costs</div>
+      <div class="q-title">What are your essential monthly expenses?</div>
+      <div class="q-sub">Rent/mortgage, utilities, insurance, minimum debt payments, food — the baseline that doesn't stop if you can't work.</div>
+      <div class="input-wrap">
+        <span class="dollar-sign">$</span>
+        <input class="dollar-input" type="number" id="monthly-expenses" min="0" step="100" placeholder="4,200" oninput="checkQ3()">
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(2)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q4: Cash reserves -->
+    <div class="qcard" id="q4">
+      <div class="q-eyebrow">Step 4 — Your Safety Net</div>
+      <div class="q-title">How many months of expenses do you have in accessible savings?</div>
+      <div class="q-sub">This affects how long you could self-fund before a gap becomes urgent — and what waiting period you could realistically choose.</div>
+      <input class="plain-input" type="number" id="months-savings" min="0" max="60" placeholder="4" style="max-width:200px;" oninput="checkQ4()">
+      <div class="input-label" style="margin-top:4px;">months of expenses saved</div>
+      <div class="btn-row">
+        <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
+        <button class="btn-back" onclick="goBack(3)">← Back</button>
+      </div>
+    </div>
+
+    <!-- Q5: Occupation risk -->
+    <div class="qcard" id="q5">
+      <div class="q-eyebrow">Step 5 — Your Work</div>
+      <div class="q-title">Which best describes your work?</div>
+      <div class="q-sub">This affects roughly how much a policy might cost, and how much "own-occupation" coverage matters for you specifically.</div>
+      <div class="options-grid">
+        <div class="option" onclick="selectOpt(this,'occType','desk')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Desk-based</div><div class="opt-desc">Writing, design, consulting, coding</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'occType','specialized')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Specialized skill</div><div class="opt-desc">Requires fine motor skills, voice, or specific physical ability</div></div>
+        </div>
+        <div class="option" onclick="selectOpt(this,'occType','physical')">
+          <div class="opt-radio"></div>
+          <div class="opt-text"><div class="opt-label">Physical work</div><div class="opt-desc">Trades, driving, hands-on services</div></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn-next" id="q5-next" onclick="calcResult()" disabled>See My Coverage Gap →</button>
+        <button class="btn-back" onclick="goBack(4)">← Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="result-content" style="display:none;"></div>
+
+<div class="seo-bottom">
+  <div style="background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;"><strong>⚠️ Not insurance advice:</strong> This tool estimates your income protection gap using 2026 SSDI figures and industry-standard premium ranges. It doesn't quote actual policies or guarantee SSDI eligibility. Consult a licensed insurance broker for real quotes and a CPA or financial advisor for your complete financial picture.</div>
+
+  <h2 class="seo-h2">Why This Gap Exists — And Why Most Self-Employed People Never Calculate It</h2>
+  <p class="seo-p">W-2 employees typically get group long-term disability insurance through their employer at no cost, or heavily subsidized — it's simply part of the benefits package, often invisible until needed. Self-employed people have none of this by default. If illness or injury keeps you from working, the entire income loss falls on you, with no employer safety net standing between your last paycheck and Social Security's often-lengthy approval process.</p>
+  <p class="seo-p">Social Security Disability Insurance exists, but it was never designed to fully replace a working income — it's a floor, not a replacement. The average payment in 2026 is $1,630 a month. For a self-employed person earning $85,000 a year, that's an enormous gap between what SSDI provides and what daily life actually costs.</p>
+
+  <h2 class="seo-h2">Own-Occupation vs. Any-Occupation: The Definition That Decides Everything</h2>
+  <p class="seo-p">The single most important feature in any individual disability policy is how it defines "disabled." An "own-occupation" policy pays if you can't perform the specific duties of your particular job — even if you could technically do other work. An "any-occupation" policy only pays if you can't work in any job you're reasonably suited for by education and experience, a much higher bar to clear. For specialized workers (surgeons, musicians, anyone whose income depends on a specific physical or cognitive skill), this distinction can mean the difference between a policy that actually pays out and one that technically exists but rarely helps.</p>
+
+  <h2 class="seo-h2">2026 Reference Numbers</h2>
+  <p class="seo-p">Average SSDI monthly benefit: $1,630. Maximum SSDI monthly benefit: $4,152 (requires a long history of high covered earnings). SSDI eligibility generally requires 40 work credits, with 20 earned in the last 10 years for most adults (fewer credits required if disabled at a younger age). Typical disability insurance premiums for self-employed individuals: roughly 1-3% of annual income. Common income replacement target: 50-70% of pre-disability earnings, since benefits are often tax-free if you paid premiums with after-tax dollars.</p>
+</div>
+
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Can self-employed people even qualify for SSDI? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Yes, as long as you've paid self-employment tax (which funds Social Security) for enough years. Generally, you need 40 work credits total, with 20 of those earned in the 10 years before your disability begins (younger workers need fewer credits). If you've been self-employed and paying SE tax for at least 5 of the last 10 years, you're likely covered. If you're newer to self-employment or have gaps in your earnings history, it's worth checking your specific credit status directly with the Social Security Administration rather than assuming.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Are disability insurance premiums tax-deductible for self-employed people? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Generally, no — individual disability insurance premiums paid personally with after-tax dollars are not tax-deductible, unlike health insurance premiums for the self-employed, which often are. The trade-off is that when you personally pay premiums with after-tax dollars, the benefits you'd eventually receive are typically tax-free, which matters when calculating how much coverage you actually need — a tax-free $5,000/month benefit replaces more take-home income than a taxable $5,000/month salary would. This assumes you paid the premiums personally with after-tax dollars — if your business (such as an S-Corp) pays the premiums instead, the tax treatment of the benefits may change. See the question below on business-paid premiums.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What if my S-Corp pays my disability insurance premiums instead of me personally? <span class="faq-icon">+</span></button>
+    <div class="faq-a">This changes the tax treatment of any benefits you'd eventually receive. When a business pays disability insurance premiums on behalf of an owner, the benefits are generally taxable when received — the opposite of the tax-free treatment that applies when you pay premiums personally with after-tax dollars. Before setting up your premium payment structure through your business, check with your CPA — the "convenience" of having the business pay may cost you more in taxable benefits if you ever need to file a claim.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">How long does it typically take to get approved for SSDI? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Initial SSDI applications commonly take six months or longer to receive a decision, and a significant share of initial applications are denied, often requiring an appeal that adds substantial additional time. This approval timeline is a core reason private disability insurance matters even for people who will eventually qualify for SSDI — the gap between when you stop working and when benefits actually begin can be lengthy, and your savings need to bridge it.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">What's a waiting period, and how do I choose one? <span class="faq-icon">+</span></button>
+    <div class="faq-a">The waiting period (sometimes called an elimination period) is how long you must be disabled before benefit payments begin — common options range from 30 to 365 days. Shorter waiting periods mean higher premiums, since the insurer starts paying sooner; longer waiting periods reduce premiums substantially. The right choice depends heavily on your cash reserves — if you have 6 months of expenses saved, a 90 or 180-day waiting period paired with lower premiums may make more sense than paying extra for a 30-day waiting period you may not need to rely on.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tf(this)">Does this calculator tell me which insurance company or policy to buy? <span class="faq-icon">+</span></button>
+    <div class="faq-a">No — this tool is specifically designed to help you understand your coverage gap and rough budget before you talk to anyone selling a policy, not to recommend a specific carrier or plan. Insurance quotes vary significantly by carrier, your health history, occupation classification, and state, which is why getting quotes from a licensed broker who can compare multiple carriers is the appropriate next step once you understand roughly what you're looking for.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Mone<span>tools</span></div>
+  <div class="footer-note">
+    Monetools tools are provided for informational and educational purposes only. This is not insurance, tax, or financial advice.<br>
+    SSDI figures based on 2026 Social Security Administration data. Consult a licensed insurance professional before purchasing coverage.
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/config/tax-constants-2026.js"></script>
+<script src="/config/affiliate-config.js"></script>
+<script src="/config/monetools-shared.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  renderAffiliateSidebar('disability-insurance-calculator', 'mt-sidebar-mount');
+});
+</script>
+<script>
+const d = { netIncome:0, ssdiEligible:'', monthlyExpenses:0, monthsSavings:0, occType:'' };
+
+// 2026 verified figures — SSA Red Book / multiple cross-verified sources
+const SSDI_AVERAGE_MONTHLY = 1630;
+const SSDI_MAX_MONTHLY = 4152;
+const PREMIUM_RATE_LOW = 0.01;
+const PREMIUM_RATE_HIGH = 0.03;
+const INCOME_REPLACEMENT_LOW = 0.50;
+const INCOME_REPLACEMENT_HIGH = 0.70;
+
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+
+function calcResult(){
+  const annualIncome = d.netIncome;
+  const monthlyIncome = annualIncome / 12;
+  const monthlyExpenses = d.monthlyExpenses;
+  const monthsSavings = d.monthsSavings;
+
+  // Estimate SSDI benefit based on income (rough scaling against average/max, since exact AIME calc requires full earnings history)
+  // Use average as baseline for moderate incomes, scale toward max for higher incomes
+  let estimatedSSDI = SSDI_AVERAGE_MONTHLY;
+  if (annualIncome > 40000) {
+    const scaleFactor = Math.min(1, (annualIncome - 40000) / 110000);
+    estimatedSSDI = SSDI_AVERAGE_MONTHLY + (SSDI_MAX_MONTHLY - SSDI_AVERAGE_MONTHLY) * scaleFactor * 0.6;
+  }
+  estimatedSSDI = Math.min(estimatedSSDI, SSDI_MAX_MONTHLY);
+  if (d.ssdiEligible === 'no') estimatedSSDI = 0;
+
+  const monthlyGap = monthlyIncome - estimatedSSDI;
+  const expenseGap = monthlyExpenses - estimatedSSDI;
+
+  // Recommended coverage: target 50-70% income replacement, minus what SSDI already covers
+  const targetReplacementLow = monthlyIncome * INCOME_REPLACEMENT_LOW;
+  const targetReplacementHigh = monthlyIncome * INCOME_REPLACEMENT_HIGH;
+  const recommendedPolicyLow = Math.max(0, targetReplacementLow - estimatedSSDI);
+  const recommendedPolicyHigh = Math.max(0, targetReplacementHigh - estimatedSSDI);
+
+  // Premium estimate
+  const premiumLow = annualIncome * PREMIUM_RATE_LOW;
+  const premiumHigh = annualIncome * PREMIUM_RATE_HIGH;
+
+  // Occupation-based premium adjustment note
+  const occNotes = {
+    desk: 'Desk-based work typically qualifies for the most favorable premium rates and broadest carrier options.',
+    specialized: 'Specialized-skill occupations should prioritize a true "own-occupation" definition — a generic policy may not adequately protect income tied to a specific ability.',
+    physical: 'Physical occupations often see higher premiums and more limited carrier options — start shopping earlier and expect more underwriting questions.'
+  };
+
+  let verdictClass, verdictLabel, verdictTitle, verdictDesc;
+  if (d.ssdiEligible === 'no') {
+    verdictClass = 'red';
+    verdictLabel = '🔴 SSDI MAY NOT BE AVAILABLE TO YOU';
+    verdictTitle = 'Private coverage carries even more weight in your situation';
+    verdictDesc = `Without confirmed SSDI eligibility, private disability insurance isn't a supplement to a safety net — for you, it may be the entire safety net. Confirm your actual work credit status with the SSA directly, and treat private coverage as a higher priority.`;
+  } else if (monthsSavings >= 6 && expenseGap <= 0) {
+    verdictClass = 'green';
+    verdictLabel = '✅ YOUR BASELINE IS COVERED — BUT NOT YOUR LIFESTYLE';
+    verdictTitle = 'SSDI plus savings would cover essentials, growth income would not';
+    verdictDesc = `Your estimated SSDI benefit (${fmt(estimatedSSDI)}/mo) combined with ${monthsSavings} months of savings would likely cover your essential expenses during an SSA approval wait. The real gap is between what SSDI covers and your actual income (${fmt(monthlyIncome)}/mo) — worth insuring if maintaining your full lifestyle matters, not just survival.`;
+  } else {
+    verdictClass = 'yellow';
+    verdictLabel = '⚠️ REAL GAP BETWEEN INCOME AND SAFETY NET';
+    verdictTitle = 'This is worth acting on, not just noting';
+    verdictDesc = `Your estimated SSDI benefit (${fmt(estimatedSSDI)}/mo) falls well short of both your income (${fmt(monthlyIncome)}/mo) and your essential monthly expenses (${fmt(monthlyExpenses)}/mo). With ${monthsSavings} months of savings, an SSDI approval delay of 6+ months could create real financial strain before any safety net kicks in.`;
+  }
+
+  const incomeBarWidth = 100;
+  const ssdiBarWidth = Math.min(100, (estimatedSSDI / monthlyIncome) * 100);
+  const gapBarWidth = 100 - ssdiBarWidth;
+
+  const html = `
+  <div class="result-wrap">
+    <div class="result-header">
+      <div class="result-headline">Your income protection gap</div>
+      <div class="result-sub">2026 estimates · Based on SSA figures and industry premium ranges</div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-label">MONTHLY GAP IF YOU COULDN'T WORK</div>
+      <div class="insight-main">${fmt(monthlyGap)}</div>
+      <div class="insight-desc">the difference between your monthly income and your estimated SSDI benefit</div>
+    </div>
+
+    <div class="verdict-box" style="border-radius:16px;padding:24px;margin-bottom:20px;background:${verdictClass==='green'?'var(--green-bg)':verdictClass==='red'?'var(--red-bg)':'var(--yellow-bg)'};border:2px solid ${verdictClass==='green'?'var(--green-border)':verdictClass==='red'?'var(--red-border)':'var(--yellow-border)'};">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;color:${verdictClass==='green'?'var(--sage)':verdictClass==='red'?'#991B1B':'#92400E'};">${verdictLabel}</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:22px;margin-bottom:10px;color:${verdictClass==='green'?'var(--sage)':verdictClass==='red'?'#7F1D1D':'#78350F'};">${verdictTitle}</div>
+      <div style="font-size:14px;line-height:1.6;color:${verdictClass==='green'?'var(--sage)':verdictClass==='red'?'#991B1B':'#92400E'};">${verdictDesc}</div>
+    </div>
+
+    <div class="gap-viz">
+      <div class="gap-viz-title">📊 Where Your Money Would Come From</div>
+      <div class="gap-bar-row">
+        <div class="gap-bar-label"><span class="name">Your current income</span><span class="val">${fmt(monthlyIncome)}/mo</span></div>
+        <div class="gap-bar-track"><div class="gap-bar-fill income" style="width:${incomeBarWidth}%;"></div></div>
+      </div>
+      <div class="gap-bar-row">
+        <div class="gap-bar-label"><span class="name">Estimated SSDI benefit</span><span class="val">${fmt(estimatedSSDI)}/mo</span></div>
+        <div class="gap-bar-track"><div class="gap-bar-fill ssdi" style="width:${ssdiBarWidth}%;"></div></div>
+      </div>
+      <div class="gap-bar-row">
+        <div class="gap-bar-label"><span class="name">Uncovered gap</span><span class="val" style="color:var(--red);">${fmt(monthlyGap)}/mo</span></div>
+        <div class="gap-bar-track"><div class="gap-bar-fill gap" style="width:${gapBarWidth}%;"></div></div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-label">Recommended Policy Coverage</div>
+        <div class="stat-value">${fmt(recommendedPolicyLow)}–${fmt(recommendedPolicyHigh)}/mo</div>
+        <div class="stat-note">To reach 50-70% income replacement after SSDI</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Estimated Annual Premium</div>
+        <div class="stat-value">${fmt(premiumLow)}–${fmt(premiumHigh)}</div>
+        <div class="stat-note">Based on 1-3% of income (varies by health, occupation)</div>
+      </div>
+    </div>
+
+    <div class="inline-note info">💡 <strong>Your occupation type:</strong> ${occNotes[d.occType]}</div>
+
+    ${monthsSavings < 3 ? `
+    <div class="warn-box">
+      <strong>⚠️ Your cash reserve is thin relative to SSDI's approval timeline.</strong> With only ${monthsSavings} month${monthsSavings===1?'':'s'} of expenses saved, and SSDI approval commonly taking 6+ months, a shorter waiting period (30-60 days) on any private policy may be worth the higher premium — you have less runway to self-fund the gap.
+    </div>` : `
+    <div class="inline-note info">💡 <strong>Liquid investments (brokerage accounts, etc.) can serve as a secondary buffer</strong> beyond your cash reserve — but consider the tax consequences of liquidating them during a crisis (capital gains, unfavorable timing) before counting on them as a full substitute for insurance or cash savings.</div>`}
+
+    <div class="warn-box" style="background:var(--blue-bg);border-color:var(--blue-border);color:#1E40AF;">
+      <strong>⚠️ The single detail that matters most when you actually shop: "own-occupation" vs. "any-occupation."</strong> An own-occupation policy pays if you can't do YOUR specific job, even if you could do other work. An any-occupation policy only pays if you can't work in any job you're qualified for — a much higher bar. This distinction affects whether a claim actually pays out more than the premium price does, especially for specialized-skill occupations.
+    </div>
+
+    <div class="actions-card">
+      <div class="actions-title">Your Next 3 Actions</div>
+      <div class="action-item">
+        <div class="action-num">1</div>
+        <div class="action-text"><strong>Confirm your actual SSDI eligibility and estimated benefit</strong> directly through your my Social Security account at ssa.gov — this calculator's SSDI estimate is a rough approximation; your actual earnings record determines your real number.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">2</div>
+        <div class="action-text"><strong>Get quotes from a broker who can compare multiple carriers</strong> rather than a single company's agent, and prioritize the own-occupation definition over the premium price — this is the detail most likely to matter if you ever need to file a claim.</div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">3</div>
+        <div class="action-text">${monthsSavings < 6 ?
+          `<strong>Build your cash reserve toward 6 months of expenses</strong> alongside shopping for coverage — a bigger buffer gives you more flexibility to choose a longer waiting period and lower premium.` :
+          `<strong>Decide who pays the premiums — you personally or your business.</strong> If you're an S-Corp owner, check with your CPA before having the business pay: it changes whether benefits are taxable if you ever file a claim.`}</div>
+      </div>
+    </div>
+
+    <div class="tool-cta-card">
+      <div class="tool-cta-text">
+        <h3>Not sure if S-Corp changes this math?</h3>
+        <p>Your business structure affects both your tax situation and your income documentation for underwriting.</p>
+      </div>
+      <a class="tool-cta-btn" href="/tools/self-employed/llc-vs-s-corp.html">LLC vs S-Corp Calculator →</a>
+    </div>
+
+    <div id="mt-emailgate-mount"></div>
+
+    <div class="restart-row">
+      <button class="btn-restart" onclick="restart()">↺ Start Over</button>
+    </div>
+  </div>`;
+
+  document.getElementById('calc-wrap').style.display='none';
+  const rc = document.getElementById('result-content');
+  rc.innerHTML = html;
+  rc.style.display='block';
+  rc.scrollIntoView({behavior:'smooth',block:'start'});
+
+  const gateMount = document.getElementById('mt-emailgate-mount');
+  if (gateMount && typeof EmailGate !== 'undefined') {
+    EmailGate.init('disability-insurance-calculator', '.result-wrap');
+    gateMount.innerHTML = EmailGate.renderGateHTML();
+  }
+}
+
+function selectOpt(el,key,val){
+  el.closest('.options-grid').querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  d[key]=val;
+  if(key==='ssdiEligible') document.getElementById('q2-next').disabled=false;
+  if(key==='occType') document.getElementById('q5-next').disabled=false;
+}
+
+function checkQ1(){
+  d.netIncome = parseFloat(document.getElementById('net-income').value)||0;
+  document.getElementById('q1-next').disabled = (d.netIncome <= 0);
+}
+function checkQ3(){
+  d.monthlyExpenses = parseFloat(document.getElementById('monthly-expenses').value)||0;
+  document.getElementById('q3-next').disabled = (d.monthlyExpenses <= 0);
+}
+function checkQ4(){
+  d.monthsSavings = parseFloat(document.getElementById('months-savings').value);
+  document.getElementById('q4-next').disabled = isNaN(d.monthsSavings) || d.monthsSavings < 0;
+}
+
+function goNext(n){
+  for(let i=1;i<=5;i++) document.getElementById('q'+i).classList.remove('active');
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('prog-fill').style.width=(n/5*100)+'%';
+  document.getElementById('prog-text').textContent='Step '+n+' of 5';
+  document.getElementById('calc-wrap').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function goBack(n){goNext(n);}
+function restart(){
+  document.getElementById('result-content').style.display='none';
+  document.getElementById('calc-wrap').style.display='block';
+  goNext(1);
+  document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));
+  Object.assign(d,{netIncome:0,ssdiEligible:'',monthlyExpenses:0,monthsSavings:0,occType:''});
+  document.getElementById('net-income').value='';
+  document.getElementById('monthly-expenses').value='';
+  document.getElementById('months-savings').value='';
+  document.getElementById('q1-next').disabled=true;
+  document.getElementById('q2-next').disabled=true;
+  document.getElementById('q3-next').disabled=true;
+  document.getElementById('q4-next').disabled=true;
+  document.getElementById('q5-next').disabled=true;
+}
+function tf(btn){btn.closest('.faq-item').classList.toggle('open');}
+</script>
+</body>
+</html>
