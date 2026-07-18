@@ -9,8 +9,7 @@ keyword: maximum contribution Solo 401k vs SEP IRA at different income
   levels，can I have both Solo 401k and SEP IRA，2026 Solo 401k contribution
   limitsSolo 401k vs SEP IRA 2026，Solo 401k establishment deadline vs SEP IRA，
 audience: self-employed
-related_tool: Quarterly Tax
-  Estimator（https://monetools.com/tools/self-employed/quarterly-tax-estimator）
+related_tool: /tools/self-employed/quarterly-tax-estimator
 tags:
   - blog
 ---
