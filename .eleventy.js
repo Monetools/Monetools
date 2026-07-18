@@ -5,6 +5,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("index.html");
   eleventyConfig.addPassthroughCopy("affiliate-config.js");
+  eleventyConfig.addPassthroughCopy("about.html");
+  eleventyConfig.addPassthroughCopy("contact.html");
+  eleventyConfig.addPassthroughCopy("privacy-policy.html");
+  eleventyConfig.addPassthroughCopy("manifest.json");
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     if (!dateObj) return "";
