@@ -8,12 +8,10 @@ date: 2026-07-18T17:44:00.000+08:00
 keyword: 14 day rule vs 7 day rule Airbnb, Masters rule Airbnb tax, short term
   rental Schedule C vs E, Airbnb host tax confusion
 audience: landlords
-related_tool: Airbnb Host Tax Classifier (/tools/landlords/str-host-tax-tool.html)
+related_tool: /tools/landlords/str-host-tax-tool.html
 tags:
   - blog
 ---
- 
-
 Search "Airbnb tax rules" and you'll run into a wall of numbers — a 14-day rule, a 7-day rule, sometimes an 80/20 rule or a 75/55 rule thrown in. Most hosts end up conflating them into one vague sense that "short stays mean something tax-related." They're actually two completely separate provisions, from two different parts of the tax code, answering two entirely different questions. Mixing them up is one of the most common — and most expensive — misunderstandings in short-term rental taxation.
 
 ## The 14-Day Rule: Is Your Income Taxable At All?
