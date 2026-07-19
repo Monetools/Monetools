@@ -25,7 +25,7 @@ auth:
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 # Add site links in Decap CMS (optional)
-site_url: https://monetools.pages.dev
+site_url: https://monetools.com
 
 # 已加入：保存草稿功能（Draft -> Review -> Ready -> Publish 流程）
 publish_mode: editorial_workflow
@@ -62,6 +62,12 @@ collections:
         widget: "string"
         required: false
         hint: "关联工具的路径，例如 /tools/self-employed/should-i-form-an-llc.html（可不填）"
+      - label: "Enable PDF Download"
+        name: "enable_pdf_download"
+        widget: "boolean"
+        default: false
+        required: false
+        hint: "勾选后，文章底部会显示「填邮箱下载PDF」功能。不是每篇都需要，按需开启。"
       - { label: "Tags", name: "tags", widget: "hidden", default: ["blog"] }
       - label: "Article Body"
         name: "body"

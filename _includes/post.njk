@@ -38,6 +38,18 @@ footer{background:var(--navy);padding:32px;text-align:center;margin-top:40px;}
 .footer-logo{font-family:'Instrument Serif',serif;font-size:20px;color:#fff;margin-bottom:8px;}
 .footer-logo span{color:var(--amber);}
 .footer-note{font-size:12px;color:rgba(255,255,255,0.35);line-height:1.6;max-width:600px;margin:0 auto;}
+
+/* ── Email-gated PDF download widget ── */
+.mt-emailgate{background:var(--white);border:1.5px solid var(--border);border-radius:16px;padding:24px;margin-top:40px;}
+.mt-emailgate-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.mt-emailgate-sub{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:16px;}
+.mt-emailgate-row{display:flex;gap:10px;flex-wrap:wrap;}
+.mt-email-input{flex:1 1 220px;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;}
+.mt-email-input:focus{outline:none;border-color:var(--navy);}
+.mt-email-btn{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:11px 20px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;}
+.mt-email-btn:hover{background:#16294f;}
+.mt-emailgate-note{font-size:11px;color:var(--text-muted);margin-top:10px;}
+.mt-emailgate-success{font-size:14px;color:var(--navy);font-weight:600;}
 </style>
 </head>
 <body>
@@ -57,12 +69,32 @@ footer{background:var(--navy);padding:32px;text-align:center;margin-top:40px;}
 <article>
   <h1>{{ title }}</h1>
   <div class="meta">{{ date | readableDate }}{% if related_tool %} · Related tool: <a href="{{ related_tool }}">Open tool →</a>{% endif %}</div>
-  {{ content | safe }}
+
+  <div id="mt-article-content">
+    {{ content | safe }}
+  </div>
+
+  {% if enable_pdf_download %}
+  <div id="mt-emailgate-mount"></div>
+  {% endif %}
 </article>
 
 <footer>
   <div class="footer-logo">Mone<span>tools</span></div>
   <div class="footer-note">Monetools content is provided for informational and educational purposes only. This is not tax, legal, or financial advice.</div>
 </footer>
+
+{% if enable_pdf_download %}
+<!-- PDF generation libraries (only loaded when this post has the feature enabled) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Shared widget logic (EmailGate) -->
+<script src="/config/monetools-shared.js"></script>
+<script>
+  EmailGate.init("{{ title }}", "#mt-article-content");
+  document.getElementById('mt-emailgate-mount').innerHTML = EmailGate.renderGateHTML();
+</script>
+{% endif %}
+
 </body>
 </html>
