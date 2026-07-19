@@ -12,8 +12,7 @@ keyword: home office deduction 2026 how to claim home office deduction 2026 home
   home office deduction audit risks & documentation can freelancers take home
   office deduction 2026
 audience: self-employed
-related_tool: Quarterly Tax
-  Estimator（https://monetools.com/tools/self-employed/quarterly-tax-estimator）
+related_tool: /tools/self-employed/quarterly-tax-estimator
 tags:
   - blog
 ---
