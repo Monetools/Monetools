@@ -70,7 +70,7 @@ If you're considering a short-term rental with this strategy in mind, the qualif
 
 **Does Mike need to participate as well, or is Jennifer's participation enough?** Material participation hours combine for married couples filing jointly, but only one spouse needs to clear the relevant test — Jennifer's 140 hours, exceeding the property manager's documented hours, was sufficient on its own. Mike's lack of direct involvement doesn't disqualify the strategy, as long as the combined household participation and specifically Jennifer's individual hours meet the test.
 
-<div id="mt-pdf-summary" style="display:none;">
+<div id="mt-pdf-summary" >
 
 <div style="font-family:'Inter',sans-serif;background:#0F1F3D;color:#fff;padding:40px 32px;border-radius:8px;margin-bottom:20px;">
   <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E8A838;font-weight:700;margin-bottom:14px;">Tax Strategy Case Study</div>
