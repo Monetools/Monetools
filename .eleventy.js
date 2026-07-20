@@ -3,6 +3,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("config");
   eleventyConfig.addPassthroughCopy("tools");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("content/assets");
   eleventyConfig.addPassthroughCopy("index.html");
   eleventyConfig.addPassthroughCopy("affiliate-config.js");
   eleventyConfig.addPassthroughCopy("about.html");
