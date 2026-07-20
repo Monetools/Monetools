@@ -1,0 +1,27 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Static pages -->
+  <url><loc>https://monetools.com/</loc></url>
+  <url><loc>https://monetools.com/about.html</loc></url>
+  <url><loc>https://monetools.com/contact.html</loc></url>
+  <url><loc>https://monetools.com/privacy-policy.html</loc></url>
+
+  <!-- Tool pages: auto-scanned from /tools at build time (see _data/toolPages.js) -->
+  {% for toolUrl in toolPages %}
+  <url><loc>https://monetools.com{{ toolUrl }}</loc></url>
+  {% endfor %}
+
+  <!-- Blog posts: auto-collected from every markdown file tagged "blog" -->
+  {% for post in collections.blog %}
+  <url>
+    <loc>https://monetools.com{{ post.url }}</loc>
+    <lastmod>{{ post.date | isoDate }}</lastmod>
+  </url>
+  {% endfor %}
+
+</urlset>

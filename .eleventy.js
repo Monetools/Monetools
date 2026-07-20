@@ -16,6 +16,14 @@ module.exports = function(eleventyConfig) {
     return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   });
 
+  // Used only by sitemap.xml — outputs YYYY-MM-DD, the format the
+  // sitemap protocol requires for <lastmod> (not the human-readable version).
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    if (!dateObj) return "";
+    const d = new Date(dateObj);
+    return d.toISOString().split("T")[0];
+  });
+
   return {
     dir: {
       input: "content",
