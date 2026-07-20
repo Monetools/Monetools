@@ -91,7 +91,7 @@ footer{background:var(--navy);padding:32px;text-align:center;margin-top:40px;}
 <!-- Shared widget logic (EmailGate) -->
 <script src="/config/monetools-shared.js"></script>
 <script>
-  EmailGate.init("{{ title }}", "#mt-article-content");
+  EmailGate.init("{{ title }}", "#mt-pdf-summary");
   document.getElementById('mt-emailgate-mount').innerHTML = EmailGate.renderGateHTML();
 </script>
 {% endif %}

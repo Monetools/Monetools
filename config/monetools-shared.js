@@ -90,12 +90,6 @@ const EmailGate = {
 
   logEmail(email) {
     // TODO: replace with real endpoint once email service is connected.
-    // Example future implementation:
-    // fetch('https://your-esp-endpoint.com/subscribe', {
-    //   method: 'POST',
-    //   headers: {'Content-Type':'application/json'},
-    //   body: JSON.stringify({ email, source: this.toolId, date: new Date().toISOString() })
-    // });
     console.log('[EmailGate] captured email:', email, 'from tool:', this.toolId);
     try {
       const key = 'mt_captured_emails';
@@ -113,6 +107,7 @@ const EmailGate = {
     // rasterize it with html2canvas, then paginate into a jsPDF document —
     // no browser print dialog, no extra user clicks.
     const clone = resultEl.cloneNode(true);
+    clone.style.display = 'block'; // undo display:none if the source container was hidden on the live page (e.g. blog PDF summaries)
     clone.querySelectorAll('button, .btn-restart, .restart-row, .tool-cta-card, #mt-emailgate, #mt-emailgate-mount')
       .forEach(el => el.remove());
 
