@@ -69,6 +69,7 @@ If you're considering a short-term rental with this strategy in mind, the qualif
 **What would have happened if their average stay had been 8 nights instead of 4.5?** Crossing the 7-day average would classify the property as a standard rental activity, subject to the normal passive loss rules — meaning their $198,400 loss would be capped by the $25,000 passive loss allowance (which phases out entirely above $150,000 MAGI, well below their combined income) and suspended rather than usable against their W-2 income this year.
 
 **Does Mike need to participate as well, or is Jennifer's participation enough?** Material participation hours combine for married couples filing jointly, but only one spouse needs to clear the relevant test — Jennifer's 140 hours, exceeding the property manager's documented hours, was sufficient on its own. Mike's lack of direct involvement doesn't disqualify the strategy, as long as the combined household participation and specifically Jennifer's individual hours meet the test.
+
 <div id="mt-pdf-summary" style="display:none;">
 
 <div style="font-family:'Inter',sans-serif;background:#0F1F3D;color:#fff;padding:40px 32px;border-radius:8px;margin-bottom:20px;">
