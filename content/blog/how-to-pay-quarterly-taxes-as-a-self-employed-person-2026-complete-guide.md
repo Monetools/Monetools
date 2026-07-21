@@ -19,7 +19,7 @@ Want to skip the manual math? Use our free [Quarterly Tax Estimator](https://mo
 
 - - -
 
-![Infographic: 2026 Self-Employed Quarterly Tax Roadmap, detailing 2026 deadlines, the $1,000 threshold, Safe Harbor rules, and how to pay via IRS Direct Pay.](/assets/uploads/how-to-pay-quarterly-taxes-as-a-self-employed-person.png "How to Pay Quarterly Taxes as a Self-Employed Person ")
+![Infographic: 2026 Self-Employed Quarterly Tax Roadmap, detailing 2026 deadlines, the $1,000 threshold, Safe Harbor rules, and how to pay via IRS Direct Pay.](/assets/uploads/how-to-pay-quarterly-taxes-as-a-self-employed-person-2026-complete-guide-.jpg "How to Pay Quarterly Taxes as a Self-Employed Person ")
 
 ## Who Has to Pay Quarterly Estimated Taxes?
 
