@@ -9,8 +9,7 @@ keyword: "multiple side hustles one tax return, how to file taxes with multiple
   1099 jobs, separate Schedule C for each side hustle, combine self employment
   income taxes "
 audience: side-hustlers
-related_tool: Side Hustle Tax Calculator
-  (/tools/side-hustlers/side-hustle-tax-calculator.html)
+related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
