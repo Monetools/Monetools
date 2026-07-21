@@ -9,7 +9,7 @@ keyword: when are quarterly taxes due for self employed 2026，2026 quarterly
   estimated tax deadlines IRS，how to calculate quarterly tax payments 2026，rule
   of thumb for setting aside quarterly taxes freelancer
 audience: self-employed
-related_tool: Quarterly Tax Estimator（ ）
+related_tool: /tools/self-employed/quarterly-tax-estimator
 tags:
   - blog
 ---
@@ -60,7 +60,7 @@ Based on your taxable income after deductions — including the SE tax deduction
 
 ### QBI deduction (Section 199A) — the one most people miss
 
-Most self-employed filers qualify for a 20% deduction on qualified business income under Section 199A. This is one of the largest deductions available to freelancers and is frequently left out of simplified tax calculators — causing people to significantly overestimate what they owe. Our [\[Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator)](https://monetools.com/tools/self-employed/quarterly-tax-estimator) includes this deduction automatically.
+Most self-employed filers qualify for a 20% deduction on qualified business income under Section 199A. This is one of the largest deductions available to freelancers and is frequently left out of simplified tax calculators — causing people to significantly overestimate what they owe. Our [[Quarterly Tax Estimator](https://monetools.com/tools/self-employed/quarterly-tax-estimator)] includes this deduction automatically.
 
 ### State income tax
 
