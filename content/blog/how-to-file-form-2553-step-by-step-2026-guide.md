@@ -19,6 +19,8 @@ This guide walks you through every field, every deadline, and every common mista
 
 - - -
 
+![Infographic: S-Corp Election Roadmap to Form 2553, detailing preparation, the March 15 deadline, IRS fax filing, payroll setup, and the 60-day approval window.](/assets/uploads/how-to-file-form-2553-step-by-step.jpg "How to File Form 2553 Step by Step ")
+
 ## What Form 2553 Does
 
 By default, a single-member LLC is a "disregarded entity" for federal tax purposes — all business income flows to your personal return as self-employment income, subject to the 15.3% SE tax on every dollar of net profit. Form 2553 changes this so that:
