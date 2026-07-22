@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
- 
-
 Mike and Priya own a primary residence worth $520,000 with $180,000 left on the mortgage. Two years ago, they pulled $120,000 out of it through a home equity line of credit to fund the down payment on a second property — a rental near a growing suburb. For most of the draw period, their required payment was interest-only: $770 a month. This year, the draw period ended. Their payment didn't creep up. It jumped to $2,610 a month — 3.4 times higher — and a quick stress test against a realistic future rate shows it could climb even further.
 
 ![The HELOC Payment Shock, illustrating the transition from a 10-year interest-only draw period ($770/mo) to a 20-year repayment period ($2,610/mo), including stress-tested financial impacts.](/assets/uploads/heloc_repayment_payment_shock_guide-1-.png "HELOC_Repayment_Payment_Shock_Guide ")
