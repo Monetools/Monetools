@@ -17,7 +17,7 @@ tags:
 ---
 Maya is a 29-year-old freelance photographer earning $38,000 a year in net self-employment income, shooting weddings and small-business headshots. Like a lot of self-employed people, she'd heard that Social Security Disability Insurance would step in if she ever couldn't work — so private disability insurance always felt like a "someday" purchase. When she actually ran her numbers, the gap between what she assumed and what she'd really receive was over $1,300 a month.
 
-![The HELOC Payment Shock, illustrating the transition from a 10-year interest-only draw period ($770/mo) to a 20-year repayment period ($2,610/mo), including stress-tested financial impacts.](/assets/uploads/heloc_repayment_payment_shock_guide-1-.png "HELOC_Repayment_Payment_Shock_Guide ")
+![The Freelancer's Disability Gap, highlighting the shortfall between average SSDI benefits and actual monthly expenses, work credit requirements, and private disability insurance solutions.](/assets/uploads/the_freelancer_s_disability_gap.png "The_Freelancer_s_Disability_Gap")
 
 ## What She Assumed vs. What's Actually True
 
