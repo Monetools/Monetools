@@ -14,8 +14,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
- 
-
 David is 45 and drew $80,000 against his home's equity to invest in the market, expecting his investment returns to comfortably outpace the HELOC's interest rate. For the first few years, the math worked in his favor. Then, in the same year his draw period ended and his payment shifted to fully amortizing, the market had a down year — and David found himself covering a higher loan payment with a portfolio that had temporarily shrunk, rather than grown, right when he needed it to do the opposite.
 
 ## The Plan on Paper
