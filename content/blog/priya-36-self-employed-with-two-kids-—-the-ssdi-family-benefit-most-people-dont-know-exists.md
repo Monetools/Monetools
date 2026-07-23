@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 Priya is a 36-year-old self-employed marketing consultant earning $65,000 a year, married with two kids under 12. When she first estimated her SSDI benefit, she looked at it purely as her own number — approximately $1,974 a month — and used that figure to decide how much of a gap her family would face. What she hadn't accounted for is that SSDI includes dependent benefits for children, which could add meaningfully more to the household total.
 
 ## Her Individual Estimate
