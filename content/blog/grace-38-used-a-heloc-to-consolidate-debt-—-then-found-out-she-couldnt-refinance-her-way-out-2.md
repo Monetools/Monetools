@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 Grace is 38, a single parent earning $4,100 a month, who drew $70,000 against her home's equity three years ago to consolidate high-interest credit card debt. The interest-only payment during the draw period — about $554 a month — fit into an already tight budget alongside her $1,550 primary mortgage. As her draw period's end approached, she looked into refinancing before the repayment period hit, the way financial advice generally recommends. She discovered she couldn't — her home's value hadn't risen enough relative to her combined loan balances, and no lender would approve a new loan at her loan-to-value ratio.
 
 ## A Budget That Was Already Tight
