@@ -13,8 +13,6 @@ related_tool: /tools/side-hustlers/side-hustle-tax-calculator.html
 tags:
   - blog
 ---
- 
-
 If you sell on Etsy on weeknights and drive for a rideshare app on weekends, you're not alone — a lot of side hustlers run more than one unrelated activity at once. The tax filing mechanics for this are more specific than most guides make clear, and getting the structure wrong is a common source of confusion at filing time.
 
 ## The Core Rule: Separate Businesses, Separate Schedule Cs
