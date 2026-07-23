@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
- 
-
 Nathan is 52 and drew $95,000 against his home's equity seven years ago to fund a renovation. His HELOC had a 7-year draw period — meaning the repayment period was approaching, and his payment was about to shift from interest-only to fully amortizing on a variable rate. Instead of waiting for that transition to happen automatically, he checked the exact date 18 months in advance and used the time to refinance into a fixed-rate loan before the higher, rate-exposed payment ever arrived.
 
 ## What Doing Nothing Would Have Looked Like
