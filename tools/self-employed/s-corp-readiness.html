@@ -346,6 +346,63 @@ footer{background:var(--navy);padding:28px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I elect S-Corp status mid-year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For an existing business, S-Corp election generally applies to the following tax year unless you file by March 15. However, for newly formed LLCs, you can elect S-Corp status within 2 months and 15 days of formation and have it apply to the current year. If you miss the March 15 deadline for an existing LLC, you can still file Form 2553 with a request for late election relief — the IRS grants this frequently for businesses that had reasonable cause for the delay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the IRS challenges my reasonable salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the IRS determines your S-Corp salary is unreasonably low, they can reclassify distributions as wages — making them subject to back payroll taxes, plus interest and penalties. The IRS has won many of these cases in Tax Court. To protect yourself: research comparable salaries using BLS Occupational Employment Statistics, document your reasoning in writing, have your CPA review it annually, and err slightly higher rather than lower when in doubt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a new EIN when I elect S-Corp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your existing LLC EIN carries over to the S-Corp election. The S-Corp election changes your tax treatment, not your legal entity. You use the same EIN for your Form 1120-S (S-Corp return) and your payroll tax filings. What you will need: a separate payroll account set up with your EIN for running your W-2 payroll."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find a CPA who specializes in S-Corp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask specifically: \"Do you file Form 1120-S for clients?\" and \"How many S-Corp clients do you currently serve?\" A generalist tax preparer often can't answer these confidently. Good sources: referrals from other freelancers in your industry, AICPA's CPA finder tool (aicpa.org), or searching \"[your city] CPA self-employed S-Corp.\" Expect to pay $800–$2,500/year for a CPA who specializes in this — but at S-Corp income levels, this fee is fully deductible and usually pays back many times over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between this assessment and the LLC vs S-Corp Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The LLC vs S-Corp Calculator answers \"how much would I save?\" — it's a financial math tool. This S-Corp Readiness Assessment answers \"am I actually prepared to do this?\" — it evaluates your operational, structural, and compliance readiness. Ideally, use both: confirm the savings are worth it with the calculator, then use this assessment to identify exactly what you need to put in place before filing Form 2553."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a single-member LLC elect S-Corp status?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A single-member LLC (SMLLC) can elect S-Corp tax treatment by filing Form 2553. After the election, the SMLLC is treated as an S-Corp for federal tax purposes while remaining an LLC under state law. This is the most common structure for solopreneurs who want both the liability protection of an LLC and the payroll tax savings of S-Corp. You remain the sole owner — the S-Corp election only changes how you're taxed, not your ownership or legal structure."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -760,8 +817,17 @@ function goTo(step){
 function calcScore(){
   const scores = {};
 
+  // Defensive input validation — the "Next" button on Question 1 already
+  // blocks income under $1,000 in the UI, but calcScore() itself shouldn't
+  // silently trust that as its only line of defense (that's exactly the
+  // kind of duplicated-logic gap that caused the mileage rate bug elsewhere
+  // on this site). Negative income is clamped to $0 for scoring purposes,
+  // and flagged explicitly rather than silently treated as a normal case.
+  const inputInvalid = d.income < 0;
+  const incomeForScoring = Math.max(0, d.income);
+
   // Income (0-25)
-  scores.income = d.income>=100000?25:d.income>=80000?20:d.income>=65000?12:d.income>=50000?6:0;
+  scores.income = incomeForScoring>=100000?25:incomeForScoring>=80000?20:incomeForScoring>=65000?12:incomeForScoring>=50000?6:0;
 
   // Structure (0-20)
   scores.structure = {sole:0,llc_new:10,llc_est:20,scorp:20}[d.structure]||0;
@@ -782,11 +848,14 @@ function calcScore(){
 
   // Blockers
   const blockers = [];
-  if(d.income<80000) blockers.push({icon:'💸',title:'Income below recommended threshold',desc:`At ${fmt(d.income)}/year, S-Corp compliance costs may exceed your savings. The $80,000+ net income level is where benefits become clear.`});
+  if(inputInvalid) blockers.push({icon:'⚠️',title:'Invalid income entered',desc:'Net income cannot be negative. Please go back to Question 1 and re-enter a valid number — the score below currently treats your income as $0.'});
+  if(incomeForScoring<80000) blockers.push({icon:'💸',title:'Income below recommended threshold',desc:`At ${fmt(incomeForScoring)}/year, S-Corp compliance costs may exceed your savings. The $80,000+ net income level is where benefits become clear.`});
   if(d.structure==='sole') blockers.push({icon:'🏛️',title:'No LLC formed yet',desc:'You must form an LLC before filing Form 2553. This is a prerequisite — typically takes 1–2 weeks.'});
   if(d.finances==='mixed') blockers.push({icon:'🔀',title:'Mixed personal and business finances',desc:'Commingled funds undermine LLC liability protection and create S-Corp compliance issues. Separate immediately.'});
   if(d.cpa==='none') blockers.push({icon:'👤',title:'No CPA in place',desc:'S-Corp requires Form 1120-S — a business return that TurboTax and most preparers can\'t handle. Find an S-Corp-experienced CPA before electing.'});
   if(d.salary==='no') blockers.push({icon:'⚠️',title:'Reasonable salary not researched',desc:'Undocumented salary = audit risk. Research BLS wage data for your role before setting your W-2 salary.'});
+  if(d.state==='ca') blockers.push({icon:'🌴',title:'California adds S-Corp costs',desc:'California imposes a 1.5% S-Corp franchise tax with an $800 minimum, on top of federal costs. Budget for this and use a CA-licensed CPA familiar with S-Corp elections.'});
+  if(d.state==='ny') blockers.push({icon:'🗽',title:'New York adds S-Corp complexity',desc:'New York requires additional state-level S-Corp filings and fees beyond the federal election. Use an NY-specialist CPA familiar with these requirements.'});
 
   // Stage
   let stage, heroClass;
@@ -795,7 +864,7 @@ function calcScore(){
   else if(total>=55){ stage='almost'; heroClass='almost'; }
   else { stage='notyet'; heroClass='notyet'; }
 
-  return { scores, total, blockers, stage, heroClass };
+  return { scores, total, blockers, stage, heroClass, inputInvalid };
 }
 
 function fmt(n){ return '$'+Math.round(n).toLocaleString(); }

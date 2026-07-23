@@ -630,6 +630,63 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I form an LLC myself or do I need a lawyer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For a single-member LLC with no complex ownership structure, you can absolutely file yourself directly through your state's Secretary of State website. It typically costs $50–$150 and takes 20–30 minutes. You don't need a lawyer or a formation service for a straightforward single-owner LLC. However, if you have multiple members, outside investors, or complex operating agreements, a business attorney is worth the cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does forming an LLC reduce my taxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. A single-member LLC is a \"disregarded entity\" by default — meaning you still report income on Schedule C and pay self-employment tax on all net income, just like a sole proprietor. The tax benefit comes when you elect S-Corp tax treatment, which typically makes financial sense once net self-employment income exceeds $70,000–$80,000 per year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between an LLC and an S-Corp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An LLC is a legal business structure that provides liability protection. An S-Corp is a tax election (filed using IRS Form 2553) that you can apply to your LLC. With S-Corp status, you pay yourself a \"reasonable salary\" (subject to payroll taxes) and take remaining profits as distributions (not subject to self-employment tax). The savings can be substantial at higher income levels, but so can the compliance overhead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I form an LLC in Delaware or Wyoming to save money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is a common misconception. If you operate in another state, you'll need to register your out-of-state LLC as a \"foreign LLC\" in your home state — paying fees in both states. For most solopreneurs, it's simpler and cheaper to form the LLC in the state where you actually live and work. Delaware and Wyoming structures make more sense for businesses raising venture capital or with complex multi-state operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to maintain an LLC annually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Costs vary significantly by state. Most states charge an annual report fee of $50–$200. California charges an $800 minimum franchise tax annually. New York requires a publication notice that can cost $1,000–$2,000 in some counties. Add accounting costs ($500–$2,000/year depending on complexity) and you're looking at $600–$3,000+ per year in total ongoing costs, not counting your time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I move from LLC to S-Corp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The general rule: when your net self-employment income consistently exceeds $70,000–$80,000 per year. At that level, the payroll tax savings from S-Corp distributions typically exceed the $2,000–$5,000 in additional compliance costs (payroll software, separate tax return, accounting). Use our LLC vs S-Corp Calculator to run the math at your specific income and state."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1148,25 +1205,45 @@ function goTo(step) {
 function computeStage() {
   const { income, state, business, liability, finances, goal } = answers;
 
+  // ============================================================
+  // REWEIGHTED per CPA review (see cpa-question-llc-scoring-weights.md):
+  //   Liability risk    30% (was 25% — raised to match Net Income, since
+  //                          liability protection is LLC's core legal purpose)
+  //   Net income         30% (unchanged)
+  //   Business stage     20% (unchanged)
+  //   Admin readiness     10% (was 15% — reduced to make room for state cost)
+  //   State cost/friction 10% (NEW — previously collected but never scored)
+  //   User's stated goal   0% (was 10% — removed from scoring entirely per
+  //                          CPA guidance: too subjective to affect a
+  //                          objective recommendation; kept as a UI input
+  //                          for potential future personalized copy, not scoring)
+  // ============================================================
+
   // CONTINUOUS income score (0-30): linear, not bracket-based
   const incomeScore = Math.min(30, Math.max(0, (income / 250000) * 30));
 
-  // LIABILITY weight increased (0-25): most important for many professions
-  const liabilityScore = { low: 0, medium: 12, high: 25 }[liability] || 0;
+  // LIABILITY (0-30): LLC's core purpose is liability protection — this is
+  // now tied for the highest weight alongside income, per CPA guidance.
+  const liabilityScore = { low: 0, medium: 15, high: 30 }[liability] || 0;
 
   // BUSINESS stage score (0-20)
   const businessScore = { hobby: 0, growing: 8, established: 16, agency: 20 }[business] || 0;
 
-  // FINANCES score (0-15)
-  const financesScore = { no: 0, partial: 7, yes: 15 }[finances] || 0;
+  // ADMIN READINESS / financial separation (0-10)
+  const financesScore = { no: 0, partial: 5, yes: 10 }[finances] || 0;
 
-  // GOAL weight reduced (0-10): subjective, lower influence
-  const goalScore = { explore: 0, grow: 4, scale: 8, optimize: 10 }[goal] || 0;
+  // STATE COST/FRICTION (0-10) — NEW. High-cost/high-friction states (CA's
+  // $800/yr minimum franchise tax, NY's publication requirement) make LLC
+  // formation less attractive from a pure cost standpoint, so they score
+  // lowest; no-income-tax states score highest.
+  const stateScore = { no_tax: 10, mid: 6, ca: 0, ny: 0 }[state] ?? 6;
 
-  // STATE: no longer affects score — affects recommendations only
-  const total = incomeScore + liabilityScore + businessScore + financesScore + goalScore;
+  // GOAL no longer contributes to the score (was 0-10) — still collected in
+  // `answers.goal` for potential future use in personalized result copy.
 
-  // Thresholds out of 100
+  const total = incomeScore + liabilityScore + businessScore + financesScore + stateScore;
+
+  // Thresholds out of 100 (unchanged — total is still scaled 0-100)
   if (total <= 20) return 'stage1';
   if (total <= 45) return 'stage2';
   if (total <= 70) return 'stage3';

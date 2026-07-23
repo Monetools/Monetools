@@ -239,6 +239,55 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the IRS mileage rate for gig workers in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IRS standard mileage rate for 2026 changed mid-year: it was $0.725 per mile from January through June, then rose to $0.76 per mile starting July 1, 2026. This rate covers fuel, depreciation, insurance, and maintenance in a single per-mile deduction. For an exact full-year deduction, apply $0.725 to miles driven before July 1 and $0.76 to miles driven on or after July 1. You can either use this standard rate or deduct actual expenses — but you must choose one method and apply it consistently throughout the year. For most gig drivers, the standard mileage rate is simpler and often results in a higher deduction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I deduct tips from my gig income in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — under the OBBBA (signed 2025), delivery drivers and rideshare drivers can deduct up to $25,000 in qualifying voluntary customer tips from their federal taxable income for tax years 2025–2028. The IRS issued final regulations in April 2026 explicitly covering app-based delivery workers (DoorDash, Uber Eats, Instacart, Lyft). This deduction reduces income tax but not self-employment tax on those earnings. Claim it on Schedule 1-A of your Form 1040."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use actual vehicle expenses or the mileage rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most gig drivers, the standard mileage rate ($0.76/mile as of July 1, 2026; $0.725/mile earlier in the year) is simpler and often higher. Actual expenses require tracking every fuel receipt, maintenance bill, and insurance payment, then calculating the percentage used for gig work. The standard rate covers all of this automatically per mile. If you drive a very inefficient vehicle with high maintenance costs, actual expenses might win — but run both calculations before deciding. Once you switch from actual to standard, you cannot switch back for that vehicle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to pay quarterly taxes on gig income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you expect to owe more than $1,000 in federal tax from gig work. Since platforms don't withhold taxes, you're responsible for making quarterly estimated payments. The 2026 deadlines are April 15, June 16, September 15, and January 15, 2027. Missing these results in underpayment penalties even if you pay in full by April. Use our Quarterly Tax Estimator for the exact amounts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is gig work worth it compared to a regular job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your true hourly rate after all costs — which this calculator shows you. The breakeven point varies widely by market, vehicle, and platform. In high-demand urban markets with a fuel-efficient vehicle, gig work can net $15–$20/hour after costs. In suburban markets with an older SUV, the same gross pay might net $8–$12. The flexibility premium is real — but knowing your actual hourly rate lets you make an informed comparison rather than guessing."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -353,7 +402,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
       </div>
       <input type="range" id="miles-sl" min="0" max="1000" step="10" value="200" oninput="syncInput('miles-sl','miles-input');checkQ3()" style="max-width:300px;">
       <div class="range-labels" style="max-width:300px;"><span>0 mi</span><span>1,000 mi</span></div>
-      <div class="inline-note info">💡 At the 2026 IRS rate of $0.725/mile, 200 miles/week = <strong>$7,540/year</strong> in deductible mileage. This reduces your taxable income directly.</div>
+      <div class="inline-note info">💡 At the current 2026 IRS rate of $0.76/mile (effective July 1, 2026 — up from $0.725/mile for Jan–Jun), 200 miles/week = <strong>$7,904/year</strong> in deductible mileage. This reduces your taxable income directly.</div>
       <div id="q3-note" class="inline-note warn" style="display:none;"></div>
       <div class="btn-row">
         <button class="btn-next" id="q3-next" onclick="goNext(4)" disabled>Continue →</button>
@@ -392,7 +441,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
         </div>
       </div>
       <div class="inline-note info" style="margin-top:8px;">Vehicle wear (depreciation + maintenance) is often $0.10–$0.18/mile beyond fuel. On 200 miles/week that's $20–$36/week that doesn't show up on your gas receipt.</div>
-      <div class="inline-note warn">⚠️ <strong>Important:</strong> If you use the IRS standard mileage rate ($0.725/mile) as your tax deduction, you cannot also deduct actual gas, insurance, and repair costs separately. This calculator uses the standard mileage method. Choose one method and apply it consistently.</div>
+      <div class="inline-note warn">⚠️ <strong>Important:</strong> If you use the IRS standard mileage rate ($0.76/mile as of July 1, 2026; $0.725/mile for Jan–Jun) as your tax deduction, you cannot also deduct actual gas, insurance, and repair costs separately. This calculator uses the standard mileage method. Choose one method and apply it consistently.</div>
       <div class="btn-row">
         <button class="btn-next" id="q4-next" onclick="goNext(5)" disabled>Continue →</button>
         <button class="btn-back" onclick="goBack(3)">← Back</button>
@@ -455,7 +504,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   <h2>Frequently Asked Questions</h2>
   <div class="faq-item">
     <button class="faq-q" onclick="tf(this)">What is the IRS mileage rate for gig workers in 2026? <span class="faq-icon">+</span></button>
-    <div class="faq-a">The 2026 IRS standard mileage rate is $0.725 per mile for business use. This rate covers fuel, depreciation, insurance, and maintenance in a single per-mile deduction. You can either use this standard rate or deduct actual expenses — but you must choose one method and apply it consistently throughout the year. For most gig drivers, the standard mileage rate is simpler and often results in a higher deduction.</div>
+    <div class="faq-a">The IRS standard mileage rate for 2026 changed mid-year: it was $0.725 per mile from January through June, then rose to $0.76 per mile starting July 1, 2026. This rate covers fuel, depreciation, insurance, and maintenance in a single per-mile deduction. For an exact full-year deduction, apply $0.725 to miles driven before July 1 and $0.76 to miles driven on or after July 1. You can either use this standard rate or deduct actual expenses — but you must choose one method and apply it consistently throughout the year. For most gig drivers, the standard mileage rate is simpler and often results in a higher deduction.</div>
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="tf(this)">Can I deduct tips from my gig income in 2026? <span class="faq-icon">+</span></button>
@@ -463,7 +512,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="tf(this)">Should I use actual vehicle expenses or the mileage rate? <span class="faq-icon">+</span></button>
-    <div class="faq-a">For most gig drivers, the standard mileage rate ($0.725/mile in 2026) is simpler and often higher. Actual expenses require tracking every fuel receipt, maintenance bill, and insurance payment, then calculating the percentage used for gig work. The standard rate covers all of this automatically per mile. If you drive a very inefficient vehicle with high maintenance costs, actual expenses might win — but run both calculations before deciding. Once you switch from actual to standard, you cannot switch back for that vehicle.</div>
+    <div class="faq-a">For most gig drivers, the standard mileage rate ($0.76/mile as of July 1, 2026; $0.725/mile earlier in the year) is simpler and often higher. Actual expenses require tracking every fuel receipt, maintenance bill, and insurance payment, then calculating the percentage used for gig work. The standard rate covers all of this automatically per mile. If you drive a very inefficient vehicle with high maintenance costs, actual expenses might win — but run both calculations before deciding. Once you switch from actual to standard, you cannot switch back for that vehicle.</div>
   </div>
   <div class="faq-item">
     <button class="faq-q" onclick="tf(this)">Do I have to pay quarterly taxes on gig income? <span class="faq-icon">+</span></button>
@@ -479,7 +528,7 @@ footer{background:var(--navy);padding:32px;text-align:center;}
   <div class="footer-logo">Mone<span>tools</span></div>
   <div class="footer-note">
     Monetools tools are provided for informational and educational purposes only. Results are federal tax estimates only and do not include state or local taxes.<br>
-    Vehicle cost estimates are averages. This calculator uses the IRS standard mileage method ($0.725/mile, 2026) — actual expenses method not included. Consult a CPA for personalized advice.
+    Vehicle cost estimates are averages. This calculator uses the IRS standard mileage method (current 2026 rate: $0.76/mile as of July 1; $0.725/mile Jan–Jun) — actual expenses method not included. Consult a CPA for personalized advice.
   </div>
 </footer>
 
@@ -505,7 +554,12 @@ const BRACKETS = {
   mfj:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]],
   hoh:[[18750,.10],[50250,.12],[100600,.22],[176900,.24],[229600,.32],[640600,.35],[Infinity,.37]]
 };
-const IRS_MILEAGE = 0.725;
+// Reads from the central config (config/tax-constants-2026.js) instead of
+// a hardcoded value, so this stays in sync automatically when the IRS rate
+// changes. Falls back to 0.725 only if the config script failed to load.
+const IRS_MILEAGE = (typeof TAX_CONSTANTS !== 'undefined')
+  ? TAX_CONSTANTS.shared.mileageRate
+  : 0.725;
 
 function calcIT(taxable, filing) {
   const b = BRACKETS[filing]||BRACKETS.single;
@@ -630,7 +684,7 @@ function calcResult(){
       <div class="breakdown-row"><span class="br-label">Vehicle costs (fuel + wear)</span><span class="br-val red">−${fmt(actualVehicleCost)}</span></div>
       <div class="breakdown-row"><span class="br-label">Self-employment tax (15.3%)</span><span class="br-val red">−${fmt(seTax)}</span></div>
       <div class="breakdown-row"><span class="br-label">Extra income tax (${Math.round(marginalRate*100)}% marginal rate)</span><span class="br-val red">−${fmt(extraIncomeTax)}</span></div>
-      <div class="breakdown-row"><span class="br-label">Mileage deduction (${milesAnnual.toLocaleString()} mi × $0.725 — 2026 IRS standard rate)</span><span class="br-val green">−${fmt(mileageDed)} from taxable income</span></div>
+      <div class="breakdown-row"><span class="br-label">Mileage deduction (${milesAnnual.toLocaleString()} mi × $${IRS_MILEAGE} — current 2026 IRS rate, effective July 1)</span><span class="br-val green">−${fmt(mileageDed)} from taxable income</span></div>
       <div class="breakdown-row"><span class="br-label">QBI deduction (20%)</span><span class="br-val green">−${fmt(qbiDed)} from taxable income</span></div>
       <div class="breakdown-row"><span class="br-label total">True annual take-home</span><span class="br-val total">${fmt(trueNet)}</span></div>
     </div>

@@ -65,7 +65,15 @@ const TAX_CONSTANTS = {
       threshold: { single: 200000, mfj: 250000, hoh: 200000 }
     },
 
-    mileageRate: 0.725,          // IRS standard mileage rate, cents/mile expressed as dollars
+    // IRS standard mileage rate — mid-year change for 2026:
+    //   Jan 1 – Jun 30, 2026: $0.725/mile
+    //   Jul 1 – Dec 31, 2026: $0.76/mile (IRS rate increase effective 7/1/2026)
+    // mileageRate = current/forward-looking rate. Use mileageRateH1/H2 for
+    // an exact full-year 2026 blended calculation.
+    mileageRate: 0.76,
+    mileageRateH1: 0.725,
+    mileageRateH2: 0.76,
+    mileageRateMidYearChangeDate: "2026-07-01",
 
     quarterlyDeadlines2026: [
       "April 15, 2026",

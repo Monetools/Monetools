@@ -276,6 +276,55 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does my side hustle income get taxed at my W-2 tax rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not exactly — it gets taxed at your marginal rate, which is the rate on your highest dollar of W-2 income. If your salary already puts you in the 22% bracket, your side hustle income starts being taxed at 22% from the first dollar. If enough side income pushes you into the 24% bracket, that portion is taxed at 24%. This is why the common advice to \"set aside 25–30%\" can be too low for some side hustlers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to pay quarterly taxes on my side hustle income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, if you expect to owe at least $1,000 in federal tax from your side income after subtracting withholding. Most side hustlers with more than a few thousand dollars in annual side income will hit this threshold. The 2026 deadlines are April 15, June 16, September 15, and January 15, 2027. Missing these can result in underpayment penalties even if you pay everything in April. Note for higher earners: If your prior-year Adjusted Gross Income (AGI) exceeded $150,000, the Safe Harbor threshold increases to 110% of last year's total tax liability — not 100%. This applies to higher-income side hustlers whose W-2 income already puts them in upper brackets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my W-2 withholding cover my side hustle taxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — you can increase your W-4 withholding at your day job to cover the additional tax from side income. This is often simpler than making quarterly estimated payments separately. To do this, submit a new W-4 to your employer with an additional withholding amount in Step 4(c). Use our calculator to find out how much extra to withhold each paycheck."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What expenses can I deduct from side hustle income?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any ordinary and necessary business expenses reduce your net side hustle income — which reduces both SE tax and income tax. Common deductions include mileage (at $0.725/mile for 2026), home office ($5/sq ft simplified method, up to $1,500), business software subscriptions, the business portion of your phone and internet, equipment, and professional development. Deductions directly reduce your taxable side hustle income before either SE tax or income tax is calculated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the QBI deduction and do side hustlers qualify?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Qualified Business Income deduction (Section 199A) allows most self-employed people to deduct 20% of their net business income from their taxable income. Most side hustlers qualify if their total taxable income is below $203,000 (single) or $406,000 (joint). This deduction doesn't reduce SE tax, but it meaningfully reduces the income tax on the same earnings. Our calculator includes this automatically."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -576,9 +625,18 @@ function calcResult() {
   const expenses = d.expenses;
   const netSide = Math.max(0, sideGross - expenses);
 
-  // SE tax
+  // SE tax (regular SS + Medicare portion only)
   const seTax = calcSETax(netSide);
-  const seDeduction = seTax * 0.5; // employer-half deduction
+  const seDeduction = seTax * 0.5; // employer-half deduction — based on the REGULAR SE tax only; Additional Medicare Tax is not eligible for this deduction
+
+  // Additional Medicare Tax (0.9%) — FIXED: TAX.ADD_MEDICARE_RATE was
+  // declared but never applied anywhere. Applies to combined W-2 wages +
+  // SE earnings (post-92.35%) above the filing-status threshold.
+  const seBase = netSide * 0.9235;
+  const combinedEarnings = w2 + seBase;
+  const addlThreshold = filing === 'mfj' ? TAX.ADD_MEDICARE_MFJ : TAX.ADD_MEDICARE_SINGLE;
+  const addlMedicareTax = Math.max(0, combinedEarnings - addlThreshold) * TAX.ADD_MEDICARE_RATE;
+  const seTaxTotal = seTax + addlMedicareTax;
 
   // Standard deduction
   const stdDed = TAX.STD_DED[filing];
@@ -601,7 +659,7 @@ function calcResult() {
   const extraIncomeTax = taxWithSide - taxW2only;
 
   // Total new tax liability from side hustle
-  const totalNewTax = seTax + extraIncomeTax;
+  const totalNewTax = seTaxTotal + extraIncomeTax;
 
   // Already covered by withholding gap
   const extraNeeded = Math.max(0, totalNewTax - Math.max(0, withheld - taxW2only));
@@ -665,6 +723,7 @@ function calcResult() {
       <div class="breakdown-row"><span class="br-label">Business expenses (deducted)</span><span class="br-val green">−${fmt(expenses)}</span></div>
       <div class="breakdown-row"><span class="br-label">Net side hustle income</span><span class="br-val">${fmt(netSide)}</span></div>
       <div class="breakdown-row"><span class="br-label">SE tax (15.3% on 92.35%)</span><span class="br-val red">−${fmt(seTax)}</span></div>
+      ${addlMedicareTax > 0 ? `<div class="breakdown-row"><span class="br-label">Additional Medicare Tax (0.9% above $${filing==='mfj'?'250,000':'200,000'} combined earnings)</span><span class="br-val red">−${fmt(addlMedicareTax)}</span></div>` : ''}
       <div class="breakdown-row"><span class="br-label">SE tax deduction (50%)</span><span class="br-val green">−${fmt(seDeduction)} from taxable income</span></div>
       ${qbiDed > 0 ? `<div class="breakdown-row"><span class="br-label">QBI deduction (20%) — reduces income tax only, not SE tax</span><span class="br-val green">−${fmt(qbiDed)} from taxable income</span></div>` : ''}
       <div class="breakdown-row"><span class="br-label">Extra income tax from side hustle</span><span class="br-val red">−${fmt(extraIncomeTax)}</span></div>

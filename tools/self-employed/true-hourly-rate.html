@@ -355,6 +355,55 @@ footer{background:var(--navy);padding:28px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I compare my freelance income to a W-2 salary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To do an apples-to-apples comparison, add the value of W-2 benefits back to the salary: employer health insurance ($7,000–$15,000/year), paid vacation (2 weeks ≈ salary/26), 401(k) match (3–6% of salary), and paid sick days. A $75,000 W-2 job with benefits is often equivalent to $90,000–$105,000 in freelance gross revenue needed to match it after taxes and expenses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a good billable hours ratio for freelancers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most experienced freelancers aim for 60–75% billable utilization — meaning if you work 40 hours/week, you bill 24–30 hours. If you're billing less than 50%, your overhead (admin, marketing, sales) is eating your time and you should focus on streamlining non-billable work or raising rates. If you're billing more than 80%, you're likely not investing enough in client acquisition and may face income gaps when projects end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I raise my rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most experienced freelancers recommend reviewing rates annually and raising them by at least the inflation rate (3–5%) each year. You should also raise rates when: you're fully booked more than 2 months in advance, you're getting accepted on most proposals without pushback on price, your skills have meaningfully improved, or your cost of living has increased. New clients should always get your current rate — existing clients can be grandfathered for one renewal cycle then gradually brought up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I charge hourly or by project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Project-based pricing is almost always better for experienced freelancers. It removes the time-for-money ceiling, rewards efficiency (finishing in 3 hours what used to take 5 means you earn more per hour), and is easier for clients to budget. Hourly billing made sense when you were new and uncertain about scope. Once you can reliably estimate project scope, switch to project rates — and price based on value delivered, not hours spent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What business expenses can I deduct as a freelancer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common deductible expenses include: home office (dedicated space only), equipment and software, professional development and courses, professional subscriptions and memberships, business portion of phone and internet, health insurance premiums (self-employed deduction), business travel, and half of your self-employment tax. Keep receipts and use a dedicated business bank account to make documentation easier. When in doubt, consult a CPA — deductions can meaningfully reduce your effective tax rate."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -899,7 +948,11 @@ function calcRate(){
   const trueHourlyWithBenefit = totalHoursWorked > 0 ? annualNetWithBenefit / totalHoursWorked : 0;
 
   // What rate to charge to hit target (recommended rate, now QBI-adjusted)
-  const effectiveRate = taxRate * (1 - 0.20); // approximate effective rate accounting for QBI shield
+  // FIXED: this used to assume the 20% QBI shield always applies, even when
+  // `qbiEligible` above says it doesn't (i.e. income is past the phase-out
+  // threshold) — that silently understated the recommended rate for high
+  // earners. Now gated the same way `qbiDeduction`/`taxableBase` already are.
+  const effectiveRate = qbiEligible ? taxRate * (1 - 0.20) : taxRate;
   const targetAnnualNet = quotedRate * totalHoursWorked;
   const targetAfterExp = targetAnnualNet / (1 - effectiveRate);
   const targetGross = targetAfterExp + annualExp;

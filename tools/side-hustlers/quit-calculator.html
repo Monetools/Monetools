@@ -257,6 +257,63 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much should my side hustle make before I quit my job?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The common rule of thumb — \"replace your salary\" — understates what you actually need. You also need to cover health insurance, self-employment tax (an extra 7.65% you don't pay as a W-2 employee), retirement contributions without an employer match, and income variability. Most financial planners suggest your side hustle should consistently earn 120–130% of your current take-home pay for at least 3 months before quitting. This calculator builds those factors into your specific number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much emergency fund do I need before going full-time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard advice for W-2 employees is 3–6 months of expenses. For someone leaving a stable job for freelance or self-employment, 6–12 months is more appropriate — because client acquisition takes time, income can be irregular, and a bad stretch early on can sink the whole endeavor if you don't have runway. Having 6+ months of saved expenses fundamentally changes your ability to make good decisions under pressure when income is slow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my taxes when I go full-time self-employed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things change significantly: you now pay the full 15.3% SE tax (instead of splitting it with an employer), you must make quarterly estimated tax payments (no more automatic withholding), and you gain access to powerful deductions — home office, business expenses, health insurance premiums, and Solo 401(k) contributions up to $72,000. At moderate income levels, these deductions partially offset the SE tax increase. Use our Side Hustle Tax Calculator to model your specific situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my business loses money in the first year?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A first-year loss is common and generally fine — the IRS allows new businesses time to become profitable. However, if your business shows a loss in 3 or more of the first 5 years of operation, the IRS may reclassify it as a \"hobby\" under the Hobby Loss Rules (IRC Section 183). This would eliminate your ability to deduct business expenses beyond your income from that activity. To protect yourself: maintain professional financial records, document your profit motive in writing, reinvest in the business, and consult a CPA if you approach the 3-loss-in-5-years threshold."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I quit cold turkey or transition gradually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gradual transition reduces risk significantly. Options include: negotiating part-time or reduced hours with your current employer while scaling the side hustle, taking an unpaid leave of absence, or targeting a natural exit point (end of a project, performance review cycle). Cold turkey quitting — especially before the income threshold is met — is the most common way the transition fails. Having predictable income for 3+ consecutive months at your target level is a much stronger signal than a single great month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I handle health insurance after quitting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You have several options: COBRA continuation coverage (keeps your current plan for up to 18 months but at full premium — typically $500–$800/month for an individual); ACA marketplace plans (often subsidized at lower incomes — if your side hustle income is modest in your transition year, you may qualify for significant subsidies); spouse or domestic partner's plan if available; or professional association plans in some industries. As a self-employed person, your health insurance premiums are 100% deductible from your taxable income — a meaningful offset to the cost."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -522,8 +579,14 @@ function calcResult(){
   if(d.benefits.pto) benefitsValue += sal * 0.04;     // 2 weeks = ~4%
   if(d.benefits.other) benefitsValue += 1800;          // dental/vision/other ~$150/mo
 
-  // SE tax penalty (extra 7.65% on self-employment vs W-2)
-  const seExtraCost = sal * 0.0765;
+  // SE tax penalty (employer-side FICA you'd now pay yourself)
+  // FIXED: previously applied a flat 7.65% to the entire salary with no cap
+  // — but only the 6.2% Social Security portion is capped (at the SS wage
+  // base, $184,500 for 2026); the 1.45% Medicare portion is uncapped. The
+  // flat version overstated this cost by thousands of dollars for anyone
+  // earning above the wage base.
+  const SS_WAGE_BASE = 184500;
+  const seExtraCost = Math.min(sal, SS_WAGE_BASE) * 0.062 + sal * 0.0145;
 
   // True replacement income needed (annual)
   const trueReplacementAnnual = sal + benefitsValue + seExtraCost;
@@ -680,10 +743,10 @@ function calcResult(){
       ${d.benefits['401k']?`<div class="gap-row"><span class="gap-label">Lost employer 401(k) match (~4%)</span><span class="gap-val red">+${fmt(sal*0.04)}/yr</span></div>`:''}
       ${d.benefits.pto?`<div class="gap-row"><span class="gap-label">Lost paid time off (~4%)</span><span class="gap-val red">+${fmt(sal*0.04)}/yr</span></div>`:''}
       ${d.benefits.other?`<div class="gap-row"><span class="gap-label">Other benefits (dental, vision, etc.)</span><span class="gap-val red">+$1,800/yr</span></div>`:''}
-      <div class="gap-row"><span class="gap-label">Extra SE tax — employer-side FICA you now pay yourself (7.65% of salary)</span><span class="gap-val red">+${fmt(seExtraCost)}/yr</span></div>
+      <div class="gap-row"><span class="gap-label">Extra SE tax — employer-side FICA you now pay yourself${sal>184500?' (6.2% capped at $184,500 + 1.45% uncapped)':' (7.65% of salary)'}</span><span class="gap-val red">+${fmt(seExtraCost)}/yr</span></div>
       <div class="gap-row"><span class="gap-label">True replacement income (annual)</span><span class="gap-val">${fmt(trueReplacementAnnual)}/yr</span></div>
       <div class="gap-row"><span class="gap-label total">Safe quit threshold (+25% buffer)</span><span class="gap-val total">${fmt(safeQuitMonthly)}/mo</span></div>
-      <div style="font-size:11px;color:var(--text-muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">* The 7.65% SE tax increase shown above reflects the employer-side FICA portion you currently receive for free as a W-2 employee. As self-employed, you pay the full 15.3% SE tax — but half is deductible from income tax, and your existing side hustle income already accounts for this in your current tax situation.</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">* The employer-side FICA shown above reflects what you currently receive for free as a W-2 employee (6.2% Social Security, capped at the $184,500 wage base, plus an uncapped 1.45% Medicare). As self-employed, you pay the full 15.3% SE tax — but half is deductible from income tax, and your existing side hustle income already accounts for this in your current tax situation.</div>
     </div>
 
     ${timelineHTML}

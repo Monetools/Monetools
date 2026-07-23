@@ -7,6 +7,9 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- 锁定具体版本号，不再用 ^3.0.0 这种"自动追最新版"的写法 —
+       避免官方发布新版本时，网站在没有任何操作的情况下突然出问题。
+       以后如果想升级，手动把这里的版本号改成新版本，测试没问题后再保留。 -->
+  <script src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"></script>
 </body>
 </html>

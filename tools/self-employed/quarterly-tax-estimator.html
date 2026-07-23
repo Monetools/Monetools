@@ -329,6 +329,63 @@ footer{background:var(--navy);padding:28px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What if I miss a quarterly tax deadline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Missing a quarterly deadline doesn't mean you owe the full penalty immediately. The IRS calculates underpayment penalties based on how much you owed vs. what you paid, and for how long. The best course of action: pay as soon as possible to stop the penalty from growing. You'll calculate and report any underpayment penalty on Form 2210 when you file your annual return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I pay all my estimated taxes at year-end instead of quarterly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technically yes — you can make a lump-sum payment by January 15 of the following year. However, you'll still owe underpayment penalties for Q1, Q2, and Q3. The penalty is calculated per quarter, so paying late on Q1 still results in a Q1 penalty even if you catch up in Q4. Quarterly payments avoid this entirely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I actually make a quarterly tax payment to the IRS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The easiest method is IRS Direct Pay (pay.gov) — free, no registration required, instant confirmation. You can also pay via the IRS2Go mobile app, EFTPS (Electronic Federal Tax Payment System — recommended if you pay regularly), or by mailing a check with Form 1040-ES. EFTPS allows you to schedule all four payments in advance at the start of the year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to pay state estimated taxes separately?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in most states. Each state has its own estimated tax payment system, and most follow a similar quarterly schedule as the IRS (though deadlines can vary slightly). You pay state and federal estimated taxes separately. States without income tax (Texas, Florida, Nevada, etc.) have no estimated state tax requirement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Safe Harbor rule and how do I use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Safe Harbor rule lets you avoid underpayment penalties by paying a predetermined \"safe\" amount rather than trying to precisely estimate your current-year tax. You qualify if you pay at least: (a) 90% of your current year's tax liability, OR (b) 100% of last year's tax liability (110% if last year's AGI exceeded $150,000). Most self-employed people use the prior-year safe harbor — it's simpler and doesn't require forecasting your current year income accurately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have both W-2 and freelance income. Do I still need to pay quarterly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Possibly. Your W-2 employer withholds taxes on your salary, which counts toward your annual tax liability. If that withholding covers your total tax bill (including on freelance income), you may not need to make separate quarterly payments. The test: if you'll owe more than $1,000 in taxes after subtracting W-2 withholding, quarterly payments are required. You can also ask your W-2 employer to withhold extra each paycheck to cover your freelance tax obligation."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -712,66 +769,60 @@ function goTo(step){
 }
 
 function calcTax(){
-  const net = d.gross - d.expenses;
+  // Net business income for tax purposes cannot go below $0 — a net loss
+  // means no SE tax, no income tax, nothing owed this quarter. We keep the
+  // true (possibly negative) figure as `rawNet` so the result page can
+  // still show an honest "you have a $X loss" message, while every dollar
+  // figure used in the tax math itself is floored at zero.
+  const rawNet = d.gross - d.expenses;
+  const net = Math.max(0, rawNet);
+  const isNetLoss = rawNet < 0;
 
-  // SE tax (2026 rates)
-  const SS_LIMIT = 184500;
-  const seTax = Math.min(net, SS_LIMIT)*0.153 + Math.max(0, net-SS_LIMIT)*0.029;
+  // ============================================================
+  // REFACTORED to read from the central config (config/tax-constants-2026.js)
+  // instead of local hardcoded numbers. This tool previously had its own
+  // copy of SE tax rates, federal brackets, standard deduction, and QBI
+  // thresholds — all of which had drifted out of sync with the site's
+  // single source of truth. Going forward, updating tax-constants-2026.js
+  // each year is enough; this tool no longer needs its own edits.
+  // ============================================================
+
+  // SE tax (SS + Medicare portion) — TaxCalc.seTax() correctly applies the
+  // 92.35% net-earnings factor internally before applying the rates.
+  const seTax = TaxCalc.seTax(net);
+  const seEarnings = net * TAX_CONSTANTS.shared.seTax.netEarningsFactor;
   const seDeduction = seTax * 0.5;
 
-  // ============================================================
-  // ADDITIONAL MEDICARE TAX (0.9%) — CPA-flagged gap, now fixed
-  // Applies above $200k single / $250k MFJ / $125k MFS on combined
-  // wages + SE income. We approximate using net SE income + otherAdj.
-  // ============================================================
+  // Additional Medicare Tax (0.9%) — applies to net SE earnings (after the
+  // 92.35% factor) combined with other W-2 income, above the filing-status
+  // threshold.
   const otherAdj = {none:0, low:25000, high:75000}[d.otherIncome] || 0;
-  const addlMedicareThreshold = d.filing === 'mfj' ? 250000 : d.filing === 'hoh' ? 200000 : 200000;
-  const combinedEarnings = net + otherAdj;
-  const addlMedicareTax = Math.max(0, combinedEarnings - addlMedicareThreshold) * 0.009;
+  const addlMedicareThreshold = TAX_CONSTANTS.shared.seTax.addlMedicareThreshold[d.filing] || TAX_CONSTANTS.shared.seTax.addlMedicareThreshold.single;
+  const combinedEarnings = seEarnings + otherAdj;
+  const addlMedicareTax = Math.max(0, combinedEarnings - addlMedicareThreshold) * TAX_CONSTANTS.shared.seTax.addlMedicareRate;
 
-  // Standard deductions 2026
-  const stdDed = {single:15750, mfj:31500, hoh:23625}[d.filing] || 15000;
+  // Standard deduction — now pulled from the central config instead of a
+  // separate, out-of-sync local copy.
+  const stdDed = TAX_CONSTANTS.shared.standardDeduction[d.filing] || TAX_CONSTANTS.shared.standardDeduction.single;
 
-  // ============================================================
-  // QBI DEDUCTION (Section 199A) — CPA-flagged gap, now fixed
-  // Most self-employed filers qualify for 20% deduction on qualified
-  // business income, subject to taxable-income phase-out limits.
-  // We apply the standard 20% deduction (simplified — under phase-out
-  // thresholds this is accurate for the vast majority of users).
-  // ============================================================
-  const QBI_PHASEOUT_SINGLE = 203000;
-  const QBI_PHASEOUT_MFJ = 406000;
-  const qbiPhaseoutLimit = d.filing === 'mfj' ? QBI_PHASEOUT_MFJ : QBI_PHASEOUT_SINGLE;
+  // QBI deduction — thresholds and rate now pulled from the central config.
+  // We keep this tool's existing (more precise) "lesser of 20% QBI or 20%
+  // of pre-QBI taxable income" cap, since the shared TaxCalc.qbiDeduction()
+  // helper doesn't apply that second cap.
+  const qbiPhaseoutLimit = TAX_CONSTANTS.shared.qbi.phaseoutStart[d.filing] || TAX_CONSTANTS.shared.qbi.phaseoutStart.single;
   const preQbiTaxableIncome = Math.max(0, net - seDeduction + otherAdj - stdDed);
-  // 20% of net business income, capped so it can't exceed 20% of taxable income before QBI
   const qbiDeduction = preQbiTaxableIncome > qbiPhaseoutLimit
     ? 0  // simplified: phase-out zone, recommend CPA review
-    : Math.min(net * 0.20, preQbiTaxableIncome * 0.20);
+    : Math.min(net * TAX_CONSTANTS.shared.qbi.deductionRate, preQbiTaxableIncome * TAX_CONSTANTS.shared.qbi.deductionRate);
 
   // Taxable income for federal income tax (now includes QBI deduction)
   const taxableIncome = Math.max(0, preQbiTaxableIncome - qbiDeduction);
 
-  // 2026 federal income tax brackets (single / rough)
-  const bracketAdj = d.filing === 'mfj' ? 2 : d.filing === 'hoh' ? 1.5 : 1;
-  function calcFedTax(ti){
-    const b = [
-      [11925*bracketAdj, 0.10],
-      [48475*bracketAdj, 0.12],
-      [103350*bracketAdj, 0.22],
-      [203000*bracketAdj, 0.24],
-      [250525*bracketAdj, 0.32],
-      [626350*bracketAdj, 0.35],
-      [Infinity, 0.37]
-    ];
-    let tax=0, prev=0;
-    for(const [limit,rate] of b){
-      if(ti<=prev) break;
-      tax += (Math.min(ti,limit)-prev)*rate;
-      prev=limit;
-    }
-    return tax;
-  }
-  const fedIncomeTax = calcFedTax(taxableIncome);
+  // Federal income tax — now uses the shared TaxCalc.ordinaryTax(), which
+  // applies the REAL, separate 2026 bracket tables for single/MFJ/HOH from
+  // the central config, instead of a "single-filer brackets × 1.5 or × 2"
+  // approximation.
+  const fedIncomeTax = TaxCalc.ordinaryTax(taxableIncome, d.filing || 'single');
 
   // State tax — averaged-rate model per state category (disclosed to user in UI)
   const stateRate = {none:0, low:0.04, mid:0.06, high:0.10}[d.state] || 0;
@@ -781,16 +832,13 @@ function calcTax(){
   const quarterly = totalAnnual / 4;
   const effectiveRate = net > 0 ? (totalAnnual/net)*100 : 0;
 
-  // Safe harbor
-  const safeHarborPct = d.otherIncome === 'high' ? 1.10 : 1.00;
-
   // Paid status
   const quartersPaid = {none:0, some:1, ontarget:2}[d.paid] || 0;
   const alreadyPaid = quarterly * quartersPaid;
   const remaining = Math.max(0, totalAnnual - alreadyPaid);
   const quartersLeft = 4 - quartersPaid;
 
-  return { net, seTax, addlMedicareTax, fedIncomeTax, stateTax, totalAnnual, quarterly,
+  return { net, rawNet, isNetLoss, seTax, addlMedicareTax, fedIncomeTax, stateTax, totalAnnual, quarterly,
     effectiveRate, remaining, quartersLeft, alreadyPaid, quartersPaid, stateRate,
     qbiDeduction, taxableIncome, isHighEarner: combinedEarnings > addlMedicareThreshold,
     isQbiPhaseout: preQbiTaxableIncome > qbiPhaseoutLimit };
@@ -846,6 +894,7 @@ function showResult(){
       </div>
     </div>
 
+    ${r.isNetLoss ? `<div class="medicare-note">✅ <strong>Net loss this year — no quarterly tax owed.</strong> Your expenses ($${d.expenses.toLocaleString()}) exceed your gross income ($${d.gross.toLocaleString()}), for a net loss of $${Math.round(Math.abs(r.rawNet)).toLocaleString()}. There's no SE tax or income tax due on a loss. If this continues for multiple years, be aware the IRS may apply "hobby loss" rules (IRC §183) — consult a CPA.</div>` : ''}
     ${r.isHighEarner ? `<div class="medicare-note">⚠️ <strong>High-income note:</strong> Your earnings exceed the Additional Medicare Tax threshold ($200k single / $250k MFJ). We've included the 0.9% surtax in your estimate above.</div>` : ''}
     ${r.isQbiPhaseout ? `<div class="medicare-note">ℹ️ <strong>QBI phase-out range:</strong> Your taxable income is above the Section 199A phase-out threshold. The 20% QBI deduction may be limited or unavailable depending on your business type — this estimate does not include it. A CPA review is recommended at this income level.</div>` : ''}
 

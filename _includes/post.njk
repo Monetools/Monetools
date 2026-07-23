@@ -6,6 +6,22 @@
 <title>{{ title }} | Monetools</title>
 <meta name="description" content="{{ description }}">
 {% if keyword %}<meta name="keywords" content="{{ keyword }}">{% endif %}
+{% set articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": date | isoDate,
+  "dateModified": date | isoDate,
+  "author": { "@type": "Organization", "name": "Monetools" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Monetools",
+    "logo": { "@type": "ImageObject", "url": "https://monetools.com/assets/icons/icon-512.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://monetools.com" ~ page.url }
+} %}
+<script type="application/ld+json">{{ articleSchema | dump | safe }}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>

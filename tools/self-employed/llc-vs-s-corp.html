@@ -397,6 +397,63 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I elect S-Corp status without forming an LLC first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technically yes — you can elect S-Corp tax treatment for a C-Corp or directly as a qualified subchapter S trust. However, for most solopreneurs, the standard path is: (1) form an LLC, (2) file Form 2553 to elect S-Corp tax treatment for that LLC. This gives you liability protection from the LLC structure plus the tax benefits of S-Corp status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the deadline to elect S-Corp status?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To have S-Corp status apply to the current tax year, you must file Form 2553 by March 15 of that year (or within 2 months and 15 days of the start of the tax year for new businesses). If you miss the deadline, you can still file and request relief for a late election — the IRS grants this frequently for businesses that acted reasonably. You can also elect for the following year at any time during the current year."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a \"reasonable salary\" for an S-Corp owner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IRS requires that S-Corp owner-employees who provide services receive a \"reasonable\" W-2 salary before taking distributions. Reasonable means what you'd pay a third-party employee to do the same work. The IRS uses Bureau of Labor Statistics wage data and industry benchmarks. Most CPAs recommend 40–60% of net profit as a starting framework, but the right number depends on your industry, role, and what comparable positions pay. Document your reasoning — it matters if you're ever audited."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does S-Corp status affect my ability to contribute to a Solo 401(k)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and this is one of the underappreciated benefits. With an S-Corp, your Solo 401(k) contribution limits are based on your W-2 salary, not your total business profit. As an employee, you can contribute up to $24,500 (2026 limit) in elective deferrals, plus the business can make an employer contribution of up to 25% of your W-2 salary. Total combined limit is $70,000 in 2026. Properly structured, this can significantly reduce your taxable income beyond just the SE tax savings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert back from S-Corp to a regular LLC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but there are restrictions. You can revoke an S-Corp election, but once revoked, you must wait 5 years before re-electing S-Corp status (unless the IRS grants an exception). The revocation must be filed with the IRS, typically by March 15 to take effect for the current tax year. This isn't a decision to make lightly — get CPA guidance before revoking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does California treat S-Corps differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, significantly. California imposes a 1.5% franchise tax on S-Corp net income, with a minimum of $800/year. This reduces (but usually doesn't eliminate) the federal tax savings. For example, on $120,000 net income, the CA S-Corp tax would be $1,800 — still leaving substantial net savings at that income level. However, at lower incomes ($50,000–$70,000), the CA costs can make S-Corp marginal. California also has its own S-Corp qualification requirements. Always run California-specific numbers with a CA-licensed CPA."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -847,15 +904,49 @@ function calcTax() {
   const SS_RATE = 0.124;
   const MEDICARE_RATE = 0.029;
   const ADDL_MEDICARE = 0.009; // above $200k
+  const ADDL_MEDICARE_THRESHOLD = 200000;
+  const NET_EARNINGS_FACTOR = 0.9235; // IRS-required factor applied to net SE profit before SE tax
 
-  // LLC SE tax (pay on all net income, but deduct half)
-  const llcSE_base = Math.min(income, SS_LIMIT) * SS_RATE + income * MEDICARE_RATE;
-  const llcSE_deduction = llcSE_base * 0.5;
-  const llcSE_net = llcSE_base; // simplified
+  // ============================================================
+  // INPUT VALIDATION (red line: no confident answer on garbage input)
+  // ============================================================
+  const inputErrors = [];
+  if (income <= 0) inputErrors.push('Net business income must be greater than $0.');
+  if (salary < 0) inputErrors.push('Salary cannot be negative.');
+  if (salary === 0 && income > 0) inputErrors.push('An S-Corp election requires paying yourself a "reasonable salary" through payroll — $0 salary is not a valid S-Corp setup. Enter your planned W-2 salary.');
+  if (salary > income) inputErrors.push('Salary cannot exceed your net business income — there would be nothing left for distributions.');
 
+  if (inputErrors.length > 0) {
+    return {
+      income, salary, distribution: 0,
+      llcSE: 0, scorpPayroll: 0, grossSavings: 0,
+      payrollCost: 0, cpaExtra: 0, stateCost: 0, stateModelLabel: '',
+      totalCompliance: 0, netSavings: 0,
+      alertLevel: 'red',
+      alertText: '⚠️ Cannot calculate: ' + inputErrors.join(' '),
+      inputInvalid: true,
+      breakEvenIncome: 0, salaryPct: 0
+    };
+  }
+
+  // ============================================================
+  // LLC SE TAX — net profit is reduced to 92.35% of income first
+  // (IRC §1402(a) — this factor accounts for the "employer half" of SE tax
+  // effectively not being taxed again; required on every SE tax calculation)
+  // ============================================================
+  const llcSEEarnings = income * NET_EARNINGS_FACTOR;
+  const llcSE_regular = Math.min(llcSEEarnings, SS_LIMIT) * SS_RATE + llcSEEarnings * MEDICARE_RATE;
+  const llcSE_addlMedicare = Math.max(0, llcSEEarnings - ADDL_MEDICARE_THRESHOLD) * ADDL_MEDICARE;
+  const llcSE_net = llcSE_regular + llcSE_addlMedicare;
+
+  // ============================================================
   // S-Corp payroll tax (employee + employer on salary only)
-  const scorpPayroll = Math.min(salary, SS_LIMIT) * SS_RATE + salary * MEDICARE_RATE;
-  const scorpPayrollNet = scorpPayroll;
+  // Wages are NOT subject to the 92.35% net-earnings factor — that factor
+  // is specific to self-employment income, not W-2 payroll.
+  // ============================================================
+  const scorpPayroll_regular = Math.min(salary, SS_LIMIT) * SS_RATE + salary * MEDICARE_RATE;
+  const scorpPayroll_addlMedicare = Math.max(0, salary - ADDL_MEDICARE_THRESHOLD) * ADDL_MEDICARE;
+  const scorpPayrollNet = scorpPayroll_regular + scorpPayroll_addlMedicare;
 
   const grossSavings = llcSE_net - scorpPayrollNet;
 
@@ -921,6 +1012,7 @@ function calcTax() {
     totalCompliance: Math.round(TOTAL_COMPLIANCE),
     netSavings: Math.round(netSavings),
     alertLevel, alertText,
+    inputInvalid: false,
     breakEvenIncome: Math.round(TOTAL_COMPLIANCE / (SS_RATE + MEDICARE_RATE) + salary),
     salaryPct: Math.round((salary / income) * 100)
   };

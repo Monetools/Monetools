@@ -219,6 +219,55 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 }
 
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need an LLC for just one or two rental properties?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often not, according to many real estate attorneys. For 1-2 properties, the annual cost of forming and maintaining an LLC (roughly $1,000-$1,500/year including state fees and tax prep) frequently exceeds what a $1-2 million umbrella insurance policy costs to cover the same properties ($200-$600/year). Umbrella insurance also actually pays claims and provides legal defense — functions an LLC cannot perform. Many attorneys suggest starting with a strong umbrella policy and considering LLC formation only once your portfolio or net worth grows substantially."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should each rental property have its own separate LLC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For maximum liability segregation, yes — one LLC per property means a lawsuit against Property A can't reach the equity in Property B. But this multiplies costs: each LLC needs its own formation fees, registered agent, annual state filings, and separate bank account to maintain the liability shield properly. Landlords with 4+ properties sometimes use a \"series LLC\" (available in states like Delaware and Texas) which creates internal liability walls for each property under one parent entity at lower administrative cost — though these are more complex to set up correctly and not recognized in every state."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get both an LLC and umbrella insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and many real estate investors with substantial portfolios use both — this is often called a \"layered\" approach. The LLC handles entity-level risk (whose assets can be reached), while umbrella insurance handles excess liability (who actually pays when a claim exceeds your base policy). One important detail: if your property is titled in an LLC, your insurance policy must list the LLC — not you personally — as the insured, or a claim can be denied for lack of insurable interest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does forming an LLC affect my mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Potentially, yes. Many conventional mortgage lenders have a \"due on sale\" clause that can technically be triggered when you transfer title from your personal name into an LLC, since it's a change in ownership. In practice, lenders rarely call the loan for this reason, but it's a real risk worth discussing with your lender and attorney before transferring an existing mortgaged property into an LLC. Some investors refinance into a commercial or DSCR loan at the same time they form the LLC to avoid this issue entirely."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do short-term rentals need more liability protection than long-term rentals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally yes. Short-term guests are less familiar with the property, more likely to use higher-risk amenities (pools, hot tubs, docks), more likely to bring large groups or children, and turn over far more frequently than long-term tenants — all of which increase claim likelihood. Short-term rental policies also differ from standard landlord insurance, and many require specific STR endorsements or separate commercial policies. If you host short-term rentals, both stronger insurance and asset protection structure deserve extra attention."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -497,7 +546,7 @@ function calcResult(){
     verdictLabel = '📊 UMBRELLA INSURANCE LIKELY SUFFICIENT';
     verdictTitle = 'Insurance probably beats LLC formation for your situation';
     verdictDesc = `With ${n} ${n===1?'property':'properties'} and moderate outside assets, a $1M umbrella policy (~${fmt(umbrellaCost)}/year) likely provides better cost-to-protection than forming ${n} separate LLC${n>1?'s':''} (~${fmt(llcTotalAnnual)}/year). Insurance actually pays claims and defends you — an LLC alone does neither.`;
-  } else if (n >= 4 || totalExposure > 500000 || riskScore >= 4) {
+  } else if (n >= 3 || totalExposure > 500000 || riskScore >= 4) {
     verdictClass = 'blue';
     verdictLabel = '📊 LLC STRUCTURE + UMBRELLA LIKELY WORTH IT';
     verdictTitle = 'Your portfolio has grown into "layer both" territory';

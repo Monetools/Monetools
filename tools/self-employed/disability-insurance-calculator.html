@@ -153,6 +153,63 @@ footer{background:var(--navy);padding:32px;text-align:center;}
 .mt-emailgate-success{font-size:14px;color:var(--sage);font-weight:600;text-align:center;padding:8px 0;}
 @media(max-width:500px){.mt-emailgate-row{flex-direction:column;}.mt-email-btn{width:100%;}}
 </style>
+<!-- FAQPage schema (auto-generated, GEO Layer 1) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can self-employed people even qualify for SSDI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, as long as you've paid self-employment tax (which funds Social Security) for enough years. Generally, you need 40 work credits total, with 20 of those earned in the 10 years before your disability begins (younger workers need fewer credits). If you've been self-employed and paying SE tax for at least 5 of the last 10 years, you're likely covered. If you're newer to self-employment or have gaps in your earnings history, it's worth checking your specific credit status directly with the Social Security Administration rather than assuming."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are disability insurance premiums tax-deductible for self-employed people?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally, no — individual disability insurance premiums paid personally with after-tax dollars are not tax-deductible, unlike health insurance premiums for the self-employed, which often are. The trade-off is that when you personally pay premiums with after-tax dollars, the benefits you'd eventually receive are typically tax-free, which matters when calculating how much coverage you actually need — a tax-free $5,000/month benefit replaces more take-home income than a taxable $5,000/month salary would. This assumes you paid the premiums personally with after-tax dollars — if your business (such as an S-Corp) pays the premiums instead, the tax treatment of the benefits may change. See the question below on business-paid premiums."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my S-Corp pays my disability insurance premiums instead of me personally?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This changes the tax treatment of any benefits you'd eventually receive. When a business pays disability insurance premiums on behalf of an owner, the benefits are generally taxable when received — the opposite of the tax-free treatment that applies when you pay premiums personally with after-tax dollars. Before setting up your premium payment structure through your business, check with your CPA — the \"convenience\" of having the business pay may cost you more in taxable benefits if you ever need to file a claim."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it typically take to get approved for SSDI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Initial SSDI applications commonly take six months or longer to receive a decision, and a significant share of initial applications are denied, often requiring an appeal that adds substantial additional time. This approval timeline is a core reason private disability insurance matters even for people who will eventually qualify for SSDI — the gap between when you stop working and when benefits actually begin can be lengthy, and your savings need to bridge it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's a waiting period, and how do I choose one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The waiting period (sometimes called an elimination period) is how long you must be disabled before benefit payments begin — common options range from 30 to 365 days. Shorter waiting periods mean higher premiums, since the insurer starts paying sooner; longer waiting periods reduce premiums substantially. The right choice depends heavily on your cash reserves — if you have 6 months of expenses saved, a 90 or 180-day waiting period paired with lower premiums may make more sense than paying extra for a 30-day waiting period you may not need to rely on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this calculator tell me which insurance company or policy to buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — this tool is specifically designed to help you understand your coverage gap and rough budget before you talk to anyone selling a policy, not to recommend a specific carrier or plan. Insurance quotes vary significantly by carrier, your health history, occupation classification, and state, which is why getting quotes from a licensed broker who can compare multiple carriers is the appropriate next step once you understand roughly what you're looking for."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -366,9 +423,16 @@ function calcResult(){
   const monthsSavings = d.monthsSavings;
 
   // Estimate SSDI benefit based on income (rough scaling against average/max, since exact AIME calc requires full earnings history)
-  // Use average as baseline for moderate incomes, scale toward max for higher incomes
-  let estimatedSSDI = SSDI_AVERAGE_MONTHLY;
-  if (annualIncome > 40000) {
+  // FIXED: previously used a flat $1,630/mo "average" for ALL income at or
+  // below $40,000 — including $0 income — which overstated the safety net
+  // for low earners (a $5,000/yr earner was shown a HIGHER estimated SSDI
+  // benefit than their actual monthly income). Now scales linearly from $0
+  // at $0 income up to the average at $40,000, then continues scaling
+  // toward the max above that — same shape as before, just no artificial floor.
+  let estimatedSSDI;
+  if (annualIncome <= 40000) {
+    estimatedSSDI = SSDI_AVERAGE_MONTHLY * Math.max(0, annualIncome / 40000);
+  } else {
     const scaleFactor = Math.min(1, (annualIncome - 40000) / 110000);
     estimatedSSDI = SSDI_AVERAGE_MONTHLY + (SSDI_MAX_MONTHLY - SSDI_AVERAGE_MONTHLY) * scaleFactor * 0.6;
   }
