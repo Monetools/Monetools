@@ -16,8 +16,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 If you're self-employed, there's no employer offering short-term or long-term disability coverage as a benefit — whatever protection exists, you have to arrange yourself, or you're relying entirely on Social Security Disability Insurance (SSDI). Most self-employed people have a rough sense that SSDI exists as a backstop, but a much vaguer sense of what it would actually pay out, which makes it hard to know whether private coverage is worth the premium.
 
 ## Do Self-Employed People Qualify for SSDI?
