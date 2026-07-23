@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 Elena is a 41-year-old independent marketing consultant earning $120,000 a year. Unlike a lot of freelancers earlier in their career, her SSDI estimate isn't understated by the national average figure — at her income level, the math actually scales the other way, toward a benefit higher than average. That didn't mean she had nothing to worry about. Once she ran her actual expenses against that higher estimate, she still found a monthly gap of $4,770.
 
 ## Her SSDI Estimate Scales Up, Not Down
