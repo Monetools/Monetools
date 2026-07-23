@@ -14,8 +14,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 Most home equity line of credit guides walk through the same territory: credit score requirements, loan-to-value limits, which lenders offer the best rates. Almost none of them spend much time on what actually happens to your payment once you're a few years into the loan — and that's the part that determines whether a HELOC works out the way you expected.
 
 ## The Two-Phase Structure
