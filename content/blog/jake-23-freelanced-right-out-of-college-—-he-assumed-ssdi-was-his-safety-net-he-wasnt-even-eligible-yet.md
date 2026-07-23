@@ -15,8 +15,6 @@ enable_pdf_download: false
 tags:
   - blog
 ---
-
-
 Jake is 23 and started freelancing as a web developer right after graduating, about a year and a half ago. He'd always assumed that paying self-employment tax meant he was "covered" by Social Security the same way anyone with a job is. When he actually checked, he discovered he hadn't been self-employed long enough to qualify for SSDI at all — not a smaller benefit than he expected, but potentially zero.
 
 ## Paying SE Tax Isn't the Same as Being Eligible
